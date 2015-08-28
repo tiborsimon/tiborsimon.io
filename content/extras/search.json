@@ -1,0 +1,111 @@
+[
+    {
+        "category": "web",
+        "date": "2015-5-17",
+        "summary": "As Jekyll uses Markdown to render it's contents, and Markdown doesn't support \ncontrol over the hyperlink target attribute, you were forced to write your \nexternal links and references manually. Or not? \n",
+        "tags": [
+            "jekyll",
+            "hack",
+            "javascript"
+        ],
+        "title": "Redirect external links to new tab",
+        "url": "web/redirect-external-links-to-new-tab/"
+    },
+    {
+        "category": "projects",
+        "date": "2015-1-17",
+        "summary": "During the last semester I had a subject that required to create a java program. I decided to write a small game similar to Minigore. The game is written in java with LWJGL and Slick2D game libraries.\n\nIt uses some open source stuff, like the explosion animation and the music ...",
+        "tags": [
+            "java",
+            "game"
+        ],
+        "title": "Java Shooter Game",
+        "url": "projects/java-shooter-game/"
+    },
+    {
+        "category": "projects",
+        "date": "2015-6-2",
+        "summary": "Have you ever became angry due to the path handling in MATLAB. If you do, this project could be interesting for you. \nMATLAB Library System is a library handling module that makes shipment and adding/removing MATLAB scripts and functions convenient for you and your customers.\n{% include repo_and_release.html %}\nUsing ...",
+        "tags": [
+            "matlab"
+        ],
+        "title": "MATLAB Library System",
+        "url": "projects/matlab-library-system/"
+    },
+    {
+        "category": "pages",
+        "date": "2015-8-22",
+        "summary": "Log page about the work Tibor had done.",
+        "tags": [
+            "log"
+        ],
+        "title": "Running diary",
+        "url": "running/"
+    },
+    {
+        "category": "projects",
+        "date": "2015-5-2",
+        "summary": "Easy to use variable lenght input parser mechanism that provides a convenient way to enchance your custom function parameter handling. The current version sports a MATLAB implementation, but other language ports are coming too.\nFeatures\n\nArbitrary parameter order\nThree mode of operation\nKey value pair mode\nBulk mode\nFlag mode ...",
+        "tags": [
+            "matlab"
+        ],
+        "title": "Simple Input Parser",
+        "url": "projects/simple-input-parser/"
+    },
+    {
+        "category": "projects",
+        "date": "2015-5-14",
+        "summary": "Searching on a static website? Yep, it can be done easily. The only things you need is a static database and a searching algorithm. This article describes the necessary steps to create a lightning fast good looking search system for your Jekyll based site without any external dependency. This method ...",
+        "tags": [
+            "jekyll",
+            "web",
+            "css",
+            "plugin"
+        ],
+        "title": "Simple Jekyll search system",
+        "url": "projects/jekyll-search-system/"
+    },
+    {
+        "category": "projects",
+        "date": "2015-1-15",
+        "summary": "At the university me and my partner have faced a midterm project that contained a very interesting problem. We had to write an algorithm that drives a small electric car on it's guided track. The only information we had was the acceleration data comes from the car itself. Based ...",
+        "tags": [
+            "embedded",
+            "dsp"
+        ],
+        "title": "SlotCar Race",
+        "url": "projects/slotcar-race/"
+    },
+    {
+        "category": "projects",
+        "date": "2015-5-28",
+        "summary": "The easiest way to generate a sine or cosine signal in MATLAB. With this library there are almost infinite ways to describe and generate a sinusoid signals. \n\n{% include repo_and_release.html %}\nGenerating sinusoid signals\nGenerating sinusoid signals is often the first step for executing a more complex computation. It should be ...",
+        "tags": [
+            "matlab"
+        ],
+        "title": "Smart Sinusoids",
+        "url": "projects/smart-sinusoids/"
+    },
+    {
+        "category": "projects",
+        "date": "2015-4-19",
+        "summary": "I am a big fan of the solarized color theme. I use it wherever I can, and my embedded code snippets on my site aren't an exception. In this article I will demonstrate a method that will turn your gist's normal style into a much more elegant Solarized ...",
+        "tags": [
+            "jekyll",
+            "web",
+            "css"
+        ],
+        "title": "Solarized theme for embedded Gists",
+        "url": "projects/solarized-gist/"
+    },
+    {
+        "category": "pages",
+        "date": "2015-5-14",
+        "summary": "\n\n\n\n\nIf a day passed without learning something new, you were dead on that day..\nAdam Savage's uncle\n\n\n\n\nWork harder!\nCasey Neistat\n\n\n\n        {% include 'includes/sharing-buttons.html' %}\n      \n\n\n\nProjects\n\n\n\n2015 August\n\n\n\nDate\nProject ID\nAccomplished task\n\n\n\n\n2015-08-19\nTSPR000002\nFinalizing website\n\n\n2015-08-18\nTSPR000002\nDomain change tibor-simon.com -&gt; tiborsimon.io\n\n\n2015-08-17\nTSPR000016\nNew instruments ...",
+        "tags": [
+            "log"
+        ],
+        "title": "Daily work log",
+        "url": "log/"
+    }
+]

@@ -1,0 +1,78 @@
+/* body { padding-top: 70px; } */
+
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+.navbar {
+    margin-bottom: 0px !important;
+    background-color: #fff;
+}
+
+.jumbotron {
+    /* http://www.cssmatic.com/gradient-generator#'\-moz\-linear\-gradient\%28top\%2C\%20rgba\%2831\%2C66\%2C99\%2C1\%29\%200\%25\%2C\%20rgba\%2857\%2C111\%2C168\%2C1\%29\%203\%25\%2C\%20rgba\%2843\%2C82\%2C122\%2C1\%29\%2098\%25\%2C\%20rgba\%2825\%2C56\%2C87\%2C1\%29\%20100\%25\%29\%3B' */
+    /*background: rgba(31,66,99,1);
+    background: -moz-linear-gradient(top, rgba(31,66,99,1) 0%, rgba(57,111,168,1) 3%, rgba(43,82,122,1) 98%, rgba(25,56,87,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(31,66,99,1)), color-stop(3%, rgba(57,111,168,1)), color-stop(98%, rgba(43,82,122,1)), color-stop(100%, rgba(25,56,87,1)));
+    background: -webkit-linear-gradient(top, rgba(31,66,99,1) 0%, rgba(57,111,168,1) 3%, rgba(43,82,122,1) 98%, rgba(25,56,87,1) 100%);
+    background: -o-linear-gradient(top, rgba(31,66,99,1) 0%, rgba(57,111,168,1) 3%, rgba(43,82,122,1) 98%, rgba(25,56,87,1) 100%);
+    background: -ms-linear-gradient(top, rgba(31,66,99,1) 0%, rgba(57,111,168,1) 3%, rgba(43,82,122,1) 98%, rgba(25,56,87,1) 100%);
+    background: linear-gradient(to bottom, rgba(31,66,99,1) 0%, rgba(57,111,168,1) 3%, rgba(43,82,122,1) 98%, rgba(25,56,87,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f4263', endColorstr='#193857', GradientType=0 );*/
+
+    /* http://www.cssmatic.com/gradient-generator#'\-moz\-linear\-gradient\%28top\%2C\%20rgba\%2857\%2C111\%2C168\%2C1\%29\%200\%25\%2C\%20rgba\%2843\%2C82\%2C122\%2C1\%29\%20100\%25\%29\%3B' */
+    /*background: rgba(57,111,168,1);
+    background: -moz-linear-gradient(top, rgba(57,111,168,1) 0%, rgba(43,82,122,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(57,111,168,1)), color-stop(100%, rgba(43,82,122,1)));
+    background: -webkit-linear-gradient(top, rgba(57,111,168,1) 0%, rgba(43,82,122,1) 100%);
+    background: -o-linear-gradient(top, rgba(57,111,168,1) 0%, rgba(43,82,122,1) 100%);
+    background: -ms-linear-gradient(top, rgba(57,111,168,1) 0%, rgba(43,82,122,1) 100%);
+    background: linear-gradient(to bottom, rgba(57,111,168,1) 0%, rgba(43,82,122,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#396fa8', endColorstr='#2b527a', GradientType=0 );*/
+
+    /* http://www.cssmatic.com/gradient-generator#'\-moz\-linear\-gradient\%28top\%2C\%20rgba\%2831\%2C66\%2C99\%2C1\%29\%200\%25\%2C\%20rgba\%2857\%2C111\%2C168\%2C1\%29\%206\%25\%2C\%20rgba\%2843\%2C82\%2C122\%2C1\%29\%2096\%25\%2C\%20rgba\%2836\%2C66\%2C97\%2C1\%29\%20100\%25\%29\%3B' */
+    background: rgba(31,66,99,1);
+    background: -moz-linear-gradient(top, rgba(31,66,99,1) 0%, rgba(57,111,168,1) 6%, rgba(43,82,122,1) 96%, rgba(36,66,97,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(31,66,99,1)), color-stop(6%, rgba(57,111,168,1)), color-stop(96%, rgba(43,82,122,1)), color-stop(100%, rgba(36,66,97,1)));
+    background: -webkit-linear-gradient(top, rgba(31,66,99,1) 0%, rgba(57,111,168,1) 6%, rgba(43,82,122,1) 96%, rgba(36,66,97,1) 100%);
+    background: -o-linear-gradient(top, rgba(31,66,99,1) 0%, rgba(57,111,168,1) 6%, rgba(43,82,122,1) 96%, rgba(36,66,97,1) 100%);
+    background: -ms-linear-gradient(top, rgba(31,66,99,1) 0%, rgba(57,111,168,1) 6%, rgba(43,82,122,1) 96%, rgba(36,66,97,1) 100%);
+    background: linear-gradient(to bottom, rgba(31,66,99,1) 0%, rgba(57,111,168,1) 6%, rgba(43,82,122,1) 96%, rgba(36,66,97,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f4263', endColorstr='#244261', GradientType=0 );
+}
+
+.jumbotron h1 {
+    color:#fff;
+    text-shadow:#2e2e2e 0 4px 5px;
+}
+
+.jumbotron p {
+    color: #f1f1f1;
+    text-shadow:#2e2e2e 0 3px 3px;
+    font-weight: 700;
+}
+
+.jumbotron.main-page {
+    text-align: center;
+    height: 300px;
+}
+
+/*a {
+    font-weight: 700;
+}*/
+
+a.navbar-brand {
+    font-weight: 700;
+}
+
+
+/* Panel with nav tabs */
+.panel.with-nav-tabs .panel-heading{
+    padding: 5px 5px 0 5px;
+}
+.panel.with-nav-tabs .nav-tabs{
+    border-bottom: none;
+}
+.panel.with-nav-tabs .nav-justified{
+    margin-bottom: -1px;
+}
