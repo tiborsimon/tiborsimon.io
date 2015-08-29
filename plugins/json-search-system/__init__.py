@@ -24,7 +24,7 @@ def run_plugin(generators):
         elif isinstance(generator, PagesGenerator):
             for page in generator.pages:
                 extract_data(page)
-    with open('content\extras\search.json', 'w') as outfile:
+    with open('content/extras/search.json', 'w') as outfile:
         outfile.write(json.dumps(data, indent=4, sort_keys=True))
 
 def register():
