@@ -18,7 +18,7 @@ CATEGORY_FEED_ATOM = 'feeds/%s.atom.xml'
 
 DELETE_OUTPUT_DIRECTORY = True
 
-PLUGINS = ['tspr', 'bootstrapify', 'minify']
+PLUGINS = ['tspr', 'summary', 'json-search-system', 'bootstrapify', 'minify']
 
 # Following items are often useful when publishing
 

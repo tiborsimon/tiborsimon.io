@@ -11,7 +11,7 @@ def extract_data(instance):
             'title': instance.title,
             'category': instance.category._name,
             'tags': [tag._name for tag in instance.tags],
-            'url': instance.url,
+            'url': 'http://tiborsimon.io/'+instance.url,
             'date': '{}-{}-{}'.format(instance.date.year, instance.date.month, instance.date.day),
             'summary': re.sub('<.*?>', '', instance.summary)
         })
