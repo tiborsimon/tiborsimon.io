@@ -22,5 +22,5 @@ PLUGINS = ['tspr', 'summary', 'json-search-system', 'bootstrapify', 'minify', 't
 
 # Following items are often useful when publishing
 
-#DISQUS_SITENAME = ""
+DISQUS_SITENAME = "tiborsimonio"
 #GOOGLE_ANALYTICS = ""
