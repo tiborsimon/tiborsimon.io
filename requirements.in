@@ -6,5 +6,4 @@ pip-tools
 requests
 Markdown
 hurry.filesize
-sphinx
 
