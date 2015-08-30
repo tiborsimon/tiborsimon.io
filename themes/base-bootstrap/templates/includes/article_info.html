@@ -1,43 +1,33 @@
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
-    </span>
-    {% if SHOW_DATE_MODIFIED %}
+<div class="row">
+    <div class="col-xs-5">
+        <i class="fa fa-clock-o"></i> Posted on <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
         {% if article.modified %}
-            <span class="label label-default">Modified</span>
-            <span class="modified">
-                <i class="fa fa-calendar"></i><time datetime="{{ article.modified.isoformat() }}"> {{ article.locale_modified }}</time>
-            </span>
+            and modified on <time datetime="{{ article.modified.isoformat() }}"> {{ article.locale_modified }}</time>
         {% endif %}
-    {% endif %}
+    </div>
+    <div class="col-xs-7">
+        <div class="post-info pull-right">
 
-    {% if SHOW_SERIES %}
-        {% if article.series %}
-            <span class="label label-default">Series</span>
-            Part {{ article.series.index}} of {{ article.series.name }}
-        {% endif %}
-    {% endif %}
+            <!-- CATEGORY -->
+            <i class="fa fa-folder-open-o"></i>
+            <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
 
-    {% if SHOW_ARTICLE_AUTHOR %}
-        {% if article.author %}
-            <span class="label label-default">By</span>
-            <a href="{{ SITEURL }}/{{ article.author.url }}"><i class="fa fa-user"></i> {{ article.author }}</a>
-        {% endif %}
-    {% endif %}
+            <!-- TAGS -->
+            {% if article.tags %}
+                <i class="fa fa-tags" style="margin-left: 16px"></i>
+                {% for tag in article.tags %}
+                    <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+                    {% if not loop.last %}, {% endif %}
+                {% endfor %}
+            {% endif %}
 
-    {% if SHOW_ARTICLE_CATEGORY %}
-        <span class="label label-default">Category</span>
-        <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
-    {% endif %}
-
-    {% if PDF_PROCESSOR %}
-        <span class="label label-default">
-            <a href="{{ SITEURL }}/pdf/{{ article.slug }}.pdf">PDF</a>
-        </span>
-    {% endif %}
-
-    {% include 'includes/taglist.html' %}
-    {% import 'includes/translations.html' as translations with context %}
-    {{ translations.translations_for(article) }}
-</footer><!-- /.post-info -->
+            {% if SHOW_SERIES %}
+                {% if article.series %}
+                    <span class="label label-default">Series</span>
+                    Part {{ article.series.index}} of {{ article.series.name }}
+                {% endif %}
+            {% endif %}
+            
+        </div><!-- /.post-info -->
+    </div>
+</div>

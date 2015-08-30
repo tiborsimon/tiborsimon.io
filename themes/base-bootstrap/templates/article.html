@@ -65,13 +65,10 @@
     <div class="row">
       <div class="col-xs-12 col-md-9">
       <section id="content">
+        {% include "includes/article_info.html" %}
+        <hr />
           <article>
               <div class="entry-content">
-                  <div class="panel">
-                      <div class="panel-body">
-                          {% include "includes/article_info.html" %}
-                      </div>
-                  </div>
                   {{ article.content }}
               </div>
               <!-- /.entry-content -->

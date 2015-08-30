@@ -76,3 +76,9 @@ a.navbar-brand {
 .panel.with-nav-tabs .nav-justified{
     margin-bottom: -1px;
 }
+
+hr {
+    margin-bottom: 14px;
+    border: 0;
+    border-top: 1px solid #eee;
+}

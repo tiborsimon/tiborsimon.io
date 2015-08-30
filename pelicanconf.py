@@ -55,12 +55,14 @@ DEFAULT_PAGINATION = 10
 
 PLUGIN_PATHS = ['plugins']
 #PLUGINS = ['tspr', 'summary', 'bootstrapify']
-PLUGINS = ['tspr', 'summary', 'json-search-system', 'bootstrapify']
+#PLUGINS = ['tspr', 'summary', 'json-search-system', 'bootstrapify']
 
 # SITELOGO = 'images/tiborsimon-logo-300.png'
 # HIDE_SITENAME = True
 
 STATIC_PATHS = ['extras']
+
+PDF_PROCESSOR = True
 
 DELETE_OUTPUT_DIRECTORY = True
 
