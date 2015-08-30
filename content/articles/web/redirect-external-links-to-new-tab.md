@@ -5,6 +5,7 @@ tags: jekyll, hack, javascript
 published: True
 share_buttons: True
 Date: 2015-05-17
+Modified: 
 
 As Jekyll uses Markdown to render it's contents, and Markdown doesn't support 
 control over the hyperlink target attribute, you were forced to write your 

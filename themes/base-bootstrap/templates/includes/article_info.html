@@ -1,13 +1,12 @@
 <div class="row">
     <div class="col-xs-5">
-        <i class="fa fa-clock-o"></i> Posted on <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
+        <i class="fa fa-clock-o" style="margin-right: 2px"></i> Posted on <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
         {% if article.modified %}
-            and modified on <time datetime="{{ article.modified.isoformat() }}"> {{ article.locale_modified }}</time>
+            <br /><i class="fa fa-refresh" style="margin-right: 2px"></i> Modified on <time datetime="{{ article.modified.isoformat() }}"> {{ article.locale_modified }}</time>
         {% endif %}
     </div>
     <div class="col-xs-7">
-        <div class="post-info pull-right">
-
+        <div class="pull-right">
             <!-- CATEGORY -->
             <i class="fa fa-folder-open-o"></i>
             <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
@@ -28,6 +27,6 @@
                 {% endif %}
             {% endif %}
             
-        </div><!-- /.post-info -->
+        </div>
     </div>
 </div>

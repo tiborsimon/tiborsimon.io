@@ -51,15 +51,6 @@
 <link rel="canonical" href="{{ SITEURL }}/{{ article.url }}">
 {% endblock %}
 
-{% block headline %}
-    <div class="jumbotron" style="">
-    <div class="container">
-      <h1>{{ article.title }}</h1>
-      <p>{{ article.subtitle }}</p>
-      </div>
-    </div>
-{% endblock %}
-
 {% block content %}
 <div class="container">
     <div class="row">
@@ -71,18 +62,18 @@
               <div class="entry-content">
                   {{ article.content }}
               </div>
-              <!-- /.entry-content -->
+              <hr />
               {% include 'includes/related-posts.html' %}
               {% include 'includes/series.html' %}
               {% include 'includes/addthis.html' %}
-              {% include 'includes/shariff.html' %}
+              {% include 'includes/donation.html' %}
               {% include 'includes/comments.html' %}
           </article>
       </section>
-    </div><!--div class="col-xs-12 col-md-8"-->
+    </div>
     <div class="col-xs-12 col-md-3">
       <h3>Sidebar..</h3>
-    </div><!--div class="col-xs-12 col-md-8"-->
+    </div>
     </div><!-- div class="row"-->
 </div>
 {% endblock %}
