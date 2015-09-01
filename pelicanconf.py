@@ -54,7 +54,7 @@ SOCIAL = (('You can add links in your config file', '#'),
 DEFAULT_PAGINATION = 10
 
 PLUGIN_PATHS = ['plugins']
-#PLUGINS = ['tspr', 'summary', 'bootstrapify']
+PLUGINS = ['tspr', 'summary', 'bootstrapify']
 #PLUGINS = ['tspr', 'summary', 'json-search-system', 'bootstrapify']
 
 # SITELOGO = 'images/tiborsimon-logo-300.png'
@@ -65,6 +65,15 @@ STATIC_PATHS = ['extras']
 PDF_PROCESSOR = True
 
 DELETE_OUTPUT_DIRECTORY = True
+
+DISPLAY_RECENT_POSTS_ON_SIDEBAR = True
+
+MENUITEMS = [
+	['Projects', 'projects'],
+	['Log', 'log'],
+	['Running', 'running'],
+	['About', 'about']
+]
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True

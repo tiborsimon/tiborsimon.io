@@ -31,7 +31,7 @@
       "title": "MATLAB Library System",
       "description": "The missing package handler for MATLAB. Activate/deactivate and share your projects easily. Installed projects will be globally visible.",
       "tags": ["matlab"],
-      "state": "released",
+      "state": "tspr",
       "repo-name": "matlab-library-system",
       "article": ""
   },
@@ -40,7 +40,7 @@
       "title": "Simple Input Parser",
       "description": "Function parameter parsing library with validation. More straightforward solution than MATLAB\"s built in one.",
       "tags": ["matlab"],
-      "state": "released",
+      "state": "tspr",
       "repo-name": "simple-input-parser",
       "article": ""
   },
@@ -49,7 +49,7 @@
       "title": "Smart Sinusoids",
       "description": "Sinusoid generator framework for MATLAB. Get the sinusoid wave you want, without worrying about the generation method.",
       "tags": ["matlab"],
-      "state": "released",
+      "state": "tspr",
       "repo-name": "smart-sinusoids",
       "article": ""
   },

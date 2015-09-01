@@ -5,25 +5,30 @@ from hurry.filesize import size
 from .tspr import Store
 
 Store.project_file = 'tspr.json'
+store = Store.load()
 
 
 def add_worklog_project_list(instance):
     if instance._content is not None:
         content = instance._content
         soup = BeautifulSoup(content, 'html.parser')
-        for tspr_div in soup.find_all('div', class_='tspr-worklog'):
-            add_panel_group(soup, tspr_div)
+        process_worklog(soup)
+        process_projects(soup)
         instance._content = soup.prettify()
+
+
+def process_worklog(soup):
+    for tspr_div in soup.find_all('div', class_='pr-worklog'):
+        add_panel_group(soup, tspr_div)
 
 
 def add_panel_group(soup, tspr_div):
     panel_group = soup.new_tag('div')
     panel_group['class'] = 'panel-group'
-    panel_group['id'] = 'tspr-accordion'
+    panel_group['id'] = 'pr-accordion'
     panel_group['role'] = 'tablist'
     panel_group['aria-multiselectable'] = 'true'
     tspr_div.append(panel_group)
-    store = Store.load()
     for project in store.projects:
         add_panel(panel_group, project, soup)
 
@@ -40,8 +45,8 @@ def add_panel_collapse(panel, project, soup):
     panel_collapse = soup.new_tag('div')
     panel_collapse['class'] = 'panel-collapse collapse'
     panel_collapse['role'] = 'tabpanel'
-    panel_collapse['id'] = 'TSPR{:06}-collapse'.format(project['id'])
-    panel_collapse['aria-labelledy'] = 'TSPR{:06}-heading'.format(project['id'])
+    panel_collapse['id'] = 'PR{:06}-collapse'.format(project['id'])
+    panel_collapse['aria-labelledy'] = 'PR{:06}-heading'.format(project['id'])
     add_panel_body(panel_collapse, project, soup)
     panel.append(panel_collapse)
 
@@ -210,8 +215,8 @@ def add_panel_heading(panel, project, soup):
     panel_heading['class'] = 'panel-heading'
     panel_heading['style'] = 'background-color: white' if project['state'] != 'private' else ''
     panel_heading['role'] = 'tab'
-    panel_heading['id'] = 'TSPR{:06}-heading'.format(project['id'])
-    panel_heading.string = 'TSPR{:06}'.format(project['id'])
+    panel_heading['id'] = 'PR{:06}-heading'.format(project['id'])
+    panel_heading.string = 'PR{:06}'.format(project['id'])
     if project['state'] == 'private':
         panel_heading['class'] += ' disabled'
     panel.append(panel_heading)
@@ -226,10 +231,10 @@ def add_details_button(panel_heading, project, soup):
     button['type'] = 'button'
     button['class'] = 'btn btn-default btn-lg btn-xs pull-right'
     button['data-toggle'] = 'collapse'
-    button['data-parent'] = '#tspr-accordion'
-    button['href'] = '#TSPR{:06}-collapse'.format(project['id'])
+    button['data-parent'] = '#pr-accordion'
+    button['href'] = '#PR{:06}-collapse'.format(project['id'])
     button['aria-expanded'] = 'true'
-    button['aria-controls'] = 'TSPR{:06}-collapse'.format(project['id'])
+    button['aria-controls'] = 'PR{:06}-collapse'.format(project['id'])
     if project['state'] == 'private':
         button['disabled'] = 'disabled'
     panel_heading.append(button)
@@ -248,8 +253,49 @@ def add_badge(panel_heading, project, soup):
     elif project['state'] == 'released':
         badge_abbr['title'] = 'Released. Latest version: {}'.format(project['version'])
         badge['class'] = 'pull-right fa fa-briefcase'
-    badge['style'] = 'margin-left: 10px'
+    elif project['state'] == 'tspr':
+        badge_abbr['title'] = 'TSPR project. Released. Latest version: {}'.format(project['version'])
+        badge['class'] = 'pull-right fa fa-star'
+    badge['style'] = 'margin-left: 10px; width: 12px' 
     panel_heading.append(badge_abbr)
+
+
+
+
+def process_projects(soup):
+    for tspr_div in soup.find_all('div', class_='tspr-projects'):
+        row_div = soup.new_tag('div')
+        tspr_div.append(row_div)
+        tspr_div.div['class'] = 'row'
+        for project in [p for p in store.projects if p['state'] == 'tspr']:
+            add_project(row_div, project, soup)
+
+def add_project(parent, project, soup):
+    col_div = soup.new_tag('div')
+    parent.append(col_div)
+    col_div['class'] = 'col-sm-3 col-md-2'
+
+    thumb = soup.new_tag('h1')
+    thumb['class'] = 'thumbnail text-center'
+    col_div.append(thumb)
+
+    icon_stack = soup.new_tag('span')
+    icon_stack['class'] = 'fa-stack fa-lg'
+    thumb.append(icon_stack)
+    square = soup.new_tag('i')
+    square['class'] = 'fa fa-square-o fa-stack-2x'
+    icon = soup.new_tag('i')
+    icon['class'] = 'fa fa-suitcase fa-stack-1x'
+    icon_stack.append(square)
+    icon_stack.append(icon)
+
+    caption = soup.new_tag('div')
+    caption['class'] = 'caption'
+    thumb.append(caption)
+    caption.append(soup.new_tag('h4'))
+    caption.h4['class'] = 'text-center'
+    caption.h4.string = 'TSPR{:06}'.format(project['id'])
+
 
 
 def register():

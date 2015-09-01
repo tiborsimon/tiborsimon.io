@@ -84,7 +84,7 @@ class Store(object):
     def sync_with_github(self):
         request_counter = 0
         for project in self.projects:
-            if project['state'] == 'released':
+            if project['state'] == 'released' or project['state'] == 'tspr':
                 url = 'https://api.github.com/repos/tiborsimon/' + project['repo-name'] + '/releases/latest'
 
                 try:
