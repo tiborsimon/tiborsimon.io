@@ -97,5 +97,14 @@
       "state": "released",
       "repo-name": "slotcar-race",
       "article": ""
+  },
+  {
+      "id": 21,
+      "title": "Learning Vim",
+      "description": "Sublime sometimes is slow.. Time to change! I hate the mouse anyway :)",
+      "tags": ["tools"],
+      "state": "in-progress",
+      "repo-name": "",
+      "article": ""
   }
 ]

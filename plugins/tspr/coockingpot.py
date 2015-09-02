@@ -65,7 +65,7 @@ def add_panel_body(panel_collapse, project, soup):
         panel_body.p.string = project['description']
         add_tag_field(panel_body, project, soup)
 
-    if project['state'] == 'released':
+    if project['state'] == 'released' or project['state'] == 'tspr':
         add_buttons(panel_body, project, soup)
 
 
@@ -269,6 +269,9 @@ def process_projects(soup):
         tspr_div.div['class'] = 'row'
         for project in [p for p in store.projects if p['state'] == 'tspr']:
             add_project(row_div, project, soup)
+
+    for tspr_div in soup.find_all('div', class_='all-projects'):
+        pass
 
 def add_project(parent, project, soup):
     col_div = soup.new_tag('div')

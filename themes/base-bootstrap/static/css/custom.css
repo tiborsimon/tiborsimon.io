@@ -78,7 +78,22 @@ a.navbar-brand {
 }
 
 hr {
+    margin-top: 6px;
     margin-bottom: 14px;
     border: 0;
     border-top: 1px solid #eee;
 }
+
+/* Search results */
+/*.search-result-item:hover {
+    background-color: #337ab7 !important;
+    color: white !important;
+}
+
+.search-result-item:hover h4, p {
+    color: white !important;
+}
+
+.search-result-item:hover h4 small, p {
+    color: #c7ddef !important;
+}*/

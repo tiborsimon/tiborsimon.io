@@ -18,10 +18,25 @@ class Store(object):
 
     @classmethod
     def load(cls):
-        print('TSPR GitHub sync started..')
+        print('Loading TSPR data..')
         try:
             store = pickle.load(open(cls.storage_file, 'rb'))
             store.sync_with_json(json.load(open(cls.project_file)))
+            store.sync_with_github()
+            store.save()
+            return store
+        except FileNotFoundError:
+            new_store = Store()
+            new_store.sync_with_json(json.load(open(cls.project_file)))
+            new_store.sync_with_github()
+            new_store.save()
+            return new_store
+
+    @classmethod
+    def sync(cls):
+        print('TSPR GitHub sync started..')
+        try:
+            store = pickle.load(open(cls.storage_file, 'rb'))
             store.sync_with_github()
             store.save()
             return store

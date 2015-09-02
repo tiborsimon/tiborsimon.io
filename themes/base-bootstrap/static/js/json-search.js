@@ -84,7 +84,7 @@ SimpleJekyllSearch({
     searchInput: document.getElementById("search-modal-input"),
     resultsContainer: document.getElementById("search-results-container"),
     json: "/extras/search.json",
-    searchResultTemplate: '<a href="{url}" class="list-group-item focusable"><h4 class="list-group-item-heading">{title}<small style="margin-left: 4px">{tags}</small></h4><p class="list-group-item-text">{summary}</p></a>',
+    searchResultTemplate: '<a href="{url}" class="list-group-item focusable search-result-item"><h4 class="list-group-item-heading">{title}<small style="margin-left: 4px">{tags}</small></h4><p class="list-group-item-text">{summary}</p></a>',
     noResultsText: '<div class="panel panel-danger"><div class="panel-heading"><i class="fa fa-exclamation-triangle"></i> No results were found..</div><div class="panel-body">The search algorithm tries to match your input to the following post parameters: <ul><li>title</li><li>category</li><li>tags</li><li>url</li><li>date</li><li>summary</li></ul>Make sure you pass the right keyword according to your needs.<br />You can search for a date as well. The accepted format is: <i>yyyy-mm-dd</i>.</div></div>',
     limit: 40,
     fuzzy: false
