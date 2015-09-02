@@ -1,6 +1,8 @@
 __pycache__/
 output/
-site-env/
+site-env/*
 content/extras/search.json
+
+!site-env/lib/python3.4/site-packages/tiborsimonio/__init__.py
 
 
