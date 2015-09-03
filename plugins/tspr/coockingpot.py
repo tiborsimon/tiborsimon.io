@@ -2,7 +2,7 @@ from pelican import signals
 from bs4 import BeautifulSoup
 from hurry.filesize import size
 
-from .tspr import Store
+from tiborsimonio import Store
 
 Store.project_file = 'tspr.json'
 store = Store.load()
@@ -14,11 +14,12 @@ def add_worklog_project_list(instance):
         soup = BeautifulSoup(content, 'html.parser')
         process_worklog(soup)
         process_projects(soup)
-        instance._content = soup.prettify()
+        instance._content = soup.prettify(formatter=None)
 
 
 def process_worklog(soup):
     for tspr_div in soup.find_all('div', class_='pr-worklog'):
+        print('TSPR rendering worklog content..')
         add_panel_group(soup, tspr_div)
 
 
@@ -264,14 +265,127 @@ def add_badge(panel_heading, project, soup):
 
 def process_projects(soup):
     for tspr_div in soup.find_all('div', class_='tspr-projects'):
+        print('TSPR rendering TSPR projects..')
         row_div = soup.new_tag('div')
         tspr_div.append(row_div)
         tspr_div.div['class'] = 'row'
         for project in [p for p in store.projects if p['state'] == 'tspr']:
             add_project(row_div, project, soup)
 
-    for tspr_div in soup.find_all('div', class_='all-projects'):
-        pass
+    for all_projects_div in soup.find_all('div', class_='all-projects'):
+        print('TSPR rendering all projects..')
+        for project in store.projects:
+            project['project-title'] = 'PR{:06}'.format(project['id'])
+            add_pr_project(all_projects_div, project, soup)
+            add_pr_modal(all_projects_div, project, soup)
+
+def add_pr_project(parent, project, soup):
+    col_div = soup.new_tag('div')
+    col_div['class'] = 'col-xs-6 col-sm-4 col-md-3'
+    parent.append(col_div)
+
+    list_group_div = soup.new_tag('div')
+    list_group_div['class'] = 'list-group'
+    col_div.append(list_group_div)
+
+    list_group_item = soup.new_tag('a')
+    list_group_item['href'] = '#'
+    if project['state'] != 'private':
+        list_group_item['class'] = 'list-group-item'
+        list_group_item['data-toggle'] = 'modal'
+        list_group_item['data-target'] = '#' + project['project-title']
+    else:
+        list_group_item['class'] = 'list-group-item disabled'
+    list_group_div.append(list_group_item)
+    
+    icon_div = soup.new_tag('div')
+    icon_div['class'] = 'text-center'
+    icon_div['style'] = 'margin-bottom: 4px'
+    list_group_item.append(icon_div)
+    badge = soup.new_tag('i')
+    badge_abbr = soup.new_tag('abbr')
+    badge_abbr.append(badge)
+    icon_div.append(badge_abbr)
+    badge_abbr['style'] = 'border: none !important'
+    
+    if project['state'] == 'private':
+        badge_abbr['title'] = 'Private project'
+        badge['class'] = 'fa fa-2x fa-eye-slash'
+    elif project['state'] == 'in-progress':
+        badge_abbr['title'] = 'Work in progress'
+        badge['class'] = 'fa fa-2x fa-cogs'
+    elif project['state'] == 'released':
+        badge_abbr['title'] = 'Released. Latest version: {}'.format(project['version'])
+        badge['class'] = 'fa fa-2x fa-briefcase'
+    elif project['state'] == 'tspr':
+        badge_abbr['title'] = 'TSPR project. Released. Latest version: {}'.format(project['version'])
+        badge['class'] = 'fa fa-2x fa-star'
+
+    title_h4 = soup.new_tag('h4')
+    title_h4['class'] = 'list-group-item-heading text-center'
+    list_group_item.append(title_h4)
+    title_h4.string = project['project-title']
+
+def add_pr_modal(parent, project, soup):
+    if project['state'] == 'private':
+        return
+
+    modal_fade_div = soup.new_tag('div')
+    modal_fade_div['class'] = 'modal fade'
+    modal_fade_div['id'] = project['project-title']
+    modal_fade_div['tabIndex'] = '-1' 
+    modal_fade_div['role'] = 'dialog'
+    modal_fade_div['aria-labelledby'] = 'myModalLabel'
+    parent.append(modal_fade_div)
+
+    modal_dialog_div = soup.new_tag('div')
+    modal_dialog_div['class'] = 'modal-dialog'
+    modal_dialog_div['role'] = 'document'
+    modal_fade_div.append(modal_dialog_div)
+
+    modal_content_div = soup.new_tag('div')
+    modal_content_div['class'] = 'modal-content'
+    modal_dialog_div.append(modal_content_div)
+
+    modal_header_div = soup.new_tag('div')
+    modal_header_div['class'] = 'modal-header'
+    modal_content_div.append(modal_header_div)
+
+    upper_close_button = soup.new_tag('button')
+    upper_close_button['class'] = 'close'
+    upper_close_button['data-dismiss'] = 'modal'
+    upper_close_button['aria-label'] = 'Close'
+    modal_header_div.append(upper_close_button)
+
+    upper_close_button.append(soup.new_tag('span'))
+    upper_close_button.span['aria-hidden'] = 'true'
+    upper_close_button.span.string = '&times;'
+
+    modal_header_div.append(soup.new_tag('h4'))
+    modal_header_div.h4['class'] = 'modal-title'
+    modal_header_div.h4['id'] = 'myModalLabel'
+    modal_header_div.h4.string = project['project-title'] + ' - ' + project['title']
+
+    modal_body_div = soup.new_tag('div')
+    modal_body_div['class'] = 'modal-body'
+    modal_content_div.append(modal_body_div)
+    add_modal_body(modal_body_div, project, soup)
+
+    modal_footer_div = soup.new_tag('div')
+    modal_footer_div['class'] = 'modal-footer'
+    modal_content_div.append(modal_footer_div)
+
+    modal_footer_div.append(soup.new_tag('button'))
+    modal_footer_div.button['type'] = 'button'
+    modal_footer_div.button['class'] = 'btn btn-default btn-xs'
+    modal_footer_div.button['data-dismiss'] = 'modal'
+    modal_footer_div.button.string = 'Close'
+
+
+def add_modal_body(parent, project, soup):
+    pass
+
+
 
 def add_project(parent, project, soup):
     col_div = soup.new_tag('div')

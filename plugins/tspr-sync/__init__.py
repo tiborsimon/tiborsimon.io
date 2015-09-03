@@ -1,12 +1,8 @@
-import requests
-import pickle
-import json
-import time
-import datetime
+from tiborsimonio import Store
 
-from tspr.tspr import Store
-
-print('runnning tspr-sync')
-
+Store.project_file = 'tspr.json'
 Store.sync()
+
+def register():
+    pass
 
