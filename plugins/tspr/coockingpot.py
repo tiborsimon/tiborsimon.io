@@ -66,7 +66,7 @@ def add_panel_body(panel_collapse, project, soup):
         panel_body.p.string = project['description']
         add_tag_field(panel_body, project, soup)
 
-    if project['state'] == 'released' or project['state'] == 'tspr':
+    if project['state'] == 'released':
         add_buttons(panel_body, project, soup)
 
 
@@ -252,11 +252,14 @@ def add_badge(panel_heading, project, soup):
         badge_abbr['title'] = 'Work in progress'
         badge['class'] = 'pull-right fa fa-cogs'
     elif project['state'] == 'released':
-        badge_abbr['title'] = 'Released. Latest version: {}'.format(project['version'])
-        badge['class'] = 'pull-right fa fa-briefcase'
-    elif project['state'] == 'tspr':
-        badge_abbr['title'] = 'TSPR project. Released. Latest version: {}'.format(project['version'])
-        badge['class'] = 'pull-right fa fa-star'
+        if project['tspr'] > 0:
+            badge_abbr['title'] = 'TSPR{:04} project. Released. Latest version: {}'.format(project['tspr'], project['version'])
+            badge['class'] = 'pull-right fa fa-star'    
+        else:
+            badge_abbr['title'] = 'Released. Latest version: {}'.format(project['version'])
+            badge['class'] = 'pull-right fa fa-briefcase'
+
+        
     badge['style'] = 'margin-left: 10px; width: 12px' 
     panel_heading.append(badge_abbr)
 
@@ -266,18 +269,15 @@ def add_badge(panel_heading, project, soup):
 def process_projects(soup):
     for tspr_div in soup.find_all('div', class_='tspr-projects'):
         print('TSPR rendering TSPR projects..')
-        row_div = soup.new_tag('div')
-        tspr_div.append(row_div)
-        tspr_div.div['class'] = 'row'
-        for project in [p for p in store.projects if p['state'] == 'tspr']:
-            add_project(row_div, project, soup)
+        for project in [p for p in store.projects if p['tspr'] > 0]:
+            add_tspr_project(tspr_div, project, soup)
 
     for all_projects_div in soup.find_all('div', class_='all-projects'):
         print('TSPR rendering all projects..')
         for project in store.projects:
             project['project-title'] = 'PR{:06}'.format(project['id'])
             add_pr_project(all_projects_div, project, soup)
-            add_pr_modal(all_projects_div, project, soup)
+            add_modal(all_projects_div, project, soup)
 
 def add_pr_project(parent, project, soup):
     col_div = soup.new_tag('div')
@@ -286,21 +286,34 @@ def add_pr_project(parent, project, soup):
 
     list_group_div = soup.new_tag('div')
     list_group_div['class'] = 'list-group'
+    list_group_div['style'] = 'overflow: hidden'
     col_div.append(list_group_div)
 
-    list_group_item = soup.new_tag('a')
-    list_group_item['href'] = '#'
     if project['state'] != 'private':
+        list_group_item = soup.new_tag('a')
+        list_group_item['href'] = '#'
         list_group_item['class'] = 'list-group-item'
         list_group_item['data-toggle'] = 'modal'
-        list_group_item['data-target'] = '#' + project['project-title']
+        if project['tspr'] > 0:
+            list_group_item['data-target'] = '#TSPR{:04}'.format(project['tspr'])
+        else:
+            list_group_item['data-target'] = '#' + project['project-title']
     else:
+        list_group_item = soup.new_tag('div')
         list_group_item['class'] = 'list-group-item disabled'
     list_group_div.append(list_group_item)
+
+    if project['state'] == 'released':
+        ribbon = soup.new_tag('div')
+        ribbon['class'] = 'project-version-ribbon'
+        if project['tspr'] > 0:
+            ribbon['class'] = 'project-version-ribbon tspr'
+        ribbon.string = project['version']
+        list_group_item.append(ribbon)
     
     icon_div = soup.new_tag('div')
     icon_div['class'] = 'text-center'
-    icon_div['style'] = 'margin-bottom: 4px'
+    icon_div['style'] = 'margin: 10px'
     list_group_item.append(icon_div)
     badge = soup.new_tag('i')
     badge_abbr = soup.new_tag('abbr')
@@ -313,26 +326,36 @@ def add_pr_project(parent, project, soup):
         badge['class'] = 'fa fa-2x fa-eye-slash'
     elif project['state'] == 'in-progress':
         badge_abbr['title'] = 'Work in progress'
-        badge['class'] = 'fa fa-2x fa-cogs'
+        badge['class'] = 'fa fa-2x fa-cog fa-spin'
     elif project['state'] == 'released':
-        badge_abbr['title'] = 'Released. Latest version: {}'.format(project['version'])
-        badge['class'] = 'fa fa-2x fa-briefcase'
-    elif project['state'] == 'tspr':
-        badge_abbr['title'] = 'TSPR project. Released. Latest version: {}'.format(project['version'])
-        badge['class'] = 'fa fa-2x fa-star'
+        if project['tspr'] > 0:
+            badge_abbr['title'] = 'TSPR{:04} project. Released. Latest version: {}'.format(project['tspr'], project['version'])
+            badge['class'] = 'fa fa-2x fa-star'
+        else:
+            badge_abbr['title'] = 'Released. Latest version: {}'.format(project['version'])
+            badge['class'] = 'fa fa-2x fa-briefcase'
 
     title_h4 = soup.new_tag('h4')
     title_h4['class'] = 'list-group-item-heading text-center'
     list_group_item.append(title_h4)
     title_h4.string = project['project-title']
 
-def add_pr_modal(parent, project, soup):
+    title_h5 = soup.new_tag('h5')
+    title_h5['class'] = 'list-group-item-heading text-center'
+    list_group_item.append(title_h5)
+    title_h5.string = project['title']
+
+
+def add_modal(parent, project, soup):
     if project['state'] == 'private':
         return
 
     modal_fade_div = soup.new_tag('div')
     modal_fade_div['class'] = 'modal fade'
-    modal_fade_div['id'] = project['project-title']
+    if project['tspr'] > 0:
+        modal_fade_div['id'] = 'TSPR{:04}'.format(project['tspr'])
+    else:
+        modal_fade_div['id'] = project['project-title']
     modal_fade_div['tabIndex'] = '-1' 
     modal_fade_div['role'] = 'dialog'
     modal_fade_div['aria-labelledby'] = 'myModalLabel'
@@ -364,7 +387,10 @@ def add_pr_modal(parent, project, soup):
     modal_header_div.append(soup.new_tag('h4'))
     modal_header_div.h4['class'] = 'modal-title'
     modal_header_div.h4['id'] = 'myModalLabel'
-    modal_header_div.h4.string = project['project-title'] + ' - ' + project['title']
+    if project['tspr'] > 0:
+        modal_header_div.h4.string = 'TSPR{:04} <small>'.format(project['tspr']) + project['project-title'] + '</small> - ' + project['title']
+    else:
+        modal_header_div.h4.string = project['project-title'] + ' - ' + project['title']
 
     modal_body_div = soup.new_tag('div')
     modal_body_div['class'] = 'modal-body'
@@ -383,36 +409,93 @@ def add_pr_modal(parent, project, soup):
 
 
 def add_modal_body(parent, project, soup):
-    pass
+    description_row = soup.new_tag('div')
+    description_row['class'] = 'row'
+    parent.append(description_row)
+
+    description_div = soup.new_tag('div')
+    description_div['class'] = 'col-xs-9'
+    description_div.string = '<p>' + project['description'] + '</p>'
+    description_row.append(description_div)
+
+    add_tag_field(description_div, project, soup)
+
+    description_icon_div = soup.new_tag('div')
+    description_icon_div['class'] = 'col-xs-3 text-center'
+    icon = soup.new_tag('i')
+    icon_descr = soup.new_tag('p')
+    icon_descr['style'] = 'font-size: 80%; opacity: 0.5'
+    description_icon_div.append(icon)
+    description_icon_div.append(icon_descr)
+
+    if project['state'] == 'in-progress':
+        icon['class'] = 'fa fa-3x fa-cog fa-spin'
+        icon_descr.string = 'Work in progress'
+    elif project['state'] == 'released':
+        if project['tspr'] > 0:
+            icon['class'] = 'fa fa-3x fa-star'
+            icon_descr.string = 'TSPR project'
+        else:
+            icon['class'] = 'fa fa-3x fa-briefcase'
+            icon_descr.string = 'Released project'
+    description_row.append(description_icon_div)
+
+    if project['state'] == 'released':
+        add_buttons(parent, project, soup)
 
 
 
-def add_project(parent, project, soup):
+def add_tspr_project(parent, project, soup):
     col_div = soup.new_tag('div')
     parent.append(col_div)
-    col_div['class'] = 'col-sm-3 col-md-2'
+    col_div['class'] = 'col-xs-12 col-sm-6 col-md-4'
 
-    thumb = soup.new_tag('h1')
-    thumb['class'] = 'thumbnail text-center'
-    col_div.append(thumb)
+    list_group_div = soup.new_tag('div')
+    list_group_div['class'] = 'list-group'
+    list_group_div['style'] = 'overflow: hidden'
+    col_div.append(list_group_div)
 
-    icon_stack = soup.new_tag('span')
-    icon_stack['class'] = 'fa-stack fa-lg'
-    thumb.append(icon_stack)
-    square = soup.new_tag('i')
-    square['class'] = 'fa fa-square-o fa-stack-2x'
-    icon = soup.new_tag('i')
-    icon['class'] = 'fa fa-suitcase fa-stack-1x'
-    icon_stack.append(square)
-    icon_stack.append(icon)
+    if project['state'] != 'private':
+        list_group_item = soup.new_tag('a')
+        list_group_item['href'] = '#'
+        list_group_item['class'] = 'list-group-item'
+        list_group_item['data-toggle'] = 'modal'
+        list_group_item['data-target'] = '#TSPR{:04}'.format(project['tspr'])
+    else:
+        list_group_item = soup.new_tag('div')
+        list_group_item['class'] = 'list-group-item disabled'
+    list_group_div.append(list_group_item)
 
-    caption = soup.new_tag('div')
-    caption['class'] = 'caption'
-    thumb.append(caption)
-    caption.append(soup.new_tag('h4'))
-    caption.h4['class'] = 'text-center'
-    caption.h4.string = 'TSPR{:06}'.format(project['id'])
+    if project['state'] == 'released':
+        ribbon = soup.new_tag('div')
+        ribbon['class'] = 'project-version-ribbon'
+        if project['tspr'] > 0:
+            ribbon['class'] = 'project-version-ribbon tspr'
+        ribbon.string = project['version']
+        list_group_item.append(ribbon)
+    
+    icon_div = soup.new_tag('div')
+    icon_div['class'] = 'text-center'
+    icon_div['style'] = 'margin: 10px'
+    list_group_item.append(icon_div)
+    badge = soup.new_tag('i')
+    badge_abbr = soup.new_tag('abbr')
+    badge_abbr.append(badge)
+    icon_div.append(badge_abbr)
+    badge_abbr['style'] = 'border: none !important'
+    
+    badge_abbr['title'] = 'TSPR{:04} project. Released. Latest version: {}'.format(project['tspr'], project['version'])
+    badge['class'] = 'fa fa-3x fa-star'
 
+    title_h3 = soup.new_tag('h3')
+    title_h3['class'] = 'list-group-item-heading text-center'
+    list_group_item.append(title_h3)
+    title_h3.string = 'TSPR{:04}'.format(project['tspr'])
+
+    title_h4 = soup.new_tag('h4')
+    title_h4['class'] = 'list-group-item-heading text-center'
+    list_group_item.append(title_h4)
+    title_h4.string = project['title']
 
 
 def register():

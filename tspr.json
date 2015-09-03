@@ -1,21 +1,23 @@
 [
   {   
       "id": 1,
-      "title": "Evernote Project Management",
+      "title": "Project management",
       "description": "This project provides the foundation for my project administration and management. In version v2.0 the structure was redesigned compeletly to lower the administration overhead.",
       "tags": ["management"],
       "state": "in-progress",
       "repo-name": "",
-      "article": ""
+      "article": "",
+      "tspr": 0
   },
   {
       "id": 2,
-      "title": "Website - tiborsimon.io",
+      "title": "tiborsimon.io",
       "description": "The latest website implementation uses Pelican for static site generation with Bootstrap based custom theme hosted on GitHub Pages.",
       "tags": ["web", "Pelican", "Bootstrap"],
       "state": "in-progress",
       "repo-name": "",
-      "article": ""
+      "article": "",
+      "tspr": 0
   },
   {
       "id": 6,
@@ -24,34 +26,38 @@
       "tags": ["web", "css"],
       "state": "released",
       "repo-name": "solarized-gist",
-      "article": ""
+      "article": "",
+      "tspr": 0
   },
   {
       "id": 7,
       "title": "MATLAB Library System",
-      "description": "The missing package handler for MATLAB. Activate/deactivate and share your projects easily. Installed projects will be globally visible.",
+      "description": "The missing package handler for MATLAB. Activate, deactivate and share your projects easily. Installed projects will be globally visible.",
       "tags": ["matlab"],
-      "state": "tspr",
+      "state": "released",
       "repo-name": "matlab-library-system",
-      "article": ""
+      "article": "",
+      "tspr": 1
   },
   {
       "id": 8,
       "title": "Simple Input Parser",
-      "description": "Function parameter parsing library with validation. More straightforward solution than MATLAB\"s built in one.",
+      "description": "Function parameter parsing library with validation. More straightforward solution than MATLAB's built in one.",
       "tags": ["matlab"],
-      "state": "tspr",
+      "state": "released",
       "repo-name": "simple-input-parser",
-      "article": ""
+      "article": "",
+      "tspr": 2
   },
   {
       "id": 9,
       "title": "Smart Sinusoids",
       "description": "Sinusoid generator framework for MATLAB. Get the sinusoid wave you want, without worrying about the generation method.",
       "tags": ["matlab"],
-      "state": "tspr",
+      "state": "released",
       "repo-name": "smart-sinusoids",
-      "article": ""
+      "article": "",
+      "tspr": 3
   },
   {
       "id": 10,
@@ -60,7 +66,8 @@
       "tags": ["python", "tools"],
       "state": "in-progress",
       "repo-name": "",
-      "article": ""
+      "article": "",
+      "tspr": 0
   },
   {
       "id": 12,
@@ -69,7 +76,8 @@
       "tags": ["electronics", "embedded"],
       "state": "in-progress",
       "repo-name": "",
-      "article": ""
+      "article": "",
+      "tspr": 0
   },
   {
       "id": 13,
@@ -78,7 +86,8 @@
       "tags": ["tools", "programming"],
       "state": "in-progress",
       "repo-name": "",
-      "article": ""
+      "article": "",
+      "tspr": 0
   },
   {
       "id": 19,
@@ -87,7 +96,8 @@
       "tags": ["programming", "java"],
       "state": "released",
       "repo-name": "java-shooter-game",
-      "article": ""
+      "article": "",
+      "tspr": 0
   },
   {
       "id": 20,
@@ -96,7 +106,8 @@
       "tags": ["programming", "embedded"],
       "state": "released",
       "repo-name": "slotcar-race",
-      "article": ""
+      "article": "",
+      "tspr": 0
   },
   {
       "id": 21,
@@ -105,6 +116,7 @@
       "tags": ["tools"],
       "state": "in-progress",
       "repo-name": "",
-      "article": ""
+      "article": "",
+      "tspr": 0
   }
 ]
