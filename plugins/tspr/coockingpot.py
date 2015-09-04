@@ -341,9 +341,16 @@ def add_pr_project(parent, project, soup):
     title_h4.string = project['project-title']
 
     title_h5 = soup.new_tag('h5')
-    title_h5['class'] = 'list-group-item-heading text-center'
+    title_h5['class'] = 'list-group-item-heading text-center hidden-xs'
+    title_h5['style'] = 'white-space: nowrap'
     list_group_item.append(title_h5)
     title_h5.string = project['title']
+
+    title_h6 = soup.new_tag('h6')
+    title_h6['class'] = 'list-group-item-heading text-center visible-xs-block'
+    title_h6['style'] = 'white-space: nowrap'
+    list_group_item.append(title_h6)
+    title_h6.string = project['title']
 
 
 def add_modal(parent, project, soup):
