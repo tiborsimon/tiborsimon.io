@@ -72,96 +72,69 @@ def add_panel_body(parent, project, soup):
         panel_body.p.string = project['description']
         add_tag_field(panel_body, project, soup)
 
-    if project['state'] == 'released':
-        add_buttons(panel_body, project, soup)
+    add_buttons(panel_body, project, soup)
 
 
-def add_buttons(parent, project, soup):
+def add_buttons(parent, project, soup, labels=False):
+    if project['state'] != 'released':
+        return
+
     button_p = soup.new_tag('p')
     parent.append(button_p)
 
     button_div = soup.new_tag('div')
-    button_div['class'] = 'btn-group btn-group-xs'
+    if labels:
+        button_div['class'] = 'btn-group'
+    else:
+        button_div['class'] = 'btn-group btn-group-xs'
     button_div['role'] = 'group'
     button_p.append(button_div)
 
-    # Article button
-    temp_button = soup.new_tag('a')
-    temp_button['role'] = 'button'
-    temp_button['style'] = 'min-width: 24px'
-    temp_button['class'] = 'btn btn-default'
-    temp_button['data-toggle'] = 'tooltip'
-    temp_button['data-container'] = 'body'
-    temp_button['data-placement'] = 'top'
-    temp_button['title'] = 'Corresponding article'
-    temp_button.append(soup.new_tag('i'))
-    temp_button.i['class'] = 'fa fa-bookmark'
-    temp_button['href'] = project['article']
-    button_div.append(temp_button)
-
-    # Comments button
-    temp_button = soup.new_tag('a')
-    temp_button['role'] = 'button'
-    temp_button['style'] = 'min-width: 24px'
-    temp_button['class'] = 'btn btn-default'
-    temp_button['data-toggle'] = 'tooltip'
-    temp_button['data-container'] = 'body'
-    temp_button['data-placement'] = 'top'
-    temp_button['title'] = 'Discussion'
-    temp_button.append(soup.new_tag('i'))
-    temp_button.i['class'] = 'fa fa-comments'
-    temp_button['href'] = project['discussion']
-    button_div.append(temp_button)
-
-    # Repo button
-    temp_button = soup.new_tag('a')
-    temp_button['role'] = 'button'
-    temp_button['style'] = 'min-width: 24px'
-    temp_button['class'] = 'btn btn-default'
-    temp_button['data-toggle'] = 'tooltip'
-    temp_button['data-container'] = 'body'
-    temp_button['data-placement'] = 'top'
-    temp_button['title'] = 'GitHub repository'
-    temp_button.append(soup.new_tag('i'))
-    temp_button.i['class'] = 'fa fa-github-alt'
-    temp_button['href'] = project['repo-url']
-    temp_button['target'] = '_blank'
-    button_div.append(temp_button)
-
-    # Repo button
-    temp_button = soup.new_tag('a')
-    temp_button['role'] = 'button'
-    temp_button['style'] = 'min-width: 24px'
-    temp_button['class'] = 'btn btn-default'
-    temp_button['data-toggle'] = 'tooltip'
-    temp_button['data-container'] = 'body'
-    temp_button['data-placement'] = 'top'
-    temp_button['title'] = 'Latest release'
-    temp_button.append(soup.new_tag('i'))
-    temp_button.i['class'] = 'fa fa-briefcase'
-    temp_button['href'] = project['repo-url'] + '/releases/latest'
-    temp_button['target'] = '_blank'
-    button_div.append(temp_button)
+    add_button(button_div, labels, project['article'], soup, 'fa fa-bookmark', 'Corresponding article')
+    add_button(button_div, labels, project['discussion'], soup, 'fa fa-comments', 'Discussion')
+    add_button(button_div, labels, project['repo-url'], soup, 'fa fa-github-alt', 'GitHub repository')
+    add_button(button_div, labels, project['docs'], soup, 'fa fa-file-text', 'Documentation')
+    add_button(button_div, labels, project['repo-url'] + '/releases/latest', soup, 'fa fa-briefcase', 'Latest release')
 
     # Download button
+    if labels:
+        add_download_panel(parent, project, soup)
+    else:
+        temp_button = soup.new_tag('a')
+        temp_button['role'] = 'button'
+        temp_button['class'] = 'btn btn-default dropdown-toggle'
+        temp_button['data-toggle'] = 'dropdown'
+        temp_button['aria-haspopup'] = 'true'
+        temp_button['aria-expanded'] = 'false'
+        temp_button.append(soup.new_tag('i'))
+        temp_button.i['class'] = 'fa fa-download'
+        temp_button.append(soup.new_tag('span'))
+        temp_button.span['class'] = 'caret'
+        temp_button.span['style'] = 'margin-left: 4px'
+        temp_button['href'] = '#'
+        button_div.append(temp_button)
+        add_download_dropdown(button_div, project, soup)
+
+
+def add_button(parent, labels, project_data, soup, icon_class, tooltip_text):
     temp_button = soup.new_tag('a')
     temp_button['role'] = 'button'
-    temp_button['class'] = 'btn btn-default dropdown-toggle'
-    temp_button['data-toggle'] = 'dropdown'
-    temp_button['aria-haspopup'] = 'true'
-    temp_button['aria-expanded'] = 'false'
+    if labels:
+        temp_button['style'] = 'min-width: 50px'
+    else:
+        temp_button['style'] = 'min-width: 24px'
+    temp_button['class'] = 'btn btn-default'
     temp_button.append(soup.new_tag('i'))
-    temp_button.i['class'] = 'fa fa-download'
-    temp_button.append(soup.new_tag('span'))
-    temp_button.span['class'] = 'caret'
-    temp_button.span['style'] = 'margin-left: 4px'
-    temp_button['href'] = '#'
-    button_div.append(temp_button)
+    temp_button['data-toggle'] = 'tooltip'
+    temp_button['data-container'] = 'body'
+    temp_button['data-placement'] = 'top'
+    temp_button['title'] = tooltip_text
+    temp_button.i['class'] = icon_class
+    temp_button['href'] = project_data
+    parent.append(temp_button)
 
-    add_button_dropdown(button_div, project, soup)
 
-
-def add_button_dropdown(parent, project, soup):
+def add_download_dropdown(parent, project, soup):
     button_dropdown = soup.new_tag('ul')
     button_dropdown['class'] = 'dropdown-menu'
     parent.append(button_dropdown)
@@ -192,6 +165,62 @@ def add_button_dropdown(parent, project, soup):
     li.a.append(soup.new_tag('small'))
     li.a.small.append(' ({})'.format(project['version']))
     button_dropdown.append(li)
+
+
+def add_download_panel(parent, project, soup):
+    parent.append('<h4>Latest release <small style="font-size: 70%">{}</small></h4>'.format(project['version']))
+    table = soup.new_tag('table')
+    table['class'] = 'table table-hover table-bordered'
+    parent.append(table)
+
+    table.append('<thead><tr><td><b>Asset</b></td><td><b>Size</b></td><td><i class="fa fa-arrow-down"></td><td><b>Download</b></td></tr></thead>')
+    tbody = soup.new_tag('tbody')
+    table.append(tbody)
+
+    # Adding assets
+    if project['assets']:
+        for asset in project['assets']:
+            tr = soup.new_tag('tr')
+            tbody.append(tr)
+
+            name = soup.new_tag('td')
+            tr.append(name)
+            name.append(soup.new_tag('i'))
+            name.i['class'] = 'fa fa-star'
+            name.append(' ' + asset['file-name'])
+
+            asset_size = soup.new_tag('td')
+            tr.append(asset_size)
+            asset_size.append('{}'.format(size(asset['size'])))
+
+            count = soup.new_tag('td')
+            tr.append(count)
+            count.append('{}'.format(asset['download-count']))
+
+            download = soup.new_tag('td')
+            tr.append(download)
+            download.append('<a href="{}" class="btn btn-default btn-xs" role="button"><i class="fa fa-cloud-download"></i> Download</a>'.format(asset['download-url']))
+
+    tr = soup.new_tag('tr')
+    tbody.append(tr)
+
+    name = soup.new_tag('td')
+    tr.append(name)
+    name.append(soup.new_tag('i'))
+    name.i['class'] = 'fa fa-file-archive-o'
+    name.append(' Source code')
+
+    asset_size = soup.new_tag('td')
+    tr.append(asset_size)
+    asset_size.append('{}'.format('-'))
+
+    count = soup.new_tag('td')
+    tr.append(count)
+    count.append('{}'.format('-'))
+
+    download = soup.new_tag('td')
+    tr.append(download)
+    download.append('<a href="{}" class="btn btn-default btn-xs" role="button"><i class="fa fa-cloud-download"></i> Download</a>'.format(project['source-link']))
 
 
 def add_tag_field(parent, project, soup):
@@ -341,7 +370,7 @@ def add_project_icon(parent, project, soup):
         badge['class'] = 'fa fa-2x fa-cog fa-spin'
     elif project['state'] == 'released':
         if project['tspr'] > 0:
-            badge_abbr['title'] = 'TSPR{:04} project. Released. Latest version: {}'.format(project['tspr'],
+            badge_abbr['title'] = 'TSPR{:04}. Released. Latest version: {}'.format(project['tspr'],
                                                                                            project['version'])
             badge['class'] = 'fa fa-2x fa-star'
         else:
@@ -367,6 +396,27 @@ def add_modal(parent, project, soup):
     add_modal_header(modal_content_div, project, soup)
     add_modal_body(modal_content_div, project, soup)
     add_modal_footer(modal_content_div, soup)
+
+
+def create_modal_content_div(parent, project, soup):
+    modal_fade_div = soup.new_tag('div')
+    modal_fade_div['class'] = 'modal fade'
+    if project['tspr'] > 0:
+        modal_fade_div['id'] = 'TSPR{:04}'.format(project['tspr'])
+    else:
+        modal_fade_div['id'] = project['project-title']
+    modal_fade_div['tabIndex'] = '-1'
+    modal_fade_div['role'] = 'dialog'
+    modal_fade_div['aria-labelledby'] = 'myModalLabel'
+    parent.append(modal_fade_div)
+    modal_dialog_div = soup.new_tag('div')
+    modal_dialog_div['class'] = 'modal-dialog'
+    modal_dialog_div['role'] = 'document'
+    modal_fade_div.append(modal_dialog_div)
+    modal_content_div = soup.new_tag('div')
+    modal_content_div['class'] = 'modal-content'
+    modal_dialog_div.append(modal_content_div)
+    return modal_content_div
 
 
 def add_modal_header(parent, project, soup):
@@ -398,18 +448,30 @@ def add_modal_body(modal_content_div, project, soup):
     add_modal_body_content(modal_body_div, project, soup)
 
 
+def add_history(parent, project, soup):
+    parent.append('<h4>Project history</h4>')
+    well = soup.new_tag('div')
+    well['class'] = 'well well-sm'
+    well['style'] = 'margin-bottom: 0 !important'
+    well.append('There will be some history..')
+    parent.append(well)
+
+
 def add_modal_body_content(parent, project, soup):
+    add_description_row(parent, project, soup)
+    add_buttons(parent, project, soup, labels=True)
+    add_history(parent, project, soup)
+
+def add_description_row(parent, project, soup):
     description_row = soup.new_tag('div')
     description_row['class'] = 'row'
     parent.append(description_row)
 
-    description_div = soup.new_tag('div')
-    description_div['class'] = 'col-xs-9'
-    description_div.string = '<p>' + project['description'] + '</p>'
-    description_row.append(description_div)
+    add_project_description(description_row, project, soup)
+    add_desctiption_logo(description_row, project, soup)
 
-    add_tag_field(description_div, project, soup)
 
+def add_desctiption_logo(parent, project, soup):
     description_icon_div = soup.new_tag('div')
     description_icon_div['class'] = 'col-xs-3 text-center'
     icon = soup.new_tag('i')
@@ -417,7 +479,6 @@ def add_modal_body_content(parent, project, soup):
     icon_descr['style'] = 'font-size: 80%; opacity: 0.5'
     description_icon_div.append(icon)
     description_icon_div.append(icon_descr)
-
     if project['state'] == 'in-progress':
         icon['class'] = 'fa fa-3x fa-cog fa-spin'
         icon_descr.string = 'Work in progress'
@@ -428,10 +489,15 @@ def add_modal_body_content(parent, project, soup):
         else:
             icon['class'] = 'fa fa-3x fa-briefcase'
             icon_descr.string = 'Released project'
-    description_row.append(description_icon_div)
+    parent.append(description_icon_div)
 
-    if project['state'] == 'released':
-        add_buttons(parent, project, soup)
+
+def add_project_description(parent, project, soup):
+    description_div = soup.new_tag('div')
+    description_div['class'] = 'col-xs-9'
+    description_div.string = '<p>' + project['description'] + '</p>'
+    parent.append(description_div)
+    add_tag_field(description_div, project, soup)
 
 
 def add_modal_footer(parent, soup):
@@ -443,27 +509,6 @@ def add_modal_footer(parent, soup):
     modal_footer_div.button['class'] = 'btn btn-default btn-xs'
     modal_footer_div.button['data-dismiss'] = 'modal'
     modal_footer_div.button.string = 'Close'
-
-
-def create_modal_content_div(parent, project, soup):
-    modal_fade_div = soup.new_tag('div')
-    modal_fade_div['class'] = 'modal fade'
-    if project['tspr'] > 0:
-        modal_fade_div['id'] = 'TSPR{:04}'.format(project['tspr'])
-    else:
-        modal_fade_div['id'] = project['project-title']
-    modal_fade_div['tabIndex'] = '-1'
-    modal_fade_div['role'] = 'dialog'
-    modal_fade_div['aria-labelledby'] = 'myModalLabel'
-    parent.append(modal_fade_div)
-    modal_dialog_div = soup.new_tag('div')
-    modal_dialog_div['class'] = 'modal-dialog'
-    modal_dialog_div['role'] = 'document'
-    modal_fade_div.append(modal_dialog_div)
-    modal_content_div = soup.new_tag('div')
-    modal_content_div['class'] = 'modal-content'
-    modal_dialog_div.append(modal_content_div)
-    return modal_content_div
 
 
 def render_tspr_projects(soup):
@@ -501,17 +546,17 @@ def create_tspr_list_group_item(parent, project, soup):
     return list_group_item
 
 
-def add_tspr_icon(list_group_item, project, soup):
+def add_tspr_icon(parent, project, soup):
     icon_div = soup.new_tag('div')
     icon_div['class'] = 'text-center'
     icon_div['style'] = 'margin: 10px'
-    list_group_item.append(icon_div)
+    parent.append(icon_div)
     badge = soup.new_tag('i')
     badge_abbr = soup.new_tag('abbr')
     badge_abbr.append(badge)
     icon_div.append(badge_abbr)
     badge_abbr['style'] = 'border: none !important'
-    badge_abbr['title'] = 'TSPR{:04} project. Released. Latest version: {}'.format(project['tspr'], project['version'])
+    badge_abbr['title'] = 'TSPR{:04}. Released. Latest version: {}'.format(project['tspr'], project['version'])
     badge['class'] = 'fa fa-3x fa-star'
 
 
@@ -532,4 +577,3 @@ def add_tspr_title(parent, project, soup):
     title_h4['class'] = 'list-group-item-heading text-center'
     parent.append(title_h4)
     title_h4.string = project['title']
-

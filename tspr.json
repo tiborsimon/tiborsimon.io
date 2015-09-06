@@ -6,8 +6,9 @@
       "tags": ["management"],
       "state": "in-progress",
       "repo-name": "",
-      "article": "",
-      "tspr": 0
+      "article": "#",
+      "tspr": 0,
+      "docs": "#"
   },
   {
       "id": 2,
@@ -16,8 +17,9 @@
       "tags": ["web", "Pelican", "Bootstrap"],
       "state": "in-progress",
       "repo-name": "",
-      "article": "",
-      "tspr": 0
+      "article": "#",
+      "tspr": 0,
+      "docs": "#"
   },
   {
       "id": 6,
@@ -26,8 +28,9 @@
       "tags": ["web", "css"],
       "state": "released",
       "repo-name": "solarized-gist",
-      "article": "",
-      "tspr": 0
+      "article": "#",
+      "tspr": 0,
+      "docs": "#"
   },
   {
       "id": 7,
@@ -36,8 +39,9 @@
       "tags": ["matlab"],
       "state": "released",
       "repo-name": "matlab-library-system",
-      "article": "",
-      "tspr": 1
+      "article": "#",
+      "tspr": 1,
+      "docs": "#"
   },
   {
       "id": 8,
@@ -46,8 +50,9 @@
       "tags": ["matlab"],
       "state": "released",
       "repo-name": "simple-input-parser",
-      "article": "",
-      "tspr": 2
+      "article": "#",
+      "tspr": 2,
+      "docs": "#"
   },
   {
       "id": 9,
@@ -56,8 +61,9 @@
       "tags": ["matlab"],
       "state": "released",
       "repo-name": "smart-sinusoids",
-      "article": "",
-      "tspr": 3
+      "article": "#",
+      "tspr": 3,
+      "docs": "#"
   },
   {
       "id": 10,
@@ -66,8 +72,9 @@
       "tags": ["python", "tools"],
       "state": "in-progress",
       "repo-name": "",
-      "article": "",
-      "tspr": 0
+      "article": "#",
+      "tspr": 0,
+      "docs": "#"
   },
   {
       "id": 12,
@@ -76,8 +83,9 @@
       "tags": ["electronics", "embedded"],
       "state": "in-progress",
       "repo-name": "",
-      "article": "",
-      "tspr": 0
+      "article": "#",
+      "tspr": 0,
+      "docs": "#"
   },
   {
       "id": 13,
@@ -86,8 +94,9 @@
       "tags": ["tools", "programming"],
       "state": "in-progress",
       "repo-name": "",
-      "article": "",
-      "tspr": 0
+      "article": "#",
+      "tspr": 0,
+      "docs": "#"
   },
   {
       "id": 19,
@@ -96,8 +105,9 @@
       "tags": ["programming", "java"],
       "state": "released",
       "repo-name": "java-shooter-game",
-      "article": "",
-      "tspr": 0
+      "article": "#",
+      "tspr": 0,
+      "docs": "#"
   },
   {
       "id": 20,
@@ -106,8 +116,9 @@
       "tags": ["programming", "embedded"],
       "state": "released",
       "repo-name": "slotcar-race",
-      "article": "",
-      "tspr": 0
+      "article": "#",
+      "tspr": 0,
+      "docs": "#"
   },
   {
       "id": 21,
@@ -116,7 +127,8 @@
       "tags": ["tools"],
       "state": "in-progress",
       "repo-name": "",
-      "article": "",
-      "tspr": 0
+      "article": "#",
+      "tspr": 0,
+      "docs": "#"
   }
 ]
