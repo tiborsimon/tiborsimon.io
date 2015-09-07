@@ -449,11 +449,14 @@ def add_modal_body(modal_content_div, project, soup):
 
 
 def add_history(parent, project, soup):
+    if not project['history']:
+        return
     parent.append('<h4>Project history</h4>')
     well = soup.new_tag('div')
     well['class'] = 'well well-sm'
-    well['style'] = 'margin-bottom: 0 !important'
-    well.append('There will be some history..')
+    well['style'] = 'margin-bottom: 0 !important; font-size: 70%'
+    for h in project['history']:
+        well.append(h + '<br />')
     parent.append(well)
 
 
@@ -462,16 +465,17 @@ def add_modal_body_content(parent, project, soup):
     add_buttons(parent, project, soup, labels=True)
     add_history(parent, project, soup)
 
+
 def add_description_row(parent, project, soup):
     description_row = soup.new_tag('div')
     description_row['class'] = 'row'
     parent.append(description_row)
 
     add_project_description(description_row, project, soup)
-    add_desctiption_logo(description_row, project, soup)
+    add_description_logo(description_row, project, soup)
 
 
-def add_desctiption_logo(parent, project, soup):
+def add_description_logo(parent, project, soup):
     description_icon_div = soup.new_tag('div')
     description_icon_div['class'] = 'col-xs-3 text-center'
     icon = soup.new_tag('i')

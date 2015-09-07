@@ -8,7 +8,8 @@
       "repo-name": "",
       "article": "#",
       "tspr": 0,
-      "docs": "#"
+      "docs": "#",
+      "history": []
   },
   {
       "id": 2,
@@ -19,7 +20,8 @@
       "repo-name": "",
       "article": "#",
       "tspr": 0,
-      "docs": "#"
+      "docs": "#",
+      "history": []
   },
   {
       "id": 6,
@@ -30,7 +32,8 @@
       "repo-name": "solarized-gist",
       "article": "#",
       "tspr": 0,
-      "docs": "#"
+      "docs": "#",
+      "history": []
   },
   {
       "id": 7,
@@ -41,7 +44,16 @@
       "repo-name": "matlab-library-system",
       "article": "#",
       "tspr": 1,
-      "docs": "#"
+      "docs": "#",
+      "history": [
+                    "2015-08-21: v2.2.0 released. New versioning started.",
+                    "2015-06-17: v2.1 released", 
+                    "2015-06-17: v2.0 released",
+                    "2014-10-02: v1.1.1 released",
+                    "2014-10-01: v1.1.0 released",
+                    "2014-09-30: First release v1.0.0",
+                    "2014-07-12: Project created"
+                 ]
   },
   {
       "id": 8,
@@ -52,7 +64,8 @@
       "repo-name": "simple-input-parser",
       "article": "#",
       "tspr": 2,
-      "docs": "#"
+      "docs": "#",
+      "history": []
   },
   {
       "id": 9,
@@ -63,7 +76,8 @@
       "repo-name": "smart-sinusoids",
       "article": "#",
       "tspr": 3,
-      "docs": "#"
+      "docs": "#",
+      "history": []
   },
   {
       "id": 10,
@@ -74,7 +88,8 @@
       "repo-name": "",
       "article": "#",
       "tspr": 0,
-      "docs": "#"
+      "docs": "#",
+      "history": []
   },
   {
       "id": 12,
@@ -85,7 +100,8 @@
       "repo-name": "",
       "article": "#",
       "tspr": 0,
-      "docs": "#"
+      "docs": "#",
+      "history": []
   },
   {
       "id": 13,
@@ -96,7 +112,8 @@
       "repo-name": "",
       "article": "#",
       "tspr": 0,
-      "docs": "#"
+      "docs": "#",
+      "history": []
   },
   {
       "id": 19,
@@ -107,7 +124,8 @@
       "repo-name": "java-shooter-game",
       "article": "#",
       "tspr": 0,
-      "docs": "#"
+      "docs": "#",
+      "history": []
   },
   {
       "id": 20,
@@ -118,7 +136,8 @@
       "repo-name": "slotcar-race",
       "article": "#",
       "tspr": 0,
-      "docs": "#"
+      "docs": "#",
+      "history": []
   },
   {
       "id": 21,
@@ -129,6 +148,7 @@
       "repo-name": "",
       "article": "#",
       "tspr": 0,
-      "docs": "#"
+      "docs": "#",
+      "history": []
   }
 ]
