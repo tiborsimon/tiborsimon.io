@@ -451,12 +451,13 @@ def add_modal_body(modal_content_div, project, soup):
 def add_history(parent, project, soup):
     if not project['history']:
         return
+    print('History is rendering..')
     parent.append('<h4>Project history</h4>')
     well = soup.new_tag('div')
     well['class'] = 'well well-sm'
     well['style'] = 'margin-bottom: 0 !important; font-size: 70%'
     for h in project['history']:
-        well.append(h + '<br />')
+        well.append('<p style="margin: 0">' + h + '</p>')
     parent.append(well)
 
 
