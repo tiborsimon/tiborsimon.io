@@ -10,7 +10,7 @@ click==5.1                # via pip-tools
 docutils==0.12            # via pelican
 feedgenerator==1.7        # via pelican
 first==2.0.1              # via pip-tools
-htmlmin==0.1.6            # via pelican-minify
+htmlmin==0.1.7            # via pelican-minify
 hurry.filesize==0.9
 jinja2==2.8               # via pelican
 markdown==2.6.2
@@ -27,4 +27,4 @@ unidecode==0.4.18         # via pelican
 
 # The following packages are commented out because they are
 # considered to be unsafe in a requirements file:
-# setuptools==18.2          # via hurry.filesize
+# setuptools==18.3.1        # via hurry.filesize
