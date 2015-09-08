@@ -34,10 +34,10 @@
       "tspr": 0,
       "docs": "#",
       "history": [
-                    "2015-06-10: v1.2 released",
-                    "2015-06-09: v1.1 released",
-                    "2015-05-28: First release v1.0",
-                    "2015-05-20: Project created"
+                    "2015-06-10 - v1.2 released",
+                    "2015-06-09 - v1.1 released",
+                    "2015-05-28 - First release v1.0",
+                    "2015-05-20 - Project created"
                  ]
   },
   {
@@ -51,13 +51,13 @@
       "tspr": 1,
       "docs": "#",
       "history": [
-                    "2015-08-21: v2.2.0 released, new versioning started",
-                    "2015-06-17: v2.1 released", 
-                    "2015-06-17: v2.0 released",
-                    "2014-10-02: v1.1.1 released",
-                    "2014-10-01: v1.1.0 released",
-                    "2014-09-30: First release v1.0.0",
-                    "2014-07-12: Project created"
+                    "2015-08-21 - v2.2.0 released, new versioning started",
+                    "2015-06-17 - v2.1 released", 
+                    "2015-06-17 - v2.0 released",
+                    "2014-10-02 - v1.1.1 released",
+                    "2014-10-01 - v1.1.0 released",
+                    "2014-09-30 - First release v1.0.0",
+                    "2014-07-12 - Project created"
                  ]
   },
   {
@@ -71,13 +71,13 @@
       "tspr": 2,
       "docs": "#",
       "history": [
-                    "2015-08-21: v1.4.1 released",
-                    "2015-08-21: v1.4.0 released, new versioning started", 
-                    "2015-06-17: v1.3 released",
-                    "2015-05-30: v1.2 released, extra flags mode added",
-                    "2015-05-29: v1.1 released",
-                    "2015-05-02: First release v1.0",
-                    "2015-04-27: Project created"
+                    "2015-08-21 - v1.4.1 released",
+                    "2015-08-21 - v1.4.0 released, new versioning started", 
+                    "2015-06-17 - v1.3 released",
+                    "2015-05-30 - v1.2 released, extra flags mode added",
+                    "2015-05-29 - v1.1 released",
+                    "2015-05-02 - First release v1.0",
+                    "2015-04-27 - Project created"
                  ]
   },
   {
@@ -91,10 +91,10 @@
       "tspr": 3,
       "docs": "#",
       "history": [
-                    "2015-08-21: v1.2.0 released, new versioning started", 
-                    "2015-06-17: v1.1 released",
-                    "2015-06-15: First release v1.0",
-                    "2015-05-27: Project created"
+                    "2015-08-21 - v1.2.0 released, new versioning started", 
+                    "2015-06-17 - v1.1 released",
+                    "2015-06-15 - First release v1.0",
+                    "2015-05-27 - Project created"
                  ]
   },
   {
@@ -108,7 +108,7 @@
       "tspr": 0,
       "docs": "#",
       "history": [
-                    "2015-07-08: Project created"
+                    "2015-07-08 - Project created"
                  ]
   },
   {
@@ -122,7 +122,7 @@
       "tspr": 0,
       "docs": "#",
       "history": [
-                    "2014-02-09: Project created"
+                    "2014-02-09 - Project created"
                  ]
   },
   {
@@ -136,7 +136,7 @@
       "tspr": 0,
       "docs": "#",
       "history": [
-                    "2015-01-04: Project created"
+                    "2015-01-04 - Project created"
                  ]
   },
   {
@@ -150,10 +150,10 @@
       "tspr": 0,
       "docs": "#",
       "history": [
-                    "2015-08-18: v1.4.0 released, new versioning started",
-                    "2015-06-06: v1.3 released",
-                    "2015-06-06: First release v1.0",
-                    "2013-08-19: Project created"
+                    "2015-08-18 - v1.4.0 released, new versioning started",
+                    "2015-06-06 - v1.3 released",
+                    "2015-06-06 - First release v1.0",
+                    "2013-08-19 - Project created"
                  ]
   },
   {
@@ -167,8 +167,8 @@
       "tspr": 0,
       "docs": "#",
       "history": [
-                    "2015-10-28: First release v1.0",
-                    "2013-10-27: Project created"
+                    "2015-10-28 - First release v1.0",
+                    "2013-10-27 - Project created"
                  ]
   },
   {
@@ -182,7 +182,7 @@
       "tspr": 0,
       "docs": "#",
       "history": [
-                    "2015-08-31: Project created"
+                    "2015-08-31 - Project created"
                  ]
   }
 ]
