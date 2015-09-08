@@ -1,13 +1,10 @@
-layout: post
-title: Redirect external links to new tab
+Title: Redirect external links to new tab
 Subtitle: Fix Markdown's lack of hyperlink targeting feature with javascript
-tags: jekyll, hack, javascript
-published: True
-share_buttons: True
+Tags: pelican, hack, javascript
 Date: 2015-05-17
 Modified: 
 
-As Jekyll uses Markdown to render it's contents, and Markdown doesn't support 
+As Pelican can use Markdown to render it's contents, and Markdown doesn't support 
 control over the hyperlink target attribute, you were forced to write your 
 external links and references manually. Or not? 
 <!-- PELICAN_END_SUMMARY --> 

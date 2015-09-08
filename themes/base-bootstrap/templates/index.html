@@ -3,7 +3,16 @@
 {% block canonical_rel %}<link rel="canonical" href="{{ SITEURL }}">{% endblock %}
 
 {% block content %}
-    {% include 'includes/article-list-module.html' %}
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-8">
+            {% include 'includes/article-list-module.html' %}
+        </div>
+        <div class="col-xs-6 col-md-4">
+            
+        </div>
+    </div>
+</div>
 {% endblock content %}
 
 {% block banner %}
