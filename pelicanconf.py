@@ -12,6 +12,7 @@ DISQUS_SITENAME = 'tiborsimon'
 TWITTER_USERNAME = 'tiborsimonio'
 
 PATH = 'content'
+RELATIVE_URLS = False
 
 TIMEZONE = 'Europe/Budapest'
 
@@ -75,9 +76,6 @@ MENUITEMS = [
 	['About', 'about']
 ]
 
-# Uncomment following line if you want document-relative URLs when developing
-#RELATIVE_URLS = True
-
 # T H E M E   S E T T I N G S -------------------------------------------------
 THEME = "themes/base-bootstrap"
 
@@ -91,8 +89,6 @@ BOOTSTRAP_NAVBAR_INVERSE = False
 # AVATAR = 'images/tibor.png'
 
 HIDE_SIDEBAR = True
-
-GITHUB_USER = 'tiborsimon'
 
 SHOW_ARTICLE_CATEGORY = True
 SHOW_DATE_MODIFIED  = True

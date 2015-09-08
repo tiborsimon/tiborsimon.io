@@ -430,7 +430,7 @@ def add_modal_header(parent, project, soup):
     modal_header_div.append(upper_close_button)
     upper_close_button.append(soup.new_tag('span'))
     upper_close_button.span['aria-hidden'] = 'true'
-    upper_close_button.span.string = '&times;'
+    upper_close_button.span.string = '<i class="fa fa-times"></i>'
     modal_header_div.append(soup.new_tag('h4'))
     modal_header_div.h4['class'] = 'modal-title'
     modal_header_div.h4['id'] = 'myModalLabel'
@@ -448,10 +448,15 @@ def add_modal_body(modal_content_div, project, soup):
     add_modal_body_content(modal_body_div, project, soup)
 
 
+def add_modal_body_content(parent, project, soup):
+    add_description_row(parent, project, soup)
+    add_buttons(parent, project, soup, labels=True)
+    add_history(parent, project, soup)
+
+
 def add_history(parent, project, soup):
     if not project['history']:
         return
-    print('History is rendering..')
     parent.append('<h4>Project history</h4>')
     well = soup.new_tag('div')
     well['class'] = 'well well-sm'
@@ -459,12 +464,6 @@ def add_history(parent, project, soup):
     for h in project['history']:
         well.append('<p style="margin: 0">' + h + '</p>')
     parent.append(well)
-
-
-def add_modal_body_content(parent, project, soup):
-    add_description_row(parent, project, soup)
-    add_buttons(parent, project, soup, labels=True)
-    add_history(parent, project, soup)
 
 
 def add_description_row(parent, project, soup):

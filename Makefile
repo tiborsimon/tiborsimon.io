@@ -10,12 +10,12 @@ PUBLISHCONF=$(BASEDIR)/publishconf.py
 
 FTP_HOST=tiborsimon.io
 FTP_USER=tiborsim
-FTP_TARGET_DIR=/public_html
+FTP_TARGET_DIR=public_html
 
 SSH_HOST=tiborsimon.io
 SSH_PORT=22
 SSH_USER=tiborsim
-SSH_TARGET_DIR=/public_html
+SSH_TARGET_DIR=public_html
 
 S3_BUCKET=my_s3_bucket
 
@@ -107,7 +107,7 @@ dropbox_upload: publish
 	cp -r $(OUTPUTDIR)/* $(DROPBOX_DIR)
 
 ftp: publish
-	lftp ftp://$(FTP_USER)@$(FTP_HOST) -e "set ftp:ssl-allow no; mirror -R $(OUTPUTDIR) $(FTP_TARGET_DIR) ; quit"
+	lftp ftp://$(FTP_USER)@$(FTP_HOST) -e "set ftp:ssl-allow no; mirror -R $(OUTPUTDIR) $(FTP_TARGET_DIR) -p; quit"
 
 scp: publish
 	scp $(FTP_USER)@$(FTP_HOST) -e "set ftp:ssl-allow no; mirror -R $(OUTPUTDIR) $(FTP_TARGET_DIR) ; quit"

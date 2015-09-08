@@ -2,8 +2,8 @@
    <div class="container{% if BOOTSTRAP_FLUID %}-fluid{% endif %}">
       <hr>
       <div class="row">
-         <div class="col-xs-6">&copy; <span class="ts-current-year"></span> {{ AUTHOR }}
-            &middot; Powered by <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+         <div class="col-xs-6"><i class="fa fa-copyright"></i> <span class="ts-current-year"></span> {{ AUTHOR }}
+            - Powered by <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>
             {%- if CC_LICENSE or CC_LICENSE_DERIVATIVES or CC_LICENSE_COMMERCIAL %}
               {% from 'includes/cc-license.html' import cc_license_mark %}
