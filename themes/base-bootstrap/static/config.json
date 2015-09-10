@@ -383,7 +383,6 @@
   "css": [
     "print.less",
     "type.less",
-    "code.less",
     "grid.less",
     "tables.less",
     "forms.less",
@@ -430,5 +429,5 @@
     "scrollspy.js",
     "transition.js"
   ],
-  "customizerUrl": "http://getbootstrap.com/customize/?id=5229f5962ecdbe7b1bd3"
+  "customizerUrl": "http://getbootstrap.com/customize/?id=7487209f9f649d17640f"
 }

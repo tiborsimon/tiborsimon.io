@@ -1,13 +1,13 @@
 {% if articles %}
-    <h1><i class="fa fa-newspaper-o"></i> Latest articles</h1>
+    <h3 style="margin-top: 0"><small>Latest articles</small></h3>
     <hr style="margin-bottom: 3px; margin-top: -8px" />
     {% for article in (articles_page.object_list if articles_page else articles) %}
-        <article style="margin-left: 6px">
-            <h3><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a> 
+        <article>
+            <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a> 
                 {% if article.series %}
                     <small style="font-size: 50%">Part {{ article.series.index }} of the <i>{{ article.series.name }}</i> series</small>
                 {% endif %}
-            </h3>
+            </h2>
             <hr style="margin-bottom: 3px; margin-top: -8px" />
             <small class="row" style="margin: 0 !important">
                 <div class="col-xs-5" style="padding: 0 4px !important">
