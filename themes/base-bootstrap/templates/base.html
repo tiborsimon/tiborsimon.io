@@ -85,6 +85,9 @@
 
 </head>
 <body>
+<div class="modals">
+    {% include 'includes/search-modal.html' %}
+</div>
 <div class="headline">
 {% block navbar %}
 <div class="navbar navbar-default navbar-static-top" role="navigation">
@@ -133,7 +136,9 @@
 {% block headline %}
 {% include 'includes/headline.html' %}
 {% endblock %}
-</div>
+</div><!-- /.headline -->
+
+<div class="site-content">
 
 <!-- Banner -->
 {% if BANNER and BANNER_ALL_PAGES %}
@@ -150,8 +155,6 @@
 {% endblock %}
 
 {% include 'includes/footer.html' %}
-
-{% include 'includes/search-modal.html' %}
 
 <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.min.js"></script>
 
@@ -174,5 +177,7 @@
 {% include 'includes/piwik.html' %}
 
 {% block scripts %}{% endblock %}
+
+</div>
 </body>
 </html>

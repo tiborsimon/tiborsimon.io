@@ -4,14 +4,15 @@ from bs4 import BeautifulSoup
 import os
 
 
-TEMPLATE = '''
+BUTTON_TEMPLATE = '''
 <!-- Button trigger modal -->
 <div class="well">
 <p class="text-center lead">{}</p>
 <button type="button" class="btn btn-primary btn-block btn-lg" data-toggle="modal" data-target="#donation-modal">Donate</button>
 </div>
+'''
 
-
+MODAL_TEMPLATE = '''
 <!-- Modal -->
 <div class="modal fade" id="donation-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog modal-sm" role="document">
@@ -39,9 +40,12 @@ def render_donation(pelican):
             if name.endswith('html'):
                 filepath = os.path.join(dirpath, name)
                 soup = BeautifulSoup(open(filepath), 'html.parser')
+                for m in soup.find_all('div', class_='modals'):
+                    modal_div = m
                 for donation_div in soup.find_all('div', class_='donation'):
                     text = donation_div.string
-                    donation_div.string = TEMPLATE.format(text)
+                    donation_div.string = BUTTON_TEMPLATE.format(text)
+                    modal_div.append(MODAL_TEMPLATE)
                     with open(filepath, 'w') as f:
                         f.write(soup.prettify(formatter=None))
 

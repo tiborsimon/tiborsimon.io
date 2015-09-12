@@ -1,6 +1,7 @@
 from pelican import signals
 from bs4 import BeautifulSoup
 from hurry.filesize import size
+import os
 
 from tiborsimonio import Store
 
@@ -8,17 +9,24 @@ Store.project_file = 'tspr.json'
 store = Store.load()
 
 
-def render(instance):
-    if instance._content is not None:
-        content = instance._content
-        soup = BeautifulSoup(content, 'html.parser')
-        render_worklog_page(soup)
-        reder_project_page(soup)
-        instance._content = soup.prettify(formatter=None)
+def render(pelican):
+    pass
+    print('Rendering donations..')
+    path = pelican.settings['OUTPUT_PATH'] + '/log/index.html'
+    soup = BeautifulSoup(open(path), 'html.parser')
+    render_worklog_page(soup)
+    with open(path, 'w') as f:
+        f.write(soup.prettify(formatter=None))
+
+    path = pelican.settings['OUTPUT_PATH'] + '/projects/index.html'
+    soup = BeautifulSoup(open(path), 'html.parser')
+    render_project_page(soup)
+    with open(path, 'w') as f:
+        f.write(soup.prettify(formatter=None))
 
 
 def register():
-    signals.content_object_init.connect(render)
+    signals.finalized.connect(render)
 
 
 # =============================================================================
@@ -287,9 +295,15 @@ def add_badge(parent, project, soup):
 
 # =============================================================================
 #    P R O J E C T   P R O C E S S O R
-def reder_project_page(soup):
+def render_project_page(soup):
+    render_modals(soup)
     render_tspr_projects(soup)
     render_all_project(soup)
+
+def render_modals(soup):
+    for modal_div in soup.find_all('div', class_='modals'):
+        for project in store.projects:
+            add_modal(modal_div, project, soup)
 
 
 def render_all_project(soup):
@@ -298,7 +312,6 @@ def render_all_project(soup):
         for project in store.projects:
             project['project-title'] = 'PR{:06}'.format(project['id'])
             add_pr_project(all_projects_div, project, soup)
-            add_modal(all_projects_div, project, soup)
 
 
 def add_pr_project(parent, project, soup):
@@ -370,8 +383,7 @@ def add_project_icon(parent, project, soup):
         badge['class'] = 'fa fa-2x fa-cog fa-spin'
     elif project['state'] == 'released':
         if project['tspr'] > 0:
-            badge_abbr['title'] = 'TSPR{:04}. Released. Latest version: {}'.format(project['tspr'],
-                                                                                           project['version'])
+            badge_abbr['title'] = 'TSPR{:04}. Released. Latest version: {}'.format(project['tspr'], project['version'])
             badge['class'] = 'fa fa-2x fa-star'
         else:
             badge_abbr['title'] = 'Released. Latest version: {}'.format(project['version'])
@@ -404,7 +416,7 @@ def create_modal_content_div(parent, project, soup):
     if project['tspr'] > 0:
         modal_fade_div['id'] = 'TSPR{:04}'.format(project['tspr'])
     else:
-        modal_fade_div['id'] = project['project-title']
+        modal_fade_div['id'] = 'PR{:06}'.format(project['id'])
     modal_fade_div['tabIndex'] = '-1'
     modal_fade_div['role'] = 'dialog'
     modal_fade_div['aria-labelledby'] = 'myModalLabel'
@@ -435,10 +447,9 @@ def add_modal_header(parent, project, soup):
     modal_header_div.h4['class'] = 'modal-title'
     modal_header_div.h4['id'] = 'myModalLabel'
     if project['tspr'] > 0:
-        modal_header_div.h4.string = 'TSPR{:04} <small>'.format(project['tspr']) + project[
-            'project-title'] + '</small> - ' + project['title']
+        modal_header_div.h4.string = 'TSPR{:04} <small>'.format(project['tspr']) + 'PR{:06}'.format(project['id']) + '</small> - ' + project['title']
     else:
-        modal_header_div.h4.string = project['project-title'] + ' - ' + project['title']
+        modal_header_div.h4.string = 'PR{:06}'.format(project['id']) + ' - ' + project['title']
 
 
 def add_modal_body(modal_content_div, project, soup):
