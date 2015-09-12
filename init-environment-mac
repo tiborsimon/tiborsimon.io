@@ -5,3 +5,4 @@ source site-env/bin/activate
 pip install pip-tools
 pip-compile
 pip-sync
+source site-env/bin/activate

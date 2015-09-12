@@ -1,0 +1,297 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"ba",
+				"background-image"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": ".gitignore",
+			"settings":
+			{
+				"buffer_size": 108,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "themes/base-bootstrap/static/css/custom.css",
+			"settings":
+			{
+				"buffer_size": 6537,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "pelicanconf.py",
+			"settings":
+			{
+				"buffer_size": 2148,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/tibor/Repos/tiborsimon.io",
+		"/Users/tibor/Repos/tiborsimon.io/content/images",
+		"/Users/tibor/Repos/tiborsimon.io/output",
+		"/Users/tibor/Repos/tiborsimon.io/themes/base-bootstrap",
+		"/Users/tibor/Repos/tiborsimon.io/themes/base-bootstrap/static",
+		"/Users/tibor/Repos/tiborsimon.io/themes/base-bootstrap/static/css"
+	],
+	"file_history":
+	[
+		"/Users/tibor/Repos/tiborsimon.io/init-environment-mac",
+		"/Users/tibor/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"26"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": ".gitignore",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 108,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								107,
+								107
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "themes/base-bootstrap/static/css/custom.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6537,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3773,
+								3773
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 193.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "pelicanconf.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2148,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1558,
+								1558
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 423.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"file": "output/images/engineering-wallpaper-hd2.jpg",
+					"semi_transient": true,
+					"stack_index": 1,
+					"type": "image"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/Makefile/Make.sublime-build",
+	"project": "tiborsimon.io.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 288.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

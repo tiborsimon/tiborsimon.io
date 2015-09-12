@@ -61,7 +61,7 @@ PLUGINS = ['tspr', 'summary', 'series', 'donation', 'bootstrapify']
 # SITELOGO = 'images/tiborsimon-logo-300.png'
 # HIDE_SITENAME = True
 
-STATIC_PATHS = ['extras']
+STATIC_PATHS = ['extras', 'images']
 
 PDF_PROCESSOR = True
 
