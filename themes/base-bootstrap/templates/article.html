@@ -54,7 +54,7 @@
 {% block content %}
 <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-md-9">
+      <div class="col-sm-12 col-md-8">
       <section id="content">
         {% include "includes/article_info.html" %}
         <hr />
@@ -62,37 +62,30 @@
               <div class="entry-content">
                   {{ article.content }}
               </div>
-              <hr />
-              {% include 'includes/series.html' %}
-              {% include 'includes/related-posts.html' %}
-              {% include 'includes/addthis.html' %}
-              <div class="donation">Did you like this article? Was this information useful for you?</div>
-              {% include 'includes/comments.html' %}
+              <div class="visible-xs-block visible-sm-block">
+                {% include 'includes/series.html' %}
+                {% include 'includes/related-posts.html' %}
+                {% include 'includes/addthis.html' %}
+                <div class="donation">Did you like this article? Was this information useful for you?</div>
+                {% include 'includes/comments.html' %}
+              </div>
+              <div class="visible-md-block visible-lg-block" id="faded-irrelevant-under-content">
+                {% include 'includes/series.html' %}
+                {% include 'includes/related-posts.html' %}
+                {% include 'includes/addthis.html' %}
+                <div class="donation">Did you like this article? Was this information useful for you?</div>
+                {% include 'includes/comments.html' %}
+              </div>
           </article>
       </section>
     </div>
-    <div class="col-xs-12 col-md-3">
-      <div class="list-group" style="overflow: hidden">
-      <a class="list-group-item" data-target="#PR000001" data-toggle="modal" href="#">
-       <div class="text-center" style="margin: 10px">
-        <abbr style="border: none !important" title="Work in progress">
-         <i class="fa fa-2x fa-cog fa-spin">
-         </i>
-        </abbr>
-       </div>
-       <h4 class="list-group-item-heading text-center">
-        PR000001
-       </h4>
-       <h5 class="list-group-item-heading text-center hidden-xs" style="white-space: nowrap">
-        Project management
-       </h5>
-       <h6 class="list-group-item-heading text-center visible-xs-block" style="white-space: nowrap">
-        Project management
-       </h6>
-      </a>
-     </div>
-
-      {% include 'includes/sidebar.html' %}
+    <div class="col-sm-12 col-md-4">
+      <div class="visible-xs-block visible-sm-block">
+        {% include 'includes/sidebar.html' %}
+      </div>
+      <div class="visible-md-block visible-lg-block" id="faded-irrelevant-sidebar">
+        {% include 'includes/sidebar.html' %}
+      </div>
     </div>
     </div><!-- div class="row"-->
 </div>

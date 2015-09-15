@@ -6,6 +6,7 @@ body {
   background-size: 100% auto;
   background-repeat: repeat-y;
   background-attachment: fixed;
+  color: #555;
 }
 
 .headline {
@@ -21,13 +22,10 @@ body {
 
 .navbar {
     margin-bottom: 0px !important;
-    color: #fff !important;
-    background-color: transparent !important;
-    border: none;
 }
 
 .headline .jumbotron {
-    padding-top: 18px;
+    padding-top: 12px;
     background-color: transparent;
     height: 184px;
     margin-bottom: 0px
@@ -40,6 +38,7 @@ body {
 
 .headline .jumbotron p {
     color: #333;
+    font-weight: 400;
 }
 
 .headline .jumbotron.main-page {
@@ -54,6 +53,32 @@ body {
 a.navbar-brand {
     font-weight: 700;
 }
+
+#faded-irrelevant-under-content {
+  opacity: 0.1;
+  -webkit-transition: opacity 0.3s; /* For Safari 3.1 to 6.0 */
+  transition: opacity 0.3s;
+}
+
+#faded-irrelevant-under-content:hover ~ #faded-irrelevant-sidebar {
+  opacity: 1;
+  -webkit-transition: opacity 0.3s; /* For Safari 3.1 to 6.0 */
+  transition: opacity 0.3s;
+}
+
+#faded-irrelevant-sidebar {
+  opacity: 0.1;
+  -webkit-transition: opacity 0.3s; /* For Safari 3.1 to 6.0 */
+  transition: opacity 0.3s;
+}
+
+#faded-irrelevant-sidebar:hover ~ #faded-irrelevant-under-content {
+  opacity: 1;
+  -webkit-transition: opacity 0.3s; /* For Safari 3.1 to 6.0 */
+  transition: opacity 0.3s;
+}
+
+
 
 
 /* Panel with nav tabs */
