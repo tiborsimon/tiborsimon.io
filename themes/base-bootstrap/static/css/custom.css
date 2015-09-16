@@ -54,29 +54,25 @@ a.navbar-brand {
     font-weight: 700;
 }
 
-#faded-irrelevant-under-content {
+.irrelevant-content {
   opacity: 0.1;
-  -webkit-transition: opacity 0.3s; /* For Safari 3.1 to 6.0 */
   transition: opacity 0.3s;
 }
 
-#faded-irrelevant-under-content:hover ~ #faded-irrelevant-sidebar {
+.irrelevant-toggle {
+  text-align: right;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+  margin-bottom: 10px;
+}
+
+.irrelevant-toggle:hover {
   opacity: 1;
-  -webkit-transition: opacity 0.3s; /* For Safari 3.1 to 6.0 */
-  transition: opacity 0.3s;
 }
 
-#faded-irrelevant-sidebar {
-  opacity: 0.1;
-  -webkit-transition: opacity 0.3s; /* For Safari 3.1 to 6.0 */
+/*.irrelevant {
   transition: opacity 0.3s;
-}
-
-#faded-irrelevant-sidebar:hover ~ #faded-irrelevant-under-content {
-  opacity: 1;
-  -webkit-transition: opacity 0.3s; /* For Safari 3.1 to 6.0 */
-  transition: opacity 0.3s;
-}
+}*/
 
 
 

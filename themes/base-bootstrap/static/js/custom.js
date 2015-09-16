@@ -19,3 +19,34 @@ $('a').each(function() {
    }
 });
 
+$(function () {
+  if ($.cookie('irrelevant-off')) {
+    $("#irrelevant-on-btn").prop('checked', false);
+    $("#irrelevant-off-btn").prop('checked', true);
+    $("#irrelevant-on-btn").parent().removeClass('active');
+    $("#irrelevant-off-btn").parent().addClass('active');
+    $(".irrelevant").css("opacity", "1");
+    $(".irrelevant").removeClass("irrelevant-content");
+  };
+})
+
+// Irrelevant fading
+$(".irrelevant-content").mouseenter(function(){
+    $(".irrelevant-content").css("opacity", "1");
+});
+$(".irrelevant-content").mouseleave(function(){
+    $(".irrelevant-content").css("opacity", "0.1");
+});
+
+$("#irrelevant-on-btn").change(function () {
+  $.removeCookie('irrelevant-off', { expires: 20, path: '/' });
+  $(".irrelevant").css("opacity", "0.1");
+  $(".irrelevant").addClass("irrelevant-content");
+});
+
+$("#irrelevant-off-btn").change(function () {
+  $.cookie('irrelevant-off', '1', { expires: 20, path: '/' });
+  $(".irrelevant-content").css("opacity", "1");
+  $(".irrelevant").removeClass("irrelevant-content");
+});
+
