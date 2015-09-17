@@ -54,19 +54,23 @@ a.navbar-brand {
     font-weight: 700;
 }
 
-.irrelevant-content {
+.irrelevant-fade {
   opacity: 0.1;
   transition: opacity 0.3s;
 }
 
-.irrelevant-toggle {
+.irrelevant-fade:hover {
+  opacity: 1;
+}
+
+#irrelevant-toggle {
   text-align: right;
   opacity: 0.5;
   transition: opacity 0.3s;
   margin-bottom: 10px;
 }
 
-.irrelevant-toggle:hover {
+#irrelevant-toggle:hover {
   opacity: 1;
 }
 
