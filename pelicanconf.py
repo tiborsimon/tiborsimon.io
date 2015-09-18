@@ -55,7 +55,7 @@ SOCIAL = (('You can add links in your config file', '#'),
 DEFAULT_PAGINATION = 8
 
 PLUGIN_PATHS = ['plugins']
-PLUGINS = ['tspr', 'summary', 'series', 'donation', 'bootstrapify']
+PLUGINS = ['tspr', 'summary', 'series', 'json-search-system', 'donation', 'bootstrapify']
 #PLUGINS = ['tspr', 'summary', 'json-search-system', 'bootstrapify']
 
 # SITELOGO = 'images/tiborsimon-logo-300.png'

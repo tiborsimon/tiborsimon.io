@@ -324,6 +324,7 @@ def add_pr_project(parent, project, soup):
 def create_list_group_item(parent, project, soup):
     col_div = soup.new_tag('div')
     col_div['class'] = 'col-xs-6 col-sm-4 col-md-3'
+    col_div['id'] = 'PR{:06}'.format(project['id'])
     parent.append(col_div)
     list_group_div = soup.new_tag('div')
     list_group_div['class'] = 'list-group'
@@ -335,7 +336,7 @@ def create_list_group_item(parent, project, soup):
         list_group_item['class'] = 'list-group-item'
         list_group_item['data-toggle'] = 'modal'
         if project['tspr'] > 0:
-            list_group_item['data-target'] = '#TSPR{:04}'.format(project['tspr'])
+            list_group_item['data-target'] = '#TSPR{:04}-modal'.format(project['tspr'])
         else:
             list_group_item['data-target'] = '#' + project['project-title']
     else:
@@ -414,9 +415,9 @@ def create_modal_content_div(parent, project, soup):
     modal_fade_div = soup.new_tag('div')
     modal_fade_div['class'] = 'modal fade'
     if project['tspr'] > 0:
-        modal_fade_div['id'] = 'TSPR{:04}'.format(project['tspr'])
+        modal_fade_div['id'] = 'TSPR{:04}-modal'.format(project['tspr'])
     else:
-        modal_fade_div['id'] = 'PR{:06}'.format(project['id'])
+        modal_fade_div['id'] = 'PR{:06}-modal'.format(project['id'])
     modal_fade_div['tabIndex'] = '-1'
     modal_fade_div['role'] = 'dialog'
     modal_fade_div['aria-labelledby'] = 'myModalLabel'
@@ -544,6 +545,7 @@ def create_tspr_list_group_item(parent, project, soup):
     col_div = soup.new_tag('div')
     parent.append(col_div)
     col_div['class'] = 'col-xs-12 col-sm-6 col-md-4'
+    col_div['id'] = '#TSPR{:04}'.format(project['tspr'])
     list_group_div = soup.new_tag('div')
     list_group_div['class'] = 'list-group'
     list_group_div['style'] = 'overflow: hidden'
@@ -553,7 +555,7 @@ def create_tspr_list_group_item(parent, project, soup):
         list_group_item['href'] = '#'
         list_group_item['class'] = 'list-group-item'
         list_group_item['data-toggle'] = 'modal'
-        list_group_item['data-target'] = '#TSPR{:04}'.format(project['tspr'])
+        list_group_item['data-target'] = '#TSPR{:04}-modal'.format(project['tspr'])
     else:
         list_group_item = soup.new_tag('div')
         list_group_item['class'] = 'list-group-item disabled'

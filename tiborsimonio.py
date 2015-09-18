@@ -8,6 +8,36 @@ import datetime
 
 from pprint import pprint, pformat
 
+"""
+TSPR Project link
+
+project {
+    id,
+    title,
+    description,
+    tags,
+    state,
+    repo-name,
+    article,
+    tspr,
+    docs,
+    history,
+    --- RELEASED ---
+    repo-url,
+    source-link,
+    version,
+    published-at,
+    assets {
+        url,
+        download-url,
+        file-name,
+        size,
+        download-count,
+        updated-at
+    }
+}
+"""
+
 class Store(object):
     storage_file = 'tspr-store.pickle'
     project_file = '../../tspr.json'
