@@ -73,8 +73,7 @@ MENUITEMS = [
     ['Home', ''],
 	['Projects', 'projects'],
 	['Log', 'log'],
-	['Running', 'running'],
-	['About', 'about']
+	['Running', 'running']
 ]
 
 # T H E M E   S E T T I N G S -------------------------------------------------

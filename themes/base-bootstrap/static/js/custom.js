@@ -64,7 +64,7 @@ function turn_off_fading() {
   $("#irrelevant-off-btn").prop('checked', true);
   $("#irrelevant-on-btn").parent().removeClass('active');
   $("#irrelevant-off-btn").parent().addClass('active');
-  
+
   $(".irrelevant").removeClass("irrelevant-fade");
 }
 
@@ -99,5 +99,35 @@ $("#irrelevant-on-btn").change(function () {
 $("#irrelevant-off-btn").change(function () {
   $.removeCookie(cookie_name, { expires: cookie_expires, path: '/' });
   process_fading();
+});
+
+
+
+ // ----------------------------------------------------------------------------
+// About page
+var about_state = 0;
+
+function about_activate() {
+  $('.site-content').css('opacity', '0');
+  //$('.site-content').css('top', '200px');
+}
+
+function about_deactivate() {
+  $('.site-content').css('opacity', '1');
+  //$('.site-content').css('top', '0');
+}
+
+function toggle_about() {
+    if (about_state) {
+        about_deactivate();
+    about_state = 0;
+    } else {
+        about_activate();
+    about_state = 1;
+    }
+}
+
+$('#about-trigger').click(function() {
+      toggle_about();
 });
 

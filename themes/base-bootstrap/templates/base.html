@@ -116,13 +116,7 @@
                           </a></li>
                       {% endfor %}
                 {% endif %}
-                {% if DISPLAY_CATEGORIES_ON_MENU %}
-                    {% for cat, null in categories %}
-                        <li {% if cat == category %}class="active"{% endif %}>
-                            <a href="{{ SITEURL }}/{{ cat.url }}">{{ cat | capitalize }}</a>
-                        </li>
-                    {% endfor %}
-                {% endif %}
+                <li><a href="#" id="about-trigger">About</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="#" data-toggle="modal" data-target="#search-modal"><span class="glyphicon glyphicon-search" aria-hidden="true"></span><span class="visible-xs-inline"> Search</span></a></li>
@@ -137,6 +131,10 @@
 {% include 'includes/headline.html' %}
 {% endblock %}
 </div><!-- /.headline -->
+
+{% block about %}
+
+{% endblock %}
 
 <div class="site-content">
 
