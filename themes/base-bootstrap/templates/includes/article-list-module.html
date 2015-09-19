@@ -1,47 +1,15 @@
 {% if articles %}
-    <h3 style="margin-top: 0"><small>Latest articles</small></h3>
-    <hr style="margin-bottom: 3px; margin-top: -8px" />
+  <h4  class="text-center" style="margin-top: 0"><small>Latest articles</small></h4>
+  <div class="container">
+    <div class="row masonry-container">
     {% for article in (articles_page.object_list if articles_page else articles) %}
-        <article>
-            <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a> 
-                {% if article.series %}
-                    <small style="font-size: 50%">Part {{ article.series.index }} of the <i>{{ article.series.name }}</i> series</small>
-                {% endif %}
-            </h2>
-            <hr style="margin-bottom: 3px; margin-top: -8px" />
-            <small class="row" style="margin: 0 !important">
-                <div class="col-xs-5" style="padding: 0 4px !important">
-                    <i class="fa fa-clock-o"></i> Posted on <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
-                </div>
-                <div class="col-xs-7">
-                    <div class="pull-right">
-                        <!-- CATEGORY -->
-                        <i class="fa fa-folder-open-o"></i>
-                        <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
-
-                        <!-- TAGS -->
-                        {% if article.tags %}
-                            <i class="fa fa-tags" style="margin-left: 16px"></i>
-                            {% for tag in article.tags %}
-                                <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}
-                            {% endfor %}
-                        {% endif %}
-
-                        {% if SHOW_SERIES %}
-                            {% if article.series %}
-                                <span class="label label-default">Series</span>
-                                Part {{ article.series.index}} of {{ article.series.name }}
-                            {% endif %}
-                        {% endif %}
-                        
-                    </div>
-                </div>
-            </small>
-            <div class="summary" style="margin-top: 6px">
-                {{ article.summary }}
-            </div>
-        </article>
+      <div class="col-xs-12 col-sm-6 col-md-6 article-listing">
+        {% include 'includes/article-panel.html' %}
+      </div>
     {% endfor %}
+    </div>
+  </div>
 {% endif %}
 
 {% include 'includes/pagination.html' %}
+

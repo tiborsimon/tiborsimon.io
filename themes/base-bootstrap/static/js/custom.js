@@ -101,3 +101,11 @@ $("#irrelevant-off-btn").change(function () {
   process_fading();
 });
 
+
+ // ----------------------------------------------------------------------------
+// Mansory - http://codepen.io/SitePoint/pen/mywEMR/
+$('.masonry-container').masonry({
+  itemSelector: '.article-listing',
+  columnWidth: '.article-listing'
+});
+

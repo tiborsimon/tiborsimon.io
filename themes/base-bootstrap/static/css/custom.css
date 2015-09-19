@@ -1,5 +1,7 @@
 /* body { padding-top: 70px; } */
 
+ /* --------------------------------------------------------------------------*/
+/* Headline and navbar settings */
 body {
   font-family: 'Lato', sans-serif;
   background-image: url('../../images/background2.jpg');
@@ -7,10 +9,6 @@ body {
   background-repeat: repeat-y;
   background-attachment: fixed;
   color: #555;
-}
-
-.headline {
-    
 }
 
 .site-content {
@@ -46,14 +44,17 @@ body {
     height: 260px;
 }
 
-/*a {
-    font-weight: 700;
-}*/
+.article-listing {
+  color: #333;
+}
 
 a.navbar-brand {
     font-weight: 700;
 }
 
+
+ /* --------------------------------------------------------------------------*/
+/* Irrelevant fader options */
 .irrelevant-fade {
   opacity: 0.1;
   transition: opacity 0.3s;
@@ -74,13 +75,41 @@ a.navbar-brand {
   opacity: 1;
 }
 
-/*.irrelevant {
-  transition: opacity 0.3s;
-}*/
+
+ /* --------------------------------------------------------------------------*/
+/* Article list replacement image placeholders */
+.replacement-img-div {
+  height: 70px;
+  background-color: #b9b9b9;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+}
+
+.replacement-img-div p {
+  font-size: 600%;
+  color: #999;
+  position: relative;
+  bottom: 33px;
+  left: 10px;
+  font-weight: 300;
+  text-align: right;
+}
 
 
+ /* --------------------------------------------------------------------------*/
+/* Article list hover actions */
+a.thumbnail {
+  transition: box-shadow 0.3s;
+}
+
+a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
+  border-color: #ddd;
+  box-shadow: 0 0 10px #c5c5c5;
+}
 
 
+ /* --------------------------------------------------------------------------*/
 /* Panel with nav tabs */
 .panel.with-nav-tabs .panel-heading{
     padding: 5px 5px 0 5px;
@@ -99,23 +128,9 @@ hr {
     border-top: 1px solid #eee;
 }
 
-/* Search results */
-/*.search-result-item:hover {
-    background-color: #337ab7 !important;
-    color: white !important;
-}
 
-.search-result-item:hover h4, p {
-    color: white !important;
-}
-
-.search-result-item:hover h4 small, p {
-    color: #c7ddef !important;
-}*/
-
-
+ /* --------------------------------------------------------------------------*/
 /* The ribbons */
-
 .corner-ribbon{
   width: 200px;
   background: #e43;
@@ -130,8 +145,6 @@ hr {
   -webkit-transform: rotate(-45deg);
 }
 
-/* Custom styles */
-
 .corner-ribbon.sticky{
   position: fixed;
 }
@@ -139,8 +152,6 @@ hr {
 .corner-ribbon.shadow{
   box-shadow: 0 0 3px rgba(0,0,0,.3);
 }
-
-/* Different positions */
 
 .corner-ribbon.top-left{
   top: 25px;
@@ -174,8 +185,6 @@ hr {
   -webkit-transform: rotate(-45deg);
 }
 
-/* Colors */
-
 .corner-ribbon.white{background: #f0f0f0; color: #555;}
 .corner-ribbon.black{background: #333;}
 .corner-ribbon.grey{background: #999;}
@@ -187,7 +196,6 @@ hr {
 .corner-ribbon.orange{background: #e82;}
 .corner-ribbon.yellow{background: #ec0;}
 
-/* Project version */
 .project-version-ribbon {
     width: 200px;
     position: absolute;

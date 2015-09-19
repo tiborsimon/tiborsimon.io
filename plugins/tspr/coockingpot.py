@@ -338,7 +338,7 @@ def create_list_group_item(parent, project, soup):
         if project['tspr'] > 0:
             list_group_item['data-target'] = '#TSPR{:04}-modal'.format(project['tspr'])
         else:
-            list_group_item['data-target'] = '#' + project['project-title']
+            list_group_item['data-target'] = '#' + project['project-title'] + '-modal'
     else:
         list_group_item = soup.new_tag('div')
         list_group_item['class'] = 'list-group-item disabled'

@@ -3,20 +3,7 @@
 {% block canonical_rel %}<link rel="canonical" href="{{ SITEURL }}">{% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col-xs-12 col-md-7">
-            {% include 'includes/article-list-module.html' %}
-            {% include 'includes/comments.html' %}
-        </div>
-        <div class="col-xs-6 col-md-5">
-          <a class="btn btn-default btn-lg btn-block" href="https://github.com/tiborsimon" role="button"><i class="fa fa-github fa-3x"></i></a>
-          <div class="well">
-          {% include 'includes/twitter_timeline.html' %}
-          </div>
-        </div>
-    </div>
-</div>
+    {% include 'includes/article-list-module.html' %}
 {% endblock content %}
 
 {% block banner %}
