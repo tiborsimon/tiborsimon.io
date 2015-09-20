@@ -6,7 +6,7 @@
       "tags": ["management"],
       "state": "in-progress",
       "repo-name": "",
-      "article": "#",
+      "article": "http://tiborsimon.io",
       "tspr": 0,
       "docs": "#",
       "history": []
@@ -18,7 +18,7 @@
       "tags": ["web", "Pelican", "Bootstrap"],
       "state": "in-progress",
       "repo-name": "",
-      "article": "#",
+      "article": "http://tiborsimon.io",
       "tspr": 0,
       "docs": "#",
       "history": [  
@@ -42,7 +42,7 @@
       "tags": ["web", "css"],
       "state": "released",
       "repo-name": "solarized-gist",
-      "article": "#",
+      "article": "http://tiborsimon.io",
       "tspr": 0,
       "docs": "#",
       "history": [
@@ -59,7 +59,7 @@
       "tags": ["matlab"],
       "state": "released",
       "repo-name": "matlab-library-system",
-      "article": "#",
+      "article": "http://tiborsimon.io",
       "tspr": 1,
       "docs": "#",
       "history": [
@@ -79,7 +79,7 @@
       "tags": ["matlab"],
       "state": "released",
       "repo-name": "simple-input-parser",
-      "article": "#",
+      "article": "http://tiborsimon.io",
       "tspr": 2,
       "docs": "#",
       "history": [
@@ -99,7 +99,7 @@
       "tags": ["matlab"],
       "state": "released",
       "repo-name": "smart-sinusoids",
-      "article": "#",
+      "article": "http://tiborsimon.io",
       "tspr": 3,
       "docs": "#",
       "history": [
@@ -116,7 +116,7 @@
       "tags": ["python", "tools"],
       "state": "in-progress",
       "repo-name": "replacer",
-      "article": "#",
+      "article": "http://tiborsimon.io",
       "tspr": 0,
       "docs": "#",
       "history": [
@@ -130,7 +130,7 @@
       "tags": ["electronics", "embedded"],
       "state": "in-progress",
       "repo-name": "",
-      "article": "#",
+      "article": "http://tiborsimon.io",
       "tspr": 0,
       "docs": "#",
       "history": [
@@ -144,7 +144,7 @@
       "tags": ["tools", "programming"],
       "state": "in-progress",
       "repo-name": "",
-      "article": "#",
+      "article": "http://tiborsimon.io",
       "tspr": 0,
       "docs": "#",
       "history": [
@@ -158,7 +158,7 @@
       "tags": ["programming", "java"],
       "state": "released",
       "repo-name": "java-shooter-game",
-      "article": "#",
+      "article": "http://tiborsimon.io",
       "tspr": 0,
       "docs": "#",
       "history": [
@@ -175,7 +175,7 @@
       "tags": ["programming", "embedded"],
       "state": "released",
       "repo-name": "slotcar-race",
-      "article": "#",
+      "article": "http://tiborsimon.io",
       "tspr": 0,
       "docs": "#",
       "history": [
@@ -190,7 +190,7 @@
       "tags": ["tools"],
       "state": "in-progress",
       "repo-name": "",
-      "article": "#",
+      "article": "http://tiborsimon.io",
       "tspr": 0,
       "docs": "#",
       "history": [

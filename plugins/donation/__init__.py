@@ -22,7 +22,7 @@ MODAL_TEMPLATE = '''
         <h4 class="modal-title" id="myModalLabel">Donation</h4>
       </div>
       <div class="modal-body">
-        <h1 style="text-align: center; font-size: 700%"><i class="fa fa-heart-o"></i></h1>
+        <div style="text-align: center; font-size: 700%"><i class="fa fa-heart-o"></i></div>
         <p>Thank you very much that you have decided to support my work with a small amount of donation!</p>
       </div>
       <div class="modal-footer">

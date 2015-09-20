@@ -20,16 +20,16 @@
     </small>
   {% endif %}
     <small class="col-xs-6">
-      <div class="text-right">
+      <span class="text-right">
         <i class="fa fa-folder-open-o"></i>
-        <span href="{{ SITEURL }}/{{ article.category.url }}" style="color: #333;">{{ article.category }}</span>
+        <span>{{ article.category }}</span>
         {% if article.tags %}
           <i class="fa fa-tags" style="margin-left: 5px"></i>
           {% for tag in article.tags %}
-            <span href="{{ SITEURL }}/{{ tag.url }}" style="color:#333">{{ tag }}</span>{% if not loop.last %}, {% endif %}
+            <span>{{ tag }}</span>{% if not loop.last %}, {% endif %}
           {% endfor %}
         {% endif %}
-      </div>
+      </span>
     </small>
   </div>
   <h3 class="list-group-item-heading">
@@ -38,6 +38,6 @@
       <small style="font-size: 50%">Part {{ article.series.index }} of the <i>{{ article.series.name }}</i> series</small>
     {% endif %}
   </h3>
-  <p class="list-group-item-text">{{ article.summary }}</p>
+  <div class="list-group-item-text">{{ article.summary }}</div>
 </div>
 </a>

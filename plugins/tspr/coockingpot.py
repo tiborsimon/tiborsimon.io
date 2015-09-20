@@ -147,12 +147,12 @@ def add_sharing_buttons(parent, project, soup, is_small=False):
         share_col.append('<div class="ssk-group" data-url="http://tiborsimon.io/projects/#{0}" data-title="{0} - {1}" data-text="Project by Tibor Simon.">'.format(p_id, project['title']))
 
     share_col.append('''
-            <a href="" class="ssk ssk-twitter"></a>
-            <a href="" class="ssk ssk-facebook"></a>
-            <a href="" class="ssk ssk-google-plus"></a>
-            <a href="" class="ssk ssk-vk"></a>
-            <a href="" class="ssk ssk-linkedin"></a>
-            <a href="" class="ssk ssk-email"></a>
+            <a class="ssk ssk-twitter"></a>
+            <a class="ssk ssk-facebook"></a>
+            <a class="ssk ssk-google-plus"></a>
+            <a class="ssk ssk-vk"></a>
+            <a class="ssk ssk-linkedin"></a>
+            <a class="ssk ssk-email"></a>
         ''')
 
     if is_small:
@@ -469,7 +469,6 @@ def create_modal_content_div(parent, project, soup):
         modal_fade_div['id'] = 'PR{:06}-modal'.format(project['id'])
     modal_fade_div['tabIndex'] = '-1'
     modal_fade_div['role'] = 'dialog'
-    modal_fade_div['aria-labelledby'] = 'myModalLabel'
     parent.append(modal_fade_div)
     modal_dialog_div = soup.new_tag('div')
     modal_dialog_div['class'] = 'modal-dialog'
@@ -495,7 +494,6 @@ def add_modal_header(parent, project, soup):
     upper_close_button.span.string = '<i class="fa fa-times"></i>'
     modal_header_div.append(soup.new_tag('h4'))
     modal_header_div.h4['class'] = 'modal-title'
-    modal_header_div.h4['id'] = 'myModalLabel'
     if project['tspr'] > 0:
         modal_header_div.h4.string = 'TSPR{:04} <small>'.format(project['tspr']) + 'PR{:06}'.format(project['id']) + '</small> - ' + project['title']
     else:
