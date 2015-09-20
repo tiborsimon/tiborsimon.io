@@ -8,10 +8,17 @@
 {% endif %}
 <div class="caption">
   <div class="row" style="opacity: 0.6">
+  {% if article.modified %}
+      <small class="col-xs-6">
+      <i class="fa fa-refresh" style="margin-right: 2px"></i> Modified on 
+      <time datetime="{{ article.modified.isoformat() }}"> {{ article.locale_modified }}</time>
+    </small>
+  {% else %}
     <small class="col-xs-6">
       <i class="fa fa-clock-o"></i> Posted on 
       <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
     </small>
+  {% endif %}
     <small class="col-xs-6">
       <div class="text-right">
         <i class="fa fa-folder-open-o"></i>

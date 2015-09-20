@@ -57,7 +57,7 @@
     <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap.min.css" type="text/css"/>
     <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/custom.css" type="text/css"/>
     <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/keys.css" type="text/css"/>
-    <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap-switch.min.css" rel="stylesheet type="text/css"">
+    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/social-share-kit.css" type="text/css">
 
     {% if FEED_ALL_ATOM %}
         <link href="{{ SITEURL }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate"
@@ -151,9 +151,6 @@
 {% block content %}
 {% endblock %}
 
-{% block sharing %}
-{% endblock %}
-
 {% include 'includes/footer.html' %}
 
 <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.min.js"></script>
@@ -163,12 +160,14 @@
 <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bootstrap-switch.min.js"></script>
 <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.cookie.js"></script>
 <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/masonry.pkgd.min.js"></script>
+<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/social-share-kit.min.js"></script>
 <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/custom.js"></script>
 
 <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
 <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/respond.min.js"></script>
 <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/json-search.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.2/gist-embed.min.js"></script>
+
 
 {% if BANNER %}
     <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bodypadding.js"></script>

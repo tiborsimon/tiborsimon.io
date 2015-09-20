@@ -3,9 +3,11 @@
 {% block canonical_rel %}<link rel="canonical" href="{{ SITEURL }}">{% endblock %}
 
 {% block content %}
-    {% include 'includes/article-list-module.html' %}
+  {% include 'includes/index-buttons.html' %}
+  {% include 'includes/article-list-module.html' %}
+  {% include 'includes/about-segment.html' %}
 {% endblock content %}
 
 {% block banner %}
-	{% include 'includes/banner.html' %}
+  {% include 'includes/banner.html' %}
 {% endblock %}

@@ -87,8 +87,14 @@ def add_buttons(parent, project, soup, labels=False):
     if project['state'] != 'released':
         return
 
-    button_p = soup.new_tag('p')
-    parent.append(button_p)
+    button_row = soup.new_tag('div')
+    button_row['class'] = 'row'
+    button_row['style'] = 'margin-top: 12px'
+    parent.append(button_row)
+
+    button_col = soup.new_tag('div')
+    button_col['class'] = 'col-xs-6'
+    button_row.append(button_col)
 
     button_div = soup.new_tag('div')
     if labels:
@@ -96,7 +102,7 @@ def add_buttons(parent, project, soup, labels=False):
     else:
         button_div['class'] = 'btn-group btn-group-xs'
     button_div['role'] = 'group'
-    button_p.append(button_div)
+    button_col.append(button_div)
 
     add_button(button_div, labels, project['article'], soup, 'fa fa-bookmark', 'Corresponding article')
     add_button(button_div, labels, project['discussion'], soup, 'fa fa-comments', 'Discussion')
@@ -122,6 +128,38 @@ def add_buttons(parent, project, soup, labels=False):
         temp_button['href'] = '#'
         button_div.append(temp_button)
         add_download_dropdown(button_div, project, soup)
+
+    if labels:
+        add_sharing_buttons(button_row, project, soup)
+
+
+def add_sharing_buttons(parent, project, soup, is_small=False):
+    p_id = 'PR{:06}'.format(project['id']) if project['tspr'] == 0 else 'TSPR{:04}'.format(project['tspr']) 
+    if is_small:
+        share_col = soup.new_tag('span')
+        share_col['class'] = 'text-right'
+        parent.append(share_col)
+        share_col.append('<span class="ssk-group ssk-xs" data-url="http://tiborsimon.io/projects/#{0}" data-title="{0} - {1}" data-text="Project by Tibor Simon.">'.format(p_id, project['title']))
+    else:
+        share_col = soup.new_tag('div')
+        share_col['class'] = 'col-xs-6 text-right'
+        parent.append(share_col)
+        share_col.append('<div class="ssk-group" data-url="http://tiborsimon.io/projects/#{0}" data-title="{0} - {1}" data-text="Project by Tibor Simon.">'.format(p_id, project['title']))
+
+    share_col.append('''
+            <a href="" class="ssk ssk-twitter"></a>
+            <a href="" class="ssk ssk-facebook"></a>
+            <a href="" class="ssk ssk-google-plus"></a>
+            <a href="" class="ssk ssk-vk"></a>
+            <a href="" class="ssk ssk-linkedin"></a>
+            <a href="" class="ssk ssk-email"></a>
+        ''')
+
+    if is_small:
+        share_col.append('</span>')
+    else:
+        share_col.append('</div>')
+            
 
 
 def add_button(parent, labels, project_data, soup, icon_class, tooltip_text):
@@ -233,6 +271,14 @@ def add_download_panel(parent, project, soup):
 
 def add_tag_field(parent, project, soup):
     tag_field = soup.new_tag('div')
+    if project['tspr'] > 0:
+        tag_field = soup.new_tag('div')
+        tag_span = soup.new_tag('span')
+        tag_span['class'] = 'label label-primary'
+        tag_span['style'] = 'margin-right: 4px'
+        tag_span.string = 'TSPR'
+        tag_field.append(tag_span)
+
     for tag in project['tags']:
         tag_span = soup.new_tag('span')
         tag_span['class'] = 'label label-default'
@@ -240,6 +286,9 @@ def add_tag_field(parent, project, soup):
         tag_span.string = tag
         tag_field.append(tag_span)
     parent.append(tag_field)
+
+    if project['state'] != 'released':
+        add_sharing_buttons(tag_field, project, soup, is_small=True)
 
 
 def add_panel_heading(parent, project, soup):

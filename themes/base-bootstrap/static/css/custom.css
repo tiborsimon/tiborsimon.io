@@ -77,10 +77,31 @@ a.navbar-brand {
 
 
  /* --------------------------------------------------------------------------*/
+/* Index page buttons generated img */
+.index-buttons-img-div {
+  height: 240px;
+  background-color: #c9d0d5;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+}
+
+.index-buttons-img-div p {
+  font-size: 600%;
+  color: #7c7c7c;
+  position: relative;
+  bottom: 33px;
+  left: 10px;
+  font-weight: 300;
+  text-align: right;
+}
+
+
+ /* --------------------------------------------------------------------------*/
 /* Article list replacement image placeholders */
 .replacement-img-div {
   height: 70px;
-  background-color: #b9b9b9;
+  background-color: #94999D;
   display: block;
   width: 100%;
   overflow: hidden;
@@ -88,7 +109,7 @@ a.navbar-brand {
 
 .replacement-img-div p {
   font-size: 600%;
-  color: #999;
+  color: #696969;
   position: relative;
   bottom: 33px;
   left: 10px;

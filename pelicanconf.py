@@ -70,10 +70,8 @@ DELETE_OUTPUT_DIRECTORY = True
 DISPLAY_RECENT_POSTS_ON_SIDEBAR = True
 
 MENUITEMS = [
-    ['Home', ''],
 	['Projects', 'projects'],
 	['Log', 'log'],
-	['Running', 'running'],
 	['About', 'about']
 ]
 

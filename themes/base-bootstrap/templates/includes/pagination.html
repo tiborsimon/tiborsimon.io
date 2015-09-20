@@ -1,4 +1,5 @@
 {% if articles_page and articles_paginator.num_pages > 1 %}
+<div class="text-center">
     {% if USE_PAGER %}
         <ul class="pager">
             {% if articles_page.has_previous() %}
@@ -33,5 +34,7 @@
                 <li class="next disabled"><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
             {% endif %}
         </ul>
+
     {% endif %}
+</div>
 {% endif %}

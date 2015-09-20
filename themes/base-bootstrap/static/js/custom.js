@@ -1,3 +1,4 @@
+ // ----------------------------------------------------------------------------
 // Bootstrap javascript triggers
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()
@@ -6,6 +7,19 @@ $(function () {
 $(function () {
   $('[data-toggle="popover"]').popover()
 })
+
+
+ // ----------------------------------------------------------------------------
+// Trigger modal by anchor - http://stackoverflow.com/questions/19874795/open-a-bootstrap-modal-automatically-from-an-external-link
+$(document).ready(function () {
+    var target = document.location.hash;
+    function showModal(target){
+        $(target).modal('show');
+    }
+    if (target.length) {
+        showModal(target+'-modal');
+    }
+});
 
 
  // ----------------------------------------------------------------------------
@@ -108,4 +122,9 @@ $('.masonry-container').masonry({
   itemSelector: '.article-listing',
   columnWidth: '.article-listing'
 });
+
+
+ // ----------------------------------------------------------------------------
+// Social Share kit - http://socialsharekit.com
+SocialShareKit.init();
 
