@@ -93,7 +93,10 @@ def add_buttons(parent, project, soup, labels=False):
     parent.append(button_row)
 
     button_col = soup.new_tag('div')
-    button_col['class'] = 'col-xs-6'
+    if labels:
+        button_col['class'] = 'col-xs-6'
+    else:
+        button_col['class'] = 'col-xs-12'
     button_row.append(button_col)
 
     button_div = soup.new_tag('div')
@@ -269,7 +272,7 @@ def add_download_panel(parent, project, soup):
     download.append('<a href="{}" class="btn btn-default btn-xs" role="button"><i class="fa fa-cloud-download"></i> Download</a>'.format(project['source-link']))
 
 
-def add_tag_field(parent, project, soup):
+def add_tag_field(parent, project, soup, label=False):
     tag_field = soup.new_tag('div')
     if project['tspr'] > 0:
         tag_field = soup.new_tag('div')
@@ -288,7 +291,8 @@ def add_tag_field(parent, project, soup):
     parent.append(tag_field)
 
     if project['state'] != 'released':
-        add_sharing_buttons(tag_field, project, soup, is_small=True)
+        if label:
+            add_sharing_buttons(tag_field, project, soup, is_small=True)
 
 
 def add_panel_heading(parent, project, soup):
@@ -457,7 +461,7 @@ def add_modal(parent, project, soup):
     modal_content_div = create_modal_content_div(parent, project, soup)
     add_modal_header(modal_content_div, project, soup)
     add_modal_body(modal_content_div, project, soup)
-    add_modal_footer(modal_content_div, soup)
+    add_modal_footer(modal_content_div, project, soup)
 
 
 def create_modal_content_div(parent, project, soup):
@@ -560,18 +564,52 @@ def add_project_description(parent, project, soup):
     description_div['class'] = 'col-xs-9'
     description_div.string = '<p>' + project['description'] + '</p>'
     parent.append(description_div)
-    add_tag_field(description_div, project, soup)
+    add_tag_field(description_div, project, soup, label=True)
 
 
-def add_modal_footer(parent, soup):
+def add_modal_footer(parent, project, soup):
+
     modal_footer_div = soup.new_tag('div')
     modal_footer_div['class'] = 'modal-footer'
     parent.append(modal_footer_div)
-    modal_footer_div.append(soup.new_tag('button'))
-    modal_footer_div.button['type'] = 'button'
-    modal_footer_div.button['class'] = 'btn btn-default btn-xs'
-    modal_footer_div.button['data-dismiss'] = 'modal'
-    modal_footer_div.button.string = 'Close'
+
+    modal_footer_row = soup.new_tag('div')
+    modal_footer_row['class'] = 'row'
+    modal_footer_div.append(modal_footer_row)
+
+    modal_footer_col1 = soup.new_tag('div')
+    modal_footer_col1['class'] = 'col-xs-6 text-left'
+    modal_footer_row.append(modal_footer_col1)
+
+    modal_footer_col2 = soup.new_tag('div')
+    modal_footer_col2['class'] = 'col-xs-6'
+    modal_footer_row.append(modal_footer_col2)
+    
+    modal_footer_col2.append(soup.new_tag('button'))
+    modal_footer_col2.button['type'] = 'button'
+    modal_footer_col2.button['class'] = 'btn btn-default btn-xs'
+    modal_footer_col2.button['data-dismiss'] = 'modal'
+    modal_footer_col2.button.string = 'Close'
+
+    p_id = 'PR{:06}'.format(project['id']) if project['tspr'] == 0 else 'TSPR{:04}'.format(project['tspr']) 
+
+    modal_footer_col1.string = '''
+    <a class="FlattrButton" style="display:none;"
+                title="{0}"
+                data-flattr-uid="tiborsimon"
+                data-flattr-tags="{1}"
+                data-flattr-category="software"
+                data-flattr-popout="1"
+                data-flattr-button="compact"
+                href="http://tiborsimon.io/project/#{3}">
+                {2}
+            </a>
+    '''.format(
+            p_id + ' - ' + project['title'],
+            ', '.join(project['tags']),
+            project['description'],
+            p_id
+        )
 
 
 def render_tspr_projects(soup):

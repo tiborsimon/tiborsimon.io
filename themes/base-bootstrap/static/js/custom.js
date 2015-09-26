@@ -123,6 +123,11 @@ $('.masonry-container').masonry({
   columnWidth: '.article-listing'
 });
 
+$('.about-masonry').masonry({
+  itemSelector: '.about-masonry-item',
+  columnWidth: '.about-masonry-item'
+});
+
 
  // ----------------------------------------------------------------------------
 // Social Share kit - http://socialsharekit.com

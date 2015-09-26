@@ -72,7 +72,7 @@ DISPLAY_RECENT_POSTS_ON_SIDEBAR = True
 MENUITEMS = [
 	['Projects', 'projects'],
 	['Log', 'log'],
-	['About', 'about']
+	['About', '']
 ]
 
 # T H E M E   S E T T I N G S -------------------------------------------------

@@ -13,9 +13,13 @@ body {
 
 .site-content {
   background-color: #fff;
-  padding-top: 30px;
+  /*padding-top: 30px;*/
   /*opacity: 0.9;*/
   box-shadow: 0px -7px 12px -5px rgba(0, 0, 0, 0.42);
+}
+
+.main-container {
+  padding-top: 30px;
 }
 
 .navbar {
@@ -41,7 +45,13 @@ body {
 
 .headline .jumbotron.main-page {
     text-align: center;
-    height: 260px;
+    height: 400px;
+    font-size: 200%;
+}
+
+.headline .jumbotron.main-page h1 {
+    font-size: 300%;
+    margin-top: 80px;
 }
 
 .article-listing {
@@ -109,7 +119,7 @@ a.navbar-brand {
 
 .replacement-img-div p {
   font-size: 600%;
-  color: #696969;
+  color: #fff;
   position: relative;
   bottom: 33px;
   left: 10px;
@@ -132,7 +142,7 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 
  /* --------------------------------------------------------------------------*/
 /* Panel with nav tabs */
-.panel.with-nav-tabs .panel-heading{
+/*.panel.with-nav-tabs .panel-heading{
     padding: 5px 5px 0 5px;
 }
 .panel.with-nav-tabs .nav-tabs{
@@ -147,7 +157,7 @@ hr {
     margin-bottom: 14px;
     border: 0;
     border-top: 1px solid #eee;
-}
+}*/
 
 
  /* --------------------------------------------------------------------------*/
@@ -235,6 +245,21 @@ hr {
 .project-version-ribbon.tspr {
     background: #337ab7;
     color: #f0f0f0;
+}
+
+.degree-ribbon {
+  width: 200px;
+  position: absolute;
+  text-align: center;
+  line-height: 22px;
+  color: #fff;
+  top: 11px;
+  right: -79px;
+  left: auto;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  background: #dd282a;
+  font-size: 75%;
 }
 
 
