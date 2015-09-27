@@ -55,7 +55,7 @@ SOCIAL = (('You can add links in your config file', '#'),
 DEFAULT_PAGINATION = 8
 
 PLUGIN_PATHS = ['plugins']
-PLUGINS = ['tspr', 'summary', 'series', 'json-search-system', 'donation', 'bootstrapify']
+PLUGINS = ['tspr', 'summary', 'tag_cloud', 'series', 'json-search-system', 'donation', 'bootstrapify']
 #PLUGINS = ['tspr', 'summary', 'json-search-system', 'bootstrapify']
 
 # SITELOGO = 'images/tiborsimon-logo-300.png'
@@ -68,6 +68,8 @@ PDF_PROCESSOR = True
 DELETE_OUTPUT_DIRECTORY = True
 
 DISPLAY_RECENT_POSTS_ON_SIDEBAR = True
+DISPLAY_CATEGORIES_ON_SIDEBAR = True
+DISPLAY_TAGS_ON_SIDEBAR = True
 
 MENUITEMS = [
 	['Projects', 'projects'],

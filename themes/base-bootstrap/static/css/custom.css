@@ -67,6 +67,10 @@ code {
   display: inline-block;
 }
 
+.sidebar a {
+  color: #555 !important;
+}
+
  /* --------------------------------------------------------------------------*/
 /* Irrelevant fader options */
 .irrelevant-fade {
