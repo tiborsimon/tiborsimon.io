@@ -1,14 +1,22 @@
 {% extends "base.html" %}
 {% block title %}Categories - {{ SITENAME }}{% endblock %}
 
-{% block breadcrumbs %}
-    {% if DISPLAY_BREADCRUMBS %}
-    <ol class="breadcrumb">
-        <li><a href="{{ SITEURL }}" title="{{ SITENAME }}"><i class="fa fa-home fa-lg"></i></a></li>
-        <li class="active">Categories</li>
-    </ol>
-    {% endif %}
-{% endblock %}
+<div class="jumbotron">
+  <div class="container">
+    <div class="visible-xs-block">
+      <h2 style="font-size: 40px; margin-top:0; color:#333;">Categories</h2>
+      <p>All categories</p>
+    </div>
+    <div class="visible-sm-block">
+      <h2 style="font-size: 54px; margin-top:8px; color:#333;">Categories</h2>
+      <p>All categories</p>
+    </div>
+    <div class="visible-md-block visible-lg-block">
+      <h1>Categories</h1>
+      <p>All categories</p>
+    </div>
+  </div>
+</div>
 
 {% block content %}
     <section id="categories">

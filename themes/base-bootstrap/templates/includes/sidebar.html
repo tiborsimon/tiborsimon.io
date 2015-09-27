@@ -39,7 +39,7 @@
         {% endif %}
 
         {% if DISPLAY_CATEGORIES_ON_SIDEBAR %}
-            <div class=""><a href="{{ SITEURL }}/{{ CATEGORIES_URL }}"><h4><i class="fa fa-folder-open fa-lg"></i><span style="margin-left:8px" class="icon-label">Categories</span></h4></a>
+            <div class=""><h4><i class="fa fa-folder-open fa-lg"></i><span style="margin-left:8px" class="icon-label">Categories</span></h4>
                 <div class="list-group" id="categories">
                 {% for cat, null in categories %}
                     <a href="{{ SITEURL }}/{{ cat.url }}" class="list-group-item">
@@ -56,7 +56,7 @@
             {% else %}
                 {% set tags = tag_cloud | sort(attribute='1') %}
             {% endif %}
-            <div class=""><a href="{{ SITEURL }}/{{ TAGS_URL }}"><h4><i class="fa fa-tags fa-lg"></i><span style="margin-left:8px" class="icon-label">Tags</span></h4></a>
+            <div class=""><h4><i class="fa fa-tags fa-lg"></i><span style="margin-left:8px" class="icon-label">Tags</span></h4>
                 <div class="list-group {% if DISPLAY_TAGS_INLINE %}list-inline tagcloud{% endif %}" id="tags">
                 {% for tag in tags %}
                     <a href="{{ SITEURL }}/{{ tag.0.url }}" class="list-group-item tag-{{ tag.1 }}">

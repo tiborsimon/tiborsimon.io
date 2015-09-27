@@ -60,6 +60,12 @@ function findBootstrapEnvironment() {
 
 
  // ----------------------------------------------------------------------------
+// Adding background
+// https://github.com/srobbin/jquery-backstretch
+$.backstretch("http://tiborsimon.io/images/background2.jpg");
+
+
+ // ----------------------------------------------------------------------------
 // Irrelevant fading
 var cookie_name = 'sidebar-fade'
 var cookie_expires = 365;
