@@ -62,6 +62,10 @@ a.navbar-brand {
     font-weight: 700;
 }
 
+code {
+  display: inline;
+  display: inline-block;
+}
 
  /* --------------------------------------------------------------------------*/
 /* Irrelevant fader options */

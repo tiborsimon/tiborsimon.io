@@ -84,7 +84,7 @@ SimpleJekyllSearch({
     searchInput: document.getElementById("search-modal-input"),
     resultsContainer: document.getElementById("search-results-container"),
     json: "/extras/search.json",
-    searchResultTemplate: '<a href="{url}" class="list-group-item focusable search-result-item"><h4 class="list-group-item-heading">{title}<small style="margin-left: 4px">{tags}</small></h4><p class="list-group-item-text">{summary}</p>{category}</a>',
+    searchResultTemplate: '<a onclick="load_search_link(\'{url}\')" class="list-group-item focusable search-result-item"><h4 class="list-group-item-heading">{title}<small style="margin-left: 4px">{tags}</small></h4><p class="list-group-item-text">{summary}</p>{category}</a>',
     noResultsText: '<div class="panel panel-danger"><div class="panel-heading"><i class="fa fa-exclamation-triangle"></i> No results were found..</div><div class="panel-body">The search algorithm tries to match your input to the following post parameters: <ul><li>title</li><li>project id <small>(TSPRxxxx, PRxxxxxx)</small></li><li>tags</li><li>url</li><li>date <small>(yyyy-mm-dd)</small></li><li>summary</li></ul>Make sure you pass the right keyword according to your needs.</div></div>',
     limit: 40,
     fuzzy: false
@@ -92,12 +92,17 @@ SimpleJekyllSearch({
 
 $('#search-modal').on('shown.bs.modal', function () {
     $('#search-modal-input').focus();
-})
+});
 
 $('#search-modal').on('hidden.bs.modal', function () {
     $('#search-modal-input').val('');
     $('#search-results-container').html('');
-})
+});
+
+function load_search_link(url) {
+  window.location.replace(url);
+  window.location.reload(true);
+};
 
 $(document).ready(function() {
   $('#search-modal-form input').keydown(function(event){

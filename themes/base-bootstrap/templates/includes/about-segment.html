@@ -1,25 +1,25 @@
-<div class="container">
+<div class="container" id="about">
   <h1>About Tibor</h1>
   <hr />
   <div class="row">
 
     <div class="col-xs-12 col-sm-6">
-      <div class="row">
-          <img src="{{ SITE_URL }}/images/tibor4.png" class="img-thumbnail img-responsive" style="float: left; display: inline-block; margin-right: 10px;" alt="Tibor Simon" width="215">
-          <div>
-          Hi, my name is Tibor Simon. I am a graduated electrical engineer from Budapest. 
-          The word <i>graduated</i> means that I have spent 5 years of my life 
-          putting totally irrelevant knowledge into my head. Sadly, that is true. Without learning
-          everything I use today on my own I would be a perfect example of the failure of our
-          overrated educational system. I am still on my never ending journey to improve myself and 
-          extend my knowledge. You can find here all of my projects as well as my daily work log.
-          </div>
-          <div style="margin-left: 46px;">{% include 'includes/share-buttons.html' %}</div>
+      <div style="float: left; display: inline-block; margin-right: 10px;">
+        <img src="{{ SITE_URL }}/images/tibor4.png" class="img-thumbnail img-responsive" alt="Tibor Simon" width="215">
+        <div style="margin: 5px 0 0 46px;">{% include 'includes/share-buttons.html' %}</div>
       </div>
+      
+      <p>
+      Hi, my name is Tibor Simon. I am a graduated electrical engineer from Budapest. 
+      The word <i>graduated</i> means that I have spent 5 years of my life 
+      putting totally irrelevant knowledge into my head. Sadly, that is true. Without learning
+      everything I use today on my own I would be a perfect example of the failure of our
+      overrated educational system. I am still on my never ending journey to improve myself and 
+      extend my knowledge. You can find here all of my projects as well as my daily work log.
+      </p>
     </div>
 
     <div class="col-xs-12 col-sm-6">
-      <!-- <h4><i class="fa fa-graduation-cap"></i> Degrees</h4> -->
       <div class="row">
         <div class="col-xs-12 col-sm-6">
           <div class="list-group" style="overflow: hidden">
@@ -65,11 +65,12 @@
       </div>
     </div>
 
-    <div class="col-xs-12" style="padding: 0; margin-top: 12px;">
+    <div class="col-xs-12" style="margin-top: 12px;">
       <div class="btn-group btn-group-justified" role="group">
+        <a class="btn btn-default" href="{{ SITE_URL }}/projects" role="button"><i class="fa fa-star"></i> Projects</a>
+        <a class="btn btn-default" href="{{ SITE_URL }}/log" role="button"><i class="fa fa-calendar-check-o"></i> Work log</a>
         <a class="btn btn-default" href="http://github.com/tiborsimon" role="button"><i class="fa fa-github-alt"></i> Github</a>
         <a class="btn btn-default" href="https://www.youtube.com/channel/UCvp1-SnV3PJKEdTDVsYQN9Q" role="button"><i class="fa fa-youtube"></i> YouTube</a>
-        <a class="btn btn-default" href="#" role="button">Link</a>
       </div>
     </div>
 
@@ -78,85 +79,11 @@
   <hr />
   <div class="row">
     <div class="col-xs-12 col-sm-6">
-      {% include 'includes/comments.html' %}
+      {% include 'includes/twitter_timeline.html' %}
     </div>
 
     <div class="col-xs-12 col-sm-6">
-      {% include 'includes/twitter_timeline.html' %}
+      {% include 'includes/comments.html' %}
     </div>
   </div>
 </div>
-
-
-  <!-- 
-    <div class="col-xs-12 col-sm-9">
-      <div class="row">
-        <div class="col-xs-8" style="padding-left: 0 !important">
-          <ul class="nav nav-pills nav-stacked col-md-3">
-              <li class="active"><a href="#about" data-toggle="tab"><i class="fa fa-user"></i></a></li>
-              <li><a href="#graduation" data-toggle="tab"><i class="fa fa-graduation-cap"></i></a></li>
-              <li><a href="#gamepad" data-toggle="tab"><i class="fa fa-gamepad"></i></a></li>
-              <li><a href="#cogs" data-toggle="tab"><i class="fa fa-cogs"></i></a></li>
-              <li><a href="#twitter" data-toggle="tab"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="#github" data-toggle="tab"><i class="fa fa-github-alt"></i></a></li>
-          </ul>
-          <div class="tab-content col-md-9">
-              <div class="tab-pane fade in active" id="about">
-                <img src="{{ SITE_URL }}/images/tibor3.jpg" class="img-thumbnail img-responsive" alt="Tibor Simon">
-                <p>My name is Tibor Simon</p>
-              </div>
-              <div class="tab-pane fade" id="graduation">
-                <div class="row">
-                  <div class="col-xs-12 col-sm-6">
-                    <div class="list-group" style="overflow: hidden">
-                      <div class="list-group-item">
-                        <h6 class="list-group-item-heading text-center" style="white-space: nowrap">
-                          Bachelor of
-                        </h6>
-                        <h4 class="list-group-item-heading text-center">
-                          Electrical engineering
-                        </h4>
-                        <h6 class="list-group-item-heading text-center" style="white-space: nowrap">
-                          January 2013
-                        </h6>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-xs-12 col-sm-6">
-                    <div class="list-group" style="overflow: hidden">
-                      <div class="list-group-item">
-                        <div class="degree-ribbon">
-                          Excellent
-                        </div>
-                        <h6 class="list-group-item-heading text-center" style="white-space: nowrap">
-                          Master of
-                        </h6>
-                        <h4 class="list-group-item-heading text-center">
-                          Electrical engineering
-                        </h4>
-                        <h6 class="list-group-item-heading text-center" style="white-space: nowrap">
-                          June 2015
-                        </h6>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-xs-12">
-                    <div class="text-center">
-                      <div style="width: 300px; margin: 0 auto;">
-                        <img src="{{ SITE_URL }}/images/bme.jpg" class="img-responsive" alt="BME logo">
-                      </div>
-                      <small>Budapest University of Technology and Economics</small>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="tab-pane fade" id="gamepad">Default 3</div>
-              <div class="tab-pane fade" id="cogs">Default 4</div>
-              <div class="tab-pane fade" id="twitter">{% include 'includes/twitter_timeline.html' %}</div>
-          </div>
-
-        </div>
-      </div>
-    </div>-->
-
-

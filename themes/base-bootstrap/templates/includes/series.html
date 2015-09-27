@@ -1,22 +1,35 @@
 {% if article.series %}
-<section class="well" id="related-posts">
-   {% set text = SERIES_TEXT|default('Part %(index)s of the %(name)s series') %}
-    <h4>{{ text|format(index=article.series.index, name=article.series.name) }}</h4>
+<div class="row" id="related-posts" style="margin-bottom: 20px;">
+    <div class="col-xs-12">
+      {% set text = SERIES_TEXT|default('This article was part %(index)s from the %(count)s articles of the %(name)s series') %}
+      <h4 style="margin-top: 0;">{{ text|format(index=article.series.index, name=article.series.name, count=article.series.all|length) }}</h4>
+      <hr style="margin-top: 4px; margin-bottom: 10px;" />
+    </div>
+    <div class="col-xs-6">
     {% if article.series.all_previous %}
-       <h5>Previous articles</h5>
-       <ul>
+       Previous articles
+       <div class="list-group">
        {% for article in article.series.all_previous %}
-           <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+          <a href="{{ SITEURL }}/{{ article.url }}" class="list-group-item" style="padding: 8px 12px 0 12px;">
+            <h5 class="list-group-item-heading">{{ article.title }}</h5>
+            <div class="list-group-item-text" style="font-size: 80%;">{{ article.summary[:50] }}...</div>
+          </a>
        {% endfor %}
-       </ul>
+       </div>
     {% endif %}
+    </div>
+    <div class="col-xs-6">
     {% if article.series.all_next %}
-       <h5>Next articles</h5>
-       <ul>
+       Next articles
+       <div class="list-group">
        {% for article in article.series.all_next %}
-           <li><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+          <a href="{{ SITEURL }}/{{ article.url }}" class="list-group-item" style="padding: 8px 12px 0 12px;">
+            <h5 class="list-group-item-heading">{{ article.title }}</h5>
+            <div class="list-group-item-text" style="font-size: 80%;">{{ article.summary[:50] }}...</div>
+          </a>
        {% endfor %}
-       </ul>
+       </div>
     {% endif %}
-</section>
+    </div>
+</div>
 {% endif %}

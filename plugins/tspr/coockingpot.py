@@ -107,11 +107,11 @@ def add_buttons(parent, project, soup, labels=False):
     button_div['role'] = 'group'
     button_col.append(button_div)
 
-    add_button(button_div, labels, project['article'], soup, 'fa fa-bookmark', 'Corresponding article')
-    add_button(button_div, labels, project['discussion'], soup, 'fa fa-comments', 'Discussion')
-    add_button(button_div, labels, project['repo-url'], soup, 'fa fa-github-alt', 'GitHub repository')
-    add_button(button_div, labels, project['docs'], soup, 'fa fa-file-text', 'Documentation')
-    add_button(button_div, labels, project['repo-url'] + '/releases/latest', soup, 'fa fa-briefcase', 'Latest release')
+    add_button(button_div, labels, project['article'], soup, 'fa fa-bookmark', 'Corresponding article', '_self')
+    add_button(button_div, labels, project['discussion'], soup, 'fa fa-comments', 'Discussion', '_self')
+    add_button(button_div, labels, project['repo-url'], soup, 'fa fa-github-alt', 'GitHub repository', '_blank')
+    add_button(button_div, labels, project['docs'], soup, 'fa fa-file-text', 'Documentation', '_blank')
+    add_button(button_div, labels, project['repo-url'] + '/releases/latest', soup, 'fa fa-briefcase', 'Latest release', '_blank')
 
     # Download button
     if labels:
@@ -165,7 +165,7 @@ def add_sharing_buttons(parent, project, soup, is_small=False):
             
 
 
-def add_button(parent, labels, project_data, soup, icon_class, tooltip_text):
+def add_button(parent, labels, project_data, soup, icon_class, tooltip_text, target):
     temp_button = soup.new_tag('a')
     temp_button['role'] = 'button'
     if labels:
@@ -177,6 +177,7 @@ def add_button(parent, labels, project_data, soup, icon_class, tooltip_text):
     temp_button['data-toggle'] = 'tooltip'
     temp_button['data-container'] = 'body'
     temp_button['data-placement'] = 'top'
+    temp_button['target'] = target
     temp_button['title'] = tooltip_text
     temp_button.i['class'] = icon_class
     temp_button['href'] = project_data
