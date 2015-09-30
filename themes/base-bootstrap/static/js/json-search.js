@@ -99,9 +99,19 @@ $('#search-modal').on('hidden.bs.modal', function () {
     $('#search-results-container').html('');
 });
 
+function endsWith(str, suffix) {
+  return str.indexOf(suffix, str.length - suffix.length) !== -1;
+}
+
 function load_search_link(url) {
   window.location.replace(url);
-  window.location.reload(true);
+
+  var orig = window.location.href;
+  var rs = orig.split("#");
+
+  if(endsWith(rs[0], "projects/") || endsWith(rs[0], "projects")) {
+      window.location.reload(true);
+  }
 };
 
 $(document).ready(function() {

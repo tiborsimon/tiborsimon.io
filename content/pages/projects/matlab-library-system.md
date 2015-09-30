@@ -1,19 +1,13 @@
-layout: post
-title: MATLAB Library System
+title: TSPR000001
+subtitle: MATLAB Library System
 tags: matlab
-published: True
-repo_link: https://github.com/tiborsimon/matlab-library-system
-version: v2.1
-share_buttons: True
 Date: 2015-06-02
-Slug: projects/matlab-library-system
+Slug: projects/TSPR000001
 
 Have you ever became angry due to the path handling in MATLAB. If you do, this project could be interesting for you. 
 
 __MATLAB Library System__ is a library handling module that makes shipment and adding/removing MATLAB scripts and functions convenient for you and your customers.
 
-
-{% include repo_and_release.html %}
 
 # Using the system
 

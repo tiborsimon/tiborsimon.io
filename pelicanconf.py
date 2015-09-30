@@ -63,7 +63,7 @@ PLUGINS = ['tspr', 'summary', 'tag_cloud', 'series', 'json-search-system', 'dona
 
 STATIC_PATHS = ['extras', 'images']
 
-PDF_PROCESSOR = True
+PDF_PROCESSOR = False
 
 DELETE_OUTPUT_DIRECTORY = True
 
