@@ -32,18 +32,25 @@
 <link rel="canonical" href="{{ SITEURL }}/{{ page.url }}">
 {% endblock %}
 
-{% block headline %}
-    <div class="jumbotron" style="">
-    <div class="container">
-      <h1>{{ page.title }}</h1>
-      <p>{{ page.subtitle }}</p>
-      </div>
-    </div>
-{% endblock %}
-
 {% block content %}
     {% if page.manual == 'enabled' %}
         {{ page.content }}
+        {% if page.comments == 'enabled' %}
+            <div class="container">
+                <hr />
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8" id="discussion">
+                        {% include 'includes/comments.html' %}
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        {% include 'includes/donation.html' %}
+                        <div class="text-center">
+                            {% include 'includes/share-buttons-sm.html' %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
     {% else %}
     <div class="container main-container" >
         <section id="content" class="body">
@@ -64,12 +71,4 @@
         </section>
     </div>
     {% endif %}
-{% endblock %}
-
-{% block sharing %}
-
-{% endblock %}
-
-{% block donation %}
-
 {% endblock %}

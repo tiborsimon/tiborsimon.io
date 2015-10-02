@@ -10,8 +10,6 @@ store = Store.load()
 
 
 def render(pelican):
-    pass
-    print('Rendering donations..')
     path = pelican.settings['OUTPUT_PATH'] + '/log/index.html'
     soup = BeautifulSoup(open(path), 'html.parser')
     render_worklog_page(soup)
@@ -23,6 +21,14 @@ def render(pelican):
     render_project_page(soup)
     with open(path, 'w') as f:
         f.write(soup.prettify(formatter=None))
+
+    path = pelican.settings['OUTPUT_PATH'] + '/projects'
+    for file in [f for f in os.listdir(path) if f != 'index.html']:
+        p = '/'.join([path ,file ,'index.html'])
+        soup = BeautifulSoup(open(p), 'html.parser')
+        render_individual_project_page(soup)
+        with open(p, 'w') as f:
+            f.write(soup.prettify(formatter=None))
 
 
 def register():
@@ -83,7 +89,7 @@ def add_panel_body(parent, project, soup):
     add_buttons(panel_body, project, soup)
 
 
-def add_buttons(parent, project, soup, labels=False):
+def add_buttons(parent, project, soup, labels=False, page=False):
     if project['state'] != 'released':
         return
 
@@ -107,15 +113,19 @@ def add_buttons(parent, project, soup, labels=False):
     button_div['role'] = 'group'
     button_col.append(button_div)
 
-    add_button(button_div, labels, project['article'], soup, 'fa fa-bookmark', 'Corresponding article', '_self')
+    if not page:
+        add_button(button_div, labels, project['article'], soup, 'fa fa-bookmark', 'Open project', '_self')
+        button_div.a.append('<span style="margin-left: 6px">Details</span>')
     add_button(button_div, labels, project['discussion'], soup, 'fa fa-comments', 'Discussion', '_self')
     add_button(button_div, labels, project['repo-url'], soup, 'fa fa-github-alt', 'GitHub repository', '_blank')
-    add_button(button_div, labels, project['docs'], soup, 'fa fa-file-text', 'Documentation', '_blank')
     add_button(button_div, labels, project['repo-url'] + '/releases/latest', soup, 'fa fa-briefcase', 'Latest release', '_blank')
+    if page:
+        button_div.append('<a class="btn btn-default" data-toggle="modal" data-target="#history-modal" href="" role="button" style="min-width: 50px"><i class="fa fa-calendar-check-o"></i>  History</a>')
 
     # Download button
     if labels:
-        add_download_panel(parent, project, soup)
+        if not page:
+            add_download_panel(parent, project, soup)
     else:
         temp_button = soup.new_tag('a')
         temp_button['role'] = 'button'
@@ -680,3 +690,63 @@ def add_tspr_title(parent, project, soup):
     title_h4['class'] = 'list-group-item-heading text-center'
     parent.append(title_h4)
     title_h4.string = project['title']
+
+
+# =============================================================================
+#    I N D I V I D U A L   P R O J E C T   P R O C E S S O R
+def render_individual_project_page(soup):
+    for project_header_div in soup.find_all('div', class_='tspr-individual'):
+        index = project_header_div.string
+        project = [p for p in store.projects if int(p['tspr']) == int(index)][0]
+        project_id = 'PR{:06}'.format(project['id']) if project['tspr'] == 0 else 'TSPR{:04}'.format(project['tspr']) 
+
+        # print('Rendering TSPR{:04} header..'.format(index))
+        project_header_div.string = ''
+        row_div = soup.new_tag('div')
+        row_div['class'] = 'row'
+        project_header_div.append(row_div)
+
+        col_div_1 = soup.new_tag('div')
+        col_div_1['class'] = 'col-xs-12 col-sm-12 col-md-6'
+        row_div.append(col_div_1)
+
+        col_div_1.append(soup.new_tag('p'))
+        col_div_1.p['class'] = 'lead'
+        col_div_1.p.string = project['description']
+
+        add_tag_field(col_div_1, project, soup)
+        
+        add_buttons(col_div_1, project, soup, labels=True, page=True)
+
+
+        col_div_2 = soup.new_tag('div')
+        col_div_2['class'] = 'col-xs-12 col-sm-12 col-md-6'
+        row_div.append(col_div_2)
+
+        add_download_panel(col_div_2, project, soup)
+
+        for modal_div in soup.find_all('div', class_='modals'):
+            if project['history']:
+                hist = ''
+                for h in project['history']:
+                    hist += '<p style="margin: 0">' + h + '</p>\n'
+                modal_div.append('''\
+    <div class="modal fade" id="history-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
+            <h4 class="modal-title" id="myModalLabel">{}<small>Project history</small></h4>
+          </div>
+          <div class="modal-body">
+            <div class="well well-sm" style="margin-bottom: 0">
+                {}
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default btn-xs" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+                '''.format(project_id, hist))

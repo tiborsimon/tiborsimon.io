@@ -125,7 +125,7 @@ class Store(object):
                     'state':       temp[j]['state'],
                     'repo-name':   temp[j]['repo-name'],
                     'article':     temp[j]['article'],
-                    'discussion':  '{}#discussion'.format(temp[j]['article']),
+                    'discussion':  '{}/#discussion'.format(temp[j]['article']),
                     'tspr':        temp[j]['tspr'],
                     'docs':        temp[j]['docs'],
                     'history':     temp[j]['history']
