@@ -172,7 +172,7 @@ def add_responsive_sharing_buttons(parent, project, soup):
     share_col = soup.new_tag('div')
     share_col['class'] = 'col-xs-5 col-sm-6 col-md-5 col-lg-6 text-right'
     parent.append(share_col)
-    share_col.append('<div class="ssk-group ssk-xs visible-xs-block hidden-sm visible-md-block visible-lg-block" data-url="http://tiborsimon.io/projects/#{0}" data-title="{0} - {1}" data-text="Project by Tibor Simon.">'.format(p_id, project['title']))
+    share_col.append('<div class="ssk-group ssk-xs visible-xs-block hidden-sm visible-md-block hidden-lg" data-url="http://tiborsimon.io/projects/#{0}" data-title="{0} - {1}" data-text="Project by Tibor Simon.">'.format(p_id, project['title']))
     share_col.append('''
             <a class="ssk ssk-twitter"></a>
             <a class="ssk ssk-facebook"></a>
@@ -183,7 +183,7 @@ def add_responsive_sharing_buttons(parent, project, soup):
         ''')
     share_col.append('</div>')
 
-    share_col.append('<div class="ssk-group hidden-xs visible-sm-block hidden-md" data-url="http://tiborsimon.io/projects/#{0}" data-title="{0} - {1}" data-text="Project by Tibor Simon.">'.format(p_id, project['title']))
+    share_col.append('<div class="ssk-group hidden-xs visible-sm-block hidden-md visible-lg-block" data-url="http://tiborsimon.io/projects/#{0}" data-title="{0} - {1}" data-text="Project by Tibor Simon.">'.format(p_id, project['title']))
     share_col.append('''
             <a class="ssk ssk-twitter"></a>
             <a class="ssk ssk-facebook"></a>
