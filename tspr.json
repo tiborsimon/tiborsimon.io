@@ -55,7 +55,7 @@
   {
       "id": 7,
       "title": "MATLAB Library System",
-      "description": "The missing package handler for MATLAB. Activate, deactivate and share your projects easily. Installed projects will be globally visible.",
+      "description": "The missing modular package handler for MATLAB. Activate, deactivate and share your projects easily. Installed projects will be globally visible even after MATLAB restarts.",
       "tags": ["matlab"],
       "state": "released",
       "repo-name": "matlab-library-system",
@@ -63,6 +63,10 @@
       "tspr": 1,
       "docs": "#",
       "history": [
+                    "2015-10-03 - v2.3.0 released", 
+                    "2015-10-03 - New features finalized",
+                    "2015-09-22 - Research for the new path processing algorithm",
+                    "2015-09-21 - Critical error discovered on OSX machines",
                     "2015-08-21 - v2.2.0 released, new versioning started",
                     "2015-06-17 - v2.1 released", 
                     "2015-06-17 - v2.0 released",

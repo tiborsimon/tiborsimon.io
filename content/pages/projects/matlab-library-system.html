@@ -19,79 +19,193 @@
                         <div class="tspr-individual">1</div>
                         <hr class="hidden-xs hidden-sm" />
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-2">
-                        <div class="well well-sm">
-                            <ul class="nav nav-pills nav-stacked visible-md-block visible-lg-block ">
-                                <li class="active"><a href="#v220" data-toggle="tab">v2.2.0</a></li>
-                                <li><a href="#v200" data-toggle="tab">v2.0.0</a></li>
-                            </ul>
-                            <ul class="nav nav-pills nav-justified visible-xs-block visible-sm-block">
-                                <li class="active"><a href="#v220" data-toggle="tab">v2.2.0</a></li>
-                                <li><a href="#v200" data-toggle="tab">v2.0.0</a></li>
-                            </ul>
+                    <div class="col-xs-12 col-sm-12 col-md-3">
+                        <div class="project-toc">
+                            <h3>Contents</h3>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-10">
+                    <div class="col-xs-12 col-sm-9">
+                        <div class="project-documentation">
+<!-- =======================================================================================================================
+   D O C   S T A R T
+======================================================================================================================== -->  
+        <h1>Documentation v2.3.0</h1>
 
-                        <div class="tab-pane fade in active" id="v220">
-<!-- =======================================================================================================================
-   v2.2.0    S T A R T
-======================================================================================================================== -->  
-        <p>Have you ever became angry due to the path handling in MATLAB. If you do, this project could be interesting for you.</p>
-        <p><strong>MATLAB Library System</strong> is a library handling module that makes shipment and adding/removing MATLAB scripts and functions convenient for you and your customers.</p>
-        <h1><a id="Using_the_system_5"></a>Using the system</h1>
-        <h2><a id="Manual_way_7"></a>Manual way</h2>
-        <ol>
-        <li>Create a new folder that will be the root folder of your project.</li>
-        <li>Copy the content of this repository into that folder.</li>
-        <li>Edit the library name if you want <em>(see details later)</em>.</li>
-        <li>Copy your project into the <code>library</code> folder.</li>
-        <li>Done. Your project is ready to ship.</li>
-        <li>You can test your library by running the <code>install.m</code> script.</li>
-        </ol>
-        <h2><a id="Command_line_way_16"></a>Command line way</h2>
-        <ol>
-        <li>Clone this repository to your system:<br >;
-        <code>git clone git@github.com:tiborsimon/MATLAB-Library-System.git my_library</code><br >;
-        You can edit the folder name according to your needs.</li>
-        <li>Edit the library name if you want <em>(see details later)</em>.</li>
-        <li>Copy your project into the <code>library</code> folder.</li>
-        <li>Done. Your project is ready to ship.</li>
-        <li>You can test your library by running the <code>install.m</code> script.</li>
-        </ol>
-        <h1><a id="Folder_structure_26"></a>Folder structure</h1>
-        <p><strong>MATLAB Library System</strong> has got a simple folder structure.</p>
-        <p><script src="<a href="https://gist.github.com/tiborsimon/aa4f1fa04736459a6018.js">https://gist.github.com/tiborsimon/aa4f1fa04736459a6018.js</a>"></script></p>
-        <h1><a id="Modifying_the_library_properties_32"></a>Modifying the library properties</h1>
-        <p>There are three library properties you can edit in the <code>my_library/librarydata.txt</code> file indexed by the rows of the file:</p>
-        <ol>
-        <li>Library name</li>
-        <li>Library version</li>
-        <li>Message to the user after installation <em>(optional)</em></li>
-        </ol>
-        <p>Further lines will be ignored.</p>
-        <p>The default <code>librarydata.txt</code> file looks like this:</p>
-        <p><script src="<a href="https://gist.github.com/tiborsimon/9a3c197ad4ade3347afa.js">https://gist.github.com/tiborsimon/9a3c197ad4ade3347afa.js</a>"></script></p>
-        <p>These settings will produce the following output during installation.</p>
-        <p><script src="<a href="https://gist.github.com/tiborsimon/bb6435be20fc9fa765d1.js">https://gist.github.com/tiborsimon/bb6435be20fc9fa765d1.js</a>"></script></p>
-        <h1><a id="Possible_use_case_50"></a>Possible use case</h1>
-        <p>You can put your every project into a <strong>MATLAB Library System</strong> so you can manage them separately by installing or uninstalling them on demand. You can ship your projects to others in a nice and isolated way too. No more hassle with the MATLAB path. Your customer just runs the install script and your project is ready to use.</p>
-        <p><em>Less friction in the customer side equals happier customers :)</em></p>
-        <h1><a id="Summary_56"></a>Summary</h1>
-        <p><strong>MATLAB Library System</strong> provides you a clean solution for writing libraries in MATLAB. You can install and uninstall them, and you can also create an easy to ship package as well. Do you think it is useful for you? Discuss it below!</p>
-<!-- =======================================================================================================================
-   v2.2.0    E N D
-======================================================================================================================== -->  
-                                    </div>
-                                    <div class="tab-pane fade" id="v200">
-<!-- =======================================================================================================================
-   V2.0.0    S T A R T
-======================================================================================================================== -->  
+<p><strong>MATLAB Library System</strong> is a lightweight modular packaging method addressing the inconvenient third party library handling in MATLAB<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>. It provides a <em>one-command</em> way to <em>install/uninstall</em> the third party functionality into your MATLAB workspace <em>permanently</em>. It also defines a standard way for the library authors to add credit and versioning information and a quick start guide that can be used as a quick installation tester method.</p>
+
+<h2>MLS packages</h2>
+
+<p>A library distributed with the <strong>MATLAB Library System</strong> is wrapped around a top level folder. This folder wrapper is the <strong>MLS package</strong>. It contains the necessary <em>install/uninstall scripts</em> and the <em>librarydata.txt file</em>. The actual library containing the third party functionality is separated this way from the package handler logic.</p>
+
+<pre><code>my_mls_package
+│   install.m
+│   uninstall.m
+│   librarydata.txt    
+│
+└───library
+    │   files1.m
+    │   files2.m
+    │   ...
+    │ 
+    ├───folder1
+    ├───folder2
+    └───...
+</code></pre>
+
+<p>The installer script will add the <em>library</em> folder and all of it's subfolders into your MATLAB path permanently. The top level package folder (<em>my_mls_package</em>) won't be added, so your MATLAB workspace won't be polluted with the install and uninstall scipts. The <strong>library</strong> name for the folder inside the package is <strong>mandatory</strong>! Do not name it another way.</p>
+
+<h2>Installing an MLS package</h2>
+
+<p>After downloading and unzipping an MLS package the installation is straightforward.</p>
+
+<ol>
+<li>Navigate into the top level MLS package folder in MATLAB</li>
+<li>Run the <code>install</code> command</li>
+<li>Done.</li>
+</ol>
 
 
+<p>All the functions defined in the <em>library</em> folder and it's subfolders will be available in your MATLAB workspace. You can run the <code>install</code> command by typing in to the console, or by opening up the <code>install.m</code> script and running it manually.</p>
+
+<h2>Unistalling an MLS package</h2>
+
+<p>The method is similar to the installation steps.</p>
+
+<ol>
+<li>Navigate into the top level MLS package folder in MATLAB</li>
+<li>Run the <code>uninstall</code> command</li>
+<li>Done.</li>
+</ol>
+
+
+<p>All the functions defined in the library folder and it's subfolders will be removed from your MATLAB workspace.</p>
+
+<h2>Best practice</h2>
+
+<p>You can have a <strong>folder</strong> for your <strong>MLS packages</strong> somewhere in your machine where you can keep all of your third party modules and your own packages as well. You can create a <strong>install/uninstall all</strong> script that will install/uninstall all of your modules at once. In this way you can install all of your packages to your actual MATLAB workspace if you didn't do that already, or you are on a new machine.</p>
+
+<p>Check out the <a href="https://github.com/tiborsimon/matlab-library-system/releases/latest" target="_blank">latest release page</a>. It will contain these scripts too. Make sure you only have MLS packages inside the folder you run the scripts, otherwise it wont work.</p>
+
+<p>You can write your own scripts, that has a functionality something like this:</p>
+
+<pre><code>d = dir('.');
+for k = 1:length(d)
+    if (d(k).isdir == 1)
+        switch d(k).name
+            case '.'
+            case '..'
+                % Nothing to do
+            otherwise
+                cd(d(k).name)
+                install()
+                cd('..')
+        end
+    end
+end
+</code></pre>
+
+<p>This code scans through the current directory, and calls the <em>install</em> command inside every folder it find in the first level.</p>
+
+<h2>Printout examples</h2>
+
+<p>By running the <code>install</code> script, an MLS package will print out the following.</p>
+
+<pre><code>&gt;&gt; install
+
+#====================================================================================#
+|                                                                                    |
+|                      M A T L A B   L I B R A R Y   S Y S T E M                     |
+|               &gt;&gt;-------------------------~-------------------------&lt;&lt;              |
+|                                       v2.3.0                                       |
+#------------------------------------------------------------------------------------#
+
+   Installing My Library v0.0.0 by John Smith..
+
+      -&gt; Path added: .../my_mls_package/library
+
+   Finished!
+
+      My Library v0.0.0 has been succesfully installed to your system!
+
+      Test your installation by running: my_function()
+
+#====================================================================================#
+</code></pre>
+
+<p>By running the <code>uninstall</code> script, an MLS package will print out the following.</p>
+
+<pre><code>&gt;&gt; uninstall
+
+#====================================================================================#
+|                                                                                    |
+|                      M A T L A B   L I B R A R Y   S Y S T E M                     |
+|               &gt;&gt;-------------------------~-------------------------&lt;&lt;              |
+|                                       v2.3.0                                       |
+#------------------------------------------------------------------------------------#
+
+   Removing My Library v0.0.0 by John Smith..
+
+      -&gt; Path removed: .../my_mls_package/library
+
+   Finished!
+
+      My Library v0.0.0 has been succesfully removed from your system!
+
+#====================================================================================#
+</code></pre>
+
+<h2>Creating your own MLS package</h2>
+
+<p>If you have written a library for MATLAB, and you want to ship it to others, you might want to create your own <em>MLS package</em>. This way your customers can install and manage your library with less effort.</p>
+
+<h4>1. Download the latest MLS package template</h4>
+
+<p>You can download the latest <strong>MLS package template</strong> added to the <a href="https://github.com/tiborsimon/matlab-library-system/releases/latest" target="_blank">latest MATLAB Library System release</a>. After unpacking the zip package, you can rename the top MLS package folder from  <em>my_mls_package</em> to anything yout want.</p>
+
+<p>You can also download the template with git by running the following command: <code>git clone git@github.com:tiborsimon/matlab-library-system.git my_mls_package</code> where <code>my_mls_package</code> will be the name of your top level MLS package folder.</p>
+
+<h4>2. Edit the <em>librarydata.txt</em> file</h4>
+
+<p>The <em>librarydata.txt</em> file is a simple text file containing the library related credit, verioning and demo informations line by line in a strict order. You have to follow the data orders as defined in the template:</p>
+
+<pre><code>My Library
+http://google.com
+John Smith
+v0.0.0
+my_function()
+</code></pre>
+
+<pre><code>1st line: library name
+2nd line: library url
+3st line: author name
+4th line: library version
+5th line: demo command
+</code></pre>
+
+<p>The <em>library name</em> will be displayed as an URL to the <em>library url</em> as you could see in the previous section's printouts. The <em>demo command</em> will be displayed as an URL too, but itt will call the <em>demo command</em> on click. In this way it needs no effort by the user to try the just-installed new functionality.</p>
+
+<h4>3. Put your own library into the <em>library</em> folder</h4>
+
+<p>Make sure you put your library <strong>into</strong> the <em>library</em> folder. Do not rename the <em>library</em> folder otherwise the install and uninstall scripts won't work properly.</p>
+
+<h4>4. Done</h4>
+
+<p>You have created your MLS package that is ready to ship!</p>
+
+<h2>License</h2>
+
+<p>This project is under the <strong>MIT license</strong>.
+See the included license file for further details.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>Have you ever downloaded a piece of third party MATLAB code and have you tried to use it? If you have, you probably know that it is a headache.. Managing third party libraries in MATLAB is not a trivial. The code only works if you are in the same folder, or you have to add  it manually every time you start MATLAB, because adding something to your path is not meant to be in your path unless you have saved the path.<a href="#fnref:1" rev="footnote">&#8617;</a></p></li>
+</ol>
+</div>
 <!-- =======================================================================================================================
-   V2.0.0    E N D
-======================================================================================================================== -->                                          
+   D O C   E N D
+======================================================================================================================== -->  
                         </div>
                     </div>
                 </div>
@@ -100,9 +214,6 @@
     </div>
 </body>
 </html>
-
-
-
 
 
 <!--title: TSPR000001

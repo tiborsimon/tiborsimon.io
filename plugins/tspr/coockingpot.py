@@ -100,7 +100,7 @@ def add_buttons(parent, project, soup, labels=False, page=False):
 
     button_col = soup.new_tag('div')
     if labels:
-        button_col['class'] = 'col-xs-6'
+        button_col['class'] = 'col-xs-7 col-sm-6 col-md-7 col-lg-6'
     else:
         button_col['class'] = 'col-xs-12'
     button_row.append(button_col)
@@ -108,44 +108,36 @@ def add_buttons(parent, project, soup, labels=False, page=False):
     button_div = soup.new_tag('div')
     if labels:
         button_div['class'] = 'btn-group'
-    else:
-        button_div['class'] = 'btn-group btn-group-xs'
-    button_div['role'] = 'group'
-    button_col.append(button_div)
+        button_div['role'] = 'group'
+        button_col.append(button_div)
+        add_button_div_content(button_div, parent, project, soup, labels, page)
 
-    if not page:
-        add_button(button_div, labels, project['article'], soup, 'fa fa-bookmark', 'Open project', '_self')
-        button_div.a.append('<span style="margin-left: 6px">Details</span>')
-    add_button(button_div, labels, project['discussion'], soup, 'fa fa-comments', 'Discussion', '_self')
-    add_button(button_div, labels, project['repo-url'], soup, 'fa fa-github-alt', 'GitHub repository', '_blank')
-    add_button(button_div, labels, project['repo-url'] + '/releases/latest', soup, 'fa fa-briefcase', 'Latest release', '_blank')
-    if page:
-        button_div.append('<a class="btn btn-default" data-toggle="modal" data-target="#history-modal" href="" role="button" style="min-width: 50px"><i class="fa fa-calendar-check-o"></i>  History</a>')
+        add_responsive_sharing_buttons(button_row, project, soup)
 
-    # Download button
-    if labels:
         if not page:
             add_download_panel(parent, project, soup)
+        
     else:
-        temp_button = soup.new_tag('a')
-        temp_button['role'] = 'button'
-        temp_button['class'] = 'btn btn-default dropdown-toggle'
-        temp_button['data-toggle'] = 'dropdown'
-        temp_button['aria-haspopup'] = 'true'
-        temp_button['aria-expanded'] = 'false'
-        temp_button.append(soup.new_tag('i'))
-        temp_button.i['class'] = 'fa fa-download'
-        temp_button.append(soup.new_tag('span'))
-        temp_button.span['class'] = 'caret'
-        temp_button.span['style'] = 'margin-left: 4px'
-        temp_button['href'] = '#'
-        button_div.append(temp_button)
-        add_download_dropdown(button_div, project, soup)
-
-    if labels:
-        add_sharing_buttons(button_row, project, soup)
+        button_div['class'] = 'btn-group btn-group-xs'
+        button_div['role'] = 'group'
+        button_col.append(button_div)
+        add_button_div_content(button_div, parent, project, soup, labels, page)
 
 
+def add_button_div_content(parent, download_panel_parent, project, soup, labels, page):
+    if not page:
+        if labels:
+            add_button(parent, labels, project['article'], soup, 'fa fa-bookmark', 'Open project', '_self')
+        else:
+            add_button(parent, labels, project['article'], soup, 'fa fa-bookmark', 'Open project', '_self')
+            parent.a.append('<span style="margin-left: 6px">Details</span>')
+    add_button(parent, labels, project['discussion'], soup, 'fa fa-comments', 'Discussion', '_self')
+    add_button(parent, labels, project['repo-url'], soup, 'fa fa-github-alt', 'GitHub repository', '_blank')
+    add_button(parent, labels, project['repo-url'] + '/releases/latest', soup, 'fa fa-briefcase', 'Latest release', '_blank')
+    if page:
+        parent.append('<a class="btn btn-default" data-toggle="modal" data-target="#history-modal" href="" role="button" style="min-width: 50px"><i class="fa fa-calendar-check-o"></i>  History</a>')
+
+        
 def add_sharing_buttons(parent, project, soup, is_small=False):
     p_id = 'PR{:06}'.format(project['id']) if project['tspr'] == 0 else 'TSPR{:04}'.format(project['tspr']) 
     if is_small:
@@ -155,7 +147,7 @@ def add_sharing_buttons(parent, project, soup, is_small=False):
         share_col.append('<span class="ssk-group ssk-xs" data-url="http://tiborsimon.io/projects/#{0}" data-title="{0} - {1}" data-text="Project by Tibor Simon.">'.format(p_id, project['title']))
     else:
         share_col = soup.new_tag('div')
-        share_col['class'] = 'col-xs-6 text-right'
+        share_col['class'] = 'col-xs-12 col-sm-6'
         parent.append(share_col)
         share_col.append('<div class="ssk-group" data-url="http://tiborsimon.io/projects/#{0}" data-title="{0} - {1}" data-text="Project by Tibor Simon.">'.format(p_id, project['title']))
 
@@ -172,9 +164,38 @@ def add_sharing_buttons(parent, project, soup, is_small=False):
         share_col.append('</span>')
     else:
         share_col.append('</div>')
+
+
+def add_responsive_sharing_buttons(parent, project, soup):
+    p_id = 'PR{:06}'.format(project['id']) if project['tspr'] == 0 else 'TSPR{:04}'.format(project['tspr']) 
+    
+    share_col = soup.new_tag('div')
+    share_col['class'] = 'col-xs-5 col-sm-6 col-md-5 col-lg-6 text-right'
+    parent.append(share_col)
+    share_col.append('<div class="ssk-group ssk-xs visible-xs-block hidden-sm visible-md-block visible-lg-block" data-url="http://tiborsimon.io/projects/#{0}" data-title="{0} - {1}" data-text="Project by Tibor Simon.">'.format(p_id, project['title']))
+    share_col.append('''
+            <a class="ssk ssk-twitter"></a>
+            <a class="ssk ssk-facebook"></a>
+            <a class="ssk ssk-google-plus"></a>
+            <a class="ssk ssk-vk"></a>
+            <a class="ssk ssk-linkedin"></a>
+            <a class="ssk ssk-email"></a>
+        ''')
+    share_col.append('</div>')
+
+    share_col.append('<div class="ssk-group hidden-xs visible-sm-block hidden-md" data-url="http://tiborsimon.io/projects/#{0}" data-title="{0} - {1}" data-text="Project by Tibor Simon.">'.format(p_id, project['title']))
+    share_col.append('''
+            <a class="ssk ssk-twitter"></a>
+            <a class="ssk ssk-facebook"></a>
+            <a class="ssk ssk-google-plus"></a>
+            <a class="ssk ssk-vk"></a>
+            <a class="ssk ssk-linkedin"></a>
+            <a class="ssk ssk-email"></a>
+        ''')
+    share_col.append('</div>')
+        
+
             
-
-
 def add_button(parent, labels, project_data, soup, icon_class, tooltip_text, target):
     temp_button = soup.new_tag('a')
     temp_button['role'] = 'button'
@@ -193,10 +214,10 @@ def add_button(parent, labels, project_data, soup, icon_class, tooltip_text, tar
     temp_button['href'] = project_data
     parent.append(temp_button)
 
-
 def add_download_dropdown(parent, project, soup):
     button_dropdown = soup.new_tag('ul')
     button_dropdown['class'] = 'dropdown-menu'
+    button_dropdown['style'] = 'z-index: 2000;'
     parent.append(button_dropdown)
 
     # Adding assets
@@ -695,6 +716,10 @@ def add_tspr_title(parent, project, soup):
 # =============================================================================
 #    I N D I V I D U A L   P R O J E C T   P R O C E S S O R
 def render_individual_project_page(soup):
+    render_project_header(soup)
+    render_project_toc(soup)
+
+def render_project_header(soup):
     for project_header_div in soup.find_all('div', class_='tspr-individual'):
         index = project_header_div.string
         project = [p for p in store.projects if int(p['tspr']) == int(index)][0]
@@ -718,7 +743,6 @@ def render_individual_project_page(soup):
         
         add_buttons(col_div_1, project, soup, labels=True, page=True)
 
-
         col_div_2 = soup.new_tag('div')
         col_div_2['class'] = 'col-xs-12 col-sm-12 col-md-6'
         row_div.append(col_div_2)
@@ -736,7 +760,7 @@ def render_individual_project_page(soup):
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
-            <h4 class="modal-title" id="myModalLabel">{}<small>Project history</small></h4>
+            <h4 class="modal-title" id="myModalLabel">{}<small style="margin-left: 6px">{} Project history</small></h4>
           </div>
           <div class="modal-body">
             <div class="well well-sm" style="margin-bottom: 0">
@@ -749,4 +773,18 @@ def render_individual_project_page(soup):
         </div>
       </div>
     </div>
-                '''.format(project_id, hist))
+                '''.format(project['title'], project_id, hist))
+
+
+def render_project_toc(soup):
+    toc_div = soup.find('div', class_='project-toc')
+    project_div = soup.find('div', class_='project-documentation')
+
+    h2_tags = soup.find_all('h2')
+    for h2 in h2_tags[2:]:
+        id_string = h2.string.replace(' ', '')
+        h2['id'] = id_string
+        toc_div.append('''
+            <a href="#{}">{}</a><br />
+            '''.format(id_string, h2.string))
+
