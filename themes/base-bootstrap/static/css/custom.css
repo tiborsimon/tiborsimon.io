@@ -275,13 +275,13 @@ hr {
   position: absolute;
   text-align: center;
   line-height: 22px;
-  color: #fff;
+  color: #fea2a7;
   top: 11px;
   right: -79px;
   left: auto;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
-  background: #dd282a;
+  background: #bd3135;
   font-size: 75%;
 }
 

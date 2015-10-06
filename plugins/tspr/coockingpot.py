@@ -157,13 +157,13 @@ def add_sharing_buttons(parent, project, soup, is_small=False):
     share_col = soup.new_tag('span')
     share_col['class'] = 'text-right hidden-xs'
     parent.append(share_col)
-    share_col.append('<span class="ssk-group ssk-xs" data-url="http://tiborsimon.io/projects/#{0}" data-title="{0} - {1}" data-text="Project by Tibor Simon.">'.format(p_id, project['title']))
+    share_col.append('<span class="ssk-group ssk-xs ssk-grayscale" data-url="http://tiborsimon.io/projects/#{0}" data-title="{0} - {1}" data-text="Project by Tibor Simon.">'.format(p_id, project['title']))
 
     share_col2 = soup.new_tag('div')
     share_col2['class'] = 'text-left visible-xs-block'
     share_col2['style'] = 'margin-top: 6px;'
     parent.append(share_col2)
-    share_col2.append('<div class="ssk-group ssk-xs" data-url="http://tiborsimon.io/projects/#{0}" data-title="{0} - {1}" data-text="Project by Tibor Simon.">'.format(p_id, project['title']))
+    share_col2.append('<div class="ssk-group ssk-xs ssk-grayscale" data-url="http://tiborsimon.io/projects/#{0}" data-title="{0} - {1}" data-text="Project by Tibor Simon.">'.format(p_id, project['title']))
     
     share_col.append('''
             <a class="ssk ssk-twitter"></a>
@@ -192,7 +192,7 @@ def add_responsive_sharing_buttons(parent, project, soup):
     share_col = soup.new_tag('div')
     share_col['class'] = 'col-xs-12 col-sm-6 text-right'
     parent.append(share_col)
-    share_col.append('<div class="ssk-group visible-xs-block text-left" data-url="http://tiborsimon.io/projects/#{0}" data-title="{0} - {1}" data-text="Project by Tibor Simon." style="margin-top: 6px;">'.format(p_id, project['title']))
+    share_col.append('<div class="ssk-group visible-xs-block ssk-grayscale text-left" data-url="http://tiborsimon.io/projects/#{0}" data-title="{0} - {1}" data-text="Project by Tibor Simon." style="margin-top: 6px;">'.format(p_id, project['title']))
     share_col.append('''
             <a class="ssk ssk-twitter"></a>
             <a class="ssk ssk-facebook"></a>
@@ -203,7 +203,7 @@ def add_responsive_sharing_buttons(parent, project, soup):
         ''')
     share_col.append('</div>')
 
-    share_col.append('<div class="ssk-group hidden-xs" data-url="http://tiborsimon.io/projects/#{0}" data-title="{0} - {1}" data-text="Project by Tibor Simon.">'.format(p_id, project['title']))
+    share_col.append('<div class="ssk-group ssk-grayscale hidden-xs" data-url="http://tiborsimon.io/projects/#{0}" data-title="{0} - {1}" data-text="Project by Tibor Simon.">'.format(p_id, project['title']))
     share_col.append('''
             <a class="ssk ssk-twitter"></a>
             <a class="ssk ssk-facebook"></a>
@@ -739,10 +739,11 @@ def add_tspr_title(parent, project, soup):
 # =============================================================================
 #    I N D I V I D U A L   P R O J E C T   P R O C E S S O R
 def render_individual_project_page(soup):
-    render_project_header(soup)
-    render_project_toc(soup)
+    has_articles = render_project_header(soup)
+    render_project_toc(soup, has_articles)
 
 def render_project_header(soup):
+    has_articles = False
     for project_header_div in soup.find_all('div', class_='tspr-individual'):
         project_id = project_header_div.string
         project = None
@@ -804,23 +805,28 @@ def render_project_header(soup):
 
         article_row = soup.find('div', class_='masonry-container')
         if project_id in SERIES:
+            has_articles = True
             for article in SERIES[project_id]:
                 add_related_article(article_row, article, soup)
         else:
             corresponding_div = soup.find('div', class_='project-corresponding-articles')
             corresponding_div.string = ''
 
+        return has_articles
 
-def render_project_toc(soup):
+
+def render_project_toc(soup, has_articles):
     toc_div = soup.find('div', class_='project-toc')
     project_div = soup.find('div', class_='project-documentation')
 
+    limit = 3 if has_articles else 2
+
     h2_tags = soup.find_all('h2')
-    for h2 in h2_tags[3:]:
+    for h2 in h2_tags[limit:]:
         id_string = h2.string.replace(' ', '')
         h2['id'] = id_string
         toc_div.append('''
-            <a href="#{}">{}</a><br />
+            <a href="#{}" style="color: #555;">{}</a><br />
             '''.format(id_string, h2.string))
 
 

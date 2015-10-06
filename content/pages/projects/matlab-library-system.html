@@ -26,7 +26,7 @@
                         <hr class="hidden-xs hidden-sm"/>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-3">
-                        <div class="project-toc">
+                        <div class="project-toc" style="color: #555;">
                             <h3>Contents</h3>
                         </div>
                     </div>
@@ -43,20 +43,7 @@
 
 <p>A library distributed with the <strong>MATLAB Library System</strong> is wrapped around a top level folder. This folder wrapper is the <strong>MLS package</strong>. It contains the necessary <em>install/uninstall scripts</em> and the <em>librarydata.txt file</em>. The actual library containing the third party functionality is separated this way from the package handler logic.</p>
 
-<pre><code>my_mls_package
-│   install.m
-│   uninstall.m
-│   librarydata.txt    
-│
-└───library
-    │   files1.m
-    │   files2.m
-    │   ...
-    │ 
-    ├───folder1
-    ├───folder2
-    └───...
-</code></pre>
+<div data-gist-id="c9007ca307345eeff771" data-gist-file="file_tree.txt" data-gist-hide-line-numbers="true" data-gist-hide-footer="true" data-gist-show-spinner="true"></div>
 
 <p>The installer script will add the <em>library</em> folder and all of it's subfolders into your MATLAB path permanently. The top level package folder (<em>my_mls_package</em>) won't be added, so your MATLAB workspace won't be polluted with the install and uninstall scipts. The <strong>library</strong> name for the folder inside the package is <strong>mandatory</strong>! Do not name it another way.</p>
 
@@ -94,21 +81,7 @@
 
 <p>You can write your own scripts, that has a functionality something like this:</p>
 
-<pre><code>d = dir('.');
-for k = 1:length(d)
-    if (d(k).isdir == 1)
-        switch d(k).name
-            case '.'
-            case '..'
-                % Nothing to do
-            otherwise
-                cd(d(k).name)
-                install()
-                cd('..')
-        end
-    end
-end
-</code></pre>
+<div data-gist-id="c9007ca307345eeff771" data-gist-file="install_all_example.m" data-gist-show-spinner="true"></div>
 
 <p>This code scans through the current directory, and calls the <em>install</em> command inside every folder it find in the first level.</p>
 
@@ -116,49 +89,11 @@ end
 
 <p>By running the <code>install</code> script, an MLS package will print out the following.</p>
 
-<pre><code>&gt;&gt; install
-
-#====================================================================================#
-|                                                                                    |
-|                      M A T L A B   L I B R A R Y   S Y S T E M                     |
-|               &gt;&gt;-------------------------~-------------------------&lt;&lt;              |
-|                                       v2.3.0                                       |
-#------------------------------------------------------------------------------------#
-
-   Installing My Library v0.0.0 by John Smith..
-
-      -&gt; Path added: .../my_mls_package/library
-
-   Finished!
-
-      My Library v0.0.0 has been succesfully installed to your system!
-
-      Test your installation by running: my_function()
-
-#====================================================================================#
-</code></pre>
+<div data-gist-id="c9007ca307345eeff771" data-gist-file="install_printout.txt" data-gist-show-spinner="true"></div>
 
 <p>By running the <code>uninstall</code> script, an MLS package will print out the following.</p>
 
-<pre><code>&gt;&gt; uninstall
-
-#====================================================================================#
-|                                                                                    |
-|                      M A T L A B   L I B R A R Y   S Y S T E M                     |
-|               &gt;&gt;-------------------------~-------------------------&lt;&lt;              |
-|                                       v2.3.0                                       |
-#------------------------------------------------------------------------------------#
-
-   Removing My Library v0.0.0 by John Smith..
-
-      -&gt; Path removed: .../my_mls_package/library
-
-   Finished!
-
-      My Library v0.0.0 has been succesfully removed from your system!
-
-#====================================================================================#
-</code></pre>
+<div data-gist-id="c9007ca307345eeff771" data-gist-file="uninstall_printout.txt" data-gist-show-spinner="true"></div>
 
 <h2>Creating your own MLS package</h2>
 
@@ -174,19 +109,9 @@ end
 
 <p>The <em>librarydata.txt</em> file is a simple text file containing the library related credit, verioning and demo informations line by line in a strict order. You have to follow the data orders as defined in the template:</p>
 
-<pre><code>My Library
-http://google.com
-John Smith
-v0.0.0
-my_function()
-</code></pre>
+<div data-gist-id="c9007ca307345eeff771" data-gist-file="librarydata.txt" data-gist-show-spinner="true"></div>
 
-<pre><code>1st line: library name
-2nd line: library url
-3st line: author name
-4th line: library version
-5th line: demo command
-</code></pre>
+<div data-gist-id="c9007ca307345eeff771" data-gist-file="librarydata_explanation.txt" data-gist-show-spinner="true"></div>
 
 <p>The <em>library name</em> will be displayed as an URL to the <em>library url</em> as you could see in the previous section's printouts. The <em>demo command</em> will be displayed as an URL too, but itt will call the <em>demo command</em> on click. In this way it needs no effort by the user to try the just-installed new functionality.</p>
 
