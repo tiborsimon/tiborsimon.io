@@ -8,6 +8,8 @@ from tiborsimonio import Store
 Store.project_file = 'tspr.json'
 store = Store.load()
 
+SERIES = {}
+
 
 def render(pelican):
     path = pelican.settings['OUTPUT_PATH'] + '/log/index.html'
@@ -30,9 +32,18 @@ def render(pelican):
         with open(p, 'w') as f:
             f.write(soup.prettify(formatter=None))
 
+def aggregate_series(generator):
+    global SERIES
+    for article in generator.articles:
+        if 'series' in article.metadata:
+            if article.series not in SERIES:
+                SERIES[article.series] = []
+            SERIES[article.series].append(article)
+
 
 def register():
     signals.finalized.connect(render)
+    signals.article_generator_finalized.connect(aggregate_series)
 
 
 # =============================================================================
@@ -100,17 +111,23 @@ def add_buttons(parent, project, soup, labels=False, page=False):
 
     button_col = soup.new_tag('div')
     if labels:
-        button_col['class'] = 'col-xs-7 col-sm-6 col-md-7 col-lg-6'
+        button_col['class'] = 'col-xs-12 col-sm-6'
     else:
         button_col['class'] = 'col-xs-12'
     button_row.append(button_col)
 
     button_div = soup.new_tag('div')
+    button_div2 = soup.new_tag('div')
     if labels:
-        button_div['class'] = 'btn-group'
+        button_div['class'] = 'btn-group hidden-xs'
         button_div['role'] = 'group'
         button_col.append(button_div)
         add_button_div_content(button_div, parent, project, soup, labels, page)
+
+        button_div2['class'] = 'btn-group visible-xs-block'
+        button_div2['role'] = 'group'
+        button_col.append(button_div2)
+        add_button_div_content(button_div2, parent, project, soup, labels, page)
 
         add_responsive_sharing_buttons(button_row, project, soup)
 
@@ -126,11 +143,8 @@ def add_buttons(parent, project, soup, labels=False, page=False):
 
 def add_button_div_content(parent, download_panel_parent, project, soup, labels, page):
     if not page:
-        if labels:
-            add_button(parent, labels, project['article'], soup, 'fa fa-bookmark', 'Open project', '_self')
-        else:
-            add_button(parent, labels, project['article'], soup, 'fa fa-bookmark', 'Open project', '_self')
-            parent.a.append('<span style="margin-left: 6px">Details</span>')
+        add_button(parent, labels, project['article'], soup, 'fa fa-bookmark', 'Open project', '_self')
+        parent.a.append('<span style="margin-left: 6px">Details</span>')
     add_button(parent, labels, project['discussion'], soup, 'fa fa-comments', 'Discussion', '_self')
     add_button(parent, labels, project['repo-url'], soup, 'fa fa-github-alt', 'GitHub repository', '_blank')
     add_button(parent, labels, project['repo-url'] + '/releases/latest', soup, 'fa fa-briefcase', 'Latest release', '_blank')
@@ -139,18 +153,18 @@ def add_button_div_content(parent, download_panel_parent, project, soup, labels,
 
         
 def add_sharing_buttons(parent, project, soup, is_small=False):
-    p_id = 'PR{:06}'.format(project['id']) if project['tspr'] == 0 else 'TSPR{:04}'.format(project['tspr']) 
-    if is_small:
-        share_col = soup.new_tag('span')
-        share_col['class'] = 'text-right'
-        parent.append(share_col)
-        share_col.append('<span class="ssk-group ssk-xs" data-url="http://tiborsimon.io/projects/#{0}" data-title="{0} - {1}" data-text="Project by Tibor Simon.">'.format(p_id, project['title']))
-    else:
-        share_col = soup.new_tag('div')
-        share_col['class'] = 'col-xs-12 col-sm-6'
-        parent.append(share_col)
-        share_col.append('<div class="ssk-group" data-url="http://tiborsimon.io/projects/#{0}" data-title="{0} - {1}" data-text="Project by Tibor Simon.">'.format(p_id, project['title']))
+    p_id = 'PR{:06}'.format(project['id']) if project['tspr'] == 0 else 'TSPR{:04}'.format(project['tspr'])
+    share_col = soup.new_tag('span')
+    share_col['class'] = 'text-right hidden-xs'
+    parent.append(share_col)
+    share_col.append('<span class="ssk-group ssk-xs" data-url="http://tiborsimon.io/projects/#{0}" data-title="{0} - {1}" data-text="Project by Tibor Simon.">'.format(p_id, project['title']))
 
+    share_col2 = soup.new_tag('div')
+    share_col2['class'] = 'text-left visible-xs-block'
+    share_col2['style'] = 'margin-top: 6px;'
+    parent.append(share_col2)
+    share_col2.append('<div class="ssk-group ssk-xs" data-url="http://tiborsimon.io/projects/#{0}" data-title="{0} - {1}" data-text="Project by Tibor Simon.">'.format(p_id, project['title']))
+    
     share_col.append('''
             <a class="ssk ssk-twitter"></a>
             <a class="ssk ssk-facebook"></a>
@@ -160,19 +174,25 @@ def add_sharing_buttons(parent, project, soup, is_small=False):
             <a class="ssk ssk-email"></a>
         ''')
 
-    if is_small:
-        share_col.append('</span>')
-    else:
-        share_col.append('</div>')
+    share_col2.append('''
+            <a class="ssk ssk-twitter"></a>
+            <a class="ssk ssk-facebook"></a>
+            <a class="ssk ssk-google-plus"></a>
+            <a class="ssk ssk-vk"></a>
+            <a class="ssk ssk-linkedin"></a>
+            <a class="ssk ssk-email"></a>
+        ''')
+    share_col.append('</span>')
+    share_col2.append('</div>')
 
 
 def add_responsive_sharing_buttons(parent, project, soup):
     p_id = 'PR{:06}'.format(project['id']) if project['tspr'] == 0 else 'TSPR{:04}'.format(project['tspr']) 
     
     share_col = soup.new_tag('div')
-    share_col['class'] = 'col-xs-5 col-sm-6 col-md-5 col-lg-6 text-right'
+    share_col['class'] = 'col-xs-12 col-sm-6 text-right'
     parent.append(share_col)
-    share_col.append('<div class="ssk-group ssk-xs visible-xs-block hidden-sm visible-md-block hidden-lg" data-url="http://tiborsimon.io/projects/#{0}" data-title="{0} - {1}" data-text="Project by Tibor Simon.">'.format(p_id, project['title']))
+    share_col.append('<div class="ssk-group visible-xs-block text-left" data-url="http://tiborsimon.io/projects/#{0}" data-title="{0} - {1}" data-text="Project by Tibor Simon." style="margin-top: 6px;">'.format(p_id, project['title']))
     share_col.append('''
             <a class="ssk ssk-twitter"></a>
             <a class="ssk ssk-facebook"></a>
@@ -183,7 +203,7 @@ def add_responsive_sharing_buttons(parent, project, soup):
         ''')
     share_col.append('</div>')
 
-    share_col.append('<div class="ssk-group hidden-xs visible-sm-block hidden-md visible-lg-block" data-url="http://tiborsimon.io/projects/#{0}" data-title="{0} - {1}" data-text="Project by Tibor Simon.">'.format(p_id, project['title']))
+    share_col.append('<div class="ssk-group hidden-xs" data-url="http://tiborsimon.io/projects/#{0}" data-title="{0} - {1}" data-text="Project by Tibor Simon.">'.format(p_id, project['title']))
     share_col.append('''
             <a class="ssk ssk-twitter"></a>
             <a class="ssk ssk-facebook"></a>
@@ -250,9 +270,12 @@ def add_download_dropdown(parent, project, soup):
 
 def add_download_panel(parent, project, soup):
     parent.append('<h4>Latest release <small style="font-size: 70%">{}</small></h4>'.format(project['version']))
+    panel = soup.new_tag('div')
+    panel['class'] = 'panel panel-default table-responsive'
     table = soup.new_tag('table')
-    table['class'] = 'table table-hover table-bordered'
-    parent.append(table)
+    table['class'] = 'table-striped table table-striped table-bordered table-hover'
+    parent.append(panel)
+    panel.append(table)
 
     table.append('<thead><tr><td><b>Asset</b></td><td><b>Size</b></td><td><i class="fa fa-arrow-down"></td><td><b>Download</b></td></tr></thead>')
     tbody = soup.new_tag('tbody')
@@ -324,7 +347,7 @@ def add_tag_field(parent, project, soup, label=False):
 
     if project['state'] != 'released':
         if label:
-            add_sharing_buttons(tag_field, project, soup, is_small=True)
+            add_sharing_buttons(tag_field, project, soup)
 
 
 def add_panel_heading(parent, project, soup):
@@ -721,9 +744,13 @@ def render_individual_project_page(soup):
 
 def render_project_header(soup):
     for project_header_div in soup.find_all('div', class_='tspr-individual'):
-        index = project_header_div.string
-        project = [p for p in store.projects if int(p['tspr']) == int(index)][0]
-        project_id = 'PR{:06}'.format(project['id']) if project['tspr'] == 0 else 'TSPR{:04}'.format(project['tspr']) 
+        project_id = project_header_div.string
+        project = None
+        for p in store.projects:
+            other_project_id = 'PR{:06}'.format(p['id']) if p['tspr'] == 0 else 'TSPR{:04}'.format(p['tspr'])
+            if project_id == other_project_id:
+                project = p
+                break
 
         # print('Rendering TSPR{:04} header..'.format(index))
         project_header_div.string = ''
@@ -775,16 +802,79 @@ def render_project_header(soup):
     </div>
                 '''.format(project['title'], project_id, hist))
 
+        article_row = soup.find('div', class_='masonry-container')
+        if project_id in SERIES:
+            for article in SERIES[project_id]:
+                add_related_article(article_row, article, soup)
+        else:
+            corresponding_div = soup.find('div', class_='project-corresponding-articles')
+            corresponding_div.string = ''
+
 
 def render_project_toc(soup):
     toc_div = soup.find('div', class_='project-toc')
     project_div = soup.find('div', class_='project-documentation')
 
     h2_tags = soup.find_all('h2')
-    for h2 in h2_tags[2:]:
+    for h2 in h2_tags[3:]:
         id_string = h2.string.replace(' ', '')
         h2['id'] = id_string
         toc_div.append('''
             <a href="#{}">{}</a><br />
             '''.format(id_string, h2.string))
+
+
+def add_related_article(parent, article, soup):
+    parent.append('''\
+<div class="col-xs-12 col-sm-6 col-md-6 article-listing">
+    <a href="http://tiborsimon.io/{}" class="thumbnail" style="text-decoration: none">'''.format(article.url))
+
+    if hasattr(article, 'img'):
+      parent.append('''<img src="{}" />'''.format(article.img))
+
+    parent.append('''\
+    <div class="caption">
+      <div class="row" style="opacity: 0.6; font-size: 90%;">''')
+
+    if hasattr(article, 'modified'):
+        parent.append('''\
+          <small class="col-xs-6 col-sm-12 col-md-12 col-lg-6">
+          <i class="fa fa-refresh" style="margin-right: 2px"></i> Modified on 
+          <time datetime="{}"> {}</time>
+        </small>'''.format(article.modified.isoformat(), article.locale_modified))
+    else:
+        parent.append('''\
+        <small class="col-xs-6 col-sm-12 col-md-12 col-lg-6">
+          <i class="fa fa-clock-o"></i> Posted on 
+          <time datetime="{}"> {}</time>
+        </small>'''.format(article.date.isoformat(), article.locale_date))
+
+    parent.append('''\
+        <small class="col-xs-6 col-sm-12 col-md-12 col-lg-6">
+          <span class="text-right">
+            <i class="fa fa-folder-open-o"></i>
+            <span>{}</span>'''.format(article.category))
+
+    if hasattr(article, 'tags'):
+        parent.append('''\
+              <i class="fa fa-tags" style="margin-left: 5px"></i>''')
+        for tag in article.tags:
+            parent.append('''\
+                <span>{}</span>, '''.format(tag))
+    parent.append('''\
+          </span>
+        </small>
+      </div>
+      <h3 class="list-group-item-heading">
+        <span style="color:#333">{}</span>'''.format(article.title))
+    if hasattr(article, 'series'):
+        parent.append('''\
+          <small style="font-size: 50%">Part {} of the <i>{}</i> series</small>'''.format(article.series['index'], article.series['name']))
+    parent.append('''\
+      </h3>
+      <div class="list-group-item-text">{}</div>
+    </div>
+    </a>
+</div>'''.format(article.summary))
+
 
