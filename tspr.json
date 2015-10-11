@@ -87,6 +87,8 @@
       "tspr": 2,
       "docs": "#",
       "history": [
+                    "2015-10-11 - Bulk mode bug was fixed. Refactored the overcomplicated ambiguous key handling.",
+                    "2015-10-10 - Refactored error system",
                     "2015-08-21 - v1.4.1 released",
                     "2015-08-21 - v1.4.0 released, new versioning started", 
                     "2015-06-17 - v1.3 released",
