@@ -143,7 +143,7 @@ def add_buttons(parent, project, soup, labels=False, page=False):
 
 def add_button_div_content(parent, download_panel_parent, project, soup, labels, page):
     if not page:
-        add_button(parent, labels, project['article'], soup, 'fa fa-bookmark', 'Open project', '_self')
+        add_button(parent, labels, project['article'], soup, 'fa fa-bookmark', '', '_self')
         parent.a.append('<span style="margin-left: 6px">Details</span>')
     add_button(parent, labels, project['discussion'], soup, 'fa fa-comments', 'Discussion', '_self')
     add_button(parent, labels, project['repo-url'], soup, 'fa fa-github-alt', 'GitHub repository', '_blank')
@@ -225,11 +225,12 @@ def add_button(parent, labels, project_data, soup, icon_class, tooltip_text, tar
         temp_button['style'] = 'min-width: 24px'
     temp_button['class'] = 'btn btn-default'
     temp_button.append(soup.new_tag('i'))
-    temp_button['data-toggle'] = 'tooltip'
-    temp_button['data-container'] = 'body'
-    temp_button['data-placement'] = 'top'
-    temp_button['target'] = target
-    temp_button['title'] = tooltip_text
+    if tooltip_text:
+        temp_button['data-toggle'] = 'tooltip'
+        temp_button['data-container'] = 'body'
+        temp_button['data-placement'] = 'top'
+        temp_button['target'] = target
+        temp_button['title'] = tooltip_text
     temp_button.i['class'] = icon_class
     temp_button['href'] = project_data
     parent.append(temp_button)
@@ -269,7 +270,14 @@ def add_download_dropdown(parent, project, soup):
 
 
 def add_download_panel(parent, project, soup):
-    parent.append('<h4>Latest release <small style="font-size: 70%">{}</small></h4>'.format(project['version']))
+    parent.append('''\
+<h4>Latest release <small style="font-size: 70%">{1}</small>
+<span class="text-right" style="clear: right; position: relative; top: 7    px; margin-left: 10px;">
+<iframe style="float:right;" src="https://ghbtns.com/github-btn.html?user=tiborsimon&repo={0}&type=fork&count=true" frameborder="0" width="76px" height="22px"></iframe>
+<iframe style="float:right;" src="https://ghbtns.com/github-btn.html?user=tiborsimon&repo={0}&type=star&count=true" frameborder="0" width="76px" height="22px"></iframe>
+</span>
+</h4>
+'''.format(project['repo-name'], project['version']))
     panel = soup.new_tag('div')
     panel['class'] = 'panel panel-default table-responsive'
     table = soup.new_tag('table')
