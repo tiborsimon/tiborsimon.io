@@ -149,7 +149,10 @@ def add_button_div_content(parent, download_panel_parent, project, soup, labels,
     add_button(parent, labels, project['repo-url'], soup, 'fa fa-github-alt', 'GitHub repository', '_blank')
     add_button(parent, labels, project['repo-url'] + '/releases/latest', soup, 'fa fa-briefcase', 'Latest release', '_blank')
     if page:
-        parent.append('<a class="btn btn-default" data-toggle="modal" data-target="#history-modal" href="" role="button" style="min-width: 50px"><i class="fa fa-calendar-check-o"></i>  History</a>')
+        parent.append('''\
+            <a class="btn btn-default visible-md-block" data-toggle="modal" data-target="#history-modal" href="" role="button" style="min-width: 50px; padding: 5px 12px !important;"><i class="fa fa-calendar-check-o"></i></a>
+            <a class="btn btn-default hidden-md" data-toggle="modal" data-target="#history-modal" href="" role="button" style="min-width: 50px; padding: 5px 12px !important;"><i class="fa fa-calendar-check-o"></i>  History</a>
+            ''')
 
         
 def add_sharing_buttons(parent, project, soup, is_small=False):
@@ -157,13 +160,13 @@ def add_sharing_buttons(parent, project, soup, is_small=False):
     share_col = soup.new_tag('span')
     share_col['class'] = 'text-right hidden-xs'
     parent.append(share_col)
-    share_col.append('<span class="ssk-group ssk-xs ssk-grayscale" data-url="http://tiborsimon.io/projects/#{0}" data-title="{0} - {1}" data-text="Project by Tibor Simon.">'.format(p_id, project['title']))
+    share_col.append('<span class="ssk-group ssk-xs ssk-rounded ssk-count ssk-grayscale" data-url="http://tiborsimon.io/projects/#{0}" data-title="{0} - {1}" data-text="a project by Tibor Simon.">'.format(p_id, project['title']))
 
     share_col2 = soup.new_tag('div')
     share_col2['class'] = 'text-left visible-xs-block'
     share_col2['style'] = 'margin-top: 6px;'
     parent.append(share_col2)
-    share_col2.append('<div class="ssk-group ssk-xs ssk-grayscale" data-url="http://tiborsimon.io/projects/#{0}" data-title="{0} - {1}" data-text="Project by Tibor Simon.">'.format(p_id, project['title']))
+    share_col2.append('<div class="ssk-group ssk-xs ssk-rounded ssk-count ssk-grayscale" data-url="http://tiborsimon.io/projects/#{0}" data-title="{0} - {1}" data-text="a project by Tibor Simon.">'.format(p_id, project['title']))
     
     share_col.append('''
             <a class="ssk ssk-twitter"></a>
@@ -192,7 +195,7 @@ def add_responsive_sharing_buttons(parent, project, soup):
     share_col = soup.new_tag('div')
     share_col['class'] = 'col-xs-12 col-sm-6 text-right'
     parent.append(share_col)
-    share_col.append('<div class="ssk-group visible-xs-block ssk-grayscale text-left" data-url="http://tiborsimon.io/projects/#{0}" data-title="{0} - {1}" data-text="Project by Tibor Simon." style="margin-top: 6px;">'.format(p_id, project['title']))
+    share_col.append('<div class="ssk-group visible-xs-block ssk-grayscale text-left" data-url="http://tiborsimon.io/projects/#{0}" data-title="{0} - {1}" data-text="a project by Tibor Simon." style="margin-top: 6px;">'.format(p_id, project['title']))
     share_col.append('''
             <a class="ssk ssk-twitter"></a>
             <a class="ssk ssk-facebook"></a>
@@ -203,7 +206,7 @@ def add_responsive_sharing_buttons(parent, project, soup):
         ''')
     share_col.append('</div>')
 
-    share_col.append('<div class="ssk-group ssk-grayscale hidden-xs" data-url="http://tiborsimon.io/projects/#{0}" data-title="{0} - {1}" data-text="Project by Tibor Simon.">'.format(p_id, project['title']))
+    share_col.append('<div class="ssk-group ssk-grayscale hidden-xs" data-url="http://tiborsimon.io/projects/#{0}" data-title="{0} - {1}" data-text="a project by Tibor Simon.">'.format(p_id, project['title']))
     share_col.append('''
             <a class="ssk ssk-twitter"></a>
             <a class="ssk ssk-facebook"></a>
@@ -220,7 +223,8 @@ def add_button(parent, labels, project_data, soup, icon_class, tooltip_text, tar
     temp_button = soup.new_tag('a')
     temp_button['role'] = 'button'
     if labels:
-        temp_button['style'] = 'min-width: 50px'
+        temp_button['style'] = 'min-width: 50px; padding: 5px 12px !important;'
+
     else:
         temp_button['style'] = 'min-width: 24px'
     temp_button['class'] = 'btn btn-default'
@@ -273,8 +277,10 @@ def add_download_panel(parent, project, soup):
     parent.append('''\
 <h4>Latest release <small style="font-size: 70%">{1}</small>
 <span class="text-right" style="clear: right; position: relative; top: 7    px; margin-left: 10px;">
-<iframe style="float:right;" src="https://ghbtns.com/github-btn.html?user=tiborsimon&repo={0}&type=fork&count=true" frameborder="0" width="76px" height="22px"></iframe>
-<iframe style="float:right;" src="https://ghbtns.com/github-btn.html?user=tiborsimon&repo={0}&type=star&count=true" frameborder="0" width="76px" height="22px"></iframe>
+<iframe style="float:right;position: relative; top: 2px;" src="https://ghbtns.com/github-btn.html?user=tiborsimon&repo={0}&type=fork&count=true" frameborder="0" scrolling="0" width="79px" height="22px"></iframe>
+<iframe style="float:right;position: relative; top: 2px;" src="https://ghbtns.com/github-btn.html?user=tiborsimon&repo={0}&type=star&count=true" frameborder="0" scrolling="0" width="79px" height="22px"></iframe>
+<iframe style="float:right;position: relative; top: 2px;" src="https://ghbtns.com/github-btn.html?user=tiborsimon&repo={0}&type=watch&count=true&v=2" frameborder="0" scrolling="0" width="90px" height="20px"></iframe>
+
 </span>
 </h4>
 '''.format(project['repo-name'], project['version']))
@@ -299,7 +305,8 @@ def add_download_panel(parent, project, soup):
             tr.append(name)
             name.append(soup.new_tag('i'))
             name.i['class'] = 'fa fa-star'
-            name.append(' ' + asset['file-name'])
+            name.i['style'] = 'margin-right: 4px;'
+            name.append(asset['file-name'])
 
             asset_size = soup.new_tag('td')
             tr.append(asset_size)
@@ -320,6 +327,7 @@ def add_download_panel(parent, project, soup):
     tr.append(name)
     name.append(soup.new_tag('i'))
     name.i['class'] = 'fa fa-file-archive-o'
+    name.i['style'] = 'margin-right: 4px;'
     name.append(' Source code')
 
     asset_size = soup.new_tag('td')

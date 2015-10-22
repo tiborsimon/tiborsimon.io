@@ -29,6 +29,7 @@
 
     {% block meta %}
         <meta name="author" content="{{ AUTHOR }}" />
+        <meta name="description" content="Hi! My name is Tibor Simon. I am a graduated electrical engineer from Budapest. You are currently looking at my site tiborsimon.io where I publish all my work related to my interest. Just to mention some: programming, electronics, engineering, guitar, photography, web, python, ios ans so on :) Let's take a look inside!">
     {% endblock %}
 
     {# Open Graph tags #}
@@ -40,7 +41,7 @@
         {% endif %}
         <meta property="og:site_name" content="{{ SITENAME }}" />
         <meta property="og:type" content="website"/>
-        <meta property="og:title" content="{{ SITENAME }}"/>
+        <meta property="og:title" content="tiborsimon.io"/>
         <meta property="og:url" content="{{ SITEURL }}"/>
         <meta property="og:description" content="{{ SITENAME }}"/>
         {% if OPEN_GRAPH_IMAGE %}
@@ -58,6 +59,11 @@
     <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/custom.css" type="text/css"/>
     <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/keys.css" type="text/css"/>
     <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/social-share-kit.css" type="text/css">
+    <!-- Font awesome CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Google fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
+
 
     {% if FEED_ALL_ATOM %}
         <link href="{{ SITEURL }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate"
@@ -78,12 +84,6 @@
         <link href="{{ SITEURL }}/{{ CATEGORY_FEED_ATOM|format(category.slug) }}" type="application/atom+xml" rel="alternate"
               title="{{ SITENAME }} {{ category }} ATOM Feed"/>
     {% endif %}
-    
-    <!-- Font awesome CDN -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-
-    <!-- Google fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
 
 </head>
 <body>
@@ -101,7 +101,7 @@
             </button>
             <a href="{{ SITEURL }}/" class="navbar-brand">
                 {% if SITELOGO %}<img src="{{ SITEURL }}/{{ SITELOGO }}" width="{{ SITELOGO_SIZE }}"/> {% endif %}
-                {% if not HIDE_SITENAME %}{{ SITENAME }}{% endif %}
+                {% if not HIDE_SITENAME %}tiborsimon.io{% endif %}
             </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -168,6 +168,24 @@
 <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/respond.min.js"></script>
 <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/json-search.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.2/gist-embed.min.js"></script>
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '551628881652865',
+      xfbml      : true,
+      version    : 'v2.5'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
 
 <script type="text/javascript">
 /* <![CDATA[ */

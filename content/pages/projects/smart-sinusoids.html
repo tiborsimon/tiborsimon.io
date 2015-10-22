@@ -20,20 +20,339 @@
                     </div>
                     <div class="col-xs-12 project-corresponding-articles">
                         <h2 style="margin-bottom: 0">Corresponding articles</h2>
-                        <hr class="hidden-xs hidden-sm" style="margin-top: 6px" />
+                        <hr style="margin-top: 6px" />
                         <div class="row masonry-container">
                         </div>
                         <hr class="hidden-xs hidden-sm"/>
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-2">
-                        <div class="project-toc"></div>
+                    <div class="col-xs-12 col-sm-12 col-md-3">
+                        <div class="project-toc" style="color: #555;">
+                            <h3>Contents</h3>
+                        </div>
                     </div>
-                    <div class="col-xs-12 col-sm-10">
+                    <div class="col-xs-12 col-sm-12 col-md-9">
                         <div class="project-documentation">
 <!-- =======================================================================================================================
    D O C   S T A R T
 ======================================================================================================================== -->  
+<h1>Documentation v1.3.0</h1>
 
+<p>The easiest way to generate a sine or cosine signal in MATLAB. With this library there are almost infinite ways to describe and generate a sinusoid signals.</p>
+
+<h2>Dependecy</h2>
+
+<p>To use <em>ssin</em> or <em>scos</em>, you need to download and add to your path <a title="Simple Input Parser" href="http://tiborsimon.io/projects/TSPR0002/" target="_blank"><b>Simple Input Parser</b></a> which is a package that allows you to create functions with a more convenient interface for the users.</p>
+
+<h2>Installation</h2>
+
+<h4>1. Installing the dependency:</h4>
+
+<ul>
+<li>Download the <a href="https://github.com/tiborsimon/simple-input-parser/releases/latest">latest release of Simple Input Parser</a>.</li>
+<li>Run the <code>install.m</code> script or the <code>install</code> command inside the downloaded <code>simple-input-parser</code> folder.</li>
+<li>Done. Now you have <strong>Simple Input Parser</strong> on your system.</li>
+</ul>
+
+
+<h4>2. Installing <strong>Smart Sinusoids</strong></h4>
+
+<ul>
+<li>Download the <a href="https://github.com/tiborsimon/smart-sinusoids/releases/latest">latest release</a>.</li>
+<li>Run the <code>install.m</code> script or the <code>install</code> command inside the downloaded <code>smart-sinusoids</code> folder.</li>
+<li>Done. You can use <strong>Smart Sinusoids</strong> (and of course <em>Simple Input Parser</em> too).</li>
+</ul>
+
+
+<p><em>This installation method is powered by the <a href="http://tiborsimon.io/projects/TSPR0001/" target="_blank" >MATLAB Library System</a>.</em></p>
+
+<h2>Features</h2>
+
+<ul>
+<li>fast and easy signal generation</li>
+<li>flexible parameter handling</li>
+<li>arbitrary parameter configurations</li>
+<li>optional time vector generation</li>
+</ul>
+
+
+<h2>Possible parameters</h2>
+
+<p>The following figure and table shows all of the possible parameters and its meaning.</p>
+
+<p>
+<div class="text-center" style="width: 100%; height: auto;">
+  <img alt="Sine equation" class="img-responsive img-thumbnail" src="http://tiborsimon.io/images/smart-sinusoids/detailed.png">
+  <figcaption>
+   <small>
+    <i>
+      Sinusoid signal parameters
+    </i>
+   </small>
+  </figcaption>
+ </div>
+</p>
+
+<table>
+<thead>
+<tr>
+<th align="center"> Symbol </th>
+<th align="center"> Unit </th>
+<th align="left"> Name </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"> <strong>A</strong>   </td>
+<td align="center"> []   </td>
+<td align="left"> signal amplitude</td>
+</tr>
+<tr>
+<td align="center"> <strong>phi</strong> </td>
+<td align="center"> [°]  </td>
+<td align="left"> phase in degrees</td>
+</tr>
+<tr>
+<td align="center"> <strong>f</strong>   </td>
+<td align="center"> [Hz] </td>
+<td align="left"> signal frequency</td>
+</tr>
+<tr>
+<td align="center"> <strong>fs</strong>  </td>
+<td align="center"> [Hz] </td>
+<td align="left"> sample rate</td>
+</tr>
+<tr>
+<td align="center"> <strong>T</strong>   </td>
+<td align="center"> [s]  </td>
+<td align="left"> signal period</td>
+</tr>
+<tr>
+<td align="center"> <strong>dt</strong>  </td>
+<td align="center"> [s]  </td>
+<td align="left"> sample time</td>
+</tr>
+<tr>
+<td align="center"> <strong>N</strong>   </td>
+<td align="center"> []   </td>
+<td align="left"> number of periods in the signal</td>
+</tr>
+<tr>
+<td align="center"> <strong>n</strong>   </td>
+<td align="center"> []   </td>
+<td align="left"> sample count</td>
+</tr>
+<tr>
+<td align="center"> <strong>L</strong>   </td>
+<td align="center"> [s]  </td>
+<td align="left"> signal length</td>
+</tr>
+<tr>
+<td align="center"> <strong>x</strong>   </td>
+<td align="center"> [st] </td>
+<td align="left"> optional time vector scaling (see details later)</td>
+</tr>
+</tbody>
+</table>
+
+
+<h2>Possible use cases</h2>
+
+<p>With these parameters there are 5 main generation methods for sinusoid signals. Each of them have alternatives that doesn't count as an individual generation method due to the used parameters can be derived from the others if you apply the following formulas: <em>fs = 1/dt</em>, <em>T = 1/f</em> and <em>L=n*dt</em>.</p>
+
+<table>
+<thead>
+<tr>
+<th align="center"> Method index </th>
+<th align="left"> Required parameters </th>
+<th align="left"> CT DT lock     </th>
+<th align="left"> Description  </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"> 1 </td>
+<td align="left"> <code>n</code>, <code>N</code>          </td>
+<td align="left"> No  </td>
+<td align="left"> a signal consisting of <code>n</code> data points with <code>N</code><br> periods in it</td>
+</tr>
+<tr>
+<td align="center"> 2 </td>
+<td align="left"> <code>L</code>, <code>N</code>, <code>fs</code>    </td>
+<td align="left"> Yes </td>
+<td align="left"> <code>L</code> seconds long signal consisting <code>N</code> periods<br> with the frequency <code>f</code></td>
+</tr>
+<tr>
+<td align="center"> 3 </td>
+<td align="left"> <code>f</code>, <code>N</code>, <code>fs</code>    </td>
+<td align="left"> Yes </td>
+<td align="left"> a signal sampled at <code>fs</code> sampling rate with <code>N</code> <br>periods in it with the frequency <code>f</code></td>
+</tr>
+<tr>
+<td align="center"> 4 </td>
+<td align="left"> <code>f</code>, <code>n</code>, <code>fs</code>    </td>
+<td align="left"> Yes </td>
+<td align="left"> Generating a sinusoid signal consisting of <code>n</code> <br>data points sampled at <code>fs</code> sampling rate with the frequency <code>f</code></td>
+</tr>
+<tr>
+<td align="center"> 5 </td>
+<td align="left"> <code>f</code>, <code>L</code>, <code>fs</code>    </td>
+<td align="left"> Yes </td>
+<td align="left"> a signal sampled at <code>fs</code> sampling rate with the <br>duration of <code>L</code> seconds with the frequency <code>f</code></td>
+</tr>
+</tbody>
+</table>
+
+
+<h3>Case 1</h3>
+
+<ul>
+<li><code>n</code> - number of samples</li>
+<li><code>N</code> - periods in it</li>
+</ul>
+
+
+<pre><code>stem( ssin('n N', 200, 1.5) )
+</code></pre>
+
+<h3>Case 2</h3>
+
+<ul>
+<li><code>L</code>  - signal lenght</li>
+<li><code>N</code>  - periods in the signal</li>
+<li><code>fs</code> - with a given sample frequency</li>
+</ul>
+
+
+<pre><code>stem( ssin('L N fs', 0.001, 3, 48e3) )
+</code></pre>
+
+<h3>Case 3</h3>
+
+<ul>
+<li><code>f</code>  - signal frequency</li>
+<li><code>N</code>  - periods in the signal</li>
+<li><code>fs</code> - with a given sample frequency</li>
+</ul>
+
+
+<pre><code>stem( ssin('f N fs', 440, 1.3, 48e3) )
+</code></pre>
+
+<h3>Case 4</h3>
+
+<ul>
+<li><code>f</code>  - signal frequency</li>
+<li><code>n</code>  - number of samples</li>
+<li><code>fs</code> - with a given sample frequency</li>
+</ul>
+
+
+<pre><code>stem( ssin('f n fs', 440, 200, 48e3) )
+</code></pre>
+
+<h3>Case 5</h3>
+
+<ul>
+<li><code>f</code>  - signal frequency</li>
+<li><code>L</code>  - signal lenght</li>
+<li><code>fs</code> - with a given sample frequency</li>
+</ul>
+
+
+<pre><code>stem( ssin('f L fs', 800, 0.001, 48e3) )
+</code></pre>
+
+<p>In every case every parameter can be substituted with the eqvivalent
+counterparst. ie. f~T, fs~dt, L~n,dt ...</p>
+
+<p>The amplitude (A) and phase (phi) are optional with the defualt values
+A=1 and phi=0.</p>
+
+<h2>Output parameter configurations</h2>
+
+<p>There are three output parameter configurations</p>
+
+<h3>No output parameter</h3>
+
+<p>In this case Smart Sinusouds will output the signal vector in place.
+This could be useful during plotting</p>
+
+<pre><code>stem( ssin('f N fs', 440, 1.3, 48e3) )
+</code></pre>
+
+<h3>One output parameter</h3>
+
+<p>With this configuration you can save the signal vector into a variable.</p>
+
+<pre><code>s = ssin('f N fs', 440, 1.3, 48e3);
+stem(s)
+</code></pre>
+
+<h3>Two output parameter mode</h3>
+
+<p>If you would like to use the time vector as well, you can generate it
+too. The possibble values are the following:</p>
+
+<table>
+<thead>
+<tr>
+<th> Time vector type </th>
+<th> x parameter    </th>
+<th> Description                                     </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> Sample count     </td>
+<td> index          </td>
+<td> Sample indexes from 1 to the number of samples. </td>
+</tr>
+<tr>
+<td> Normalized       </td>
+<td> norm           </td>
+<td> Normalized vector spans from 0 to 1.            </td>
+</tr>
+<tr>
+<td> Time [s]         </td>
+<td> time or s      </td>
+<td> Time duration of the signal in seconds.         </td>
+</tr>
+<tr>
+<td> Time [ms]        </td>
+<td> militime or ms </td>
+<td> Time duration of the signal in seconds.         </td>
+</tr>
+</tbody>
+</table>
+
+
+<pre><code>[t,s] = ssin('f N fs x', 440, 1.3, 48e3, 'ms');
+stem(t,s)
+</code></pre>
+
+<h2>License</h2>
+
+<p>This project is under the <strong>MIT license</strong>.</p>
+
+<p>Copyright (c) 2015 Tibor Simon</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.</p>
 <!-- =======================================================================================================================
    D O C   E N D
 ======================================================================================================================== -->  

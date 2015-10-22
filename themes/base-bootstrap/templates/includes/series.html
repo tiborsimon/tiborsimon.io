@@ -1,8 +1,7 @@
 {% if article.series %}
 <div class="row" id="related-posts" style="margin-bottom: 20px;">
     <div class="col-xs-12">
-      {% set text = SERIES_TEXT|default('This article was part %(index)s from the %(count)s articles of the %(name)s series') %}
-      <h4 style="margin-top: 0;">{{ text|format(index=article.series.index, name=article.series.name, count=article.series.all|length) }}</h4>
+      <h4 style="margin-top: 0;">This article was part{{ article.series.index }} from the {{ article.series.all|length }} of the <a href="{{ SITE_URL }}/projects/{{ article.series.name }}">{{ article.series.name }}</a> series</h4>
       <hr style="margin-top: 4px; margin-bottom: 10px;" />
     </div>
     <div class="col-xs-6">

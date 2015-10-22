@@ -3,7 +3,7 @@
 from __future__ import unicode_literals
 
 AUTHOR = 'Tibor Simon'
-SITENAME = 'tiborsimon.io'
+SITENAME = 'Engineering with passion'
 SITESUBTITLE = 'Engineering with passion'
 SITEURL = ''
 
@@ -54,14 +54,41 @@ SOCIAL = (('You can add links in your config file', '#'),
 
 DEFAULT_PAGINATION = 8
 
+USE_OPEN_GRAPH = True
+OPEN_GRAPH_FB_APP_ID = 551628881652865
+
 PLUGIN_PATHS = ['plugins']
-PLUGINS = ['tspr', 'summary', 'tag_cloud', 'series', 'json-search-system', 'donation', 'bootstrapify']
+PLUGINS = ['tspr', 'summary', 'tag_cloud', 'series', 'figure-generator', 'json-search-system', 'donation', 'bootstrapify', 'sitemap']
 #PLUGINS = ['tspr', 'summary', 'json-search-system', 'bootstrapify']
+
+SITEMAP = {
+    'format': 'xml',
+    'priorities': {
+        'articles': 0.5,
+        'indexes': 0.5,
+        'pages': 0.5
+    },
+    'changefreqs': {
+        'articles': 'daily',
+        'indexes': 'daily',
+        'pages': 'weekly'
+    }
+}
 
 # SITELOGO = 'images/tiborsimon-logo-300.png'
 # HIDE_SITENAME = True
 
-STATIC_PATHS = ['extras', 'images']
+STATIC_PATHS = [
+	'extras', 
+	'images'
+]
+
+EXTRA_PATH_METADATA = {
+    'extras/favicon.ico': {'path': 'favicon.ico'},
+    'extras/googledc76f0415d29fdd5.html': {'path': 'googledc76f0415d29fdd5.html'},
+    'extras/robots.txt': {'path': 'robots.txt'},
+    'extras/.htaccess': {'path': '.htaccess'}
+}
 
 PDF_PROCESSOR = False
 
@@ -80,7 +107,7 @@ MENUITEMS = [
 # T H E M E   S E T T I N G S -------------------------------------------------
 THEME = "themes/base-bootstrap"
 
-FAVICON = 'extras/favicon.ico'
+FAVICON = 'favicon.ico'
 
 DISPLAY_ARTICLE_INFO_ON_INDEX = True
 

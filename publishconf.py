@@ -17,7 +17,7 @@ FEED_ALL_ATOM = 'feeds/all.atom.xml'
 CATEGORY_FEED_ATOM = 'feeds/%s.atom.xml'
 
 
-PLUGINS = ['tspr-sync', 'tspr', 'summary', 'tag_cloud', 'json-search-system', 'series', 'bootstrapify', 'donation', 'time-service', 'minify']
+PLUGINS = ['figure-generator', 'tspr-sync', 'tspr', 'summary', 'tag_cloud', 'json-search-system', 'series', 'bootstrapify', 'donation', 'time-service', 'sitemap', 'minify']
 
 # Following items are often useful when publishing
 

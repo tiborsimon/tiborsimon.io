@@ -20,20 +20,287 @@
                     </div>
                     <div class="col-xs-12 project-corresponding-articles">
                         <h2 style="margin-bottom: 0">Corresponding articles</h2>
-                        <hr class="hidden-xs hidden-sm" style="margin-top: 6px" />
+                        <hr style="margin-top: 6px" />
                         <div class="row masonry-container">
                         </div>
                         <hr class="hidden-xs hidden-sm"/>
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-2">
-                        <div class="project-toc"></div>
+                    <div class="col-xs-12 col-sm-12 col-md-3">
+                        <div class="project-toc" style="color: #555;">
+                            <h3>Contents</h3>
+                        </div>
                     </div>
-                    <div class="col-xs-12 col-sm-10">
+                    <div class="col-xs-12 col-sm-12 col-md-9">
                         <div class="project-documentation">
 <!-- =======================================================================================================================
    D O C   S T A R T
 ======================================================================================================================== -->  
+<h1>Documentation v2.0.0</h1>
 
+<p>What would you do in a situation, when you want to use a third party function or library, but the only documentation is a usage example?</p>
+
+<div data-gist-id="c3d1140d87614961d283" data-gist-file="old_way.m" data-gist-hide-line-numbers="true" data-gist-hide-footer="true"></div>
+
+<p>Well, unless you are desperate enough to delve into the source code to figure out which parameter is which this function is pretty useless for you.</p>
+
+<h2>Key-value pair mode</h2>
+
+<p>It would be much more useful, if there would be a built in guide that is self-explanatory. Do you prefer this way instead?</p>
+
+<div data-gist-id="c3d1140d87614961d283" data-gist-file="key_value_pair_mode.m" data-gist-hide-line-numbers="true" data-gist-hide-footer="true"></div>
+
+<p>You know exactly what you are going to do in this case. You type a bit more, but the function call is self-explanatory for everyone else, and this is exactly what <strong>Simple Input Parser</strong> provides for you in the first place. This mode is called <em>key-value pair mode</em>.</p>
+
+<p>But. If you want to use this function, you will have to remember the exact order of the parameters. If a function has more than 4 or 5 parameters you will have a hard time remembering what goes to another. What if there would be no parameter order constrain at all? With <strong>Simple Input Parser</strong> you can pass your <em>key-value</em> pairs in any order you like.</p>
+
+<h2>Bulk mode</h2>
+
+<p>How about writing less apostrophes?</p>
+
+<div data-gist-id="c3d1140d87614961d283" data-gist-file="bulk_mode.m" data-gist-hide-line-numbers="true" data-gist-hide-footer="true"></div>
+
+<p>This is the <em>bulk mode</em> of <strong>Simple Input Parser</strong>. You write the keys first as a string, and the values in the order you have specified before. Same self-explanatory function call with less apostrophes and commas to write.</p>
+
+<p>How about this function call?</p>
+
+<div data-gist-id="c3d1140d87614961d283" data-gist-file="bulk_mode_no_spaces.m" data-gist-hide-line-numbers="true" data-gist-hide-footer="true"></div>
+
+<p>Well, this is still the <em>bulk mode</em> and it is completely valid with <strong>Simple Input Parser</strong>. A little less self-explanatory, bat it is incredible fast to write. Feel free to use it whenever you want.</p>
+
+<h2>All features</h2>
+
+<p>We have discussed the first three features of <strong>Simple Input Parser</strong> which would be useful for the <em>users</em> that are using the functions equipped with <strong>Simple Input Parser</strong>, but there are another three very useful features for the <em>developers</em> as well.</p>
+
+<table>
+<thead>
+<tr>
+<th align="left"> For the users </th>
+<th align="left"> For the developers </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"> 1. Arbitrary parameter order </td>
+<td align="left"> 4. Extra flag mode </td>
+</tr>
+<tr>
+<td align="left"> 2. Key value pair mode </td>
+<td align="left"> 5. Automatic parameter validation by type </td>
+</tr>
+<tr>
+<td align="left"> 3. Bulk mode </td>
+<td align="left"> 6. Custom validator functions with custom error messages </td>
+</tr>
+</tbody>
+</table>
+
+
+<p>Before we go into the details of the final three featurea, you have to install <strong>Simple Input Parser</strong>.</p>
+
+<h2>Installation as an MLS package</h2>
+
+<p>In the <a href="https://github.com/tiborsimon/simple-input-parser/releases/latest" target="_blank">latest release page</a> you can find the MLS package containing Simple Input Parser. This method provides a simple and easy installation.</p>
+
+<ol>
+<li>Download and unpack the <a href="https://github.com/tiborsimon/simple-input-parser/releases/latest">latest release</a> into your machine.</li>
+<li>Navigate into the unpacked folder and run the <code>install</code> command or open up and run the <code>install.m</code> script.</li>
+<li>Done. Now you have <strong>Simple Input Parser</strong> on your system.</li>
+</ol>
+
+
+<p><em>MLS packages are powered by the <a href="http://tiborsimon.io/projects/#TSPR0001" target="_blank" >MATLAB Library System</a>.</em> Go to that link to find out more about this systemIt's a good practice to keep all your MLS packages in a common folder and use the <a href="http://tiborsimon.io/projects/TSPR0001/#Bestpractice" target="_blank">install_all.m</a> script to install all your packages at once.</p>
+
+<h2>Installation in the traditional way</h2>
+
+<p>If you are not interested in the MLS package system, you can still download the pure <a href="https://github.com/tiborsimon/simple-input-parser/releases/latest"><strong>Simple Input Parser</strong> source files</a>, and you can install/include them manually anywhere you want.</p>
+
+<h2>Basic use case</h2>
+
+<p>Let's say you want to write a function with <strong>Simple Input Parser</strong> that expects three parameters: <code>a</code>, <code>b</code>, <code>c</code>. Your can write this function in the usual way except three things:</p>
+
+<ol>
+<li>You have to use <em>varargin</em> for the parameter list.</li>
+<li>You have to create a <em>parameter structure</em> that will contain your parameters and its default values.</li>
+<li>You have to call the <code>simple_input_parser()</code> api function with the <em>parameter structure</em> and the <em>varargin</em> parameter, and use the previously created <em>parameter structure</em> for the output parameter.</li>
+</ol>
+
+
+<div data-gist-id="c3d1140d87614961d283" data-gist-file="basic_use_case.m"></div>
+
+<p><strong>Congratulation!</strong> With these <em>three</em> simple modifications you have implemented <em>four</em> features from the <em>six</em> <strong>Simple Input Parser</strong> features!</p>
+
+<p>To name this four features:</p>
+
+<ul>
+<li><code>my_function()</code> can accept it's parameters in an arbitrary order</li>
+<li>It will support the <em>key-value pair</em> mode..</li>
+<li>..as well as the <em>bulk mode</em>. Mode selection is automatic.</li>
+<li>It will perform an automatic parameter type validation, since you have implicitly defined your parameter's types.</li>
+</ul>
+
+
+<p>The <code>simple_input_parser()</code> function will return with the modified parameter structure. If the user did not passed the parameter, the default value will be left in there that you have specified earlier.</p>
+
+<h2>Extra flag mode</h2>
+
+<p>In some situations it might be useful, if you know, what parameters have your function got. At this point you might think, it can be implemented comparing the values in the parameter struct with its default values. Well, it is a reasonable method, but <strong>Simple Input Parser</strong> offers an easier one.</p>
+
+<p>You can call the <code>simple_input_parser()</code> function with two input parameters. The first one is the output parameter structure and the second one is the <strong>flag structure</strong>. This mode is called <em>Extra flag mode</em>.</p>
+
+<div data-gist-id="c3d1140d87614961d283" data-gist-file="extra_flag_mode.m"></div>
+
+<p>If a value was parsed, it's corresponding field in the flags structure will be assigned to one. It provides you a convenient way to handle custom cases that are depend on the passed parameters.</p>
+
+<h2>Validator functions</h2>
+
+<p><strong>Simple Input Parser</strong> provides an interface to easily create custom <em>validator functions</em>. If the default automatic type based validation isn't enough for you, you can use more specific <em>validator functions</em> for each parameters if you want. For this purpose you have to create a nested validator function with a fix signature:</p>
+
+<div data-gist-id="c3d1140d87614961d283" data-gist-file="validator_function_example.m"></div>
+
+<table>
+<thead>
+<tr>
+<th align="left"> Input </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"> <em>value</em> - Parameter value that passed to the function. </td>
+</tr>
+</tbody>
+</table>
+
+
+<table>
+<thead>
+<tr>
+<th align="left"> Output </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><em>validflag</em> - Validation result. It is <em>true</em> if the parameter passed the validation. </td>
+</tr>
+<tr>
+<td align="left"><em>errormsg</em> - Message that will be displayed if the validation fails. </td>
+</tr>
+</tbody>
+</table>
+
+
+<p>You can use any logic you want to generate the validation result (<em>validflag</em>) and the custom error message (<em>errormsg</em>) based on the given parameter value (<em>value</em>).</p>
+
+<p>To specify which <em>validator function</em> belongs to which parameter, you need to create a structure with fields identical to the parameters you want to validate, assigning a pointer pointing to the <em>validator function</em>. <strong>Simple Input Parser</strong> will call this <em>validator function</em> with the parameter's value if it parses the specified parameter, and based on the returned value (<em>validflag</em>) it will throw an error with the specified error message (<em>errormsg</em>).</p>
+
+<p>The custom validation is optional, so you don't need to specify a <em>validator function</em> for each parameters. If a parameter doesn't has a <em>validator function</em> the default automatic type based validation will be used for that parameter.</p>
+
+<div data-gist-id="c3d1140d87614961d283" data-gist-file="validator_function_use_case.m"></div>
+
+<p>You can use one <em>validator function</em> for more than one parameters, but keep in mind that you will get only a value without any information for the parameter name.</p>
+
+<h2>Error handling</h2>
+
+<p>There is a parameter called <code>RETHROW_EXCEPTIONS</code> that you can edit in the <code>simple_input_parser.m</code> file. This variable allows you to control the library's behavior in case of error. <strong>Simple Input Parser</strong> has two error handling modes:</p>
+
+<table>
+<thead>
+<tr>
+<th align="left"><code>RETHROW_EXCEPTIONS</code> </th>
+<th align="left"> In case of an error <code>simple_input_parser()</code>.. </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><em>true</em> </td>
+<td align="left"> will throw an exception. </td>
+</tr>
+<tr>
+<td align="left"><strong>false</strong> </td>
+<td align="left"> will stop the execution and print out the error. </td>
+</tr>
+</tbody>
+</table>
+
+
+<p>The default value is <strong>false</strong>, so in case of an error, the <code>simple_input_parser()</code> function will gently stop the execution, and it will display the default error messages shipped with <strong>Simple Input Parser</strong>.</p>
+
+<p>If you want to display your own error messages for the error cases, you can use <em>custom validator functions</em> and/or you can turn on the <code>RETHROW_EXCEPTIONS</code> flag inside the <code>simple_input_parser.m</code> file, and catch the exceptions that <code>simple_input_parser()</code> function throws to you.</p>
+
+<h3>Exception format</h3>
+
+<p>Since MATLAB's exception system uses exception identifiers instead of exception classes and subclasses, <strong>Simple Input Parser</strong> uses the following exception format for the exception identifier:</p>
+
+<p><em>component:mnemonic</em> = <code>SimpleInputParser:exceptionId</code></p>
+
+<table>
+<thead>
+<tr>
+<th align="left">exceptionId </th>
+<th align="left"> Error case </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><em>invalidParameterLength</em> </td>
+<td align="left"> There were less than 2 or there were more than enough parameters passed to the function. </td>
+</tr>
+<tr>
+<td align="left"><em>invalidKey</em> </td>
+<td align="left"> The parsed key is invalid since no matching parameter was found. </td>
+</tr>
+<tr>
+<td align="left"><em>redundantKey</em> </td>
+<td align="left"> A key passed two times. </td>
+</tr>
+<tr>
+<td align="left"><em>unusedValue</em> </td>
+<td align="left"> There were more values than keys specified. </td>
+</tr>
+<tr>
+<td align="left"><em>typeError</em> </td>
+<td align="left"> A parsed value didn't passed the automatic type based validation. </td>
+</tr>
+<tr>
+<td align="left"><em>validationError</em> </td>
+<td align="left"> A parsed value didn't passed the corresponding custom validatior function. </td>
+</tr>
+</tbody>
+</table>
+
+
+<h2>Contribution</h2>
+
+<p>If you want to contribute to this project you have to make sure, that your contribution don't violates the test harness located in the <code>test</code> folder of each port.</p>
+
+<p>If a pull request fails any of the tests, the request will be automatically invalidated.</p>
+
+<p>The current <em>MATLAB</em> port contains 33 tests:</p>
+
+<div data-gist-id="c3d1140d87614961d283" data-gist-file="tests.txt" data-gist-hide-line-numbers="true" data-gist-hide-footer="true"></div>
+
+<h2>License</h2>
+
+<p>This project is under the <strong>MIT license</strong>.</p>
+
+<p>Copyright (c) 2015 Tibor Simon</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.</p>
 <!-- =======================================================================================================================
    D O C   E N D
 ======================================================================================================================== -->  

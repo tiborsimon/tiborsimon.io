@@ -15,7 +15,7 @@ All the credits go to [Austin](http://stackoverflow.com/users/1504966/austin)
 and to his [stackoverflow post](http://stackoverflow.com/a/11597448). I am just 
 a happy user of this method :)
 
-<code data-gist-id="78f71b14d1436e867354"></code>
+<div data-gist-id="78f71b14d1436e867354"></div>
 
 The method just works. Nothing fancy about it, it does what is supposed to do. 
 Thank you Austin!

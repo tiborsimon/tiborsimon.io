@@ -20,7 +20,7 @@
         {% if OPEN_GRAPH_FB_APP_ID %}
             <meta property="fb:app_id" content="{{ OPEN_GRAPH_FB_APP_ID }}"/>
         {% endif %}
-        <meta property="og:site_name" content="{{ SITENAME }}" />
+        <meta property="og:site_name" content="tiborsimon.io" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="{{ article.title|striptags|escape }}"/>
         <meta property="og:url" content="{{ SITEURL }}/{{ article.url }}"/>
@@ -48,7 +48,7 @@
 {% endblock %}
 
 {% block canonical_rel %}
-<link rel="canonical" href="{{ SITEURL }}/{{ article.url }}">
+<!-- <link rel="canonical" href="{{ SITEURL }}/{{ article.url }}"> -->
 {% endblock %}
 
 {% block content %}
@@ -59,15 +59,16 @@
         {% include "includes/article_info.html" %}
         <hr />
           <article>
+              <div style="position: relative; bottom: 25px;">
+                {% include 'includes/article-share-buttons.html' %}
+              </div>
               <div class="entry-content">
                   {{ article.content }}
               </div>
-          </article>
-          <div class="text-center" style="margin: 42px 0 0 0;">
-            <i class="fa fa-bookmark-o"></i>
-            <div style="display: inline-block; margin: 0 8px;">{% include 'includes/share-buttons.html' %}</div>
-            <i class="fa fa-bookmark-o"></i>
-          </div>
+              <hr />
+              <div class="text-center">
+                {% include 'includes/article-share-buttons.html' %}
+              </div>          </article>
           <div class="article-extension" style="margin-top: 34px">
             <div class="">
               {% include 'includes/series.html' %}

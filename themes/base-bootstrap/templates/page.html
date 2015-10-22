@@ -29,7 +29,7 @@
 {% endblock %}
 
 {% block canonical_rel %}
-<link rel="canonical" href="{{ SITEURL }}/{{ page.url }}">
+<!-- <link rel="canonical" href="{{ SITEURL }}/{{ page.url }}"> -->
 {% endblock %}
 
 {% block content %}
@@ -45,7 +45,7 @@
                     <div class="col-xs-12 col-sm-4">
                         {% include 'includes/donation.html' %}
                         <div class="text-center">
-                            {% include 'includes/share-buttons-sm.html' %}
+                            {% include 'includes/page-share-buttons.html' %}
                         </div>
                     </div>
                 </div>

@@ -79,7 +79,7 @@
   {
       "id": 8,
       "title": "Simple Input Parser",
-      "description": "Function parameter parsing library with validation. More straightforward solution than MATLAB's built in one.",
+      "description": "Easy to use variable lenght input parser mechanism that provides a convenient and advanced way to enchance your custom function parameter handling.",
       "tags": ["matlab"],
       "state": "released",
       "repo-name": "simple-input-parser",
@@ -87,6 +87,7 @@
       "tspr": 2,
       "docs": "#",
       "history": [
+                    "2015-10-13 - v2.0.0 released",
                     "2015-10-11 - Bulk mode bug was fixed. Refactored the overcomplicated ambiguous key handling.",
                     "2015-10-10 - Refactored error system",
                     "2015-08-21 - v1.4.1 released",
@@ -109,6 +110,7 @@
       "tspr": 3,
       "docs": "#",
       "history": [
+                    "2015-10-18 - v1.3.0 released",
                     "2015-08-21 - v1.2.0 released, new versioning started", 
                     "2015-06-17 - v1.1 released",
                     "2015-06-15 - First release v1.0",
@@ -201,6 +203,48 @@
       "docs": "#",
       "history": [
                     "2015-08-31 - Project created"
+                 ]
+  },
+  {
+      "id": 22,
+      "title": "Learning Git",
+      "description": "Mastering git is a must have for an open source guy like me.",
+      "tags": ["tools"],
+      "state": "in-progress",
+      "repo-name": "",
+      "article": "http://tiborsimon.io",
+      "tspr": 0,
+      "docs": "#",
+      "history": [
+                    "2015-01-12 - Project created"
+                 ]
+  },
+  {
+      "id": 26,
+      "title": "Python distribution setup",
+      "description": "I have to develop a standard solid way to distribute my projects with python.",
+      "tags": ["tools", "python"],
+      "state": "in-progress",
+      "repo-name": "",
+      "article": "http://tiborsimon.io",
+      "tspr": 0,
+      "docs": "#",
+      "history": [
+                    "2015-10-01 - Project created"
+                 ]
+  },
+  {
+      "id": 27,
+      "title": "ShareBuds",
+      "description": "A new intuitive way to share your music with your friends.",
+      "tags": ["electronics", "audio"],
+      "state": "in-progress",
+      "repo-name": "",
+      "article": "http://tiborsimon.io",
+      "tspr": 0,
+      "docs": "#",
+      "history": [
+                    "2015-09-11 - Project created"
                  ]
   }
 ]

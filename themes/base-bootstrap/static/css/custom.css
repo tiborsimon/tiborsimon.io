@@ -80,6 +80,24 @@ code {
   color: #555 !important;
 }
 
+.label {
+  display: inline-block;
+}
+
+#about .nav>li>a {
+  padding: 0 0 1px 0;
+}
+
+#about .nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+  background-color: #757575 !important;
+  color: white !important;
+}
+
+#about .nav-pills>li>a {
+  color: #555 !important;
+}
+
+
  /* --------------------------------------------------------------------------*/
 /* Irrelevant fader options */
 .irrelevant-fade {
@@ -285,6 +303,46 @@ hr {
   -webkit-transform: rotate(45deg);
   background: #bd3135;
   font-size: 75%;
+}
+
+
+ /* --------------------------------------------------------------------------*/
+/* SSK customization */
+.ssk {
+  padding: 5px !important;
+  border-radius: 3px;
+}
+
+.ssk.ssk-xs, .ssk-xs>.ssk {
+   padding: 3px !important;
+   font-size: 10px;
+}
+
+.ssk.ssk-xs:before, .ssk-xs>.ssk:before, .ssk.ssk-xs .glyphicon, .ssk-xs>.ssk .glyphicon, .ssk.ssk-xs .fa, .ssk-xs>.ssk .fa {
+    font-size: 12px !important;
+}
+
+.ssk.ssk-text.ssk-xs:before, .ssk-xs>.ssk.ssk-text:before, .ssk.ssk-text.ssk-xs .glyphicon, .ssk-xs>.ssk.ssk-text .glyphicon, .ssk.ssk-text.ssk-xs .fa, .ssk-xs>.ssk.ssk-text .fa {
+  margin: -4px 4px -4px -4px !important;
+}
+
+
+ /* --------------------------------------------------------------------------*/
+/* Making iframes responsive */
+.fluidMedia {
+    position: relative;
+    /*padding-bottom: 56.25%;  proportion value to aspect ratio 16:9 (9 / 16 = 0.5625 or 56.25%) */
+    /*padding-top: 30px;*/
+    height: 0;
+    overflow: hidden;
+}
+
+.fluidMedia iframe {
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 
