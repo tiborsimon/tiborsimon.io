@@ -246,5 +246,20 @@
       "history": [
                     "2015-09-11 - Project created"
                  ]
+  },
+  {
+      "id": 29,
+      "title": "Learning Swift",
+      "description": "Building a solid Swift foundations for the future app developments.",
+      "tags": ["development", "ios"],
+      "state": "in-progress",
+      "repo-name": "",
+      "article": "http://tiborsimon.io",
+      "tspr": 0,
+      "docs": "#",
+      "history": [
+                    "2015-10-24 - Project created"
+                 ]
   }
+
 ]

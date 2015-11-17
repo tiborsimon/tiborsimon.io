@@ -39,7 +39,7 @@
 
 <p>What would you do in a situation, when you want to use a third party function or library, but the only documentation is a usage example?</p>
 
-<div data-gist-id="c3d1140d87614961d283" data-gist-file="old_way.m" data-gist-hide-line-numbers="true" data-gist-hide-footer="true"></div>
+<div class="gist" data-gist-id="c3d1140d87614961d283" data-gist-file="old_way.m" data-gist-hide-line-numbers="true" data-gist-hide-footer="true"></div>
 
 <p>Well, unless you are desperate enough to delve into the source code to figure out which parameter is which this function is pretty useless for you.</p>
 
@@ -47,7 +47,7 @@
 
 <p>It would be much more useful, if there would be a built in guide that is self-explanatory. Do you prefer this way instead?</p>
 
-<div data-gist-id="c3d1140d87614961d283" data-gist-file="key_value_pair_mode.m" data-gist-hide-line-numbers="true" data-gist-hide-footer="true"></div>
+<div class="gist" data-gist-id="c3d1140d87614961d283" data-gist-file="key_value_pair_mode.m" data-gist-hide-line-numbers="true" data-gist-hide-footer="true"></div>
 
 <p>You know exactly what you are going to do in this case. You type a bit more, but the function call is self-explanatory for everyone else, and this is exactly what <strong>Simple Input Parser</strong> provides for you in the first place. This mode is called <em>key-value pair mode</em>.</p>
 
@@ -57,13 +57,13 @@
 
 <p>How about writing less apostrophes?</p>
 
-<div data-gist-id="c3d1140d87614961d283" data-gist-file="bulk_mode.m" data-gist-hide-line-numbers="true" data-gist-hide-footer="true"></div>
+<div class="gist" data-gist-id="c3d1140d87614961d283" data-gist-file="bulk_mode.m" data-gist-hide-line-numbers="true" data-gist-hide-footer="true"></div>
 
 <p>This is the <em>bulk mode</em> of <strong>Simple Input Parser</strong>. You write the keys first as a string, and the values in the order you have specified before. Same self-explanatory function call with less apostrophes and commas to write.</p>
 
 <p>How about this function call?</p>
 
-<div data-gist-id="c3d1140d87614961d283" data-gist-file="bulk_mode_no_spaces.m" data-gist-hide-line-numbers="true" data-gist-hide-footer="true"></div>
+<div class="gist" data-gist-id="c3d1140d87614961d283" data-gist-file="bulk_mode_no_spaces.m" data-gist-hide-line-numbers="true" data-gist-hide-footer="true"></div>
 
 <p>Well, this is still the <em>bulk mode</em> and it is completely valid with <strong>Simple Input Parser</strong>. A little less self-explanatory, bat it is incredible fast to write. Feel free to use it whenever you want.</p>
 
@@ -125,7 +125,7 @@
 </ol>
 
 
-<div data-gist-id="c3d1140d87614961d283" data-gist-file="basic_use_case.m"></div>
+<div class="gist" data-gist-id="c3d1140d87614961d283" data-gist-file="basic_use_case.m"></div>
 
 <p><strong>Congratulation!</strong> With these <em>three</em> simple modifications you have implemented <em>four</em> features from the <em>six</em> <strong>Simple Input Parser</strong> features!</p>
 
@@ -147,7 +147,7 @@
 
 <p>You can call the <code>simple_input_parser()</code> function with two input parameters. The first one is the output parameter structure and the second one is the <strong>flag structure</strong>. This mode is called <em>Extra flag mode</em>.</p>
 
-<div data-gist-id="c3d1140d87614961d283" data-gist-file="extra_flag_mode.m"></div>
+<div class="gist" data-gist-id="c3d1140d87614961d283" data-gist-file="extra_flag_mode.m"></div>
 
 <p>If a value was parsed, it's corresponding field in the flags structure will be assigned to one. It provides you a convenient way to handle custom cases that are depend on the passed parameters.</p>
 
@@ -155,7 +155,7 @@
 
 <p><strong>Simple Input Parser</strong> provides an interface to easily create custom <em>validator functions</em>. If the default automatic type based validation isn't enough for you, you can use more specific <em>validator functions</em> for each parameters if you want. For this purpose you have to create a nested validator function with a fix signature:</p>
 
-<div data-gist-id="c3d1140d87614961d283" data-gist-file="validator_function_example.m"></div>
+<div class="gist" data-gist-id="c3d1140d87614961d283" data-gist-file="validator_function_example.m"></div>
 
 <table>
 <thead>
@@ -194,7 +194,7 @@
 
 <p>The custom validation is optional, so you don't need to specify a <em>validator function</em> for each parameters. If a parameter doesn't has a <em>validator function</em> the default automatic type based validation will be used for that parameter.</p>
 
-<div data-gist-id="c3d1140d87614961d283" data-gist-file="validator_function_use_case.m"></div>
+<div class="gist" data-gist-id="c3d1140d87614961d283" data-gist-file="validator_function_use_case.m"></div>
 
 <p>You can use one <em>validator function</em> for more than one parameters, but keep in mind that you will get only a value without any information for the parameter name.</p>
 
@@ -276,7 +276,7 @@
 
 <p>The current <em>MATLAB</em> port contains 33 tests:</p>
 
-<div data-gist-id="c3d1140d87614961d283" data-gist-file="tests.txt" data-gist-hide-line-numbers="true" data-gist-hide-footer="true"></div>
+<div class="gist" data-gist-id="c3d1140d87614961d283" data-gist-file="tests.txt" data-gist-hide-line-numbers="true" data-gist-hide-footer="true"></div>
 
 <h2>License</h2>
 

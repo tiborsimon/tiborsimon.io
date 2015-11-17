@@ -61,7 +61,7 @@ function findBootstrapEnvironment() {
 
  // ----------------------------------------------------------------------------
 // Adding background
-$.backstretch("http://tiborsimon.io/images/background2.jpg");
+// $.backstretch("http://tiborsimon.io/images/grid.jpg");
 
 
  // ----------------------------------------------------------------------------
@@ -123,15 +123,15 @@ $("#irrelevant-off-btn").change(function () {
 
  // ----------------------------------------------------------------------------
 // Mansory - http://codepen.io/SitePoint/pen/mywEMR/
-$('.masonry-container').masonry({
-  itemSelector: '.article-listing',
-  columnWidth: '.article-listing'
-});
+// $('.masonry-container').masonry({
+//   itemSelector: '.article-listing',
+//   columnWidth: '.article-listing'
+// });
 
-$('.about-masonry').masonry({
-  itemSelector: '.about-masonry-item',
-  columnWidth: '.about-masonry-item'
-});
+// $('.about-masonry').masonry({
+//   itemSelector: '.about-masonry-item',
+//   columnWidth: '.about-masonry-item'
+// });
 
 
  // ----------------------------------------------------------------------------

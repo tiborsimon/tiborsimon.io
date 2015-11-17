@@ -13,9 +13,7 @@ workflow is the following:
 
 To be able to communicate your BusPirate you have to know it's serial number. 
 List the connected devices before you connect your Buspirate with the following 
-command:
-
-`$ ls /dev`
+command: `$ ls /dev`
 
 This command will list all the connected devices. Save them somewhere, and then 
 connect your BusPirate and list the devices again. Find the one that is only 
@@ -38,7 +36,7 @@ help you. [Screen manual for osx](http://ss64.com/osx/screen.html).
 
 ### 3. Make your life easier
 
-Create an alias for the connection by writing into your __~/.bash_profile__ 
+Create an alias for the connection by writing into your _~/.bash_profile_ 
 file.
 
 `alias buspirate='screen /dev/tty.usbserial-AD01W63E 115200 8N1'`

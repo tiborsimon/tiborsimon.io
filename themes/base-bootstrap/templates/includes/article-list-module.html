@@ -1,15 +1,18 @@
 {% if articles %}
   <div class="container">
-    <h1>Latest articles</h1>
-    <hr />
-    <div class="row masonry-container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-7 col-md-7">
     {% for article in (articles_page.object_list if articles_page else articles) %}
-      <div class="col-xs-12 col-sm-6 col-md-6 article-listing">
+        <article class="index-article" style="margin-bottom: 10px">
         {% include 'includes/article-panel.html' %}
-      </div>
+        </article>
     {% endfor %}
+        {% include 'includes/pagination.html' %}
+      </div>
+      <div class="col-xs-12 col-sm-5 col-md-5 text-center">
+      {% include 'includes/twitter_timeline.html' %}
     </div>
-    {% include 'includes/pagination.html' %}
+    </div>
   </div>
 {% endif %}
 

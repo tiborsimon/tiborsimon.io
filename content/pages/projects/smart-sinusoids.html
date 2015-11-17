@@ -211,8 +211,7 @@
 </ul>
 
 
-<pre><code>stem( ssin('n N', 200, 1.5) )
-</code></pre>
+<pre>stem( ssin('n N', 200, 1.5) )</pre>
 
 <h3>Case 2</h3>
 
@@ -223,8 +222,7 @@
 </ul>
 
 
-<pre><code>stem( ssin('L N fs', 0.001, 3, 48e3) )
-</code></pre>
+<pre>stem( ssin('L N fs', 0.001, 3, 48e3) )</pre>
 
 <h3>Case 3</h3>
 
@@ -235,8 +233,7 @@
 </ul>
 
 
-<pre><code>stem( ssin('f N fs', 440, 1.3, 48e3) )
-</code></pre>
+<pre>stem( ssin('f N fs', 440, 1.3, 48e3) )</pre>
 
 <h3>Case 4</h3>
 
@@ -247,8 +244,7 @@
 </ul>
 
 
-<pre><code>stem( ssin('f n fs', 440, 200, 48e3) )
-</code></pre>
+<pre>stem( ssin('f n fs', 440, 200, 48e3) )</pre>
 
 <h3>Case 5</h3>
 
@@ -259,8 +255,7 @@
 </ul>
 
 
-<pre><code>stem( ssin('f L fs', 800, 0.001, 48e3) )
-</code></pre>
+<pre>stem( ssin('f L fs', 800, 0.001, 48e3) )</pre>
 
 <p>In every case every parameter can be substituted with the eqvivalent
 counterparst. ie. f~T, fs~dt, L~n,dt ...</p>
@@ -277,16 +272,15 @@ A=1 and phi=0.</p>
 <p>In this case Smart Sinusouds will output the signal vector in place.
 This could be useful during plotting</p>
 
-<pre><code>stem( ssin('f N fs', 440, 1.3, 48e3) )
-</code></pre>
+<pre>stem( ssin('f N fs', 440, 1.3, 48e3) )</pre>
 
 <h3>One output parameter</h3>
 
 <p>With this configuration you can save the signal vector into a variable.</p>
 
-<pre><code>s = ssin('f N fs', 440, 1.3, 48e3);
+<pre>s = ssin('f N fs', 440, 1.3, 48e3);
 stem(s)
-</code></pre>
+</pre>
 
 <h3>Two output parameter mode</h3>
 
@@ -326,9 +320,9 @@ too. The possibble values are the following:</p>
 </table>
 
 
-<pre><code>[t,s] = ssin('f N fs x', 440, 1.3, 48e3, 'ms');
+<pre>[t,s] = ssin('f N fs x', 440, 1.3, 48e3, 'ms');
 stem(t,s)
-</code></pre>
+</pre>
 
 <h2>License</h2>
 

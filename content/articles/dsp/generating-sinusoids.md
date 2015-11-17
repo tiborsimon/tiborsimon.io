@@ -22,7 +22,7 @@ Let's say you want to get __10 samples per seconds__ _(fs=10Hz)_, and you want t
 
 You can test that the `t1` and `t2` vector are exactly the same. Both vector starts from zero and ends at 1.9. Having the time vector we can generate a sinusoid signal with a frequency of 1Hz. This will result 2 periods in the signal:
 
-<div data-gist-id="ec5c237f47cdee3c7794" data-gist-hide-footer="true"></div>
+<div class="gist" data-gist-id="ec5c237f47cdee3c7794" data-gist-hide-footer="true"></div>
 
 If we plot the generated signal, we can see, that it is not a sine signal at all. It is a discrete signal, that has values in discrete points as we expected. 
 
@@ -32,7 +32,7 @@ This method is one of the 4 main signal generation methods where we link the dis
 
 However. There are other use cases when we don't want to link the __discrete time__ to the __continuous time__, so we don't have to bother with the sampling frequency, and we can generate a time vector from 0 to 1, and pass it to the equation:
 
-<div data-gist-id="f7f3d7a521c01022b41d" data-gist-hide-footer="true"></div>
+<div class="gist" data-gist-id="f7f3d7a521c01022b41d" data-gist-hide-footer="true"></div>
 
 The result will be a 100 sample long sinusoid signal, that contains 3 periods. But be careful. This signal can't be used as the previous one until we specify the sampling frequency.
 
@@ -63,11 +63,11 @@ With these parameters there are 5 main generation methods for sinusoid signals. 
 
 | Method index | Required parameters | CT DT lock     | Description  |
 |:-------------|:------------------|:--------------|:-------------|
-| 1 | `n`, `N`          | No  | a signal consisting of `n` data points with `N`<br> periods in it
-| 2 | `L`, `N`, `fs`    | Yes | `L` seconds long signal sampled at `fs` consisting of <br>`N` periods in it
-| 3 | `f`, `N`, `fs`    | Yes | a signal sampled at `fs` sampling rate with `N` <br>periods in it with the frequency `f`
-| 4 | `f`, `n`, `fs`    | Yes | a signal consisting of `n` <br>data points sampled at `fs` sampling rate with the frequency `f`
-| 5 | `f`, `L`, `fs`    | Yes | a signal sampled at `fs` sampling rate with the <br>duration of `L` seconds with the frequency `f`
+| 1 | `n` `N`          | No  | a signal consisting of `n` data points with `N`<br> periods in it
+| 2 | `L` `N` `fs`    | Yes | `L` seconds long signal sampled at `fs` consisting of <br>`N` periods in it
+| 3 | `f` `N` `fs`    | Yes | a signal sampled at `fs` sampling rate with `N` <br>periods in it with the frequency `f`
+| 4 | `f` `n` `fs`    | Yes | a signal consisting of `n` <br>data points sampled at `fs` sampling rate with the frequency `f`
+| 5 | `f` `L` `fs`    | Yes | a signal sampled at `fs` sampling rate with the <br>duration of `L` seconds with the frequency `f`
 
 Let's try out all methods, to see how you can use them in practice. Let's generate the same 60 samples of sinusoid signal with 2.5 periods in it with the amplitude 1 at an arbitrary sampling frequency:
 
@@ -79,7 +79,7 @@ The used parameters may seem a bit odd for the first time, but due to the constr
 
 Generating a sinusoid signal with `n` data points with `N` periods in it.
 
-<div data-gist-id="8e167f64fb80e2a95b13" data-gist-hide-footer="true"></div>
+<div class="gist" data-gist-id="8e167f64fb80e2a95b13" data-gist-hide-footer="true"></div>
 
 
 
@@ -87,7 +87,7 @@ Generating a sinusoid signal with `n` data points with `N` periods in it.
 
 Generating `L` seconds long signal sampled at `fs` consisting of `N` periods in it.
 
-<div data-gist-id="abe9fb85958ee9205ea0" data-gist-hide-footer="true"></div>
+<div class="gist" data-gist-id="abe9fb85958ee9205ea0" data-gist-hide-footer="true"></div>
 
 
 
@@ -95,7 +95,7 @@ Generating `L` seconds long signal sampled at `fs` consisting of `N` periods in 
 
 Generating a sinusoid signal sampled at `fs` sampling rate with `N` periods in it with the frequency `f`.
 
-<div data-gist-id="7ba58552ddfc4d605c80" data-gist-hide-footer="true"></div>
+<div class="gist" data-gist-id="7ba58552ddfc4d605c80" data-gist-hide-footer="true"></div>
 
 
 
@@ -103,7 +103,7 @@ Generating a sinusoid signal sampled at `fs` sampling rate with `N` periods in i
 
 Generating a signal consisting of `n` data points sampled at `fs` sampling rate with the frequency `f`.
 
-<div data-gist-id="d6ea2be7afba202f2923" data-gist-hide-footer="true"></div>
+<div class="gist" data-gist-id="d6ea2be7afba202f2923" data-gist-hide-footer="true"></div>
 
 
 
@@ -111,7 +111,7 @@ Generating a signal consisting of `n` data points sampled at `fs` sampling rate 
 
 Generating a sinusoid signal sampled at `fs` sampling rate with the duration of `L` seconds with the frequency `f`.
 
-<div data-gist-id="51dca17af664f51ecc0b" data-gist-hide-footer="true"></div>
+<div class="gist" data-gist-id="51dca17af664f51ecc0b" data-gist-hide-footer="true"></div>
 
 
 ## Summary

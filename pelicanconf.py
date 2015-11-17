@@ -52,7 +52,7 @@ LINKS = (('Pelican', 'http://getpelican.com/'),
 SOCIAL = (('You can add links in your config file', '#'),
           ('Another social link', '#'),)
 
-DEFAULT_PAGINATION = 8
+DEFAULT_PAGINATION = 6
 
 USE_OPEN_GRAPH = True
 OPEN_GRAPH_FB_APP_ID = 551628881652865

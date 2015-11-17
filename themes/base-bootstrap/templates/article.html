@@ -54,37 +54,33 @@
 {% block content %}
 <div class="container main-container">
     <div class="row">
-      <div class="col-sm-12 col-md-8">
-      <section id="content">
+      <div class="col-sm-12 col-md-9">
+      <section id="content" class="content">
         {% include "includes/article_info.html" %}
-        <hr />
+        
           <article>
-              <div style="position: relative; bottom: 25px;">
-                {% include 'includes/article-share-buttons.html' %}
-              </div>
-              <div class="entry-content">
-                  {{ article.content }}
-              </div>
-              <hr />
-              <div class="text-center">
-                {% include 'includes/article-share-buttons.html' %}
-              </div>          </article>
-          <div class="article-extension" style="margin-top: 34px">
-            <div class="">
-              {% include 'includes/series.html' %}
-              {% include 'includes/related-posts.html' %}
-              {% include 'includes/donation.html' %}
-              {% include 'includes/comments.html' %}
+            <div style="position: relative; bottom: 15px;">
+              {% include 'includes/article-share-buttons.html' %}
             </div>
-          </div>
+            <div class="entry-content">
+                {{ article.content }}
+            </div>
+          </article>
       </section>
-    </div>
-    <div class="col-sm-12 col-md-4">
-
-      {% include 'includes/irrelevant-toggle.html' %}
-      <div class="irrelevant">
-        {% include 'includes/sidebar.html' %}
+      <div class="text-center">
+        {% include 'includes/article-share-buttons.html' %}
       </div>
+      <div class="article-extension" style="margin-top: 14px">
+        {% include 'includes/series.html' %}
+        {% include 'includes/related-posts.html' %}
+        {% include 'includes/donation.html' %}
+      </div>
+      <div style="margin-top: 14px;">
+        {% include 'includes/comments.html' %}
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-3">
+      {% include 'includes/sidebar.html' %}
     </div>
     </div><!-- div class="row"-->
 </div>

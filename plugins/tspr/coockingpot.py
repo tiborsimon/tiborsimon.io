@@ -440,21 +440,22 @@ def render_all_project(soup):
 
 def add_pr_project(parent, project, soup):
     list_group_item = create_list_group_item(parent, project, soup)
-    add_ribbon(list_group_item, project, soup)
-    add_project_icon(list_group_item, project, soup)
-    add_project_title(list_group_item, project, soup)
+    if list_group_item:
+        add_ribbon(list_group_item, project, soup)
+        add_project_icon(list_group_item, project, soup)
+        add_project_title(list_group_item, project, soup)
 
 
 def create_list_group_item(parent, project, soup):
-    col_div = soup.new_tag('div')
-    col_div['class'] = 'col-xs-6 col-sm-4 col-md-3'
-    col_div['id'] = 'PR{:06}'.format(project['id'])
-    parent.append(col_div)
-    list_group_div = soup.new_tag('div')
-    list_group_div['class'] = 'list-group'
-    list_group_div['style'] = 'overflow: hidden'
-    col_div.append(list_group_div)
     if project['state'] != 'private':
+        col_div = soup.new_tag('div')
+        col_div['class'] = 'col-xs-6 col-sm-4 col-md-3'
+        col_div['id'] = 'PR{:06}'.format(project['id'])
+        parent.append(col_div)
+        list_group_div = soup.new_tag('div')
+        list_group_div['class'] = 'list-group'
+        list_group_div['style'] = 'overflow: hidden'
+        col_div.append(list_group_div)
         list_group_item = soup.new_tag('a')
         list_group_item['href'] = '#'
         list_group_item['class'] = 'list-group-item'
@@ -464,8 +465,9 @@ def create_list_group_item(parent, project, soup):
         else:
             list_group_item['data-target'] = '#' + project['project-title'] + '-modal'
     else:
-        list_group_item = soup.new_tag('div')
-        list_group_item['class'] = 'list-group-item disabled'
+        return None
+        # list_group_item = soup.new_tag('div')
+        # list_group_item['class'] = 'list-group-item disabled'
     list_group_div.append(list_group_item)
     return list_group_item
 
@@ -860,38 +862,36 @@ def add_related_article(parent, article, soup):
 
     if hasattr(article, 'modified'):
         parent.append('''\
-          <small class="col-xs-6 col-sm-12 col-md-12 col-lg-6">
-          <i class="fa fa-refresh" style="margin-right: 2px"></i> Modified on 
-          <time datetime="{}"> {}</time>
+          <small class="col-xs-6 col-sm-12 col-md-12 col-lg-5">
+          <i class="fa fa-refresh" style="margin-right: 2px"></i><time datetime="{}"> {}</time>
         </small>'''.format(article.modified.isoformat(), article.locale_modified))
     else:
         parent.append('''\
-        <small class="col-xs-6 col-sm-12 col-md-12 col-lg-6">
-          <i class="fa fa-clock-o"></i> Posted on 
-          <time datetime="{}"> {}</time>
+        <small class="col-xs-6 col-sm-12 col-md-12 col-lg-5">
+          <i class="fa fa-clock-o"></i><time datetime="{}"> {}</time>
         </small>'''.format(article.date.isoformat(), article.locale_date))
 
     parent.append('''\
-        <small class="col-xs-6 col-sm-12 col-md-12 col-lg-6">
-          <span class="text-right">
+        <small class="col-xs-6 col-sm-12 col-md-12 col-lg-7 text-right">
             <i class="fa fa-folder-open-o"></i>
             <span>{}</span>'''.format(article.category))
 
     if hasattr(article, 'tags'):
         parent.append('''\
               <i class="fa fa-tags" style="margin-left: 5px"></i>''')
+        tags_text = ''
         for tag in article.tags:
-            parent.append('''\
-                <span>{}</span>, '''.format(tag))
+            tags_text += '''\
+                <span>{}</span>, '''.format(tag)
+        parent.append(tags_text[:-2])
     parent.append('''\
-          </span>
         </small>
       </div>
       <h3 class="list-group-item-heading">
         <span style="color:#333">{}</span>'''.format(article.title))
-    if hasattr(article, 'series'):
-        parent.append('''\
-          <small style="font-size: 50%">Part {} of the <i>{}</i> series</small>'''.format(article.series['index'], article.series['name']))
+    # if hasattr(article, 'series'):
+    #     parent.append('''\
+    #       <small style="font-size: 50%">Part {} of the <i>{}</i> series</small>'''.format(article.series['index'], article.series['name']))
     parent.append('''\
       </h3>
       <div class="list-group-item-text">{}</div>
