@@ -18,7 +18,7 @@ def render(pelican):
     with open(path, 'w') as f:
         f.write(soup.prettify(formatter=None))
 
-    path = pelican.settings['OUTPUT_PATH'] + '/projects/index.html'
+    path = pelican.settings['OUTPUT_PATH'] + '/index.html'
     soup = BeautifulSoup(open(path), 'html.parser')
     render_project_page(soup)
     with open(path, 'w') as f:
@@ -223,10 +223,10 @@ def add_button(parent, labels, project_data, soup, icon_class, tooltip_text, tar
     temp_button = soup.new_tag('a')
     temp_button['role'] = 'button'
     if labels:
-        temp_button['style'] = 'min-width: 50px; padding: 5px 12px !important;'
+        temp_button['style'] = 'min-width: 50px; padding: 5px 12px !important; border: 1px solid #ddd !important'
 
     else:
-        temp_button['style'] = 'min-width: 24px'
+        temp_button['style'] = 'min-width: 24px;'
     temp_button['class'] = 'btn btn-default'
     temp_button.append(soup.new_tag('i'))
     if tooltip_text:

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}{{ tag }} - {{ SITENAME }}{% endblock %}
+{% block meta %}
+    <meta name="author" content="{{ AUTHOR }}" />
+    <meta name="keywords" content="{{ tag }}" />
+{% endblock %}
+
+{% block canonical_rel %}<link rel="canonical" href="{{ SITEURL }}/categories/{{ tag }} ">{% endblock %}
+
+{% block headline %}
+<div class="jumbotron">
+  <div class="container">
+    <div class="visible-xs-block">
+      <h2 style="font-size: 40px; margin-top:0; color:#333;">Tag: {{ tag }}</h2>
+    </div>
+    <div class="visible-sm-block">
+      <h2 style="font-size: 54px; margin-top:8px; color:#333;">Tag: {{ tag }}</h2>
+    </div>
+    <div class="visible-md-block visible-lg-block">
+      <h1>Tag: {{ tag }}</h1>
+    </div>
+  </div>
+</div>
+{% endblock headline %}
+
+{% block content %}
+  <div class="container main-container"></div>
+  <div class="container">
+    <h1>All articles with the <i>{{ tag }}</i> tag</h1>
+    <hr />
+    <div class="row masonry-container">
+    {% for article in (articles_page.object_list if articles_page else articles) %}
+      <div class="col-xs-12 col-sm-6 col-md-6 article-listing">
+        {% include 'includes/article-panel.html' %}
+      </div>
+    {% endfor %}
+    </div>
+    {% include 'includes/pagination.html' %}
+  </div>
+{% endblock content %}
+
+{% block banner %}
+  {% include 'includes/banner.html' %}
+{% endblock %}

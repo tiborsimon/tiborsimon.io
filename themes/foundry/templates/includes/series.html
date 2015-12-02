@@ -1,0 +1,34 @@
+{% if article.series %}
+<div class="row" id="related-posts" style="margin-bottom: 20px;">
+    <div class="col-xs-12">
+      <h4 style="margin-top: 0;">This article was part{{ article.series.index }} from the {{ article.series.all|length }} of the <a href="{{ SITE_URL }}/projects/{{ article.series.name }}">{{ article.series.name }}</a> series</h4>
+      <hr style="margin-top: 4px; margin-bottom: 10px;" />
+    </div>
+    <div class="col-xs-6">
+    {% if article.series.all_previous %}
+       Previous articles
+       <div class="list-group">
+       {% for article in article.series.all_previous %}
+          <a href="{{ SITEURL }}/{{ article.url }}" class="list-group-item" style="padding: 8px 12px 0 12px;">
+            <h5 class="list-group-item-heading">{{ article.title }}</h5>
+            <div class="list-group-item-text" style="font-size: 80%;">{{ article.summary[:50] }}...</div>
+          </a>
+       {% endfor %}
+       </div>
+    {% endif %}
+    </div>
+    <div class="col-xs-6">
+    {% if article.series.all_next %}
+       Next articles
+       <div class="list-group">
+       {% for article in article.series.all_next %}
+          <a href="{{ SITEURL }}/{{ article.url }}" class="list-group-item" style="padding: 8px 12px 0 12px;">
+            <h5 class="list-group-item-heading">{{ article.title }}</h5>
+            <div class="list-group-item-text" style="font-size: 80%;">{{ article.summary[:50] }}...</div>
+          </a>
+       {% endfor %}
+       </div>
+    {% endif %}
+    </div>
+</div>
+{% endif %}

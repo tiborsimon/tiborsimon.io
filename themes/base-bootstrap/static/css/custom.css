@@ -24,7 +24,6 @@ body {
   background-size: 100% auto;
   background-repeat: repeat-y;
   background-attachment: fixed;
-  color: #545555;
 }
 
 .modal {
@@ -44,7 +43,7 @@ article h1, article h2, article h3, article h4, article h5, article h6 {
 }
 
 .site-content {
-  background-color: #f4f4f4;
+  background-color: #f0f0f0;
 }
 
 .thumbnail, .btn-default, .list-group-item {
@@ -112,29 +111,6 @@ article h1, article h2, article h3, article h4, article h5, article h6 {
 .index-article {
   margin-bottom: 28px;
 }
-
-
- /* --------------------------------------------------------------------------*/
-/* Irrelevant fader options */
-/*.irrelevant-fade {
-  opacity: 0.1;
-  transition: opacity 0.3s;
-}
-
-.irrelevant-fade:hover {
-  opacity: 1;
-}
-
-#irrelevant-toggle {
-  text-align: right;
-  opacity: 0.5;
-  transition: opacity 0.3s;
-  margin-bottom: 10px;
-}
-
-#irrelevant-toggle:hover {
-  opacity: 1;
-}*/
 
 
  /* --------------------------------------------------------------------------*/
@@ -328,8 +304,6 @@ hr {
 /* Making iframes responsive */
 .fluidMedia {
     position: relative;
-    /*padding-bottom: 56.25%;  proportion value to aspect ratio 16:9 (9 / 16 = 0.5625 or 56.25%) */
-    /*padding-top: 30px;*/
     height: 0;
     overflow: hidden;
 }
@@ -379,23 +353,6 @@ pre{
   margin-bottom: 14px;
 }
 
- /* --------------------------------------------------------------------------*/
-/* Content boxing */
-/*.content, .article-extension, .sidebar {
-  border: 1px solid #ddd;
-  border-radius: 3px;
-  background-color: white;
-  padding: 20px;
-  color: #555;
-}
-
-.project-documentation {
-  border: 1px solid #ddd;
-  border-radius: 3px;
-  background-color: white;
-  padding: 0 20px 20px 20px;
-  color: #555;
-}*/
 
 
 
