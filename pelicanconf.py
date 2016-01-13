@@ -58,7 +58,8 @@ USE_OPEN_GRAPH = True
 OPEN_GRAPH_FB_APP_ID = 551628881652865
 
 PLUGIN_PATHS = ['plugins']
-PLUGINS = ['tspr', 'summary', 'tag_cloud', 'series', 'figure-generator', 'json-search-system', 'bootstrapify']
+PLUGINS = []
+#PLUGINS = ['tspr', 'summary', 'tag_cloud', 'series', 'figure-generator', 'json-search-system', 'bootstrapify']
 #PLUGINS = ['tspr', 'summary', 'json-search-system', 'bootstrapify']
 
 SITEMAP = {
@@ -79,8 +80,9 @@ SITEMAP = {
 # HIDE_SITENAME = True
 
 STATIC_PATHS = [
-	'extras', 
-	'images'
+	'extras',
+	'img',
+    'ajax'
 ]
 
 EXTRA_PATH_METADATA = {
@@ -105,7 +107,7 @@ MENUITEMS = [
 ]
 
 # T H E M E   S E T T I N G S -------------------------------------------------
-THEME = "themes/pure"
+THEME = "themes/material-resume"
 
 FAVICON = 'favicon.ico'
 
@@ -120,4 +122,3 @@ HIDE_SIDEBAR = True
 
 SHOW_ARTICLE_CATEGORY = True
 SHOW_DATE_MODIFIED  = True
-
