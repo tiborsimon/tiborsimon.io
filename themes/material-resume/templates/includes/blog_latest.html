@@ -3,7 +3,6 @@
     <h2 class="section-title">Latest posts</h2>
 
     {% if articles %}
-
       {% for article in (articles_page.object_list if articles_page else articles)[:4] %}
 
         {% if loop.index % 2 == 1 %}
@@ -17,7 +16,6 @@
         {% endif %}
 
       {% endfor %}
-
     {% endif %}
 
     <div class="row">
