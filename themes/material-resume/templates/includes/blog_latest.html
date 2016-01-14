@@ -1,72 +1,32 @@
 <section id="blog" class="section section-blog">
-  <div class="animate-up">
-    <h2 class="section-title">From The Blog</h2>
+  <div class="">
+    <h2 class="section-title">Latest posts</h2>
+
+    {% if articles %}
+
+      {% for article in (articles_page.object_list if articles_page else articles)[:4] %}
+
+        {% if loop.index % 2 == 1 %}
+          <div class="row animate-up">
+        {% endif %}
+
+            {% include 'includes/article_card.html' %}
+
+        {% if loop.index % 2 == 0 %}
+          </div>
+        {% endif %}
+
+      {% endfor %}
+
+    {% endif %}
 
     <div class="row">
-      <div class="col-xs-6">
-        <article class="post-box">
-          <div class="post-media">
-            <div class="post-image">
-              <a href="single.html"><img src="img/uploads/thumb-449x286-1.jpg" alt=""> </a>
-            </div>
-          </div>
-
-          <div class="post-data">
-            <time class="post-datetime" datetime="2015-03-13T07:44:01+00:00">
-              <span class="day">03</span>
-              <span class="month">MAY</span>
-            </time>
-
-            <div class="post-tag">
-              <a href="">#Photo</a>
-              <a href="">#Architect</a>
-            </div>
-
-            <h3 class="post-title">
-              <a href="single-image.html">Image Post</a>
-            </h3>
-
-            <div class="post-info">
-              <a href=""><i class="icon icon-user"></i>by admin</a>
-              <a href=""><i class="icon icon-comments"></i>56</a>
-            </div>
-          </div>
-        </article>
-      </div>
-
-      <div class="col-xs-6">
-        <article class="post-box">
-          <div class="post-media">
-            <div class="post-image">
-              <a href="single-vimeo.html">
-                <img src="img/uploads/thumb-449x286-5.jpg" alt="">
-                <span class="post-type-icon"><i class="icon icon-play"></i></span>
-              </a>
-            </div>
-          </div>
-
-          <div class="post-data">
-            <time class="post-datetime" datetime="2015-03-13T07:44:01+00:00">
-              <span class="day">03</span>
-              <span class="month">MAY</span>
-            </time>
-
-            <div class="post-tag">
-              <a href="">#Photo</a>
-              <a href="">#Architect</a>
-            </div>
-
-            <h3 class="post-title">
-              <a href="single-vimeo.html">Vimeo Video Post</a>
-            </h3>
-
-            <div class="post-info">
-              <a href=""><i class="icon icon-user"></i>by admin</a>
-              <a href=""><i class="icon icon-comments"></i>56</a>
-            </div>
-          </div>
-        </article>
+      <div class="col-xs-12">
+        <div class="profile-btn">
+          <a class="btn btn-border ripple" href="">Go to the blog</a>
+        </div>
       </div>
     </div>
+
   </div>
 </section><!-- #blog -->

@@ -1,0 +1,38 @@
+<div class="col-xs-6">
+  <article class="post-box">
+
+    {% if article.img %}
+      <div class="post-media">
+        <div class="post-image">
+          <a href="{{ SITEURL }}/{{ article.url }}"><img src="{{ article.img }}" alt="{{ article.title }} featured image"> </a>
+        </div>
+      </div>
+    {% endif %}
+
+    <div class="post-data">
+      <time class="post-datetime" datetime="{{ article.date.isoformat() }}">
+        <span class="day">{{ article.date.strftime('%d') }}</span>
+        <span class="month">{{ article.date.strftime('%b') }}</span>
+        <span class="year">{{ article.date.strftime('%Y') }}</span>
+      </time>
+
+      {% if article.tags %}
+        <div class="post-tag">
+          {% for tag in article.tags %}
+            <a href="">#{{ tag }}</a>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      <h3 class="post-title">
+        <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+      </h3>
+
+      <div class="post-info">
+        <a href=""><i class="icon icon-menu"></i>{{ article.category }}</a>
+        <a href=""><i class="icon icon-comments"></i>56</a>
+      </div>
+    </div>
+
+  </article>
+</div>

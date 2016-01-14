@@ -5496,7 +5496,7 @@ body {
 
 .post-datetime {
     width: 58px;
-    height: 58px;
+    height: 72px;
     color: #fff;
     line-height: 1;
     font-weight: 700;
@@ -5515,6 +5515,12 @@ body {
 
 .post-datetime .month {
     font-size: 13px;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+}
+
+.post-datetime .year {
+    font-size: 12px;
 }
 
 .post-datetime span {
