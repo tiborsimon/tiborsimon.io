@@ -3,6 +3,7 @@ Subtitle: All possible ways to generate a sine wave
 Tags: signals, basics
 Date: 2015-10-17
 Series: TSPR0003
+Img: img/thumb-449x286-7.jpg
 
 Generating sinusoid signals is often the first step for executing a more complex computation. It should be a routine, but actually it isn't. Many people struggles with it.<!-- PELICAN_END_SUMMARY -->
 
@@ -16,7 +17,7 @@ However. This equation is only valid in the __continuous time__ domain, therefor
 
 Machines work with _discrete time series_ that has a property called __resolution__. Resolution is the link between _continous_ and _discrete_ time domain. This property is implemented with __sampling__. It tells us how many data points were sampled equidistantly from the continuous signal within a time segment. In this way we can represent a continuous signal with discrete data points[^1].
 
-Therefore the _t_ variable in the equation can be represented as a vector of data points. To create such a time vector, you have to choose a sampling interval. 
+Therefore the _t_ variable in the equation can be represented as a vector of data points. To create such a time vector, you have to choose a sampling interval.
 
 Let's say you want to get __10 samples per seconds__ _(fs=10Hz)_, and you want to have __20 samples__ in your vector. That also means that your time vector will cover almost __2 seconds__[^2] of continuous time.
 
@@ -24,7 +25,7 @@ You can test that the `t1` and `t2` vector are exactly the same. Both vector sta
 
 <div class="gist" data-gist-id="ec5c237f47cdee3c7794" data-gist-hide-footer="true"></div>
 
-If we plot the generated signal, we can see, that it is not a sine signal at all. It is a discrete signal, that has values in discrete points as we expected. 
+If we plot the generated signal, we can see, that it is not a sine signal at all. It is a discrete signal, that has values in discrete points as we expected.
 
 <img src="/images/smart-sinusoids/signal001.png" alt="Discrete vs continous time sine signal" />
 
@@ -125,4 +126,3 @@ If your answers for the last two questions were both _nope_, then the go ahead a
 [^2]: Because we have started our time vector from 0 as the first vector point, the remained 19 points wont cover all the 2 seconds time duration but will span until 1.9 seconds _(2s - 1/fs = 1.9s)_.
 
 [^3]: PC sound cards usually accept signals scaled -1 to 1.
-

@@ -3,8 +3,9 @@ Subtitle: Finding out the possibilities programmatically
 Tags: parameter, equation
 Date: 2015-11-11
 Series: TSPR0003
+Img: img/thumb-449x286-7.jpg
 
-In the previous article we have discussed the 5 ways you can generate a sinusoid signal. In this article 
+In the previous article we have discussed the 5 ways you can generate a sinusoid signal. In this article
 we are going to develop a method that tries to generate a sinusoid signal with a given parameter set.<!-- PELICAN_END_SUMMARY -->
 
 ## Sinusoid generation summary
@@ -44,7 +45,7 @@ To create an equation engine we have to solve the following problems:
 ### Identifying the passed parameters
 
 We need to identify what parameters were passed to the generator function to be able to decide what parameters can we
-calculate with the passed ones. Hopefully we can use <a href="http://tiborsimon.io/projects/TSPR0002/" target="_blank">Simple Input Parser</a> 
+calculate with the passed ones. Hopefully we can use <a href="http://tiborsimon.io/projects/TSPR0002/" target="_blank">Simple Input Parser</a>
 that can provide the passed parameter flags in its _extra flag_ mode.
 
 <div data-gist-id="63262ac34b22694c617d" data-gist-file="input_parsing.m"></div>
@@ -54,7 +55,7 @@ zero if not.
 
 ### Calculating the parameters
 
-To be able to substitute to the generator equations, we need to make sure to have all the necessary parameters 
+To be able to substitute to the generator equations, we need to make sure to have all the necessary parameters
 to do that. In case if wo do not have all the ones, we have to try to calculate them from the given ones.
 
 The following table contains all possible way to get a parameter from the others.
@@ -68,30 +69,30 @@ The following table contains all possible way to get a parameter from the others
 | - | - | - | n/fs/T | - | - | - |
 | - | - | - | n f/fs | - | - | - |
 
-This table can be programmed into __calculator functions__ which are going to try to calculate a parameter from the 
+This table can be programmed into __calculator functions__ which are going to try to calculate a parameter from the
 others. If a _calculator function_ is unable to calculate a parameter it throws an exception.
 
 <div data-gist-id="63262ac34b22694c617d" data-gist-file="parameter_calculators.m"></div>
 
 ### Using the parameters in the equations
 
-Lastly we have to implement the __generator functions__ for all 5 cases. These functions implement the 
+Lastly we have to implement the __generator functions__ for all 5 cases. These functions implement the
 sinusoid signal generation with a given parameter set. For more details see the first episode of this article series.
 
 <div data-gist-id="63262ac34b22694c617d" data-gist-file="generator_functions.m"></div>
 
 ## Putting everything together
 
-The last step is to put everything together. 
+The last step is to put everything together.
 
-1. We have the flag structure that indicates what parameters were passed. This structure can be used by the _calculator functions_ to 
+1. We have the flag structure that indicates what parameters were passed. This structure can be used by the _calculator functions_ to
    determine if a parameter can be calculated or not.
-1. We have _calculator functions_ that can calculate the necessary parameters for the _generator functions_. If one parameter cannot be 
+1. We have _calculator functions_ that can calculate the necessary parameters for the _generator functions_. If one parameter cannot be
    calculated, an exception will be raised.
 1. We have _generator functions_ that can generate the sinusoid signal if all necessary parameters are available for them.
 
-The only thing what we have to do is to use the _generator functions_ to try to generate the sinusoid signal in __every possible way__. 
-If one _generator function_ fails, we try another until there is no more _generator function_ left. In that case we can determine, that 
+The only thing what we have to do is to use the _generator functions_ to try to generate the sinusoid signal in __every possible way__.
+If one _generator function_ fails, we try another until there is no more _generator function_ left. In that case we can determine, that
 the given parameter set, there is no way to generate a sinusoud signal.
 
 <div data-gist-id="63262ac34b22694c617d" data-gist-file="equation_selection.m"></div>
@@ -100,13 +101,3 @@ the given parameter set, there is no way to generate a sinusoud signal.
 
 And that's it. This method was used in <a href="http://tiborsimon.io/projects/TSPR0003/" target="_blank">Smart Sinusoids</a> to generate
 the sinusoid signals.
-
-
-
-
-
-
-
-
-
-
