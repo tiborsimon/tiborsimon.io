@@ -2,7 +2,7 @@
     <h2 class="section-title">Latest posts</h2>
 
     {% if articles %}
-      {% for article in (articles_page.object_list if articles_page else articles)[:4] %}
+      {% for article in (articles_page.object_list if articles_page else articles)[:2] %}
 
         {% if loop.index % 2 == 1 %}
           <div class="row animate-up">
@@ -20,7 +20,7 @@
     <div class="row animate-up">
       <div class="col-xs-12">
         <div class="profile-btn">
-          <a class="btn btn-border ripple" href="">Go to the blog</a>
+          <a class="btn btn-border ripple" href="/archives.html">Go to the blog</a>
         </div>
       </div>
     </div>
