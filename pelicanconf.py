@@ -52,6 +52,8 @@ LINKS = (('Pelican', 'http://getpelican.com/'),
 SOCIAL = (('You can add links in your config file', '#'),
           ('Another social link', '#'),)
 
+USE_PAGER = True
+PAGINATED_DIRECT_TEMPLATES = ('archives',)
 DEFAULT_PAGINATION = 6
 
 USE_OPEN_GRAPH = True

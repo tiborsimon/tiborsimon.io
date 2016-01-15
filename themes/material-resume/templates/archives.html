@@ -1,1 +1,29 @@
 {% extends "base.html" %}
+
+
+{% block body_declaration %}
+<body class="header-has-img loading">
+{% endblock body_declaration %}
+
+{% block content %}
+
+  {% if articles %}
+    {% for article in (articles_page.object_list if articles_page else articles) %}
+
+      {% if loop.index % 2 == 1 %}
+        <div class="row animate-up">
+      {% endif %}
+
+          {% include 'includes/article_card.html' %}
+
+      {% if loop.index % 2 == 0 %}
+        </div>
+      {% endif %}
+
+    {% endfor %}
+
+    {% include 'includes/pagination.html' %}
+
+  {% endif %}
+
+{% endblock content %}
