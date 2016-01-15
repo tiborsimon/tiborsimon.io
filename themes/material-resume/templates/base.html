@@ -40,7 +40,9 @@
 	<script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/libs/modernizr.js"></script>
 </head>
 
-<body class="home header-has-img loading">
+{% block body_declaration %}
+	<body class="home header-has-img loading">
+{% endblock body_declaration %}
 
     {% include 'includes/mobile_nav.html' %}
 
