@@ -5,6 +5,19 @@
       <div class="post-media">
         <div class="post-image">
           <a href="{{ SITEURL }}/{{ article.url }}"><img src="{{ article.img }}" alt="{{ article.title }} featured image"> </a>
+
+          {% if article.type == "video" %}
+            <span class="post-type-icon">
+              <i class="icon icon-play"></i>
+            </span>
+          {% endif %}
+
+          {% if article.type == "audio" %}
+            <span class="post-type-icon">
+              <i class="icon icon-audio"></i>
+            </span>
+          {% endif %}
+
         </div>
       </div>
     {% endif %}
@@ -30,7 +43,9 @@
 
       <div class="post-info">
         <a href=""><i class="icon icon-menu"></i>{{ article.category }}</a>
-        <a href=""><i class="icon icon-comments"></i>56</a>
+        <a href=""><i class="icon icon-comments"></i>
+          <span class="disqus-comment-count" data-disqus-url="{{ SITEURL }}/{{ article.url }}">Comments</span>
+        </a>
       </div>
     </div>
 
