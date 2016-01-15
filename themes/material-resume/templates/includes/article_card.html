@@ -26,24 +26,14 @@
 
       {% include 'includes/date_box.html' %}
 
-      {% if article.tags %}
-        <div class="post-tag">
-          {% for tag in article.tags %}
-            <a href="">#{{ tag }}</a>
-          {% endfor %}
-        </div>
-      {% endif %}
+      {% include 'includes/article_tags.html' %}
 
       <h3 class="post-title">
         <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
       </h3>
 
-      <div class="post-info">
-        <a href=""><i class="icon icon-menu"></i>{{ article.category }}</a>
-        <a href=""><i class="icon icon-comments"></i>
-          <span class="disqus-comment-count" data-disqus-url="{{ SITEURL }}/{{ article.url }}">Comments</span>
-        </a>
-      </div>
+      {% include 'includes/article_info.html' %}
+
     </div>
 
   </article>
