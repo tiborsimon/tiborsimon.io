@@ -3,6 +3,9 @@
 from __future__ import unicode_literals
 
 AUTHOR = 'Tibor Simon'
+AUTHOR_POSITION = 'Engineer and guitarist'
+AVATAR = 'img/tibor2.png'
+
 SITENAME = 'Engineering with passion'
 SITESUBTITLE = 'Engineering with passion'
 SITEURL = ''
