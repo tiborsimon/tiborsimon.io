@@ -6,35 +6,21 @@
 
 {% block content %}
 
-<div class="row">
-  <div class="col-sm-12">
-      <div style="text-align: center; color: rgba(255, 255, 255, 0.85); margin-bottom:32px">
-        <h2>All articles containing the <b>#{{ tag }}</b> tag</h2>
-      </div>
+  <div class="row">
+    <div class="col-sm-12">
+        <div style="text-align: center; color: rgba(255, 255, 255, 0.85); margin-bottom:32px">
+          <h2>All articles containing the <b>#{{ tag }}</b> tag</h2>
+        </div>
+    </div>
   </div>
-</div>
 
-  {% set article_div_closed = False %}
+  <div class="row">
 
   {% for article in (articles_page.object_list if articles_page else articles) %}
-
-    {% if loop.index % 2 == 1 %}
-      <div class="row animate-up">
-      {% set article_div_closed = False %}
-    {% endif %}
-
-      {% include 'includes/article_card.html' %}
-
-    {% if loop.index % 2 == 0 %}
-      </div>
-      {% set article_div_closed = True %}
-    {% endif %}
-
+    {% include 'includes/article_card.html' %}
   {% endfor %}
 
-  {% if article_div_closed == False %}
-    </div>
-  {% endif %}
+  </div>
 
   {% include 'includes/pagination.html' %}
 

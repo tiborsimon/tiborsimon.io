@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block body_declaration %}
+<body class="header-has-img loading">
+{% endblock body_declaration %}
+
+{% block content %}
+
+  <div class="section-box">
+    <div class="row">
+      <div class="col-sm-12">
+        <h2 class="section-title">All categories in <b>tiborsimon.io</b></h2>
+
+        <aside class="widget widget_tag_cloud">
+        <div class="tagcloud nav">
+          {% for category, articles in categories|sort %}
+            <a href="#category-{{ category }}">{{ category }}</a>
+          {% endfor %}
+        </div>
+        </aside>
+
+      </div>
+    </div>
+  </div>
+
+{% for category, articles in categories|sort %}
+
+  <section class="section" id="category-{{ category }}">
+    <div class="row animate-up">
+      <div class="col-xs-12">
+        <h2 class="section-title"><b>{{ category }}</b></h2>
+      </div>
+    </div>
+
+    <div class="row">
+
+    {% for article in articles %}
+      {% include 'includes/article_card.html' %}
+    {% endfor %}
+
+    </div>
+  </section>
+
+{% endfor %}
+
+{% endblock content %}
