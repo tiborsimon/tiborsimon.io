@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block header %}
+  {% include 'includes/header_index.html' %}
+{% endblock header %}
+
 {% block content %}
   {% include 'includes/about.html' %}
   {% include 'includes/latest_articles.html' %}

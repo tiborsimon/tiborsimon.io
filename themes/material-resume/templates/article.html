@@ -6,57 +6,83 @@
 
 {% block content %}
 <div class="row animate-up">
-    <div class="col-sm-8">
-        <main class="post-single">
-            <article class="post-content section-box">
+  <div class="col-sm-8">
+    <main class="post-single">
+      <article class="post-content section-box">
 
-                <div class="post-media">
-                    <img src="img/uploads/rs-thumb-610x396.jpg" alt=""/>
-                </div><!-- .post-media -->
+        <div class="post-media">
+          {% if article.type == 'video' %}
+            <div class="post-embed">
+              {% if article.embed %}
+                {{ article.embed }}
+              {% endif %}
+            </div>
+          {% elif article.type == 'audio' %}
+            <div class="post-embed">
+              {% if article.embed %}
+                {{ article.embed }}
+              {% endif %}
+            </div>
+          {% elif article.type == 'slider' %}
+            <ul class="post-slider">
+                {% for slide in article.slides.split(', ') %}
+                  <li><img src="{{ SITEURL }}/{{ slide }}" alt=""/></li>
+                {% endfor %}
+            </ul>
+            <div class="post-slider-arrows">
+                <div class="slider-prev"></div>
+                <div class="slider-next"></div>
+            </div>
+          {% else %}
+            {% if article.img %}
+              <img src="{{ SITEURL }}/{{ article.img }}" alt="{{ article.title }} featured image"/>
+            {% endif %}
+          {% endif %}
+        </div><!-- .post-media -->
 
-                <div class="post-inner">
-                    <header class="post-header">
-                        <div class="post-data">
+        <div class="post-inner">
+          <header class="post-header">
+            <div class="post-data">
 
-                            {% include 'includes/article_tags.html' %}
+              {% include 'includes/article_tags.html' %}
 
-                            <div class="post-title-wrap">
-                                <h1 class="post-title">{{ article.title }}</h1>
-                                {% include 'includes/date_box.html' %}
-                            </div>
+              <div class="post-title-wrap">
+                <h1 class="post-title">{{ article.title }}</h1>
+                {% include 'includes/date_box.html' %}
+              </div>
 
-                            {% include 'includes/article_info.html' %}
+              {% include 'includes/article_info.html' %}
 
-                        </div>
-                    </header>
+            </div>
+          </header>
 
-                    <div class="post-editor clearfix">
-                        {{ article.content }}
-                    </div>
+          <div class="post-editor clearfix">
+            {{ article.content }}
+          </div>
 
-                    <footer class="post-footer">
-                        <div class="post-share">
-                            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-503b5cbf65c3f4d8" async="async"></script>
-                            <div class="addthis_sharing_toolbox"></div>
-                        </div>
-                    </footer>
-                </div><!-- .post-inner -->
-            </article><!-- .post-content -->
+          <footer class="post-footer">
+            <div class="post-share">
+              <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-503b5cbf65c3f4d8" async="async"></script>
+              <div class="addthis_sharing_toolbox"></div>
+            </div>
+          </footer>
+        </div><!-- .post-inner -->
+      </article><!-- .post-content -->
 
-            {% include 'includes/article_pagination.html' %}
+      {% include 'includes/article_pagination.html' %}
 
-            <div class="post-comments">
-                <h2 class="section-title">Comments (59)</h2>
-                <div class="section-box">
-                    {% include 'includes/comments.html' %}
-                </div>
-            </div><!-- .post-comments -->
-        </main>
-        <!-- .post-single -->
-    </div>
+      <div class="post-comments">
+        <h2 class="section-title">Comments (59)</h2>
+        <div class="section-box">
+          {% include 'includes/comments.html' %}
+        </div>
+      </div><!-- .post-comments -->
+    </main>
+    <!-- .post-single -->
+  </div>
 
-    <div class="col-sm-4">
-        {% include 'includes/widgets.html' %}
-    </div><!-- .col-sm-4 -->
+  <div class="col-sm-4">
+    {% include 'includes/widgets.html' %}
+  </div><!-- .col-sm-4 -->
 </div><!-- .row -->
 {% endblock %}

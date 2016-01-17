@@ -1,26 +1,40 @@
 <div class="col-xs-6">
   <article class="post-box">
 
-    {% if article.img %}
       <div class="post-media">
-        <div class="post-image">
-          <a href="{{ SITEURL }}/{{ article.url }}"><img src="{{ article.img }}" alt="{{ article.title }} featured image"> </a>
 
           {% if article.type == "video" %}
-            <span class="post-type-icon">
-              <i class="icon icon-play"></i>
-            </span>
+            <div class="post-image">
+              <a href="{{ SITEURL }}/{{ article.url }}"><img src="{{ article.img }}" alt="{{ article.title }} featured image"> </a>
+              <span class="post-type-icon">
+                <i class="icon icon-play"></i>
+              </span>
+            </div>
+          {% elif article.type == "audio" %}
+            <div class="post-image">
+              <a href="{{ SITEURL }}/{{ article.url }}"><img src="{{ article.img }}" alt="{{ article.title }} featured image"> </a>
+              <span class="post-type-icon">
+                <i class="icon icon-audio"></i>
+              </span>
+            </div>
+          {% elif article.type == 'slider' %}
+            <ul class="post-slider">
+                {% for slide in article.slides.split(', ') %}
+                  <li><img src="{{ SITEURL }}/{{ slide }}" alt=""/></li>
+                {% endfor %}
+            </ul>
+            <div class="post-slider-arrows">
+                <div class="slider-prev"></div>
+                <div class="slider-next"></div>
+            </div>
+          {% else %}
+            <div class="post-image">
+              <a href="{{ SITEURL }}/{{ article.url }}"><img src="{{ article.img }}" alt="{{ article.title }} featured image"> </a>
+            </div>
           {% endif %}
-
-          {% if article.type == "audio" %}
-            <span class="post-type-icon">
-              <i class="icon icon-audio"></i>
-            </span>
-          {% endif %}
-
-        </div>
+          
       </div>
-    {% endif %}
+
 
     <div class="post-data">
 
