@@ -45,6 +45,11 @@ PAGE_PATHS = ['pages']
 PAGE_URL = '{slug}/'
 PAGE_SAVE_AS = '{slug}/index.html'
 
+def category_count(articles, cat):
+    return len([article for article in articles if article.category == cat])
+
+JINJA_FILTERS = {'category_count': category_count}
+
 # Blogroll
 LINKS = (('Pelican', 'http://getpelican.com/'),
          ('Python.org', 'http://python.org/'),
