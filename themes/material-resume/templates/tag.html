@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block body_declaration %}
+<body class="header-has-img loading">
+{% endblock body_declaration %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-sm-12">
+      <div style="text-align: center; color: rgba(255, 255, 255, 0.85); margin-bottom:32px">
+        <h2>All articles containing the <b>#{{ tag }}</b> tag</h2>
+      </div>
+  </div>
+</div>
+
+  {% set article_div_closed = False %}
+
+  {% for article in (articles_page.object_list if articles_page else articles) %}
+
+    {% if loop.index % 2 == 1 %}
+      <div class="row animate-up">
+      {% set article_div_closed = False %}
+    {% endif %}
+
+      {% include 'includes/article_card.html' %}
+
+    {% if loop.index % 2 == 0 %}
+      </div>
+      {% set article_div_closed = True %}
+    {% endif %}
+
+  {% endfor %}
+
+  {% if article_div_closed == False %}
+    </div>
+  {% endif %}
+
+  {% include 'includes/pagination.html' %}
+
+  <div class="row animate-up">
+    <div class="col-xs-12">
+      <div class="profile-btn">
+        <a class="btn btn-border ripple" href="{{ SITEURL }}/tags.html">All tags</a>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}

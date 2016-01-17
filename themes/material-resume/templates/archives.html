@@ -8,19 +8,14 @@
 {% block content %}
 
   {% if articles %}
+
+    <div class="row">
+
     {% for article in (articles_page.object_list if articles_page else articles) %}
-
-      {% if loop.index % 2 == 1 %}
-        <div class="row animate-up">
-      {% endif %}
-
-          {% include 'includes/article_card.html' %}
-
-      {% if loop.index % 2 == 0 %}
-        </div>
-      {% endif %}
-
+      {% include 'includes/article_card.html' %}
     {% endfor %}
+
+    </div>
 
     {% include 'includes/pagination.html' %}
 

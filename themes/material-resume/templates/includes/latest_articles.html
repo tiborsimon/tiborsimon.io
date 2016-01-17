@@ -2,25 +2,21 @@
   <h2 class="section-title">Latest posts</h2>
 
   {% if articles %}
+
+    <div class="row">
+
     {% for article in (articles_page.object_list if articles_page else articles)[:4] %}
-
-      {% if loop.index % 2 == 1 %}
-        <div class="row animate-up">
-      {% endif %}
-
-        {% include 'includes/article_card.html' %}
-
-      {% if loop.index % 2 == 0 %}
-        </div>
-      {% endif %}
-
+      {% include 'includes/article_card.html' %}
     {% endfor %}
+
+    </div>
+
   {% endif %}
 
   <div class="row animate-up">
     <div class="col-xs-12">
       <div class="profile-btn">
-        <a class="btn btn-border ripple" href="/archives.html">Go to the blog</a>
+        <a class="btn btn-border ripple" href="{{ SITEURL }}/archives.html">Go to the blog</a>
       </div>
     </div>
   </div>

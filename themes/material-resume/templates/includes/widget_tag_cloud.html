@@ -1,13 +1,9 @@
 <aside class="widget widget_tag_cloud">
   <h2 class="widget-title">Tag Cloud</h2>
   <div class="tagcloud">
-    <a href="" title="1 topic">Business</a>
-    <a href="" title="9 topics">City</a>
-    <a href="" title="10 topics">Creative</a>
-    <a href="" title="6 topics">Fashion</a>
-    <a href="" title="2 topics">Music</a>
-    <a href="" title="5 topics">News</a>
-    <a href="" title="9 topics">Peoples</a>
+    {% for tag in tag_cloud %}
+        <a href="{{ SITEURL }}/tag/{{ tag.0 }}.html">#{{ tag.0 }}</a>
+    {% endfor %}
   </div>
 </aside>
 <!-- .widget_tag_cloud -->
