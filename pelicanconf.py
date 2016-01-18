@@ -45,10 +45,14 @@ PAGE_PATHS = ['pages']
 PAGE_URL = '{slug}/'
 PAGE_SAVE_AS = '{slug}/index.html'
 
+
 def category_count(articles, cat):
     return len([article for article in articles if article.category == cat])
 
-JINJA_FILTERS = {'category_count': category_count}
+JINJA_FILTERS = {
+    'category_count': category_count
+}
+
 
 # Blogroll
 LINKS = (('Pelican', 'http://getpelican.com/'),
@@ -70,7 +74,7 @@ OPEN_GRAPH_FB_APP_ID = 551628881652865
 TAG_CLOUD_SORTING = 'alphabetically'
 
 PLUGIN_PATHS = ['plugins']
-PLUGINS = ['tag_cloud']
+PLUGINS = ['tag_cloud', 'neighbors']
 #PLUGINS = ['tspr', 'summary', 'tag_cloud', 'series', 'figure-generator', 'json-search-system', 'bootstrapify']
 #PLUGINS = ['tspr', 'summary', 'json-search-system', 'bootstrapify']
 
