@@ -1,5 +1,8 @@
 {% if article.prev_article or article.next_article %}
 <nav class="post-pagination section-box">
+  <div class="post-next">
+    <h4 style="margin: 0; text-align: center">Read more</h4>
+  </div>
 {% endif %}
 
 {% if article.next_article %}
@@ -8,7 +11,7 @@
 
     <div style="text-align: center">
 
-      <div style="margin-bottom: 6px;">- Next article -</div>
+      <!-- <div style="margin-bottom: 6px;">- Next article -</div> -->
 
       {% if article.next_article.tags %}
         <div class="post-tag" style="margin-bottom: 10px">
@@ -18,7 +21,7 @@
         </div>
       {% endif %}
 
-      <h3 class="post-title" style="margin-bottom: 4px;"><a href="{{ SITEURL }}/{{ article.next_article.url }}">{{ article.next_article.title }}</a></h3>
+      <h3 class="post-title" style="margin-bottom: 4px;"><small>Next:</small> <a href="{{ SITEURL }}/{{ article.next_article.url }}">{{ article.next_article.title }}</a></h3>
 
       <div class="post-info">
         <a href="{{ SITEURL }}/category/{{ article.next_article.category }}.html"><i class="icon icon-menu"></i>{{ article.next_article.category }}</a>
@@ -35,7 +38,7 @@
 
     <div style="text-align: center">
 
-      <div style="margin-bottom: 6px;">- Previous article -</div>
+      <!-- <div style="margin-bottom: 6px;">- Previous article -</div> -->
 
       {% if article.prev_article.tags %}
         <div class="post-tag" style="margin-bottom: 10px">
@@ -45,7 +48,7 @@
         </div>
       {% endif %}
 
-      <h3 class="post-title" style="margin-bottom: 4px;"><a href="{{ SITEURL }}/{{ article.prev_article.url }}">{{ article.prev_article.title }}</a></h3>
+      <h3 class="post-title" style="margin-bottom: 4px;"><small>Previous:</small> <a href="{{ SITEURL }}/{{ article.prev_article.url }}">{{ article.prev_article.title }}</a></h3>
 
       <div class="post-info">
         <a href="{{ SITEURL }}/category/{{ article.prev_article.category }}.html"><i class="icon icon-menu"></i>{{ article.prev_article.category }}</a>

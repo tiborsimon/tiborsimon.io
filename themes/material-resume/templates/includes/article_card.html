@@ -42,9 +42,18 @@
 
       {% include 'includes/article_tags.html' %}
 
-      <h3 class="post-title">
-        <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
-      </h3>
+
+
+      {% if article.series %}
+        <h3 class="post-title" style="margin-bottom: 1px;">
+          <a href="{{ SITEURL }}/{{ article.url }}" >{{ article.title }}</a>
+        </h3>
+        <small class="nav" style="margin: 0; text-align: center; opacity: 0.8; position: relative; top: -4px;">Part {{ article.series.index }} of {{ article.series.all|length }} of the <b>{{ article.series.name }}</b> series</small>
+      {% else %}
+        <h3 class="post-title">
+          <a href="{{ SITEURL }}/{{ article.url }}" >{{ article.title }}</a>
+        </h3>
+      {% endif %}
 
       {% include 'includes/article_info.html' %}
 
