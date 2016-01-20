@@ -78,8 +78,8 @@
 
       {% include 'includes/article_pagination.html' %}
 
-      <div class="post-comments">
-        <h2 class="section-title">Comments (59)</h2>
+      <div class="post-comments" id="comments">
+        <h2 class="section-title">Comments (<span class="disqus-comment-count" data-disqus-url="{{ SITEURL }}/{{ article.url }}">0</span>)</h2>
         <div class="section-box">
           {% include 'includes/comments.html' %}
         </div>
