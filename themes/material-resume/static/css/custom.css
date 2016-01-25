@@ -1,4 +1,6 @@
 
+/* SEARCH SYSTEM INTEGRATION */
+
 .search-result-item {
   color: #464343;
   display: block;
@@ -45,4 +47,8 @@
 
 .search-result-item .summary ul {
   margin-left: 12px;
+}
+
+.header-has-img .nav-wrap .btn-mobile-nav, .header-has-img .nav-wrap .btn-sidebar-open {
+   border: none !important;
 }

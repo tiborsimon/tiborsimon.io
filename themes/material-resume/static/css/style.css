@@ -2933,12 +2933,12 @@ body {
 
 .header-has-img .nav-wrap .btn-mobile-nav,
 .header-has-img .nav-wrap .btn-sidebar-open {
-    border-color: #4f5159;
+    border-color: none;
 }
 
 .header-has-img .nav-wrap .btn-mobile-nav .icon,
 .header-has-img .nav-wrap .btn-sidebar-open .icon {
-    color: #fff;
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .header-has-img .head-sticky.head-bar {
@@ -2952,7 +2952,7 @@ body {
 
 .header-has-img .head-sticky .nav-wrap .btn-mobile-nav,
 .header-has-img .head-sticky .nav-wrap .btn-sidebar-open {
-    border-color: #d1d1d1;
+    border-color: none;
 }
 
 .header-has-img .head-sticky .nav-wrap .btn-sidebar-open .icon {
