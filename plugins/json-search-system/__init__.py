@@ -2,10 +2,10 @@ from pelican import signals
 from pelican.generators import ArticlesGenerator, PagesGenerator
 import json
 import re
-from tiborsimonio import Store
+# from tiborsimonio import Store
 
-Store.project_file = 'tspr.json'
-store = Store.load()
+# Store.project_file = 'tspr.json'
+# store = Store.load()
 
 data = []
 
@@ -15,7 +15,7 @@ def extract_data(instance):
     data.append({
             'title': instance.title,
             'category': ' ',
-            'tags': [' '+tag._name for tag in instance.tags],
+            'tags': [' #'+tag._name for tag in instance.tags],
             'url': 'http://tiborsimon.io/'+instance.url,
             'date': '{}-{}-{}'.format(instance.date.year, instance.date.month, instance.date.day),
             'summary': re.sub('<.*?>', '', instance.summary)
@@ -35,7 +35,7 @@ def add_projects():
 
 
 def run_plugin(generators):
-    add_projects()
+    # add_projects()
     for generator in generators:
         if isinstance(generator, ArticlesGenerator):
             for article in generator.articles:

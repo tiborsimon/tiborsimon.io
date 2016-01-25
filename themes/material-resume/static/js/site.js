@@ -537,11 +537,14 @@
 
     function openSidebar() {
         $('body').addClass('sidebar-opened');
+        $("#search-modal-input-sidebar").focus();
         lockScroll();
     }
 
     function closeSidebar() {
         $('body').removeClass('sidebar-opened');
+        $("#search-modal-input-sidebar").val("");
+        $("#search-results-container-sidebar").text("");
         unlockScroll();
     }
 
@@ -727,31 +730,31 @@
             itemsMobile: [320,1]
 		});
 
-        /** Audio Player */
-		var post_audio = $('.post-media audio');
-        if (post_audio.length > 0) {
-            post_audio.mediaelementplayer({
-                loop: false,
-                audioHeight: 40,
-                startVolume: 0.7
-            });
-        }
-
-
-        /** Video Player */
-		var post_video = $('.post-media video');
-        if (post_video.length > 0) {
-            post_video.mediaelementplayer({
-                loop: false,
-                defaultVideoWidth: 723,
-                defaultVideoHeight: 405,
-                videoWidth: -1,
-                videoHeight: -1,
-                startVolume: 0.7,
-                enableAutosize: true,
-                alwaysShowControls: true
-            });
-        }
+        // /** Audio Player */
+		// var post_audio = $('.post-media audio');
+        // if (post_audio.length > 0) {
+        //     post_audio.mediaelementplayer({
+        //         loop: false,
+        //         audioHeight: 40,
+        //         startVolume: 0.7
+        //     });
+        // }
+        //
+        //
+        // /** Video Player */
+		// var post_video = $('.post-media video');
+        // if (post_video.length > 0) {
+        //     post_video.mediaelementplayer({
+        //         loop: false,
+        //         defaultVideoWidth: 723,
+        //         defaultVideoHeight: 405,
+        //         videoWidth: -1,
+        //         videoHeight: -1,
+        //         startVolume: 0.7,
+        //         enableAutosize: true,
+        //         alwaysShowControls: true
+        //     });
+        // }
 
 
         /** Material Inputs */
@@ -966,11 +969,11 @@
         });
 
         // init mobile navigation custom scroll
-        if ($('.mobile-nav').length > 0) {
-            $(".mobile-nav-inner").mCustomScrollbar({
-                theme: "dark"
-            });
-        }
+        // if ($('.mobile-nav').length > 0) {
+        //     $(".mobile-nav-inner").mCustomScrollbar({
+        //         theme: "dark"
+        //     });
+        // }
 
 
         /** Sidebar */
@@ -985,11 +988,11 @@
         });
 
         // init sidebar custom scroll
-        if ($('.sidebar-fixed').length > 0) {
-            $(".widget-area").mCustomScrollbar({
-                theme: "dark"
-            });
-        }
+        // if ($('.sidebar-fixed').length > 0) {
+        //     $(".widget-area").mCustomScrollbar({
+        //         theme: "dark"
+        //     });
+        // }
 
 
         /** Overlay:
@@ -1002,9 +1005,9 @@
 
 
         /** Google Map Initialisation */
-        if ($('#map').length > 0) {
-            initialiseGoogleMap();
-        }
+        // if ($('#map').length > 0) {
+        //     initialiseGoogleMap();
+        // }
 
 
         /** Window Scroll Top Button */
@@ -1064,8 +1067,58 @@
 		});
 
 
+        /** Set up search system: */
+
+        // Remove all listeners from the input field, by cloning it..
+        var el = document.getElementById('search-modal-input-sidebar'),
+            elClone = el.cloneNode(true);
+        el.parentNode.replaceChild(elClone, el);
+
+        $('#search-modal-input-widget').on('focusin' , function () {
+            openSidebar();
+        });
+
+        $("#search-modal-input-sidebar").keydown(function (e) {
+            if (e.which === 27) { // esc
+                closeSidebar();
+            } else if (e.which === 13) { // enter
+                e.stopPropagation();
+                return false;
+            }
+        });
+
+        SimpleJekyllSearch({
+            searchInput: document.getElementById("search-modal-input-sidebar"),
+            resultsContainer: document.getElementById("search-results-container-sidebar"),
+            json: "/extras/search.json",
+            searchResultTemplate: '\
+                <a href="{url}" class="search-result-item">\
+                    <div class="title">{title}</div>\
+                    <small class="tags">{tags}</small>\
+                    <small class="date">{date}</small>\
+                    <div class="summary">{summary}</div>\
+                </a>',
+            noResultsText: '\
+                <div href="{url}" class="search-result-item">\
+                    <div class="title">No results were found..</div>\
+                    <div class="summary">\
+                    The search algorithm tries to match your input to the following post parameters: \
+                        <ul>\
+                            <li>- title</li>\
+                            <li>- date <small>(yyyy-mm-dd)</small></li>\
+                            <li>- summary</li>\
+                        </ul>\
+                    Make sure you pass the right keyword according to your needs.\
+                    </div>\
+                </div>',
+            limit: 30,
+            fuzzy: false
+        });
+
+
         /** Preloader:
          *  site was successfully loaded, hide site pre-loader */
         hideSitePreloader();
     });
+
 })(jQuery);
