@@ -66,7 +66,7 @@ SOCIAL = (('You can add links in your config file', '#'),
 
 USE_PAGER = True
 PAGINATED_DIRECT_TEMPLATES = ('archives',)
-DEFAULT_PAGINATION = 6
+DEFAULT_PAGINATION = 10
 
 USE_OPEN_GRAPH = True
 OPEN_GRAPH_FB_APP_ID = 551628881652865
