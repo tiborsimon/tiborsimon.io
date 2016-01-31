@@ -3,6 +3,8 @@ import os
 from bs4 import BeautifulSoup
 import json
 from pprint import pprint
+from dateutil.parser import parse
+
 
 PORTFOLIO_TEMPLATE = '''
 <section id="portfolio" class="section section-portfolio">
@@ -25,24 +27,23 @@ PORTFOLIO_TEMPLATE = '''
       <div class="grid-sizer"></div>
       {grid}
     </div>
-
-    <div class="grid-more">
-      <span class="ajax-loader"></span>
-      <button class="btn btn-border ripple"><i class="icon icon-add"></i></button>
-    </div>
   </div>
 </section>'''
 
 
 def load_portfolios():
-    portfolio_path = './content/portfolio'
-    dirs = os.listdir(portfolio_path)
-    portfolios = []
-    for d in dirs:
-        p = os.path.join(portfolio_path, d)
-        with open(p) as f:
-            portfolios.append(json.load(f))
-    return portfolios
+  portfolio_path = './content/portfolio'
+  dirs = os.listdir(portfolio_path)
+  portfolios = []
+  for d in dirs:
+    p = os.path.join(portfolio_path, d)
+    with open(p) as f:
+      portfolio = json.load(f)
+      portfolio['d'] = parse(portfolio['date'])
+      portfolios.append(portfolio)
+
+  portfolios.sort(key=lambda p:p['d'], reverse=True)
+  return portfolios
 
 
 def render_categories(portfolios):
