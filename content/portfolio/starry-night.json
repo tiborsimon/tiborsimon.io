@@ -1,0 +1,46 @@
+{
+  "title": "Starry Night",
+  "category": "video",
+  "thumbnail": {
+    "url": "img/vmi.jpg",
+    "alt": "altaltalt"
+  },
+  "link": "http://google.com",
+  "date": "",
+  "size": "size22",
+  "slides": [
+    {
+      "image": {
+        "url": "img/vmi.jpg",
+        "alt": "some picture"
+      },
+      "title": "My nice title1",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque cursus, risus at pellentesque rhoncus, lacus lorem lacinia sapien, sit amet consequat sapien turpis id ipsum. Ut nec eros turpis. Praesent et elit non mi suscipit accumsan. Pellentesque condimentum, nisl ut finibus placerat, nisi arcu rhoncus libero, id cursus nunc velit ac orci. Praesent fermentum maximus suscipit.",
+      "buttons": [
+        {
+          "title": "Button 1",
+          "url": "http://google.com"
+        },
+        {
+          "title": "Button 2",
+          "url": "http://github.com"
+        }
+      ]
+    },
+    {
+      "embed": "<iframe></iframe>",
+      "title": "My nice title2",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque cursus, risus at pellentesque rhoncus, lacus lorem lacinia sapien, sit amet consequat sapien turpis id ipsum. Ut nec eros turpis. Praesent et elit non mi suscipit accumsan. Pellentesque condimentum, nisl ut finibus placerat, nisi arcu rhoncus libero, id cursus nunc velit ac orci. Praesent fermentum maximus suscipit.",
+      "buttons": [
+        {
+          "title": "Button 1",
+          "url": "http://google.com"
+        },
+        {
+          "title": "Button 2",
+          "url": "http://github.com"
+        }
+      ]
+    }
+  ]
+}
