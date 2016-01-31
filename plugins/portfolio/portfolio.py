@@ -47,7 +47,7 @@ def load_portfolios():
 
 
 def render_categories(portfolios):
-  categories = [portfolio['category'].lower() for portfolio in portfolios]
+  categories = sorted(set([portfolio['category'].lower() for portfolio in portfolios]))
   ret = ''
   for c in categories:
     ret += '<button data-filter=".{0}">{1}</button>\n'.format(c, c.capitalize())
