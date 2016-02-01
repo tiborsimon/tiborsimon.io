@@ -47,7 +47,14 @@ def load_portfolios():
 
 
 def render_categories(portfolios):
-  categories = sorted(set([portfolio['category'].lower() for portfolio in portfolios]))
+  categories = []
+  for portfolio in portfolios:
+    if isinstance(portfolio['category'], list):
+      for c in portfolio['category']:
+        categories.append(c)
+    else:
+      categories.append(portfolio['category'])
+  categories = sorted(set(categories))
   ret = ''
   for c in categories:
     ret += '<button data-filter=".{0}">{1}</button>\n'.format(c, c.capitalize())
@@ -126,7 +133,7 @@ PORTFOLIO_ITEM = '''
       <figcaption class="portfolio-caption">
         <div class="portfolio-caption-inner">
           <h3 class="portfolio-title">{title}</h3>
-          <h4 class="portfolio-cat">{category_display}</h4>
+          <h4 class="portfolio-cat">{category_display} {date}</h4>
 
           <div class="btn-group">
             <a class="btn-link" href="{button_url}" target="_blank"><i class="icon icon-link"></i></a>
@@ -149,15 +156,16 @@ def render_portfolio_items(portfolios):
 
     ret += PORTFOLIO_ITEM.format(
       size=portfolio['size'],
-      category=portfolio['category'].lower(),
+      category=' '.join(portfolio['category']).lower(),
       thumbnail_src=portfolio['thumbnail']['url'],
       thumbnail_alt=portfolio['thumbnail']['alt'],
       title=portfolio['title'],
-      category_display=portfolio['category'].capitalize(),
+      category_display=' '.join(portfolio['category']),
       button_url=portfolio['link'],
       portfolio_number=portfolios.index(portfolio),
       inline_box_links=inline_box_links,
-      inline_boxes=inline_boxes
+      inline_boxes=inline_boxes,
+      date=portfolio['date']
     )
   return ret
 
