@@ -1,25 +1,17 @@
 {
   "title": "Starry Night",
-  "category": "video",
+  "category": ["video"],
   "thumbnail": {
-    "url": "img/vmi.jpg",
-    "alt": "altaltalt"
+    "url": "img/portfolios/starry-night/thumbnail.jpg",
+    "alt": "Starry Night cover photo"
   },
-  "link": "http://google.com",
-  "date": "2015-09-04",
-  "size": "size22",
+  "link": "https://vimeo.com/47858395",
+  "date": "2012-08-20",
+  "size": "size11",
   "slides": [
     {
-      "image": {
-        "url": "img/vmi.jpg",
-        "alt": "some picture"
-      },
-      "title": "My nice title1",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque cursus, risus at pellentesque rhoncus, lacus lorem lacinia sapien, sit amet consequat sapien turpis id ipsum. Ut nec eros turpis. Praesent et elit non mi suscipit accumsan. Pellentesque condimentum, nisl ut finibus placerat, nisi arcu rhoncus libero, id cursus nunc velit ac orci. Praesent fermentum maximus suscipit."
-    },
-    {
-      "embed": "<iframe></iframe>",
-      "title": "My nice title2",
+      "embed": "<iframe class=\"inline-embed-item\" src=\"https://player.vimeo.com/video/47858395\" width=\"500\" height=\"281\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>",
+      "title": "Starry Night",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque cursus, risus at pellentesque rhoncus, lacus lorem lacinia sapien, sit amet consequat sapien turpis id ipsum. Ut nec eros turpis. Praesent et elit non mi suscipit accumsan. Pellentesque condimentum, nisl ut finibus placerat, nisi arcu rhoncus libero, id cursus nunc velit ac orci. Praesent fermentum maximus suscipit."
     }
   ]

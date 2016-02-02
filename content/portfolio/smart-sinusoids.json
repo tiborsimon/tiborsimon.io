@@ -1,25 +1,20 @@
 {
   "title": "Smart Sinusoids",
-  "category": "programming",
+  "category": ["programming"],
   "thumbnail": {
-    "url": "img/vmi.jpg",
-    "alt": "altaltalt"
+    "url": "img/portfolios/smart-sinusoids/thumbnail.jpg",
+    "alt": "Smart Sinusoids cover photo"
   },
-  "link": "http://google.com",
-  "date": "2015-09-04",
-  "size": "size22",
+  "link": "https://github.com/tiborsimon/smart-sinusoids",
+  "date": "2015-10-20",
+  "size": "size11",
   "slides": [
     {
       "image": {
         "url": "img/vmi.jpg",
         "alt": "some picture"
       },
-      "title": "My nice title1",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque cursus, risus at pellentesque rhoncus, lacus lorem lacinia sapien, sit amet consequat sapien turpis id ipsum. Ut nec eros turpis. Praesent et elit non mi suscipit accumsan. Pellentesque condimentum, nisl ut finibus placerat, nisi arcu rhoncus libero, id cursus nunc velit ac orci. Praesent fermentum maximus suscipit."
-    },
-    {
-      "embed": "<iframe></iframe>",
-      "title": "My nice title2",
+      "title": "Smart Sinusoids",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque cursus, risus at pellentesque rhoncus, lacus lorem lacinia sapien, sit amet consequat sapien turpis id ipsum. Ut nec eros turpis. Praesent et elit non mi suscipit accumsan. Pellentesque condimentum, nisl ut finibus placerat, nisi arcu rhoncus libero, id cursus nunc velit ac orci. Praesent fermentum maximus suscipit."
     }
   ]

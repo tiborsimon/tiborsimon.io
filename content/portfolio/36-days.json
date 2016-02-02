@@ -1,25 +1,17 @@
 {
   "title": "36 days",
-  "category": "music",
+  "category": ["music"],
   "thumbnail": {
-    "url": "img/vmi.jpg",
-    "alt": "altaltalt"
+    "url": "img/portfolios/36-days/thumbnail.jpg",
+    "alt": "36 days cover photo"
   },
-  "link": "http://google.com",
-  "date": "2015-09-04",
-  "size": "size22",
+  "link": "https://soundcloud.com/tiborsimon/36-days",
+  "date": "2013-03-25",
+  "size": "size11",
   "slides": [
     {
-      "image": {
-        "url": "img/vmi.jpg",
-        "alt": "some picture"
-      },
-      "title": "My nice title1",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque cursus, risus at pellentesque rhoncus, lacus lorem lacinia sapien, sit amet consequat sapien turpis id ipsum. Ut nec eros turpis. Praesent et elit non mi suscipit accumsan. Pellentesque condimentum, nisl ut finibus placerat, nisi arcu rhoncus libero, id cursus nunc velit ac orci. Praesent fermentum maximus suscipit."
-    },
-    {
-      "embed": "<iframe></iframe>",
-      "title": "My nice title2",
+      "embed": "<iframe class=\"inline-embed-item\" width=\"100%\" height=\"200\" scrolling=\"no\" frameborder=\"no\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/84912073&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true\"></iframe>",
+      "title": "36 days",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque cursus, risus at pellentesque rhoncus, lacus lorem lacinia sapien, sit amet consequat sapien turpis id ipsum. Ut nec eros turpis. Praesent et elit non mi suscipit accumsan. Pellentesque condimentum, nisl ut finibus placerat, nisi arcu rhoncus libero, id cursus nunc velit ac orci. Praesent fermentum maximus suscipit."
     }
   ]

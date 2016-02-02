@@ -1,25 +1,17 @@
 {
   "title": "This is the life",
-  "category": "music",
+  "category": ["music"],
   "thumbnail": {
-    "url": "img/vmi.jpg",
-    "alt": "altaltalt"
+    "url": "img/portfolios/this-is-the-life/thumbnail.jpg",
+    "alt": "This is the life cover photo"
   },
-  "link": "http://google.com",
-  "date": "2015-09-04",
-  "size": "size22",
+  "link": "https://www.youtube.com/watch?v=y00qwAemOj8",
+  "date": "2012-08-23",
+  "size": "size11",
   "slides": [
     {
-      "image": {
-        "url": "img/vmi.jpg",
-        "alt": "some picture"
-      },
-      "title": "My nice title1",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque cursus, risus at pellentesque rhoncus, lacus lorem lacinia sapien, sit amet consequat sapien turpis id ipsum. Ut nec eros turpis. Praesent et elit non mi suscipit accumsan. Pellentesque condimentum, nisl ut finibus placerat, nisi arcu rhoncus libero, id cursus nunc velit ac orci. Praesent fermentum maximus suscipit."
-    },
-    {
-      "embed": "<iframe></iframe>",
-      "title": "My nice title2",
+      "embed": "<iframe class=\"inline-embed-item\" width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/y00qwAemOj8\" frameborder=\"0\" allowfullscreen></iframe>",
+      "title": "This is the life",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque cursus, risus at pellentesque rhoncus, lacus lorem lacinia sapien, sit amet consequat sapien turpis id ipsum. Ut nec eros turpis. Praesent et elit non mi suscipit accumsan. Pellentesque condimentum, nisl ut finibus placerat, nisi arcu rhoncus libero, id cursus nunc velit ac orci. Praesent fermentum maximus suscipit."
     }
   ]
