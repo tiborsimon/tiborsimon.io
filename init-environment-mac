@@ -2,7 +2,5 @@
 pip3 install virtualenv
 virtualenv site-env
 source site-env/bin/activate
-pip install pip-tools
-pip-compile
-pip-sync
+pip install -r requirements-pip.txt
 source site-env/bin/activate
