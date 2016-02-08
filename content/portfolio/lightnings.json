@@ -1,13 +1,13 @@
 {
   "title": "Ligthnings",
-  "category": ["photograpy"],
+  "category": ["photography"],
   "thumbnail": {
     "url": "img/portfolios/lightnings-cover.jpg",
     "alt": "Ligthnings cover photo"
   },
   "link": "http://google.com",
   "date": "2015-09-04",
-  "size": "size11",
+  "size": "size22",
   "slides": [
     {
       "image": {

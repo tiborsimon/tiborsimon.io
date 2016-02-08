@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
-AUTHOR = 'Tibor Simon'
-AUTHOR_POSITION = 'Engineer and guitarist'
-AVATAR = 'img/tibor2.png'
-
 SITENAME = 'Engineering with passion'
 SITESUBTITLE = 'Engineering with passion'
 SITEURL = ''
+
+AUTHOR = 'Tibor Simon'
+AUTHOR_POSITION = 'Engineer and guitarist'
+AVATAR = 'img/tibor.png'
 
 GITHUB_URL = 'https://github.com/tiborsimon'
 DISQUS_SITENAME = 'tiborsimon'

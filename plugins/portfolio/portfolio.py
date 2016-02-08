@@ -5,6 +5,8 @@ import json
 from pprint import pprint
 from dateutil.parser import parse
 
+PELICAN = None
+
 
 PORTFOLIO_TEMPLATE = '''
 <section id="portfolio" class="section section-portfolio">
@@ -71,7 +73,7 @@ EMBED_VIDEO = '''
 
 def render_box_embed(box):
   if 'image' in box.keys():
-    box_embed = EMBED_IMG.format(image_src=box['image']['url'], image_alt=box['image']['alt'])
+    box_embed = EMBED_IMG.format(image_src=PELICAN.settings['SITEURL'] + box['image']['url'], image_alt=box['image']['alt'])
   elif 'embed' in box.keys():
     box_embed = EMBED_VIDEO.format(embed_code=box['embed'])
   else:
@@ -170,23 +172,38 @@ def render_portfolio_items(portfolios):
   return ret
 
 
-def render_portfolio(div, portfolios):
+def render_portfolio(portfolios):
   categories = render_categories(portfolios)
   portfolio_items = render_portfolio_items(portfolios)
-  div.string = PORTFOLIO_TEMPLATE.format(navigation=categories, grid=portfolio_items)
+  return PORTFOLIO_TEMPLATE.format(navigation=categories, grid=portfolio_items)
 
 
-def generate_portfolio(pelican):
-  portfolios = load_portfolios()
-
+def generate_main_portfolios(pelican, portfolios):
   path = pelican.settings['OUTPUT_PATH'] + '/index.html'
   soup = BeautifulSoup(open(path), 'html.parser')
 
   for portfolio_div in soup.find_all('div', id='portfolio'):
-      render_portfolio(portfolio_div, portfolios)
+      portfolio_div.string = render_portfolio(portfolios)
 
   with open(path, 'w') as f:
     f.write(soup.prettify(formatter=None))
+
+
+def generate_ajax_portfolios(pelican, portfolios):
+  path = pelican.settings['OUTPUT_PATH'] + '/ajax/portfolio.html'
+
+  content = render_portfolio_items(portfolios)
+
+  with open(path, 'w') as f:
+    f.write(content)
+
+
+def generate_portfolio(pelican):
+  global PELICAN
+  PELICAN = pelican
+  portfolios = load_portfolios()
+  generate_main_portfolios(pelican, portfolios)
+  # generate_ajax_portfolios(pelican, portfolios[4:])
 
 
 def register():
