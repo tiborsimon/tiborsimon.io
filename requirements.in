@@ -1,9 +1,0 @@
-# requirements.in
-pelican
-pelican-minify
-beautifulsoup4
-pip-tools
-requests
-Markdown
-hurry.filesize
-
