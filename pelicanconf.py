@@ -97,7 +97,7 @@ SITEMAP = {
 
 STATIC_PATHS = [
 	'extras',
-	'img',
+	'images',
     'ajax'
 ]
 
@@ -123,7 +123,7 @@ MENUITEMS = [
 ]
 
 # T H E M E   S E T T I N G S -------------------------------------------------
-THEME = "themes/material-resume"
+THEME = "themes/escape-velocity"
 
 FAVICON = 'favicon.ico'
 
