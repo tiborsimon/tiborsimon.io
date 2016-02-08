@@ -5,3 +5,4 @@ content/extras/search.json
 tspr-store.pickle
 plugins/tspr/.idea/*
 .DS_Store
+node_modules
