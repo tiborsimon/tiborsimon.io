@@ -4,7 +4,9 @@
   "description": "Site for Tibor Simon",
   "main": "index.js",
   "dependencies": {
-    "sass": "^0.5.0",
+    "file-loader": "^0.8.5",
+    "less": "^2.6.0",
+    "url-loader": "^0.5.7",
     "webpack": "^1.12.13"
   },
   "devDependencies": {},
