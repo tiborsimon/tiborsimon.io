@@ -57,7 +57,14 @@ help:
 	@echo '                                                                          '
 
 sass:
-	sassc ./themes/escape-velocity/static/sass/main.scss ./themes/escape-velocity/static/css/main.css
+	sassc $(BASEDIR)/themes/escape-velocity/static/sass/main.scss $(BASEDIR)/themes/escape-velocity/static/css/main.css
+
+clean_output:
+	rm -rf $(OUTPUTDIR)/theme/sass
+	mv $(OUTPUTDIR)/theme/js/bundle.min.js $(OUTPUTDIR)/theme/bundle.min.js
+	rm -rf $(OUTPUTDIR)/theme/js
+	mkdir $(OUTPUTDIR)/theme/js
+	mv $(OUTPUTDIR)/theme/bundle.min.js $(OUTPUTDIR)/theme/js/bundle.min.js
 
 html: sass
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
