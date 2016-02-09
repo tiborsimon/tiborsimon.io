@@ -12,21 +12,6 @@ FTP_HOST=tiborsimon.io
 FTP_USER=tiborsim
 FTP_TARGET_DIR=public_html
 
-SSH_HOST=tiborsimon.io
-SSH_PORT=22
-SSH_USER=tiborsim
-SSH_TARGET_DIR=public_html
-
-S3_BUCKET=my_s3_bucket
-
-CLOUDFILES_USERNAME=my_rackspace_username
-CLOUDFILES_API_KEY=my_rackspace_api_key
-CLOUDFILES_CONTAINER=my_cloudfiles_container
-
-DROPBOX_DIR=~/Dropbox/Public/
-
-GITHUB_PAGES_BRANCH=master
-
 RELATIVE ?= 0
 ifeq ($(RELATIVE), 1)
 	PELICANOPTS += --relative-urls
@@ -57,28 +42,44 @@ help:
 	@echo '                                                                          '
 
 sass:
+	@echo ''
+	@echo '-> Compiling SASS..'
 	sassc $(BASEDIR)/themes/escape-velocity/static/sass/main.scss $(BASEDIR)/themes/escape-velocity/static/css/main.css
 
 clean_output:
+	@echo ''
+	@echo '-> Cleaning up..'
 	rm -rf $(OUTPUTDIR)/theme/sass
 	mv $(OUTPUTDIR)/theme/js/bundle.min.js $(OUTPUTDIR)/theme/bundle.min.js
 	rm -rf $(OUTPUTDIR)/theme/js
 	mkdir $(OUTPUTDIR)/theme/js
 	mv $(OUTPUTDIR)/theme/bundle.min.js $(OUTPUTDIR)/theme/js/bundle.min.js
 
-html: sass
+compile:
+	@echo ''
+	@echo '-> Compiling Pelican..'
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
-	webpack
 
-html-d: sass
+compile-d:
+	@echo ''
+	@echo '-> Compiling Pelican.. [DEBUG]'
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS) -D
-	webpack
+
+webpack_bundle:
+	@echo ''
+	@echo '-> Generating Webpack js bundle..'
+	@webpack
+
+html: sass compile webpack_bundle clean_output
+	@echo ''
+	@echo '-> Done!'
+
+html-d: sass compile-d webpack_bundle clean_output
+	@echo ''
+	@echo '-> Done!'
 
 clean:
 	[ ! -d $(OUTPUTDIR) ] || rm -rf $(OUTPUTDIR)
-
-regenerate:
-	$(PELICAN) -r $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
 
 serve:
 ifdef PORT
@@ -87,59 +88,22 @@ else
 	cd $(OUTPUTDIR) && $(PY) -m pelican.server
 endif
 
-serve-global:
-ifdef SERVER
-	cd $(OUTPUTDIR) && $(PY) -m pelican.server 80 $(SERVER)
-else
-	cd $(OUTPUTDIR) && $(PY) -m pelican.server 80 0.0.0.0
-endif
-
-
-devserver:
-ifdef PORT
-	$(BASEDIR)/develop_server.sh restart $(PORT)
-else
-	$(BASEDIR)/develop_server.sh restart
-endif
-
-stopserver:
-	$(BASEDIR)/develop_server.sh stop
-	@echo 'Stopped Pelican and SimpleHTTPServer processes running in background.'
-
-publish: sass
+publish:
+	@echo ''
+	@echo '-> Compiling Pelican..'
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
-	webpack
 
 publish-d:
+	@echo ''
+	@echo '-> Compiling Pelican.. [DEGUG]'
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS) -D
-	webpack
 
-ssh: publish
-	scp -P $(SSH_PORT) -r $(OUTPUTDIR)/* $(SSH_USER)@$(SSH_HOST):$(SSH_TARGET_DIR)
-
-rsync: publish
-	rsync -e "ssh -p $(SSH_PORT)" -P -rvzc --delete $(OUTPUTDIR)/ $(SSH_USER)@$(SSH_HOST):$(SSH_TARGET_DIR) --cvs-exclude
-
-dropbox_upload: publish
-	cp -r $(OUTPUTDIR)/* $(DROPBOX_DIR)
-
-ftp: publish
+ftp: sass publish webpack_bundle clean_output
+	@echo ''
+	@echo '-> Uploading via FTP..'
 	lftp ftp://$(FTP_USER)@$(FTP_HOST) -e "set ftp:ssl-allow no; mirror -R $(OUTPUTDIR) $(FTP_TARGET_DIR) -p; quit"
 
-ftp-d: publish-d
+ftp-d: sass publish-d webpack_bundle clean_output
+	@echo ''
+	@echo '-> Uploading via FTP.. [DEGUG]'
 	lftp ftp://$(FTP_USER)@$(FTP_HOST) -e "set ftp:ssl-allow no; mirror -R $(OUTPUTDIR) $(FTP_TARGET_DIR) -p; quit"
-
-scp: publish
-	scp $(FTP_USER)@$(FTP_HOST) -e "set ftp:ssl-allow no; mirror -R $(OUTPUTDIR) $(FTP_TARGET_DIR) ; quit"
-
-s3_upload: publish
-	s3cmd sync $(OUTPUTDIR)/ s3://$(S3_BUCKET) --acl-public --delete-removed --guess-mime-type
-
-cf_upload: publish
-	cd $(OUTPUTDIR) && swift -v -A https://auth.api.rackspacecloud.com/v1.0 -U $(CLOUDFILES_USERNAME) -K $(CLOUDFILES_API_KEY) upload -c $(CLOUDFILES_CONTAINER) .
-
-github: publish
-	ghp-import -m "Generate Pelican site" -b $(GITHUB_PAGES_BRANCH) $(OUTPUTDIR)
-	git push origin $(GITHUB_PAGES_BRANCH)
-
-.PHONY: html help clean regenerate serve serve-global devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload s3_upload cf_upload github
