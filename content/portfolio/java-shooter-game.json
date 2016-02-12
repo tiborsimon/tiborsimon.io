@@ -2,22 +2,10 @@
   "title": "Java shooter game",
   "category": ["programming"],
   "thumbnail": {
-    "url": "img/portfolios/java-shooter-game-cover.jpg",
+    "url": "images/portfolios/java-shooter-game-cover-n.jpg",
     "alt": "Java shooter game cover photo"
   },
   "link": "https://github.com/tiborsimon/java-shooter-game",
   "date": "2013-08-19",
-  "size": "size22",
-  "slides": [
-    {
-      "embed": "<iframe class=\"inline-embed-item\" width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/dUKqIYJZlOk\" frameborder=\"0\" allowfullscreen></iframe>",
-      "title": "Java shooter game",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque cursus, risus at pellentesque rhoncus, lacus lorem lacinia sapien, sit amet consequat sapien turpis id ipsum. Ut nec eros turpis. Praesent et elit non mi suscipit accumsan. Pellentesque condimentum, nisl ut finibus placerat, nisi arcu rhoncus libero, id cursus nunc velit ac orci. Praesent fermentum maximus suscipit."
-    },
-    {
-      "embed": "<iframe class=\"inline-embed-item\" width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/L5NhA_ajQ_w\" frameborder=\"0\" allowfullscreen></iframe>",
-      "title": "Java shooter game overclocked",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque cursus, risus at pellentesque rhoncus, lacus lorem lacinia sapien, sit amet consequat sapien turpis id ipsum. Ut nec eros turpis. Praesent et elit non mi suscipit accumsan. Pellentesque condimentum, nisl ut finibus placerat, nisi arcu rhoncus libero, id cursus nunc velit ac orci. Praesent fermentum maximus suscipit."
-    }
-  ]
+  "content": "Java Shooter Game is a simple open source Minigore-like game written in java as a university project."
 }

@@ -79,7 +79,7 @@ body {
   .container {
     width: 1200px; } }
 
-@media screen and (min-width: 737px) and (max-width: 1200px) {
+@media screen and (min-width: 737px) and (max-width: 800px) {
   .container.\31 25\25		{
     width: 100%;
     max-width: 1250px;
@@ -436,7 +436,7 @@ body {
   .\-1u\28desktop\29 {
     margin-left: 8.3333333333%; } }
 
-@media screen and (min-width: 737px) and (max-width: 1200px) {
+@media screen and (min-width: 737px) and (max-width: 800px) {
   .row > * {
     padding: 35px 0 0 35px; }
   .row {
@@ -685,6 +685,29 @@ body {
     margin-left: 16.6666666667%; }
   .\-1u\28mobile\29 {
     margin-left: 8.3333333333%; } }
+
+/* About */
+.about-section {
+  text-align: left; }
+  .about-section blockquote {
+    padding: 10px 24px;
+    line-height: 20px; }
+  .about-section p {
+    margin-bottom: 12px; }
+  .about-section h3:before {
+    color: #ddd;
+    background-color: transparent !important;
+    border: 1px solid #ddd;
+    transition: color 0.2s, background-color 0.2s; }
+  .about-section h3 {
+    width: 70px; }
+  .about-section h3:hover:before {
+    color: #e97770 !important;
+    background-color: #fff !important;
+    transition: color 0.2s, background-color 0.2s; }
+
+.intro-text {
+  font-size: 140%; }
 
 /* Basic */
 @-ms-viewport {
@@ -1179,6 +1202,10 @@ ol.default {
   text-align: center; }
   #highlights .highlight h3 {
     color: #e97770; }
+  #highlights .highlight p {
+    height: 100px; }
+  #highlights .highlight .image {
+    margin-bottom: 20px; }
 
 /* Copyright */
 #copyright {
@@ -1477,7 +1504,7 @@ ol.default {
           padding-left: 0; } }
 
 /* Tablet Only */
-@media screen and (min-width: 737px) and (max-width: 1200px) {
+@media screen and (min-width: 737px) and (max-width: 800px) {
   /* Basic */
   body {
     min-width: 1000px;

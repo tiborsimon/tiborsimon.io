@@ -2,17 +2,10 @@
   "title": "This is the life",
   "category": ["music"],
   "thumbnail": {
-    "url": "img/portfolios/this-is-the-life-cover.jpg",
+    "url": "images/portfolios/this-is-the-life-cover-n.jpg",
     "alt": "This is the life cover photo"
   },
   "link": "https://www.youtube.com/watch?v=y00qwAemOj8",
   "date": "2012-08-23",
-  "size": "size11",
-  "slides": [
-    {
-      "embed": "<iframe class=\"inline-embed-item\" width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/y00qwAemOj8\" frameborder=\"0\" allowfullscreen></iframe>",
-      "title": "This is the life",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque cursus, risus at pellentesque rhoncus, lacus lorem lacinia sapien, sit amet consequat sapien turpis id ipsum. Ut nec eros turpis. Praesent et elit non mi suscipit accumsan. Pellentesque condimentum, nisl ut finibus placerat, nisi arcu rhoncus libero, id cursus nunc velit ac orci. Praesent fermentum maximus suscipit."
-    }
-  ]
+  "content": "This is the life cover with electric and acoustic guitars."
 }

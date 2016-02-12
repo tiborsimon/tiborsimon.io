@@ -15,7 +15,7 @@
 
 	@include skel-breakpoints((
 		desktop: '(min-width: 737px)',
-		tablet: '(min-width: 737px) and (max-width: 1200px)',
+		tablet: '(min-width: 737px) and (max-width: 800px)',
 		mobile: '(max-width: 736px)'
 	));
 
@@ -40,6 +40,42 @@
 			)
 		)
 	));
+
+/* About */
+.about-section {
+	text-align: left;
+
+	blockquote {
+		padding: 10px 24px;
+		line-height: 20px;
+	}
+
+	p {
+		margin-bottom: 12px;
+	}
+
+	h3:before {
+		color: #ddd;
+		background-color: transparent !important;
+		border: 1px solid #ddd;
+		transition: color 0.2s, background-color 0.2s;
+	}
+
+	h3 {
+		width: 70px;
+	}
+
+	h3:hover:before {
+		color: #e97770 !important;
+		background-color: #fff !important;
+		transition: color 0.2s, background-color 0.2s;
+	}
+
+}
+
+.intro-text {
+	font-size: 140%;
+}
 
 /* Basic */
 
@@ -668,6 +704,14 @@
 
 			h3 {
 				color: #e97770;
+			}
+
+      p {
+        height: 100px;
+      }
+
+			.image {
+				margin-bottom: 20px;
 			}
 		}
 	}

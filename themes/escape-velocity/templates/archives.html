@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block body_tag %}
+  <body class="no-sidebar">
+{% endblock body_tag %}
+
+{% block main %}
+<!-- Main -->
+<div class="wrapper style2">
+  <div class="title">Archives</div>
+  <div id="main" class="container">
+
+
+    <!-- Archives -->
+      <section id="archives">
+        {% for article in articles %}
+          <div><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a> - <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time></div>
+        {% endfor %}
+      </section>
+
+  </div>
+</div>
+
+{% endblock main %}

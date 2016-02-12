@@ -1,21 +1,11 @@
 {
   "title": "Smart Sinusoids",
-  "category": ["programming"],
+  "category": ["programming", "matlab"],
   "thumbnail": {
-    "url": "img/portfolios/smart-sinusoids-cover.jpg",
+    "url": "images/portfolios/smart-sinusoids-cover-n.jpg",
     "alt": "Smart Sinusoids cover photo"
   },
   "link": "https://github.com/tiborsimon/smart-sinusoids",
   "date": "2015-10-20",
-  "size": "size11",
-  "slides": [
-    {
-      "image": {
-        "url": "img/vmi.jpg",
-        "alt": "some picture"
-      },
-      "title": "Smart Sinusoids",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque cursus, risus at pellentesque rhoncus, lacus lorem lacinia sapien, sit amet consequat sapien turpis id ipsum. Ut nec eros turpis. Praesent et elit non mi suscipit accumsan. Pellentesque condimentum, nisl ut finibus placerat, nisi arcu rhoncus libero, id cursus nunc velit ac orci. Praesent fermentum maximus suscipit."
-    }
-  ]
+  "content": "The easiest way to generate sinusoid signals in MATLAB."
 }

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block body_tag %}
+  <body class="right-sidebar">
+{% endblock body_tag %}
+
+{% block main %}
+<div class="wrapper style2">
+  <div class="title">Article</div>
+  <div id="main" class="container">
+    <div class="row 150%">
+      <div class="8u 12u(mobile)">
+
+        <!-- Content -->
+          <div id="content">
+            <article class="box post">
+              <header class="style1">
+                <h2>{{ article.title }}</h2>
+              </header>
+
+              {{ article.content }}
+
+            </article>
+            <div class="row 150%">
+              <div class="6u 12u(mobile)">
+                <section class="box">
+                  <header>
+                    <h2>{{ article.title }}</h2>
+                  </header>
+                  <a href="#" class="image featured"><img src="images/pic05.jpg" alt="" /></a>
+                  <p>Rutrum bibendum. Proin pellentesque diam non ligula commodo tempor. Vivamus
+                  eget urna nibh. Curabitur non fringilla nisl. Donec accumsan interdum nisi, quis
+                  tempus.</p>
+                  <a href="#" class="button style1">More</a>
+                </section>
+              </div>
+              <div class="6u 12u(mobile)">
+                <section class="box">
+                  <header>
+                    <h2>Magna pulvinar tempus</h2>
+                  </header>
+                  <a href="#" class="image featured"><img src="images/pic06.jpg" alt="" /></a>
+                  <p>Rutrum bibendum. Proin pellentesque diam non ligula commodo tempor. Vivamus
+                  eget urna nibh. Curabitur non fringilla nisl. Donec accumsan interdum nisi, quis
+                  tempus.</p>
+                  <a href="#" class="button style1">More</a>
+                </section>
+              </div>
+            </div>
+          </div>
+
+      </div>
+
+      {% include 'includes/sidebar.html' %}
+
+    </div>
+  </div>
+</div>
+{% endblock main %}

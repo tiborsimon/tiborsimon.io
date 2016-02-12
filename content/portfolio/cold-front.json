@@ -2,17 +2,10 @@
   "title": "Cold Front",
   "category": ["video"],
   "thumbnail": {
-    "url": "img/portfolios/cold-front-cover.jpg",
+    "url": "images/portfolios/cold-front-cover-n.jpg",
     "alt": "Cold Front cover photo"
   },
   "link": "https://vimeo.com/30624186",
   "date": "2011-10-16",
-  "size": "size11",
-  "slides": [
-    {
-      "embed": "<iframe class=\"inline-embed-item\" src=\"https://player.vimeo.com/video/30624186\" width=\"500\" height=\"281\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>",
-      "title": "Cold Front",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque cursus, risus at pellentesque rhoncus, lacus lorem lacinia sapien, sit amet consequat sapien turpis id ipsum. Ut nec eros turpis. Praesent et elit non mi suscipit accumsan. Pellentesque condimentum, nisl ut finibus placerat, nisi arcu rhoncus libero, id cursus nunc velit ac orci. Praesent fermentum maximus suscipit."
-    }
-  ]
+  "content": "The last warm day of the year with multilayered clouds passing by."
 }

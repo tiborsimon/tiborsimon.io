@@ -2,27 +2,10 @@
   "title": "Lovesong",
   "category": ["music", "video"],
   "thumbnail": {
-    "url": "img/portfolios/lovesong-cover.jpg",
+    "url": "images/portfolios/lovesong-cover-n.jpg",
     "alt": "Lovesong cover photo"
   },
   "link": "https://www.youtube.com/watch?v=qINOQfeV8o8",
   "date": "2012-09-30",
-  "size": "size11",
-  "slides": [
-    {
-      "embed": "<iframe class=\"inline-embed-item\" width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/qINOQfeV8o8\" frameborder=\"0\" allowfullscreen></iframe>",
-      "title": "Lovesong",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque cursus, risus at pellentesque rhoncus, lacus lorem lacinia sapien, sit amet consequat sapien turpis id ipsum. Ut nec eros turpis. Praesent et elit non mi suscipit accumsan. Pellentesque condimentum, nisl ut finibus placerat, nisi arcu rhoncus libero, id cursus nunc velit ac orci. Praesent fermentum maximus suscipit."
-    },
-    {
-      "embed": "<iframe class=\"inline-embed-item\" width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/iiG4zmsnOTE\" frameborder=\"0\" allowfullscreen></iframe>",
-      "title": "Lovesong instrumental",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque cursus, risus at pellentesque rhoncus, lacus lorem lacinia sapien, sit amet consequat sapien turpis id ipsum. Ut nec eros turpis. Praesent et elit non mi suscipit accumsan. Pellentesque condimentum, nisl ut finibus placerat, nisi arcu rhoncus libero, id cursus nunc velit ac orci. Praesent fermentum maximus suscipit."
-    },
-    {
-      "embed": "<iframe class=\"inline-embed-item\" width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/HKwAaX8GYxE\" frameborder=\"0\" allowfullscreen></iframe>",
-      "title": "Lovesong funny moments",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque cursus, risus at pellentesque rhoncus, lacus lorem lacinia sapien, sit amet consequat sapien turpis id ipsum. Ut nec eros turpis. Praesent et elit non mi suscipit accumsan. Pellentesque condimentum, nisl ut finibus placerat, nisi arcu rhoncus libero, id cursus nunc velit ac orci. Praesent fermentum maximus suscipit."
-    }
-  ]
+  "content": "Full guitar and vocal cover of Adele's version of Lovesong."
 }

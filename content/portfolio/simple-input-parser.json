@@ -1,21 +1,7 @@
 {
   "title": "Simple Input Parser",
-  "category": ["programming"],
-  "thumbnail": {
-    "url": "img/portfolios/simple-input-parser-cover.jpg",
-    "alt": "Simple Input Parser cover photo"
-  },
+  "category": ["programming", "matlab"],
   "link": "https://github.com/tiborsimon/simple-input-parser",
   "date": "2015-10-13",
-  "size": "size11",
-  "slides": [
-    {
-      "image": {
-        "url": "img/vmi.jpg",
-        "alt": "some picture"
-      },
-      "title": "Simple Input Parser",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque cursus, risus at pellentesque rhoncus, lacus lorem lacinia sapien, sit amet consequat sapien turpis id ipsum. Ut nec eros turpis. Praesent et elit non mi suscipit accumsan. Pellentesque condimentum, nisl ut finibus placerat, nisi arcu rhoncus libero, id cursus nunc velit ac orci. Praesent fermentum maximus suscipit."
-    }
-  ]
+  "content": "Easy to use input parser for functions and methods that are using variable-length input argument list."
 }

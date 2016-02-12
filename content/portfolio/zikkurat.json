@@ -2,17 +2,10 @@
   "title": "Zikkurat",
   "category": ["video"],
   "thumbnail": {
-    "url": "img/portfolios/zikkurat-cover.jpg",
+    "url": "images/portfolios/zikkurat-cover-n.jpg",
     "alt": "Zikkurat cover photo"
   },
   "link": "https://www.youtube.com/watch?v=BbZDeATeR7c",
   "date": "2013-03-11",
-  "size": "size11",
-  "slides": [
-    {
-      "embed": "<iframe class=\"inline-embed-item\" width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/BbZDeATeR7c\" frameborder=\"0\" allowfullscreen></iframe>",
-      "title": "Zikkurat",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque cursus, risus at pellentesque rhoncus, lacus lorem lacinia sapien, sit amet consequat sapien turpis id ipsum. Ut nec eros turpis. Praesent et elit non mi suscipit accumsan. Pellentesque condimentum, nisl ut finibus placerat, nisi arcu rhoncus libero, id cursus nunc velit ac orci. Praesent fermentum maximus suscipit."
-    }
-  ]
+  "content": "Live recorded street music with a clone guitarists."
 }
