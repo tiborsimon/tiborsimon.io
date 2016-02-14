@@ -8,15 +8,27 @@
 <!-- Main -->
 <div class="wrapper style2">
   <div class="title">Archives</div>
-  <div id="main" class="container">
-
+  <div id="archives" class="container">
 
     <!-- Archives -->
-      <section id="archives">
-        {% for article in articles %}
-          <div><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a> - <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time></div>
-        {% endfor %}
-      </section>
+      <div class="row">
+        <div class="6u 6u(tablet) 12u(bigmobile) 12u(mobile)">
+          <section id="archives">
+            {% for article in (articles_page.object_list[:4] if articles_page else articles)  %}
+              {% include 'includes/article-card.html' %}
+            {% endfor %}
+          </section>
+        </div>
+        <div class="6u 6u(tablet) 12u(bigmobile) 12u(mobile)">
+          <section id="archives">
+            {% for article in (articles_page.object_list[4:] if articles_page else articles)  %}
+              {% include 'includes/article-card.html' %}
+            {% endfor %}
+          </section>
+        </div>
+      </div>
+
+      {% include 'includes/pagination.html' %}
 
   </div>
 </div>

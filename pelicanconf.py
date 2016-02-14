@@ -66,7 +66,7 @@ SOCIAL = (('You can add links in your config file', '#'),
 
 USE_PAGER = True
 PAGINATED_DIRECT_TEMPLATES = ('archives',)
-DEFAULT_PAGINATION = 10
+DEFAULT_PAGINATION = 8
 
 USE_OPEN_GRAPH = True
 OPEN_GRAPH_FB_APP_ID = 551628881652865
@@ -74,7 +74,7 @@ OPEN_GRAPH_FB_APP_ID = 551628881652865
 TAG_CLOUD_SORTING = 'alphabetically'
 
 PLUGIN_PATHS = ['plugins']
-PLUGINS = ['tag_cloud', 'neighbors', 'series', 'json-search-system', 'portfolio']
+PLUGINS = ['tag_cloud', 'neighbors', 'series', 'summary', 'json-search-system', 'portfolio']
 #PLUGINS = ['tspr', 'summary', 'tag_cloud', 'series', 'figure-generator', 'json-search-system', 'bootstrapify']
 #PLUGINS = ['tspr', 'summary', 'json-search-system', 'bootstrapify']
 

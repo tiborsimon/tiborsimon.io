@@ -3,7 +3,6 @@ Subtitle: How to distinguish keys that are the same in the first characters?
 Tags: parameter, equation
 Date: 2015-11-12
 Series: TSPR0002
-Status: draft
 Img: img/thumb-449x286-7.jpg
 
 How to distinguish keys that are the same in the first characters? This article will show you a
