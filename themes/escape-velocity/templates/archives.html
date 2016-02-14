@@ -12,14 +12,14 @@
 
     <!-- Archives -->
       <div class="row">
-        <div class="6u 6u(tablet) 12u(bigmobile) 12u(mobile)">
+        <div class="6u 6u(tablet) 12u(mobile)">
           <section id="archives">
             {% for article in (articles_page.object_list[:4] if articles_page else articles)  %}
               {% include 'includes/article-card.html' %}
             {% endfor %}
           </section>
         </div>
-        <div class="6u 6u(tablet) 12u(bigmobile) 12u(mobile)">
+        <div class="6u 6u(tablet) 12u(mobile)">
           <section id="archives">
             {% for article in (articles_page.object_list[4:] if articles_page else articles)  %}
               {% include 'includes/article-card.html' %}

@@ -124,7 +124,7 @@
 
 /* Pagination */
 .paginations {
-	margin: 1em 0 0 0;
+	margin: 2em 0 0 0;
 	text-align: center;
 
 	li {
@@ -189,17 +189,88 @@
 				box-shadow: inset 0px 0px 2px 0px #202127;
 			}
 		}
+	}
+}
 
-		&.style3 {
-			background: #2f333b url('../css/images/overlay.png');
-			color: #fff;
+/* Tags page */
 
-			&:hover {
-				background-color: #3f434b;
+.tags-and-categories-page {
+	.wrapper {
+		padding: 50px 0 40px 0 !important;
+	}
+}
+
+#tags-and-categories {
+
+	.tag-class {
+		font-size: 2em;
+		text-align: left;
+		display: block;
+		text-transform: uppercase;
+		color: #d96760 !important;
+	}
+
+	div.12u {
+		padding-top: 0;
+	}
+
+	.tagcloud {
+		text-align: center;
+		margin-bottom: 40px;
+
+		.tagcloud-button {
+			@include vendor('transition', 'all .25s ease-in-out');
+			display: inline-block;
+			background: #444;
+			text-align: center;
+			text-transform: uppercase;
+			font-weight: 300;
+			letter-spacing: 0.25em;
+			text-decoration: none;
+			border-radius: 0.35em;
+			border: 0;
+			outline: 0;
+			cursor: pointer;
+			padding: 0 2.25em 0 2.25em;
+			font-size: 0.7em;
+			/* min-width: 12em; */
+			/* height: 4em; */
+			line-height: 4em;
+			margin-bottom: 4px;
+
+			.counter {
+				font-weight: bold;
 			}
 
-			&:active {
-				background-color: #1f232b;
+			&:hover {
+				background-color: #f98780;
+			}
+
+			&.style1 {
+				background: #e97770 url('../css/images/overlay.png');
+				color: #fff;
+
+				&:hover {
+					background-color: #f98780;
+				}
+
+				&:active {
+					background-color: #d96760;
+				}
+			}
+
+			&.style2 {
+				background: none;
+				color: #606167;
+				box-shadow: inset 0px 0px 2px 0px #a0a1a7;
+
+				&:hover {
+					box-shadow: inset 0px 0px 2px 0px #606167;
+				}
+
+				&:active {
+					box-shadow: inset 0px 0px 2px 0px #202127;
+				}
 			}
 		}
 	}

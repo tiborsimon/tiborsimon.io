@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block body_tag %}
+  <body class="no-sidebar">
+{% endblock body_tag %}
+
+{% block main %}
+  <div class="wrapper style2">
+    <div  id="tag-{{ tag }}" class="title"><i class="fa fa-tags"></i> {{ tag }}</div>
+    <div class="container">
+
+      <div class="row">
+
+        {% set article_middle_index = articles|middle_index %}
+
+        <div class="6u 6u(tablet) 12u(mobile)">
+          {% for article in articles[:article_middle_index] %}
+            {% include 'includes/article-card.html' %}
+          {% endfor %}
+        </div>
+
+        <div class="6u 6u(tablet) 12u(mobile)">
+          {% for article in articles[article_middle_index:] %}
+            {% include 'includes/article-card.html' %}
+          {% endfor %}
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+{% endblock main %}

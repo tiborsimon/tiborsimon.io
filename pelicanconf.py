@@ -138,3 +138,20 @@ HIDE_SIDEBAR = True
 
 SHOW_ARTICLE_CATEGORY = True
 SHOW_DATE_MODIFIED  = True
+
+
+
+
+
+
+
+
+# JINJA FILTERS ---------------------------------------------------------------
+import math
+
+def middle_index(content, *args):
+    return math.ceil(len(content)/2)
+
+JINJA_FILTERS = {
+    'middle_index': middle_index,
+}

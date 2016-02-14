@@ -8,7 +8,7 @@ share_buttons: True
 Date: 2015-01-17
 Slug: projects/java-shooter-game
 
-During the last semester I had a subject that required to create a java program. I decided to write a small game similar to Minigore. The game is written in java with LWJGL and Slick2D game libraries.
+During the last semester I had a subject that required to create a java program. I decided to write a small game similar to Minigore. The game is written in java with LWJGL and Slick2D game libraries.<!-- PELICAN_END_SUMMARY -->
 
 <iframe width="640" height="360" src="https://www.youtube.com/embed/dUKqIYJZlOk" frameborder="0" allowfullscreen></iframe>
 
