@@ -3,11 +3,9 @@ Subtitle: Fix Markdown's lack of hyperlink targeting feature with javascript
 Tags: pelican, hack, javascript
 Date: 2015-05-17
 Img: img/thumb-449x286-7.jpg
+Summary: As Pelican can use Markdown to render it's contents, and Markdown doesn't support control over the hyperlink target attribute, you were forced to write your external links and references manually. Or not?
 
-As Pelican can use Markdown to render it's contents, and Markdown doesn't support
-control over the hyperlink target attribute, you were forced to write your
-external links and references manually. Or not?
-<!-- PELICAN_END_SUMMARY -->
+
 Hopefully, there is a simple javascript hack, that can redirect your external
 links to a new blank tab.
 

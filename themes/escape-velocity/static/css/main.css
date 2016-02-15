@@ -723,7 +723,7 @@ body {
     font-size: 2em;
     margin-bottom: 10px;
     margin-top: 0px; }
-  .article-card .article-info {
+  .article-card .article-date, .article-card .article-categories {
     font-size: 76%;
     display: inline-block;
     color: #919499 !important; }
@@ -847,6 +847,106 @@ body {
         box-shadow: inset 0px 0px 2px 0px #606167; }
       #tags-and-categories .tagcloud .tagcloud-button.style2:active {
         box-shadow: inset 0px 0px 2px 0px #202127; }
+
+/*  C O N T E N T  */
+#content .article-title {
+  font-size: 3.3em;
+  text-align: left;
+  margin: 0 0 1px 0 !important;
+  line-height: 1em; }
+
+#content .article-info {
+  line-height: 17px;
+  font-size: 10pt;
+  margin-bottom: 53px;
+  display: block;
+  clear: both; }
+  #content .article-info .article-date {
+    margin-bottom: 0 !important;
+    display: inline-block; }
+  #content .article-info .article-categories {
+    margin-bottom: 0 !important;
+    display: inline-block;
+    text-align: right;
+    float: right; }
+  #content .article-info hr {
+    margin: 0 0 2px 0; }
+
+#content h1 {
+  font-size: 2em;
+  margin-top: 46px;
+  margin-bottom: 22px; }
+
+#content .summary {
+  font-size: 1.2em; }
+
+#content p {
+  line-height: 22px;
+  margin-bottom: 1.3em; }
+
+#content ol, #content ul {
+  margin-left: 46px;
+  line-height: 22px; }
+
+#content ol {
+  list-style-type: decimal; }
+
+#content ul {
+  list-style-type: disc; }
+
+#content pre, #content code {
+  font-family: monospace;
+  line-height: 18px;
+  font-size: 11pt;
+  margin-bottom: 32px;
+  border: 1px solid #e1e1e1;
+  padding: 10px;
+  background-color: #ededed;
+  overflow-x: scroll;
+  color: #8a8a8a; }
+
+#content pre {
+  border-radius: 6px;
+  padding: 8px; }
+
+#content code {
+  border-radius: 3px;
+  padding: 1px 2px; }
+
+@media screen and (min-width: 737px) and (max-width: 1210px) {
+  #content .article-title {
+    font-size: 3em; }
+  #content .article-info {
+    margin-bottom: 46px; }
+  #content h1 {
+    margin-top: 46px;
+    margin-bottom: 20px; }
+  #content pre, #content code {
+    font-size: 10pt;
+    line-height: 16px; }
+  #content pre {
+    padding: 7px; } }
+
+@media screen and (max-width: 736px) {
+  #content .article-title {
+    font-size: 2.3em; }
+  #content .article-info {
+    margin-bottom: 28px; }
+    #content .article-info .article-date {
+      margin-bottom: 0 !important;
+      display: block; }
+    #content .article-info .article-categories {
+      margin-bottom: 0 !important;
+      float: none;
+      text-align: left; }
+  #content h1 {
+    margin-top: 32px;
+    margin-bottom: 18px; }
+  #content pre, #content code {
+    font-size: 9pt;
+    line-height: 14px; }
+  #content pre {
+    padding: 6px; } }
 
 /* Basic */
 @-ms-viewport {

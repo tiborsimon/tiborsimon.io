@@ -4,8 +4,8 @@ Tags: signals, basics
 Date: 2015-10-17
 Series: TSPR0003
 Img: img/thumb-449x286-7.jpg
+Summary: Generating sinusoid signals is often the first step for executing a more complex computation. It should be a routine, but actually it isn't. Many people struggles with it.
 
-Generating sinusoid signals is often the first step for executing a more complex computation. It should be a routine, but actually it isn't. Many people struggles with it.<!-- PELICAN_END_SUMMARY -->
 
 ## The problem
 

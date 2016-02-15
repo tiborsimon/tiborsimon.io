@@ -3,9 +3,8 @@ Subtitle: Simple to say but longer to write
 Tags: regexp, permutation
 Date: 2015-10-29
 Img: img/thumb-449x286-7.jpg
+Summary: What regular expression pattern would you use if you want to match a word with mandatory characters in it but in arbitrary order?
 
-What regular expression pattern would you use if you want to match a word with mandatory characters in it but in
-arbitrary order?<!-- PELICAN_END_SUMMARY -->
 
 You cannot use character set like `[abc]` because this pattern does not garanties the mandatoryness, even if you write the
 exact number of it `[abc]{3}`. It will match three `a` characters too. You cannot force the regular expression engine to

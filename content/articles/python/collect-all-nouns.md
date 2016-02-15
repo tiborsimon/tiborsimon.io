@@ -3,9 +3,10 @@ Subtitle: Or in any other language that have a web based database
 Tags: web, hack, soup
 Date: 2015-10-24
 Img: img/thumb-449x286-7.jpg
+Summary: I had to create a searchable noun list in hungarian without any publicly available word list that I can easily download.
 
-I had to create a searchable noun list in hungarian without any publicly available word list that I
-can easily download.<!-- PELICAN_END_SUMMARY --> Hopefully, there is a <a href="https://hu.wiktionary.org/wiki/Kategória:magyar_főnevek" target="_blank">hungarian wiki dictionary</a>
+
+Hopefully, there is a <a href="https://hu.wiktionary.org/wiki/Kategória:magyar_főnevek" target="_blank">hungarian wiki dictionary</a>
 that contains all words in hungarian, and it has a noun filter. It can show the nouns breaked.
 Instead of manually copying the pages content for the available 200 pages, I fired up my two favorite
 python library: _BeautifulSoup4_ and _Requests_.

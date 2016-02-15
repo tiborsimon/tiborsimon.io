@@ -3,9 +3,10 @@ Subtitle: Use plain terminal and screen to connect your device
 Tags: tools, embedded, device
 Date: 2015-09-13
 Img: img/thumb-449x286-7.jpg
+Summary: As I have switched to mac in the past days, I want to set up my BusPirate to be able to communicate with other circuits.
 
-As I have switched to mac in the past days, I want to set up my BusPirate to be
-able to communicate with other circuits.<!-- PELICAN_END_SUMMARY --> On my windows machine I used __Putty__
+
+On my windows machine I used __Putty__
 for this purpose. In mac there is __Zterm__ as an alternative, but I wanted to
 use the terminal. __Screen__ is the perfect alternative for this job. The
 workflow is the following:

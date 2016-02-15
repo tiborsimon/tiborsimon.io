@@ -13,10 +13,19 @@
 
         <!-- Content -->
           <div id="content">
-            <article class="box post">
-              <header class="style1">
-                <h2>{{ article.title }}</h2>
-              </header>
+            <article>
+
+
+
+              <h1 class="article-title">{{ article.title }}</h1>
+
+              <div class="article-info">
+                <hr />
+                {% include 'includes/article-date.html' %}
+                {% include 'includes/article-categories.html' %}
+              </div>
+
+              <div class="summary">{{ article.summary }}</div>
 
               {{ article.content }}
 

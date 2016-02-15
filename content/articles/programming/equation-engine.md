@@ -3,12 +3,8 @@ Subtitle: Finding out the possibilities programmatically
 Tags: parameter, equation
 Date: 2015-11-11
 Series: TSPR0003
-Img: img/thumb-449x286-7.jpg
-Type: audio
-Embed: <iframe class="post-embed-item" width="100%" height="300" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/69505469&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+Summary: In the previous article we have discussed the 5 ways you can generate a sinusoid signal. In this article we are going to develop a method that tries to generate a sinusoid signal with a given parameter set.
 
-In the previous article we have discussed the 5 ways you can generate a sinusoid signal. In this article
-we are going to develop a method that tries to generate a sinusoid signal with a given parameter set.<!-- PELICAN_END_SUMMARY -->
 
 ## Sinusoid generation summary
 

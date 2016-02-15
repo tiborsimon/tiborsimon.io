@@ -2,8 +2,8 @@ Title: Get half of the list in Pelican
 Subtitle: Finding out the possibilities programmatically
 Tags: pelican, jinja2, lists, hack
 Date: 2016-02-14
+Summary: As I was creating my site, I wanted to split a list of articles in half to display them in two columns. There are two options to do this: with Jinja2 built in filters, or a custom Jinja2 filter.
 
-As I was creating my site, I wanted to split a list of articles in half to display them in two columns. There are two options to do this: with Jinja2 built in filters, or a custom Jinja2 filter.<!-- PELICAN_END_SUMMARY -->
 
 I wanted to display a list of articles in a two columns. If there are even number of articles, the two columns will have the same number articles. If there are odd number of articles, the first column will contain more articles then the second. This behavior can be achieved with a ceil-like function, which returns the smallest integer greater than or equal to a given number.
 
@@ -11,12 +11,12 @@ I wanted to display a list of articles in a two columns. If there are even numbe
 
 # Using built in Jinja2 filters
 
-In the first solution we are using only the built in Jinja filters. Because of the lack of mathematical functions in the built in filters, we need to hack the only available rounding filter ( `round`) to be able to use it as a `ceil` like function.
+In the __first__ solution _we are using_ only the built in Jinja filters. Because of the lack of mathematical functions in the built in filters, we need to hack the only available rounding filter (`round`) to be able to use it as a `ceil` like function.
 
 The steps are the followings:
 
 1. Get the half of the article list's length
-1. Add a small number from the ]0,1[ intervallum
+1. Add a small number from the `]0,1[` intervallum
 1. Use the round filter
 1. Cast the result to _integer_
 

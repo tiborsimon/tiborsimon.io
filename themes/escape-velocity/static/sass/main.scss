@@ -98,7 +98,7 @@
 		margin-top: 0px;
 	}
 
-	.article-info {
+	.article-date, .article-categories {
 		font-size: 76%;
 		display: inline-block;
 		// width: 100%;
@@ -275,6 +275,152 @@
 		}
 	}
 }
+
+/*  C O N T E N T  */
+
+#content {
+	.article-title {
+		font-size: 3.3em;
+		text-align: left;
+		margin: 0 0 1px 0 !important;
+		line-height: 1em;
+	}
+
+	.article-info {
+		// text-align: right;
+		line-height: 17px;
+		font-size: 10pt;
+		margin-bottom: 53px;
+		display: block;
+		clear: both;
+		.article-date {
+			margin-bottom: 0 !important;
+			display: inline-block;
+		}
+		.article-categories {
+			margin-bottom: 0 !important;
+			display: inline-block;
+			text-align: right;
+			float: right;
+		}
+		hr {
+			margin: 0 0 2px 0;
+		}
+	}
+
+	h1 {
+		font-size: 2em;
+		margin-top: 46px;
+		margin-bottom: 22px;
+	}
+
+	.summary {
+		font-size: 1.2em;
+	}
+
+
+	p {
+		line-height: 22px;
+		margin-bottom: 1.3em;
+	}
+
+	ol, ul {
+		margin-left: 46px;
+		line-height: 22px;
+	}
+
+	ol {
+		list-style-type: decimal;
+	}
+
+	ul {
+		list-style-type: disc;
+	}
+
+	pre, code {
+		font-family: monospace;
+		line-height: 18px;
+		font-size: 11pt;
+		margin-bottom: 32px;
+		border: 1px solid #e1e1e1;
+		padding: 10px;
+		background-color: #ededed;
+		overflow-x: scroll;
+		color: #8a8a8a;
+	}
+
+	pre {
+		border-radius: 6px;
+		padding: 8px;
+	}
+
+	code {
+		border-radius: 3px;
+		padding: 1px 2px;
+	}
+}
+
+@include breakpoint(tablet) {
+	#content {
+		.article-title {
+			font-size: 3em;
+		}
+
+		.article-info {
+			margin-bottom: 46px;
+		}
+
+		h1 {
+			margin-top: 46px;
+			margin-bottom: 20px;
+		}
+
+		pre, code {
+			font-size: 10pt;
+			line-height: 16px;
+		}
+
+		pre {
+			padding: 7px;
+		}
+	}
+}
+
+@include breakpoint(mobile) {
+	#content {
+		.article-title {
+			font-size: 2.3em;
+		}
+
+		.article-info {
+			margin-bottom: 28px;
+			.article-date {
+				margin-bottom: 0 !important;
+				display: block;
+			}
+			.article-categories {
+				margin-bottom: 0 !important;
+				float: none;
+				text-align: left;
+			}
+		}
+
+		h1 {
+			margin-top: 32px;
+			margin-bottom: 18px;
+		}
+
+		pre, code {
+			font-size: 9pt;
+			line-height: 14px;
+		}
+
+		pre {
+			padding: 6px;
+		}
+	}
+}
+
 
 
 /* Basic */

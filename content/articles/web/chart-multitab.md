@@ -3,9 +3,8 @@ Subtitle: Two level deep tabbed setup
 Tags: javascript, chart, bootstrap
 Date: 2015-10-30
 Img: img/thumb-449x286-7.jpg
+Summary: Chart.js is a bit tricky to use if you have dynamic tabs on your site. How about having multiple tabs with multiple tabs in them? Things get serious.
 
-Chart.js is a bit tricky to use if you have dynamic tabs on your site. How about having multiple tabs
-with multiple tabs in them? Things get serious.<!-- PELICAN_END_SUMMARY -->
 
 People seem to have problems too by using tabs to show dynamic content on sites. The general solution to this problem is to use a bootstrap built in
 callback that is fired when a tab activated to destroy the actual chart and draw the new chart based on
