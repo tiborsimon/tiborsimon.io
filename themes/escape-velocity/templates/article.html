@@ -38,6 +38,13 @@
               {{ article.content }}
 
             </article>
+
+            <div class="comments">
+              <h1>Comments</h1>
+              <hr />
+              {% include 'includes/comments.html' %}
+            </div>
+
             <div class="row 150%">
               <div class="6u 12u(mobile)">
                 <section class="box">
@@ -74,3 +81,7 @@
   </div>
 </div>
 {% endblock main %}
+
+{% block scripts %}
+  <script type="text/javascript" src="http://tiborsimon.disqus.com/count.js" id="dsq-count-scr" async></script>
+{% endblock scripts %}

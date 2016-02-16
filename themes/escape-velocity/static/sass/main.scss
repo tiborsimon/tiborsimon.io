@@ -414,6 +414,16 @@
 		text-align: center;
 		color: #484d55;
 	}
+
+	.comments {
+		h1 {
+			margin-bottom: 5px;
+		}
+		hr {
+			margin-top: 0;
+			margin-bottom: 12px;
+		}
+	}
 }
 
 @include breakpoint(tablet) {

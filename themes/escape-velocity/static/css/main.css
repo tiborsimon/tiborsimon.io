@@ -951,6 +951,13 @@ body {
   text-align: center;
   color: #484d55; }
 
+#content .comments h1 {
+  margin-bottom: 5px; }
+
+#content .comments hr {
+  margin-top: 0;
+  margin-bottom: 12px; }
+
 @media screen and (min-width: 737px) and (max-width: 1210px) {
   #content .article-title {
     font-size: 3em; }
