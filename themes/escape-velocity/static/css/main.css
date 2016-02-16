@@ -877,6 +877,16 @@ body {
   margin-top: 46px;
   margin-bottom: 22px; }
 
+#content h2 {
+  font-size: 1.8em;
+  margin-top: 40px;
+  margin-bottom: 18px; }
+
+#content h3 {
+  font-size: 1.3em;
+  margin-top: 30px;
+  margin-bottom: 8px; }
+
 #content .summary {
   font-size: 1.2em; }
 
@@ -937,6 +947,10 @@ body {
   #content table tr:hover td {
     background-color: #ededed !important; }
 
+#content .equation {
+  text-align: center;
+  color: #484d55; }
+
 @media screen and (min-width: 737px) and (max-width: 1210px) {
   #content .article-title {
     font-size: 3em; }
@@ -945,6 +959,12 @@ body {
   #content h1 {
     margin-top: 46px;
     margin-bottom: 20px; }
+  #content h2 {
+    margin-top: 40px;
+    margin-bottom: 14px; }
+  #content h3 {
+    margin-top: 21px;
+    margin-bottom: 3px; }
   #content pre, #content code {
     font-size: 10pt;
     line-height: 16px; }
@@ -966,6 +986,12 @@ body {
   #content h1 {
     margin-top: 32px;
     margin-bottom: 18px; }
+  #content h2 {
+    margin-top: 32px;
+    margin-bottom: 12px; }
+  #content h3 {
+    margin-top: 8px;
+    margin-bottom: 1px; }
   #content pre, #content code {
     font-size: 9pt;
     line-height: 14px; }

@@ -14,6 +14,8 @@
     <!--[if lte IE 8]><script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/ie/html5shiv.js"></script><![endif]-->
     <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/main.css" />
     <!--[if lte IE 8]><link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/ie8.css" /><![endif]-->
+    {% block head %}
+    {% endblock head%}
   </head>
 
 {% block body_tag %}

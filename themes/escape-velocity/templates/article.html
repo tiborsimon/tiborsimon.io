@@ -1,5 +1,13 @@
 {% extends "base.html" %}
 
+{% block head %}
+{% if article.mathjax %}
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=AM_CHTML"></script>
+</head>
+{% endif %}
+{% endblock head%}
+
 {% block body_tag %}
   <body class="right-sidebar">
 {% endblock body_tag %}

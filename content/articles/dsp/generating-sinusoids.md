@@ -5,13 +5,16 @@ Date: 2015-10-17
 Series: TSPR0003
 Img: img/thumb-449x286-7.jpg
 Summary: Generating sinusoid signals is often the first step for executing a more complex computation. It should be a routine, but actually it isn't. Many people struggles with it.
+Mathjax: true
 
 
 ## The problem
 
 The equation of a sinusoid signal is a known fact:
 
-<img src="http://upload.wikimedia.org/math/9/5/0/95070ea56bf2d63142b522d0e1c34d5d.png" alt="Sine equation">
+<p class="equation">
+  `y(t) = A sin(2 pi f t + varphi) = A sin(omega t + varphi).`
+</p>
 
 However. This equation is only valid in the __continuous time__ domain, therefore without any modification it is useless in the __discrete time__ domain used by every digital machine. You won't be able to create a continuous variable that spans through the duration of the signal from the beginning to the end while taking up every possible value.
 

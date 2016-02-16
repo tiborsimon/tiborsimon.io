@@ -314,6 +314,18 @@
 		margin-bottom: 22px;
 	}
 
+	h2 {
+		font-size: 1.8em;
+		margin-top: 40px;
+		margin-bottom: 18px;
+	}
+
+	h3 {
+		font-size: 1.3em;
+		margin-top: 30px;
+		margin-bottom: 8px;
+	}
+
 	.summary {
 		font-size: 1.2em;
 	}
@@ -397,6 +409,11 @@
 			background-color: #ededed !important
 		}
 	}
+
+	.equation {
+		text-align: center;
+		color: #484d55;
+	}
 }
 
 @include breakpoint(tablet) {
@@ -412,6 +429,16 @@
 		h1 {
 			margin-top: 46px;
 			margin-bottom: 20px;
+		}
+
+		h2 {
+			margin-top: 40px;
+			margin-bottom: 14px;
+		}
+
+		h3 {
+			margin-top: 21px;
+			margin-bottom: 3px;
 		}
 
 		pre, code {
@@ -447,6 +474,16 @@
 		h1 {
 			margin-top: 32px;
 			margin-bottom: 18px;
+		}
+
+		h2 {
+			margin-top: 32px;
+			margin-bottom: 12px;
+		}
+
+		h3 {
+			margin-top: 8px;
+			margin-bottom: 1px;
 		}
 
 		pre, code {
