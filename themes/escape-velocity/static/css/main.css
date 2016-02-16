@@ -741,7 +741,7 @@ body {
 
 /* Pagination */
 .paginations {
-  margin: 2em 0 0 0;
+  margin: 2em 0 0 4px;
   text-align: center; }
   .paginations li {
     display: inline-block;
@@ -912,6 +912,30 @@ body {
 #content code {
   border-radius: 3px;
   padding: 1px 2px; }
+
+#content table {
+  border-collapse: separate;
+  border: 1px solid #ccc;
+  border-radius: 6px; }
+  #content table thead {
+    background-color: #ededed;
+    color: #8a8a8a; }
+  #content table td, #content table th {
+    border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    padding: 6px 4px;
+    line-height: 1em; }
+  #content table th {
+    border-top: none;
+    overflow: hidden; }
+  #content table th:first-child {
+    border-radius: 6px 0 0 0; }
+  #content table th:last-child {
+    border-radius: 0 6px 0 0; }
+  #content table td:first-child, #content table th:first-child {
+    border-left: none; }
+  #content table tr:hover td {
+    background-color: #ededed !important; }
 
 @media screen and (min-width: 737px) and (max-width: 1210px) {
   #content .article-title {
