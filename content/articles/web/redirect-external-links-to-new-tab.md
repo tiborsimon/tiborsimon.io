@@ -13,7 +13,18 @@ All the credits go to [Austin](http://stackoverflow.com/users/1504966/austin)
 and to his [stackoverflow post](http://stackoverflow.com/a/11597448). I am just
 a happy user of this method :)
 
-<div class="gist" data-gist-id="78f71b14d1436e867354"></div>
+```
+$('a').each(function() {
+   var a = new RegExp('/' + window.location.host + '/');
+   if(!a.test(this.href)) {
+       $(this).click(function(event) {
+           event.preventDefault();
+           event.stopPropagation();
+           window.open(this.href, '_blank');
+       });
+   }
+});
+```
 
 The method just works. Nothing fancy about it, it does what is supposed to do.
 Thank you Austin!

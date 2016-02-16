@@ -60,15 +60,116 @@ multiplying them by a weighting factor. After each iteration you increase this w
 
 We have reviewed the fuzzy search and sort algorithm. You can find the usage example and the implementation in the following code snippets:
 
-<div class="gist" data-gist-id="084a637ed3ce08042b76" data-gist-file="fuzzy_demo.py" data-gist-show-spinner="true"></div>
+```
+import fuzzy
+from pprint import pprint
+
+data_list = [
+    'efo',
+    'efoo',
+    'dfsfoo',
+    'efiofo',
+    'abc',
+    'cba',
+    'foo',
+    'ertfo',
+    'fefefofefioiio'
+]
+
+result = fuzzy.search(data_list, 'foo')
+
+pprint(result)
+
+# >> ['foo', 'efoo', 'efiofo', 'dfsfoo', 'fefefofefioiio']
+```
 
 The previous example had the following internal data structure.
 
-<div class="gist" data-gist-id="084a637ed3ce08042b76" data-gist-file="internal_printout.txt" data-gist-show-spinner="true"></div>
+```
+[{'spans': ((0, 1), (1, 2), (2, 3)), 'string': 'foo', 'weight': 0},
+ {'spans': ((1, 2), (2, 3), (3, 4)), 'string': 'efoo', 'weight': 4},
+ {'spans': ((1, 2), (3, 4), (5, 6)), 'string': 'efiofo', 'weight': 7},
+ {'spans': ((1, 2), (4, 5), (5, 6)), 'string': 'dfsfoo', 'weight': 8},
+ {'spans': ((0, 1), (5, 6), (10, 11)), 'string': 'fefefofefioiio', 'weight': 12}]
+```
 
 And here is the implementation available as a gist.
 
-<div class="gist" data-gist-id="084a637ed3ce08042b76" data-gist-file="fuzzy_search.py" data-gist-show-spinner="true"></div>
+```
+# F U Z Z Y   S E A R C H   S Y S T E M
+# Created by Tibor Simon
+#
+# The MIT License (MIT)
+#
+# Copyright (c) 2015 Tibor Simon
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
+import re
+
+
+def search(raw_list, search_string, ignore_case=True):
+    if search_string == '':
+        return raw_list
+    else:
+        search_pattern = _create_search_pattern_from(search_string)
+        result = _get_filtered_result_list_structure(raw_list, search_pattern, ignore_case)
+        result = _sort_result_list(result)
+        return [r['string'] for r in result]
+
+
+def _create_search_pattern_from(pattern):
+    grouped = '[^{}]*'.format(pattern[0])
+    for i in range(len(pattern)):
+        if i < len(pattern) - 1:
+            grouped += '({})[^{}]*'.format(pattern[i], pattern[i + 1])
+        else:
+            grouped += '({})'.format(pattern[i])
+    grouped += '.*'
+    return grouped
+
+
+def _get_filtered_result_list_structure(raw_list, search_pattern, ignore_case):
+    if ignore_case:
+        p = re.compile(search_pattern, re.IGNORECASE)
+    else:
+        p = re.compile(search_pattern)
+    result = [{'string': link, 'spans': p.search(link).regs[1:]} for link in raw_list if p.match(link)]
+    return result
+
+
+def _calculate_weight_for_match(spans):
+    mult = 1
+    weight = 0
+    for i in reversed(range(len(spans))):
+        prev = 0 if i == 0 else spans[i-1][1]
+        weight += (spans[i][0] - prev) * mult
+        mult *= 2
+    return weight
+
+
+def _sort_result_list(result):
+    for r in result:
+        r['weight'] = _calculate_weight_for_match(r['spans'])
+    result = sorted(result, key=lambda k: k['weight'])
+    return result
+```
 
 
 [^1]: At least that was the case using the regexp engine shipped with Python 3.4 on OSX.

@@ -46,7 +46,9 @@ We need to identify what parameters were passed to the generator function to be 
 calculate with the passed ones. Hopefully we can use <a href="http://tiborsimon.io/projects/TSPR0002/" target="_blank">Simple Input Parser</a>
 that can provide the passed parameter flags in its _extra flag_ mode.
 
-<div data-gist-id="63262ac34b22694c617d" data-gist-file="input_parsing.m"></div>
+```
+[data, flags] = simple_input_parser(data, raw_varargin, validators);
+```
 
 The flags variable will be the structure that will contain the parameter flags. One if the parameter was parsed and
 zero if not.
@@ -70,14 +72,189 @@ The following table contains all possible way to get a parameter from the others
 This table can be programmed into __calculator functions__ which are going to try to calculate a parameter from the
 others. If a _calculator function_ is unable to calculate a parameter it throws an exception.
 
-<div data-gist-id="63262ac34b22694c617d" data-gist-file="parameter_calculators.m"></div>
+```
+%% Parameter construction
+function f = get_f()
+    if flags.f
+        f = data.f;
+    elseif flags.T
+        f = 1 / data.T;
+    elseif flags.N && flags.L
+        f = data.N / data.L;
+    elseif flags.n && flags.dt && flags.L && flags.T
+        f = data.n * data.dt / data.L / data.T;
+    elseif flags.n && flags.fs && flags.L && flags.T
+        f = data.n / data.fs / data.L / data.T;
+    else
+        throw('.');
+    end
+end
+
+function T = get_T()
+    if flags.T
+        T = data.T;
+    elseif flags.f
+        T = 1 / data.f;
+    elseif flags.L && flags.N
+        T = data.L / data.N;
+    elseif flags.L && flags.n && flags.dt && flags.f
+        T = data.L / data.n / data.dt / data.f;
+    elseif falgs.L && flags.n && flags.fs && flags.f
+        T = data.L * data.fs / data.n / data.f;
+    else
+        throw('.');
+    end
+end
+
+function n = get_n()
+    if flags.n
+        n = data.n;
+    elseif flags.L && flags.fs
+        n = data.L * data.fs;
+    elseif flags.L && flags.dt
+        n = data.L / data.dt;
+    elseif flags.N && flags.T && flags.dt
+        n = data.N * data.T / data.dt;
+    elseif flags.N && flags.T && flags.fs
+        n = data.N * data.T * data.fs;
+    else
+        throw('.')
+    end
+end
+
+function N = get_N()
+    if flags.N
+        N = data.N;
+    elseif flags.L && flags.T
+        N = data.L / data.T;
+    elseif flags.L && flags.f
+        N = data.L * data.f;
+    elseif flags.n && flags.dt && flags.T
+        N = data.n * data.dt / data.T;
+    elseif flags.n && flags.dt && flags.f
+        N = data.n * data.dt * data.f;
+    elseif flags.n && flags.fs && flags.T
+        N = data.n / data.fs / data.T;
+    elseif flags.n && flags.f && flags.fs
+        N = data.n * data.f / data.fs;
+    else
+        throw('.')
+    end
+end
+
+function fs = get_fs()
+    if flags.fs
+        fs = data.fs;
+    elseif flags.dt
+        fs = 1 / data.dt;
+    elseif flags.n && flags.L
+        fs = data.n / data.L;
+    elseif flags.n && flags.N && flags.T
+        fs = data.n / data.N / data.T;
+    elseif flags.n && flags.L && flags.f && flags.T
+        fs = data.n / data.L / data.f / data.T;
+    else
+        throw('.');
+    end
+end
+
+function dt = get_dt()
+    if flags.dt
+        dt = data.dt;
+    elseif flags.fs
+        dt = 1 / data.fs;
+    elseif flags.L && flags.n
+        dt = data.L / data.n;
+    elseif flags.N && flags.T && flags.n
+        dt = data.N * data.T / data.n;
+    elseif flags.L && flags.f && flags.T && flags.n
+        dt = data.L * data.f * data.T / data.n;
+    else
+        throw('.');
+    end
+end
+
+function L = get_L()
+    if flags.L
+        L = data.L;
+    elseif flags.N && flags.T
+        L = data.N * data.T;
+    elseif flags.n && flags.dt
+        L = data.n * data.dt;
+    elseif flags.N && flags.f
+        L = data.N / data.f;
+    elseif flags.n && flags.fs
+        L = data.n / data.fs;
+    else
+        throw('.');
+    end
+end
+```
 
 ### Using the parameters in the equations
 
 Lastly we have to implement the __generator functions__ for all 5 cases. These functions implement the
 sinusoid signal generation with a given parameter set. For more details see the first episode of this article series.
 
-<div data-gist-id="63262ac34b22694c617d" data-gist-file="generator_functions.m"></div>
+```
+%% Signal synthesizer functions
+function s = construct_with_n_N()
+    n = get_n();
+    N = get_N();
+    phi = data.phi;
+
+    k = 0:n-1;
+    k = k/n;
+    phi = phi*pi/180;
+    s = trigfun(2*pi*N*k + phi);
+end
+
+function s = construct_with_L_N_fs()
+    L = get_L();
+    N = get_N();
+    fs = get_fs();
+    phi = data.phi;
+
+    k = 0:1/fs:L-1/fs;
+    k=k/L;
+    phi = phi*pi/180;
+    s = trigfun(2*pi*N*k + phi);
+end
+
+function s = construct_with_f_N_fs()
+    f = get_f();
+    N = get_N();
+    fs = get_fs();
+    phi = data.phi;
+
+    k = 0:1/fs:(N/f)-1/fs;
+    phi = phi*pi/180;
+    s = trigfun(2*pi*f*k + phi);
+end
+
+function s = construct_with_n_f_fs()
+    n = get_n();
+    f = get_f();
+    fs = get_fs();
+    phi = data.phi;
+
+    k = 0:n-1;
+    k = k*(1/fs);
+    phi = phi*pi/180;
+    s = trigfun(2*pi*f*k + phi);
+end
+
+function s = construct_with_L_f_fs()
+    L = get_L();
+    f = get_f();
+    fs = get_fs();
+    phi = data.phi;
+
+    n = 0:1/fs:L-1/fs;
+    phi = phi*pi/180;
+    s = trigfun(2*pi*f*n + phi);
+end
+```
 
 ## Putting everything together
 
@@ -93,7 +270,31 @@ The only thing what we have to do is to use the _generator functions_ to try to 
 If one _generator function_ fails, we try another until there is no more _generator function_ left. In that case we can determine, that
 the given parameter set, there is no way to generate a sinusoud signal.
 
-<div data-gist-id="63262ac34b22694c617d" data-gist-file="equation_selection.m"></div>
+```
+%% Mode Selection
+try
+    s = construct_with_n_N();
+catch
+   try
+       s = construct_with_L_N_fs();
+   catch
+      try
+          s = construct_with_f_N_fs();
+      catch
+          try
+              s = construct_with_n_f_fs();
+          catch
+              try
+                  s = construct_with_L_f_fs();
+              catch
+                  throw_exception('parameterError','With the given parameters there is no way to construct a sinusoid signal!');
+              end
+          end
+
+      end
+   end
+end
+```
 
 ## Summary
 

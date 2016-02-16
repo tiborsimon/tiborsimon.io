@@ -18,7 +18,10 @@ It uses some open source stuff, like the explosion animation and the music for t
 
 If the game won’t open by clicking on it (like on OSX Moutain Lion), you have to open it from command line. If the command line returns an error like pixel format not accelerated, you should check out these sites for the solution.
 
-<script src="https://gist.github.com/tiborsimon/b052b74db0fdc360a885.js"></script>
+```
+$ cd <path to the the jar file>
+$ java -jar JavaShooter.jar
+```
 
 # Main menu
 
@@ -77,14 +80,18 @@ I have built in the possibility to mack around with the main game parameters. To
 
 The syntax is very simple. First you type the keyword you want to modify (not case sensitive), space, then the value. This is a modifying block. You can use more blocks at once separated them with spaces. The default settings are the following:
 
-<script src="https://gist.github.com/tiborsimon/710934002c523b733247.js"></script>
+```
+fullscreen false overclock 60 showfPS false explosionpoollimit 10 sparkpoollimit 10
+```
 
 __If the game crashes, make sure you set the pool limits higher than 10!__
 
 For example lets say you want to set higher FPS rate than the default 60 fps, and you want to play the game in full window mode with the FPS counter displayed. You have to create the mods_for_the_game.txt file next to the jar file.
 The content of the text file in this case should be like this:
 
-<script src="https://gist.github.com/tiborsimon/bb949b0256f7b003055b.js"></script>
+```
+overclock 75 fullscreen true showfPS true
+```
 
 Example video about how to overclock the game a bit.
 

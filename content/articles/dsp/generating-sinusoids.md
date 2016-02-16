@@ -83,39 +83,81 @@ The used parameters may seem a bit odd for the first time, but due to the constr
 
 Generating a sinusoid signal with `n` data points with `N` periods in it.
 
-<div class="gist" data-gist-id="8e167f64fb80e2a95b13" data-gist-hide-footer="true"></div>
+```
+n = 60;
+N = 2.5;
 
+k = 0:n-1;
+k = k/n;
+s = sin(2*pi*N*k);
+
+stem(s)
+```
 
 
 ### Method 2 - [L,N,fs]
 
 Generating `L` seconds long signal sampled at `fs` consisting of `N` periods in it.
 
-<div class="gist" data-gist-id="abe9fb85958ee9205ea0" data-gist-hide-footer="true"></div>
+```
+fs = 10;
+N = 2.5;
+L = 60/fs;
 
+k = 0:1/fs:L-1/fs;
+k=k/L;
+s = sin(2*pi*N*k);
+
+stem(s)
+```
 
 
 ### Method 3 - [f,N,fs]
 
 Generating a sinusoid signal sampled at `fs` sampling rate with `N` periods in it with the frequency `f`.
 
-<div class="gist" data-gist-id="7ba58552ddfc4d605c80" data-gist-hide-footer="true"></div>
+```
+fs = 10;
+N = 2.5;
+f = N*fs/60;
 
+k = 0:1/fs:(N/f)-1/fs;
+s = sin(2*pi*f*k);
+
+stem(s)
+```
 
 
 ### Method 4 - [n,f,fs]
 
 Generating a signal consisting of `n` data points sampled at `fs` sampling rate with the frequency `f`.
 
-<div class="gist" data-gist-id="d6ea2be7afba202f2923" data-gist-hide-footer="true"></div>
+```
+fs = 10;
+n = 60;
+f = 2.5*fs/n;
 
+k = 0:n-1;
+k = k*(1/fs);
+s = sin(2*pi*f*k);
+
+stem(s)
+```
 
 
 ### Method 5 - [f,L,fs]
 
 Generating a sinusoid signal sampled at `fs` sampling rate with the duration of `L` seconds with the frequency `f`.
 
-<div class="gist" data-gist-id="51dca17af664f51ecc0b" data-gist-hide-footer="true"></div>
+```
+L = 60/fs;
+f = 2.5/L;
+
+n = 0:1/fs:L-1/fs;
+s = sin(2*pi*f*n);
+
+stem(s)
+```
 
 
 ## Summary

@@ -17,16 +17,59 @@ For example, if you want to match words that has `a` and `b` in them in arbitrar
 Not so horrible, is it. But. We are talking about permutation. If you want to add 3 characters, the pattern length will increase:
 
 ```
-((.*a.*b.*c.*)|(.*a.*c.*b.*)|(.*b.*a.*c.*)|(.*b.*c.*a.*)|(.*c.*a.*b.*)|(.*c.*b.*a.*))
+((.*a.*b.*c.*)|
+ (.*a.*c.*b.*)|
+ (.*b.*a.*c.*)|
+ (.*b.*c.*a.*)|
+ (.*c.*a.*b.*)|
+ (.*c.*b.*a.*))
 ```
 
 For 4 characters, it reaches the 409 charachters length:
+
 ```
-((.*a.*b.*c.*d.*)|(.*a.*b.*d.*c.*)|(.*a.*c.*b.*d.*)|(.*a.*c.*d.*b.*)|(.*a.*d.*b.*c.*)|(.*a.*d.*c.*b.*)|(.*b.*a.*c.*d.*)|(.*b.*a.*d.*c.*)|(.*b.*c.*a.*d.*)|(.*b.*c.*d.*a.*)|(.*b.*d.*a.*c.*)|(.*b.*d.*c.*a.*)|(.*c.*a.*b.*d.*)|(.*c.*a.*d.*b.*)|(.*c.*b.*a.*d.*)|(.*c.*b.*d.*a.*)|(.*c.*d.*a.*b.*)|(.*c.*d.*b.*a.*)|(.*d.*a.*b.*c.*)|(.*d.*a.*c.*b.*)|(.*d.*b.*a.*c.*)|(.*d.*b.*c.*a.*)|(.*d.*c.*a.*b.*)|(.*d.*c.*b.*a.*))
+((.*a.*b.*c.*d.*)|
+ (.*a.*b.*d.*c.*)|
+ (.*a.*c.*b.*d.*)|
+ (.*a.*c.*d.*b.*)|
+ (.*a.*d.*b.*c.*)|
+ (.*a.*d.*c.*b.*)|
+ (.*b.*a.*c.*d.*)|
+ (.*b.*a.*d.*c.*)|
+ (.*b.*c.*a.*d.*)|
+ (.*b.*c.*d.*a.*)|
+ (.*b.*d.*a.*c.*)|
+ (.*b.*d.*c.*a.*)|
+ (.*c.*a.*b.*d.*)|
+ (.*c.*a.*d.*b.*)|
+ (.*c.*b.*a.*d.*)|
+ (.*c.*b.*d.*a.*)|
+ (.*c.*d.*a.*b.*)|
+ (.*c.*d.*b.*a.*)|
+ (.*d.*a.*b.*c.*)|
+ (.*d.*a.*c.*b.*)|
+ (.*d.*b.*a.*c.*)|
+ (.*d.*b.*c.*a.*)|
+ (.*d.*c.*a.*b.*)|
+ (.*d.*c.*b.*a.*))
 ```
 
 ### Generator in python
 
 You can write a generator for this regexp pattern easily in python:
 
-<div class="gist" data-gist-id="8cf9e3d6c8ce2ca36ce8" data-gist-show-spinner="true"></div>
+```
+from itertools import permutations
+import re
+
+def generate_mandatory_arbitrary(content):
+    pattern_string = '('
+    for p in permutations(content):
+        pattern_string += '(.*'
+        for i in p:
+            pattern_string += '{}.*'.format(i)
+        pattern_string += ')|'
+    return pattern_string[:-1] + ')'
+
+print(generate_mandatory_arbitrary('abc'))
+```
