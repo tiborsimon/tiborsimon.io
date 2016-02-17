@@ -72,6 +72,15 @@ $main-theme-color-background: #d96760;
     background-color: transparent !important;
     border: 1px solid #ddd;
     transition: color 0.2s, background-color 0.2s;
+    padding: 4px;
+    border-radius: 1em;
+    line-height: 37px;
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    letter-spacing: 0.05em;
   }
 
   h3 {
