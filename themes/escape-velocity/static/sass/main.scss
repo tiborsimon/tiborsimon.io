@@ -41,6 +41,14 @@
     )
   ));
 
+
+/*  V A R I A B L E S  */
+
+$main-theme-color:            #e97770;
+$main-theme-color-hover:      #f98780;
+$main-theme-color-background: #d96760;
+
+
 .pull-right {
   text-align: right;
 }
@@ -71,7 +79,7 @@
   }
 
   h3:hover:before {
-    color: #e97770 !important;
+    color: $main-theme-color !important;
     background-color: #fff !important;
     transition: color 0.2s, background-color 0.2s;
   }
@@ -114,13 +122,6 @@
   }
 }
 
-.label {
-  background-color: #919499;
-  color: white;
-  padding: 1px 2px 1px 5px;
-  border-radius: 3px;
-  margin-right: 3px;
-}
 
 /* Pagination */
 .paginations {
@@ -161,19 +162,19 @@
     margin-left: 4px !important;
 
     &:hover {
-      background-color: #f98780;
+      background-color: $main-theme-color-hover;
     }
 
     &.style1 {
-      background: #e97770 url('../css/images/overlay.png');
+      background: $main-theme-color url('../css/images/overlay.png');
       color: #fff;
 
       &:hover {
-        background-color: #f98780;
+        background-color: $main-theme-color-hover;
       }
 
       &:active {
-        background-color: #d96760;
+        background-color: $main-theme-color-background;
       }
     }
 
@@ -208,7 +209,7 @@
     text-align: left;
     display: block;
     text-transform: uppercase;
-    color: #d96760 !important;
+    color: $main-theme-color-background !important;
   }
 
   div.12u {
@@ -244,19 +245,19 @@
       }
 
       &:hover {
-        background-color: #f98780;
+        background-color: $main-theme-color-hover;
       }
 
       &.style1 {
-        background: #e97770 url('../css/images/overlay.png');
+        background: $main-theme-color url('../css/images/overlay.png');
         color: #fff;
 
         &:hover {
-          background-color: #f98780;
+          background-color: $main-theme-color-hover;
         }
 
         &:active {
-          background-color: #d96760;
+          background-color: $main-theme-color-background;
         }
       }
 
@@ -303,7 +304,7 @@
     }
 
     &.current {
-      background: #e97770 url("../css/images/overlay.png");
+      background: $main-theme-color url("../css/images/overlay.png");
       color: #fff !important;
       a, h3 {
         color: #fff;
@@ -840,19 +841,19 @@
     cursor: pointer;
 
     &:hover {
-      background-color: #f98780;
+      background-color: $main-theme-color-hover;
     }
 
     &.style1 {
-      background: #e97770 url('../css/images/overlay.png');
+      background: $main-theme-color url('../css/images/overlay.png');
       color: #fff;
 
       &:hover {
-        background-color: #f98780;
+        background-color: $main-theme-color-hover;
       }
 
       &:active {
-        background-color: #d96760;
+        background-color: $main-theme-color-background;
       }
     }
 
@@ -940,7 +941,7 @@
 
   .feature-list {
     h3 {
-      color: #e97770 !important;
+      color: $main-theme-color !important;
 
       &:before {
         position: relative;
@@ -1013,12 +1014,12 @@
     }
 
     &.style1 {
-      background: #e97770 url('../css/images/overlay.png');
+      background: $main-theme-color url('../css/images/overlay.png');
       color: #eee;
       color: rgba(255, 255, 255, 0.75);
 
       .title {
-        background: #e97770 url('../css/images/overlay.png');
+        background: $main-theme-color url('../css/images/overlay.png');
         color: #fff;
       }
 
@@ -1188,7 +1189,7 @@
       text-align: center;
 
       h3 {
-        color: #e97770;
+        color: $main-theme-color;
       }
 
     p {
