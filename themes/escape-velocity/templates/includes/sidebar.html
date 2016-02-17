@@ -6,9 +6,11 @@
         <img src="{{ SITEURL }}/images/tibor.jpg" style="border: 3px solid #ddd; margin: 0 auto" width=300 />
         <p >Hi, my name is <b>Tibor Simon.</b> I am a graduated electrical engineer with a masters degree.  I live in Budapest, and I am currently working at Nokia Networks.</p>
       </section>
-      {% if article.series %}
-        {% include 'includes/series.html' %}
-      {% endif %}
+      <section class="box">
+        {% if article.series %}
+          {% include 'includes/series.html' %}
+        {% endif %}
+      </section>
       <section class="box">
         {% include 'includes/tag-list.html' %}
       </section>

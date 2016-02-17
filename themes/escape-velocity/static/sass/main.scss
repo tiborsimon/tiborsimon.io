@@ -291,7 +291,7 @@
         border-radius: 6px;
         padding: 10px 13px;
         line-height: 18px;
-        margin-bottom: 8px;
+        margin-bottom: 10px;
 
         .article-date, .article-categories {
             font-size: 10pt;
@@ -319,6 +319,15 @@
     }
 
 }
+
+
+/* Tags and category lists */
+.tag-list, .category-list {
+    h2 {
+        font-size: 1.4em !important;
+    }
+}
+
 
 /*  C O N T E N T  */
 

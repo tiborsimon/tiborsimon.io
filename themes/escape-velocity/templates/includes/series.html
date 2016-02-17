@@ -1,5 +1,5 @@
 {% if article.series %}
-<div class="series-widget">
+<aside class="series-widget">
   <div class="series-header">
     <h2>This article is part {{ article.series.index }} of {{ article.series.all|length }} of the <b>{{ article.series.name }}</b> series</h2>
   </div>
@@ -91,5 +91,5 @@
     {% endfor %}
   </div>
   {% endif %}
-</div>
+</aside>
 {% endif %}
