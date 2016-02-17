@@ -1,7 +1,0 @@
-{
-  "title": "Simple Input Parser",
-  "category": ["programming", "matlab"],
-  "link": "https://github.com/tiborsimon/simple-input-parser",
-  "date": "2015-10-13",
-  "content": "Easy to use input parser for functions and methods that are using variable-length input argument list."
-}
