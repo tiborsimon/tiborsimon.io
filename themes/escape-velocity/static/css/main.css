@@ -771,7 +771,7 @@ body {
     /* min-width: 12em; */
     /* height: 4em; */
     line-height: 4em;
-    margin-left: 4px; }
+    margin-left: 4px !important; }
     .paginations .pagination-button:hover {
       background-color: #f98780; }
     .paginations .pagination-button.style1 {
@@ -913,7 +913,7 @@ body {
   border: 1px solid #e1e1e1;
   padding: 10px;
   background-color: #ededed;
-  overflow-x: scroll;
+  overflow-x: auto;
   color: #8a8a8a; }
 
 #content pre {
