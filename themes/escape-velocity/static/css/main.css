@@ -849,6 +849,32 @@ body {
       #tags-and-categories .tagcloud .tagcloud-button.style2:active {
         box-shadow: inset 0px 0px 2px 0px #202127; }
 
+/* S E R I E S */
+.series-widget {
+  margin-bottom: 2em; }
+  .series-widget .series-header {
+    font-size: 1.4em;
+    margin-bottom: 0.7em; }
+  .series-widget .series-post {
+    border-radius: 6px;
+    padding: 10px 13px;
+    line-height: 18px;
+    margin-bottom: 8px; }
+    .series-widget .series-post .article-date, .series-widget .series-post .article-categories {
+      font-size: 10pt; }
+    .series-widget .series-post.previous, .series-widget .series-post.next {
+      background: none;
+      box-shadow: inset 0px 0px 2px 0px #a0a1a7; }
+    .series-widget .series-post.current {
+      background: #e97770 url("../css/images/overlay.png");
+      color: #fff !important; }
+      .series-widget .series-post.current a, .series-widget .series-post.current h3 {
+        color: #fff; }
+      .series-widget .series-post.current .article-date, .series-widget .series-post.current .article-categories {
+        color: rgba(255, 255, 255, 0.8); }
+        .series-widget .series-post.current .article-date a, .series-widget .series-post.current .article-categories a {
+          color: rgba(255, 255, 255, 0.8); }
+
 /*  C O N T E N T  */
 #content .article-title {
   font-size: 3.3em;

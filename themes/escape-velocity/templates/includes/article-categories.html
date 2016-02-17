@@ -14,7 +14,7 @@
   {% if article.series %}
     <span class="article-series">
       <i class="fa fa-briefcase" style="margin-left: 9px"></i>
-      Part {{ article.series.index}} of <i>{{ article.series.name }}</i>
+      Part {{ article.series.index}} of {{ article.series.all|length }} in <i>{{ article.series.name }}</i>
     </span>
   {% endif %}
 

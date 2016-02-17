@@ -46,14 +46,6 @@ PAGE_URL = '{slug}/'
 PAGE_SAVE_AS = '{slug}/index.html'
 
 
-def category_count(articles, cat):
-    return len([article for article in articles if article.category == cat])
-
-JINJA_FILTERS = {
-    'category_count': category_count
-}
-
-
 # Blogroll
 LINKS = (('Pelican', 'http://getpelican.com/'),
          ('Python.org', 'http://python.org/'),
@@ -152,6 +144,10 @@ import math
 def middle_index(content, *args):
     return math.ceil(len(content)/2)
 
+def category_count(articles, cat):
+    return len([article for article in articles if article.category == cat])
+
 JINJA_FILTERS = {
     'middle_index': middle_index,
+    'category_count': category_count
 }

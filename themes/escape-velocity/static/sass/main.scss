@@ -277,6 +277,50 @@
 	}
 }
 
+/* S E R I E S */
+.series-widget {
+	margin-bottom: 2em;
+
+	.series-header {
+		font-size: 1.4em;
+		margin-bottom: 0.7em;
+	}
+
+	.series-post {
+		// border: 1px solid #ddd;
+		border-radius: 6px;
+		padding: 10px 13px;
+		line-height: 18px;
+		margin-bottom: 8px;
+
+		.article-date, .article-categories {
+			font-size: 10pt;
+		}
+
+		&.previous, &.next {
+			background: none;
+			// color: #606167;
+			box-shadow: inset 0px 0px 2px 0px #a0a1a7;
+		}
+
+		&.current {
+			background: #e97770 url("../css/images/overlay.png");
+			color: #fff !important;
+			a, h3 {
+				color: #fff;
+			}
+			.article-date, .article-categories {
+				color: rgba(#ffffff, 0.8);
+				a {
+					color: rgba(#ffffff, 0.8);
+				}
+			}
+		}
+
+	}
+
+}
+
 /*  C O N T E N T  */
 
 #content {
