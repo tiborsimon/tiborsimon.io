@@ -741,7 +741,7 @@ body {
 
 /* Pagination */
 .paginations {
-  margin: 2em 0 0 4px;
+  margin: 2em 0 0 0;
   text-align: center; }
   .paginations li {
     display: inline-block;
@@ -770,7 +770,8 @@ body {
     font-size: 0.7em;
     /* min-width: 12em; */
     /* height: 4em; */
-    line-height: 4em; }
+    line-height: 4em;
+    margin-left: 4px; }
     .paginations .pagination-button:hover {
       background-color: #f98780; }
     .paginations .pagination-button.style1 {
