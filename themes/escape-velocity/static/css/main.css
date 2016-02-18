@@ -992,6 +992,13 @@ body {
   margin-top: 0;
   margin-bottom: 12px; }
 
+#content img, #content .video {
+  box-shadow: 0 2px 16px #ddd;
+  text-align: center;
+  margin: 0 auto 26px auto;
+  display: block;
+  max-width: 775px; }
+
 @media screen and (min-width: 737px) and (max-width: 1210px) {
   #content .article-title {
     font-size: 3em; }

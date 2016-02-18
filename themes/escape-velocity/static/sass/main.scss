@@ -487,6 +487,15 @@ $main-theme-color-background: #d96760;
       margin-bottom: 12px;
     }
   }
+
+  img, .video {
+    // border: 3px solid #fff;
+    box-shadow: 0 2px 16px #ddd;
+    text-align: center;
+    margin: 0 auto 26px auto;
+    display: block;
+    max-width: 775px;
+  }
 }
 
 @include breakpoint(tablet) {
