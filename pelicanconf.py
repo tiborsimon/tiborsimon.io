@@ -66,7 +66,7 @@ OPEN_GRAPH_FB_APP_ID = 551628881652865
 TAG_CLOUD_SORTING = 'alphabetically'
 
 PLUGIN_PATHS = ['plugins']
-PLUGINS = ['tag_cloud', 'neighbors', 'series', 'summary', 'json-search-system', 'portfolio']
+PLUGINS = ['tag_cloud', 'neighbors', 'series', 'summary', 'portfolio']
 #PLUGINS = ['tspr', 'summary', 'tag_cloud', 'series', 'figure-generator', 'json-search-system', 'bootstrapify']
 #PLUGINS = ['tspr', 'summary', 'json-search-system', 'bootstrapify']
 

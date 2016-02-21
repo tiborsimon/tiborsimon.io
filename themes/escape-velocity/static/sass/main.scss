@@ -75,8 +75,8 @@ $main-theme-color-background: #d96760;
     padding: 4px;
     border-radius: 1em;
     line-height: 37px;
-    width: 45px;
-    height: 45px;
+    width: 44px;
+    height: 44px;
     text-align: center;
     position: relative;
     display: inline-block;
@@ -248,6 +248,7 @@ $main-theme-color-background: #d96760;
       /* height: 4em; */
       line-height: 4em;
       margin-bottom: 4px;
+      margin-right: 4px !important;
 
       .counter {
         font-weight: bold;
@@ -286,6 +287,8 @@ $main-theme-color-background: #d96760;
     }
   }
 }
+
+
 
 /* S E R I E S */
 .series-widget {
@@ -336,7 +339,43 @@ $main-theme-color-background: #d96760;
   h2 {
     font-size: 1.4em !important;
   }
+
+  .tagcloud {
+    .tagcloud-button {
+      margin-right: 4px;
+    }
+  }
+
 }
+
+/*  D O N A T I O N   B U T T O N S  */
+.donation-buttons {
+
+  margin-bottom: 3em;
+
+  .donation-button {
+    padding: 8px 0;
+    display: inline-block;
+    width: 100px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.25) !important;
+    margin: 0 3px;
+    transition: all 0.4s;
+    .donation-amount {
+      display: none;
+    }
+
+    &:hover {
+      color: white !important;
+      background: $main-theme-color-hover url("../css/images/overlay.png");
+      .donation-amount {
+        display: inline-block;
+      }
+    }
+  }
+}
+
 
 
 /*  C O N T E N T  */
@@ -1085,12 +1124,14 @@ $main-theme-color-background: #d96760;
   }
 
   #footer-wrapper {
+    padding: 3em 0 9em 0 !important;
     background: #282b34 url('../css/images/overlay.png');
     color: #eee;
     color: rgba(255, 255, 255, 0.5);
 
     h1, h2, h3, h4, h5, h6, strong, b, a {
       color: #fff;
+      margin-bottom: 16px;
     }
 
     hr {
@@ -1679,14 +1720,14 @@ $main-theme-color-background: #d96760;
         }
 
         hr {
-          margin: 6em 0 6em 0;
+          margin: 1em 0 3em 0;
         }
       }
 
     /* Copyright */
 
       #copyright {
-        margin: 6em 0 0 0;
+        // margin: 2em 0 0 0;
 
         ul {
           padding: 0.75em 2em;
