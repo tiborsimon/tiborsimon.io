@@ -120,6 +120,10 @@ $main-theme-color-background: #d96760;
     display: inline-block;
     // width: 100%;
     color: #919499 !important;
+
+    .padded-icon {
+      margin-left: 9px;
+    }
   }
 
   .article-summary {
@@ -129,6 +133,15 @@ $main-theme-color-background: #d96760;
       margin-bottom: 0px;
     }
   }
+}
+
+
+.addthis_sharing_toolbox {
+  text-align: center;
+}
+
+.avatar {
+  border: 6px solid;
 }
 
 
@@ -288,6 +301,12 @@ $main-theme-color-background: #d96760;
   }
 }
 
+.article-date {
+  i {
+    margin-right: 2px;
+  }
+}
+
 
 
 /* S E R I E S */
@@ -308,6 +327,14 @@ $main-theme-color-background: #d96760;
 
     .article-date, .article-categories {
       font-size: 10pt;
+    }
+
+    .post-title {
+      margin-bottom: 4px;
+    }
+
+    .fa-tags {
+      margin-left: 9px;
     }
 
     &.previous, &.next {
@@ -375,6 +402,45 @@ $main-theme-color-background: #d96760;
     }
   }
 }
+
+/* G I T H U B   B U T T O N */
+.github-button {
+  border-radius: 6px;
+  // width: 320px;
+  height: 30px;
+  // margin: 0 auto;
+  display: block;
+  background: $main-theme-color-background url("../css/images/overlay.png");
+  // border: 1px solid #ccc;
+
+  a {
+    color: #fff !important;
+    text-decoration: none;
+    padding: 10px 12px;
+    vertical-align: middle;
+    display: inline-block;
+    height: 100%;
+    text-align: center;
+
+    &:first-child {
+      border-right: 1px dashed rgba(#ffffff, 0.54);
+    }
+
+    &:last-child {
+      border-left: 1px dashed rgba(#ffffff, 0.54);
+    }
+
+    &:hover {
+      color: rgb(246, 173, 173) !important;
+    }
+
+    &.icon {
+      font-size: 1.5em;
+      padding: 16px 20px;
+    }
+  }
+}
+
 
 
 

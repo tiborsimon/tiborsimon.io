@@ -737,10 +737,18 @@ body {
     font-size: 76%;
     display: inline-block;
     color: #919499 !important; }
+    .article-card .article-date .padded-icon, .article-card .article-categories .padded-icon {
+      margin-left: 9px; }
   .article-card .article-summary {
     line-height: 19px; }
     .article-card .article-summary p {
       margin-bottom: 0px; }
+
+.addthis_sharing_toolbox {
+  text-align: center; }
+
+.avatar {
+  border: 6px solid; }
 
 /* Pagination */
 .paginations {
@@ -866,6 +874,12 @@ body {
     margin-bottom: 10px; }
     .series-widget .series-post .article-date, .series-widget .series-post .article-categories {
       font-size: 10pt; }
+    .series-widget .series-post .article-date i {
+      margin-right: 2px; }
+    .series-widget .series-post .post-title {
+      margin-bottom: 4px; }
+    .series-widget .series-post .fa-tags {
+      margin-left: 9px; }
     .series-widget .series-post.previous, .series-widget .series-post.next {
       background: none;
       box-shadow: inset 0px 0px 2px 0px #a0a1a7; }
@@ -905,6 +919,30 @@ body {
       background: #f98780 url("../css/images/overlay.png"); }
       .donation-buttons .donation-button:hover .donation-amount {
         display: inline-block; }
+
+/* G I T H U B   B U T T O N */
+.github-button {
+  border-radius: 6px;
+  height: 30px;
+  display: block;
+  background: #d96760 url("../css/images/overlay.png"); }
+  .github-button a {
+    color: #fff !important;
+    text-decoration: none;
+    padding: 10px 12px;
+    vertical-align: middle;
+    display: inline-block;
+    height: 100%;
+    text-align: center; }
+    .github-button a:first-child {
+      border-right: 1px dashed rgba(255, 255, 255, 0.54); }
+    .github-button a:last-child {
+      border-left: 1px dashed rgba(255, 255, 255, 0.54); }
+    .github-button a:hover {
+      color: #f6adad !important; }
+    .github-button a.icon {
+      font-size: 1.5em;
+      padding: 16px 20px; }
 
 /*  C O N T E N T  */
 #content .article-title {

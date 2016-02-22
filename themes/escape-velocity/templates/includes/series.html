@@ -9,10 +9,10 @@
     <div>
 
       <div class="article-date">
-        <i class="fa fa-clock-o" style="margin-right: 2px"></i> Posted on <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
+        <i class="fa fa-clock-o"></i> Posted on <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
       </div>
 
-      <a href="{{ SITEURL }}/{{ article.url }}"><h3 class="post-title" style="margin-bottom: 4px;"><small>{{ article.series.index }}.</small> {{ article.title }}</h3></a>
+      <a href="{{ SITEURL }}/{{ article.url }}"><h3 class="post-title"><small>{{ article.series.index }}.</small> {{ article.title }}</h3></a>
 
       <div class="article-categories">
         <!-- CATEGORY -->
@@ -21,7 +21,7 @@
 
         <!-- TAGS -->
         {% if article.tags %}
-            <i class="fa fa-tags" style="margin-left: 9px"></i>
+            <i class="fa fa-tags"></i>
             {% for tag in article.tags %}
                 <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}
             {% endfor %}
@@ -38,10 +38,10 @@
     <div>
 
       <div class="article-date">
-        <i class="fa fa-clock-o" style="margin-right: 2px"></i> Posted on <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
+        <i class="fa fa-clock-o"></i> Posted on <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
       </div>
 
-      <a href="{{ SITEURL }}/{{ article.url }}"><h3 class="post-title" style="margin-bottom: 4px;"><small>{{ article.series.index }}.</small> {{ article.title }}</h3></a>
+      <a href="{{ SITEURL }}/{{ article.url }}"><h3 class="post-title"><small>{{ article.series.index }}.</small> {{ article.title }}</h3></a>
 
       <div class="article-categories">
         <!-- CATEGORY -->
@@ -50,7 +50,7 @@
 
         <!-- TAGS -->
         {% if article.tags %}
-            <i class="fa fa-tags" style="margin-left: 9px"></i>
+            <i class="fa fa-tags"></i>
             {% for tag in article.tags %}
                 <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}
             {% endfor %}
@@ -67,10 +67,10 @@
     <div>
 
       <div class="article-date">
-        <i class="fa fa-clock-o" style="margin-right: 2px"></i> Posted on <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
+        <i class="fa fa-clock-o"></i> Posted on <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
       </div>
 
-      <a href="{{ SITEURL }}/{{ article.url }}"><h3 class="post-title" style="margin-bottom: 4px;"><small>{{ article.series.index }}.</small> {{ article.title }}</h3></a>
+      <a href="{{ SITEURL }}/{{ article.url }}"><h3 class="post-title"><small>{{ article.series.index }}.</small> {{ article.title }}</h3></a>
 
       <div class="article-categories">
         <!-- CATEGORY -->
@@ -79,7 +79,7 @@
 
         <!-- TAGS -->
         {% if article.tags %}
-            <i class="fa fa-tags" style="margin-left: 9px"></i>
+            <i class="fa fa-tags"></i>
             {% for tag in article.tags %}
                 <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}
             {% endfor %}

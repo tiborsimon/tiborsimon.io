@@ -5,15 +5,15 @@
 
   <!-- TAGS -->
   {% if article.tags %}
-      <i class="fa fa-tags" style="margin-left: 9px"></i>
+      <i class="fa fa-tags padded-icon"></i>
       {% for tag in article.tags %}
           <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}
       {% endfor %}
   {% endif %}
 
   {% if article.series %}
-    <span class="article-series">
-      <i class="fa fa-briefcase" style="margin-left: 9px"></i>
+    <span class="article-series padded-icon">
+      <i class="fa fa-briefcase"></i>
       Part {{ article.series.index}} of {{ article.series.all|length }} in <i>{{ article.series.name }}</i>
     </span>
   {% endif %}

@@ -8,7 +8,7 @@ SITEURL = ''
 
 AUTHOR = 'Tibor Simon'
 AUTHOR_POSITION = 'Engineer and guitarist'
-AVATAR = 'img/tibor.png'
+AVATAR = 'images/tibor4.jpg'
 
 GITHUB_URL = 'https://github.com/tiborsimon'
 DISQUS_SITENAME = 'tiborsimon'
