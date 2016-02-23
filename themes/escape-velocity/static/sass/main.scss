@@ -104,6 +104,54 @@ $main-theme-color-background: #d96760;
   font-size: 140%;
 }
 
+/*  T O R T E X - T I M E  */
+.tortex-time-wrapper {
+  .tortex-time-pick {
+    display: block;
+    width: 90px;
+    height: 150px;
+    border: 1px solid #dedede;
+    border-radius: 5px;
+    margin: 0 4px 4px 0;
+    box-shadow: 0 0 4px #f0f0f0;
+    float: left;
+
+    .tortex-img {
+      display: block;
+      margin: 12px auto 0 auto !important;
+      box-shadow: none !important;
+    }
+
+    .pick-overlay {
+      display: block;
+      text-align: center;
+      background-color: #eee;
+      height: 22px;
+      margin: 0 0 5px 0;
+      border-radius: 4px 4px 0 0;
+      font-size: 70%;
+      line-height: 22px;
+      overflow: hidden;
+    }
+
+  }
+  .tortex-descr {
+    height: 54px;
+    display: block;
+    text-align: center !important;
+    padding-top: 10px;
+    div {
+      font-size: 70% !important;
+      line-height: 10pt !important;
+      margin: auto 0 !important;
+    }
+  }
+
+  .tortex-latest {
+    clear: both;
+  }
+}
+
 /* Latest articles */
 
 .article-card {
@@ -1358,7 +1406,7 @@ $main-theme-color-background: #d96760;
       body, input, select, textarea {
         font-size: 13pt;
         line-height: 1.75em;
-        letter-spacing: -0.4pt;
+        letter-spacing: 0pt;
       }
 
       body {

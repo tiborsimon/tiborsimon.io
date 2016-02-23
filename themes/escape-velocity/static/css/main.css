@@ -1,4 +1,3 @@
-@import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,700,900");
 @import url("./font-awesome.min.css");
 /*
   Escape Velocity by HTML5 UP
@@ -726,6 +725,44 @@ body {
 .intro-text {
   font-size: 140%; }
 
+/*  T O R T E X - T I M E  */
+.tortex-time-wrapper .tortex-time-pick {
+  display: block;
+  width: 90px;
+  height: 150px;
+  border: 1px solid #dedede;
+  border-radius: 5px;
+  margin: 0 4px 4px 0;
+  box-shadow: 0 0 4px #f0f0f0;
+  float: left; }
+  .tortex-time-wrapper .tortex-time-pick .tortex-img {
+    display: block;
+    margin: 12px auto 0 auto !important;
+    box-shadow: none !important; }
+  .tortex-time-wrapper .tortex-time-pick .pick-overlay {
+    display: block;
+    text-align: center;
+    background-color: #eee;
+    height: 22px;
+    margin: 0 0 5px 0;
+    border-radius: 4px 4px 0 0;
+    font-size: 70%;
+    line-height: 22px;
+    overflow: hidden; }
+
+.tortex-time-wrapper .tortex-descr {
+  height: 54px;
+  display: block;
+  text-align: center !important;
+  padding-top: 10px; }
+  .tortex-time-wrapper .tortex-descr div {
+    font-size: 70% !important;
+    line-height: 10pt !important;
+    margin: auto 0 !important; }
+
+.tortex-time-wrapper .tortex-latest {
+  clear: both; }
+
 /* Latest articles */
 .article-card {
   margin-bottom: 25px; }
@@ -861,6 +898,9 @@ body {
       #tags-and-categories .tagcloud .tagcloud-button.style2:active {
         box-shadow: inset 0px 0px 2px 0px #202127; }
 
+.article-date i {
+  margin-right: 2px; }
+
 /* S E R I E S */
 .series-widget {
   margin-bottom: 2em; }
@@ -874,8 +914,6 @@ body {
     margin-bottom: 10px; }
     .series-widget .series-post .article-date, .series-widget .series-post .article-categories {
       font-size: 10pt; }
-    .series-widget .series-post .article-date i {
-      margin-right: 2px; }
     .series-widget .series-post .post-title {
       margin-bottom: 4px; }
     .series-widget .series-post .fa-tags {
@@ -1628,7 +1666,7 @@ ol.default {
   body, input, select, textarea {
     font-size: 13pt;
     line-height: 1.75em;
-    letter-spacing: 0.025em; }
+    letter-spacing: 0pt; }
   body {
     min-width: 1200px; }
   hr {
