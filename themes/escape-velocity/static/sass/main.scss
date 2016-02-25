@@ -1600,7 +1600,7 @@ $main-theme-color-background: #d96760;
     /* Wrappers */
 
       .wrapper {
-        padding: 6em 0 9em 0;
+        padding: 6em 0 4em 0;
 
         .title {
           font-size: 0.9em;
@@ -1620,6 +1620,10 @@ $main-theme-color-background: #d96760;
 
       #intro-wrapper {
         padding-bottom: 8em;
+      }
+
+      #main-wrapper {
+        margin-top: -5em;
       }
 
     /* Header */
