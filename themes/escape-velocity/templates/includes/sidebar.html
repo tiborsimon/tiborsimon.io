@@ -1,22 +1,22 @@
 <div class="4u 12u(mobile)">
 
   <!-- Sidebar -->
-    <div id="sidebar">
-      <section class="box">
-        <img src="{{ SITEURL }}/{{ AVATAR }}" style="border: 3px solid #ddd; margin: 0 auto" width=300 />
+    <aside id="sidebar">
+      <div class="box">
+        <img src="{{ SITEURL }}/{{ AVATAR }}" style="border: 3px solid #ddd; margin: 0 auto" width=300 alt="Image of Tibor Simon" />
         <p >Hi, my name is <b>Tibor Simon.</b> I am a graduated electrical engineer with a masters degree.  I live in Budapest, and I am currently working at Nokia Networks.</p>
-      </section>
-      <section class="box">
+      </div>
+      <div class="box">
         {% if article.series %}
           {% include 'includes/series.html' %}
         {% endif %}
-      </section>
-      <section class="box">
+      </div>
+      <div class="box">
         {% include 'includes/tag-list.html' %}
-      </section>
-      <section class="box">
+      </div>
+      <div class="box">
         {% include 'includes/category-list.html' %}
-      </section>
-    </div>
+      </div>
+    </aside>
 
 </div>

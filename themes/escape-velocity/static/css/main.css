@@ -697,7 +697,7 @@ body {
     line-height: 20px; }
   .about-section p {
     margin-bottom: 12px; }
-  .about-section h3:before {
+  .about-section span:before {
     margin-right: 12px;
     color: #ddd;
     background-color: transparent !important;
@@ -712,9 +712,9 @@ body {
     position: relative;
     display: inline-block;
     letter-spacing: 0.05em; }
-  .about-section h3 {
+  .about-section span {
     width: 40px; }
-  .about-section h3:hover:before {
+  .about-section span:hover:before {
     color: #e97770 !important;
     background-color: #fff !important;
     transition: color 0.2s, background-color 0.2s; }
@@ -766,20 +766,24 @@ body {
 /* Latest articles */
 .article-card {
   margin-bottom: 25px; }
-  .article-card h1 {
+  .article-card h3 {
     font-size: 2em;
     margin-bottom: 10px;
-    margin-top: 0px; }
-  .article-card .article-date, .article-card .article-categories {
-    font-size: 76%;
-    display: inline-block;
-    color: #919499 !important; }
-    .article-card .article-date .padded-icon, .article-card .article-categories .padded-icon {
-      margin-left: 9px; }
+    margin-top: 0px;
+    text-decoration: underline; }
+    .article-card h3:hover {
+      opacity: 0.8; }
   .article-card .article-summary {
     line-height: 19px; }
     .article-card .article-summary p {
       margin-bottom: 0px; }
+
+.article-date, .article-categories {
+  font-size: 76%;
+  display: inline-block;
+  color: #919499; }
+  .article-date .padded-icon, .article-categories .padded-icon {
+    margin-left: 9px; }
 
 .addthis_sharing_toolbox {
   text-align: center; }
@@ -960,27 +964,29 @@ body {
 
 /* G I T H U B   B U T T O N */
 .github-button {
-  border-radius: 6px;
-  height: 30px;
+  margin-bottom: 20px;
+  border-radius: 3px;
+  height: 27px;
   display: block;
-  background: #d96760 url("../css/images/overlay.png"); }
+  background: #b9b8be url("../css/images/overlay.png"); }
   .github-button a {
     color: #fff !important;
     text-decoration: none;
-    padding: 10px 12px;
-    vertical-align: middle;
+    padding: 0 12px;
     display: inline-block;
+    font-size: 0.7em;
+    font-weight: lighter;
     height: 100%;
-    text-align: center; }
+    text-align: center;
+    position: relative;
+    top: -2px; }
     .github-button a:first-child {
       border-right: 1px dashed rgba(255, 255, 255, 0.54); }
     .github-button a:last-child {
-      border-left: 1px dashed rgba(255, 255, 255, 0.54); }
+      border-left: 1px dashed rgba(255, 255, 255, 0.54);
+      border-right: 1px dashed rgba(255, 255, 255, 0.54); }
     .github-button a:hover {
       color: #f6adad !important; }
-    .github-button a.icon {
-      font-size: 1.5em;
-      padding: 16px 20px; }
 
 /*  C O N T E N T  */
 #content .article-title {
@@ -991,7 +997,7 @@ body {
 
 #content .article-info {
   line-height: 17px;
-  font-size: 10pt;
+  font-size: 12pt;
   margin-bottom: 53px;
   display: block;
   clear: both; }

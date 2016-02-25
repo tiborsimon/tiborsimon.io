@@ -3,36 +3,17 @@
 from __future__ import unicode_literals
 
 SITENAME = 'Engineering with passion'
-SITESUBTITLE = 'Engineering with passion'
 SITEURL = ''
 
 AUTHOR = 'Tibor Simon'
 AUTHOR_POSITION = 'Engineer and guitarist'
 AVATAR = 'images/tibor4.jpg'
-
-GITHUB_URL = 'https://github.com/tiborsimon'
 DISQUS_SITENAME = 'tiborsimon'
-TWITTER_USERNAME = 'tiborsimonio'
 
 PATH = 'content'
 RELATIVE_URLS = False
 
-TIMEZONE = 'Europe/Budapest'
-
-DEFAULT_LANG = 'en'
-
 LOAD_CONTENT_CACHE = False
-
-# Feed generation is usually not desired when developing
-FEED_ALL_ATOM = None
-CATEGORY_FEED_ATOM = None
-TRANSLATION_FEED_ATOM = None
-AUTHOR_FEED_ATOM = None
-AUTHOR_FEED_RSS = None
-
-# Menu settings
-DISPLAY_PAGES_ON_MENU = False
-DISPLAY_CATEGORIES_ON_MENU = False
 
 USE_FOLDER_AS_CATEGORY = True
 
@@ -59,9 +40,6 @@ SOCIAL = (('You can add links in your config file', '#'),
 USE_PAGER = True
 PAGINATED_DIRECT_TEMPLATES = ('archives',)
 DEFAULT_PAGINATION = 8
-
-USE_OPEN_GRAPH = True
-OPEN_GRAPH_FB_APP_ID = 551628881652865
 
 TAG_CLOUD_SORTING = 'alphabetically'
 
@@ -102,41 +80,10 @@ EXTRA_PATH_METADATA = {
 
 PDF_PROCESSOR = False
 
-DELETE_OUTPUT_DIRECTORY = True
-
-DISPLAY_RECENT_POSTS_ON_SIDEBAR = True
-DISPLAY_CATEGORIES_ON_SIDEBAR = True
-DISPLAY_TAGS_ON_SIDEBAR = True
-
-MENUITEMS = [
-	['Projects', 'projects'],
-	['Log', 'log'],
-	['About', '#about']
-]
-
 # T H E M E   S E T T I N G S -------------------------------------------------
 THEME = "themes/escape-velocity"
 
 FAVICON = 'favicon.ico'
-
-DISPLAY_ARTICLE_INFO_ON_INDEX = True
-
-BOOTSTRAP_NAVBAR_INVERSE = False
-
-# ABOUT_ME = 'Hello, I am Tibor :)'
-# AVATAR = 'images/tibor.png'
-
-HIDE_SIDEBAR = True
-
-SHOW_ARTICLE_CATEGORY = True
-SHOW_DATE_MODIFIED  = True
-
-
-
-
-
-
-
 
 # JINJA FILTERS ---------------------------------------------------------------
 import math

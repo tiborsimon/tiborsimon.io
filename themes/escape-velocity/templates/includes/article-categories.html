@@ -11,11 +11,17 @@
       {% endfor %}
   {% endif %}
 
+  <!-- SERIES -->
   {% if article.series %}
     <span class="article-series padded-icon">
       <i class="fa fa-briefcase"></i>
       Part {{ article.series.index}} of {{ article.series.all|length }} in <i>{{ article.series.name }}</i>
     </span>
+  {% endif %}
+
+  <!-- GITHUB -->
+  {% if article.repo %}
+  <span class="padded-icon"><a href="{{ article.repo }}" target="_blank"><i class="fa fa-github-square"></i> Repo</a></span>
   {% endif %}
 
 </div>

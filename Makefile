@@ -46,6 +46,10 @@ sass:
 	@echo '-> Compiling SASS..'
 	sassc $(BASEDIR)/themes/escape-velocity/static/sass/main.scss $(BASEDIR)/themes/escape-velocity/static/css/main.css
 
+delete_output:
+	rm -rf $(OUTPUTDIR)/*
+	cd $(OUTPUTDIR); git checkout CNAME
+
 clean_output:
 	@echo ''
 	@echo '-> Cleaning up..'
@@ -55,12 +59,12 @@ clean_output:
 	mkdir $(OUTPUTDIR)/theme/js
 	mv $(OUTPUTDIR)/theme/bundle.min.js $(OUTPUTDIR)/theme/js/bundle.min.js
 
-compile:
+compile: delete_output
 	@echo ''
 	@echo '-> Compiling Pelican..'
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
 
-compile-d:
+compile-d: delete_output
 	@echo ''
 	@echo '-> Compiling Pelican.. [DEBUG]'
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS) -D
@@ -70,11 +74,11 @@ webpack_bundle:
 	@echo '-> Generating Webpack js bundle..'
 	@webpack
 
-html: sass compile webpack_bundle clean_output
+local: sass compile webpack_bundle clean_output
 	@echo ''
 	@echo '-> Done!'
 
-html-d: sass compile-d webpack_bundle clean_output
+local-d: sass compile-d webpack_bundle clean_output
 	@echo ''
 	@echo '-> Done!'
 
@@ -98,12 +102,9 @@ publish-d:
 	@echo '-> Compiling Pelican.. [DEGUG]'
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS) -D
 
-ftp: sass publish webpack_bundle clean_output
-	@echo ''
-	@echo '-> Uploading via FTP..'
-	lftp ftp://$(FTP_USER)@$(FTP_HOST) -e "set ftp:ssl-allow no; mirror -R $(OUTPUTDIR) $(FTP_TARGET_DIR) -p; quit"
+github: sass publish webpack_bundle clean_output
+	cd $OUTPUTDIR; git commit -am "Site push $(date '+%Y-%m-%d %H:%M:%S')"; git push
+	git add $OUTPUTDIR; git commit -m "Site pushed $(date '+%Y-%m-%d %H:%M:%S')"; git push
 
-ftp-d: sass publish-d webpack_bundle clean_output
-	@echo ''
-	@echo '-> Uploading via FTP.. [DEGUG]'
-	lftp ftp://$(FTP_USER)@$(FTP_HOST) -e "set ftp:ssl-allow no; mirror -R $(OUTPUTDIR) $(FTP_TARGET_DIR) -p; quit"
+github-d: sass publish-d webpack_bundle clean_output
+	cd $OUTPUTDIR; git commit -am "Site push $(date '+%Y-%m-%d %H:%M:%S')"; git push

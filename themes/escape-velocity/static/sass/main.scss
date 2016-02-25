@@ -66,7 +66,7 @@ $main-theme-color-background: #d96760;
     margin-bottom: 12px;
   }
 
-  h3:before {
+  span:before {
     margin-right: 12px;
     color: #ddd;
     background-color: transparent !important;
@@ -83,11 +83,11 @@ $main-theme-color-background: #d96760;
     letter-spacing: 0.05em;
   }
 
-  h3 {
+  span {
     width: 40px;
   }
 
-  h3:hover:before {
+  span:hover:before {
     color: $main-theme-color !important;
     background-color: #fff !important;
     transition: color 0.2s, background-color 0.2s;
@@ -157,20 +157,14 @@ $main-theme-color-background: #d96760;
 .article-card {
   margin-bottom: 25px;
 
-  h1 {
+  h3 {
     font-size: 2em;
     margin-bottom: 10px;
     margin-top: 0px;
-  }
+    text-decoration: underline;
 
-  .article-date, .article-categories {
-    font-size: 76%;
-    display: inline-block;
-    // width: 100%;
-    color: #919499 !important;
-
-    .padded-icon {
-      margin-left: 9px;
+    &:hover {
+      opacity: 0.8;
     }
   }
 
@@ -182,6 +176,19 @@ $main-theme-color-background: #d96760;
     }
   }
 }
+
+.article-date, .article-categories {
+  font-size: 76%;
+  display: inline-block;
+  // width: 100%;
+  color: #919499;
+
+  .padded-icon {
+    margin-left: 9px;
+  }
+}
+
+
 
 
 .addthis_sharing_toolbox {
@@ -453,22 +460,26 @@ $main-theme-color-background: #d96760;
 
 /* G I T H U B   B U T T O N */
 .github-button {
-  border-radius: 6px;
+  margin-bottom: 20px;
+  border-radius: 3px;
   // width: 320px;
-  height: 30px;
+  height: 27px;
   // margin: 0 auto;
   display: block;
-  background: $main-theme-color-background url("../css/images/overlay.png");
+  background: #b9b8be url("../css/images/overlay.png");
   // border: 1px solid #ccc;
 
   a {
     color: #fff !important;
     text-decoration: none;
-    padding: 10px 12px;
-    vertical-align: middle;
+    padding: 0 12px;
     display: inline-block;
+    font-size: 0.7em;
+    font-weight: lighter;
     height: 100%;
     text-align: center;
+    position: relative;
+    top: -2px;
 
     &:first-child {
       border-right: 1px dashed rgba(#ffffff, 0.54);
@@ -476,15 +487,11 @@ $main-theme-color-background: #d96760;
 
     &:last-child {
       border-left: 1px dashed rgba(#ffffff, 0.54);
+      border-right: 1px dashed rgba(#ffffff, 0.54);
     }
 
     &:hover {
       color: rgb(246, 173, 173) !important;
-    }
-
-    &.icon {
-      font-size: 1.5em;
-      padding: 16px 20px;
     }
   }
 }
@@ -505,7 +512,7 @@ $main-theme-color-background: #d96760;
   .article-info {
     // text-align: right;
     line-height: 17px;
-    font-size: 10pt;
+    font-size: 12pt;
     margin-bottom: 53px;
     display: block;
     clear: both;

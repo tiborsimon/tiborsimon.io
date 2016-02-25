@@ -1,5 +1,4 @@
 __pycache__/
-output/
 site-env/*
 content/extras/search.json
 tspr-store.pickle
