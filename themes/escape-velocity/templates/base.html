@@ -17,7 +17,7 @@
 
     {% block meta %}
       <meta name="author" content="Tibor Simon" />
-      <meta name="description" content="Hi! My name is Tibor Simon. I am a graduated electrical engineer from Budapest. You are currently looking at my site tiborsimon.io where I publish all my work related to my interest. Just to mention some: programming, electronics, engineering, guitar, photography, web, python, ios ans so on :) Let's take a look inside!" />
+      <meta name="description" content="{{ DESCRIPTION }}" />
     {% endblock %}
 
     {% block opengraph %}
@@ -25,10 +25,18 @@
       <meta property="fb:app_id" content="551628881652865"/>
       <meta property="og:site_name" content="{{ SITENAME }}" />
       <meta property="og:type" content="website"/>
-      <meta property="og:title" content="tiborsimon.io"/>
+      <meta property="og:title" content="{{ SITE_TITLE }}"/>
       <meta property="og:url" content="{{ SITEURL }}"/>
-      <meta property="og:description" content="{{ SITENAME }}"/>
+      <meta property="og:description" content="{{ DESCRIPTION }}"/>
       <meta property="og:image" content="{{ SITEURL }}/{{ AVATAR }}"/>
+    {% endblock %}
+
+    {% block twitter_card %}
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@tiborsimonio" />
+      <meta name="twitter:title" content="{{ SITE_TITLE }}" />
+      <meta name="twitter:description" content="{{ DESCRIPTION }}" />
+      <meta name="twitter:image" content="{{ SITEURL }}/{{ AVATAR }}" />
     {% endblock %}
 
     {% block head %}
@@ -53,27 +61,49 @@
       {% block footer %}
         {% include 'includes/footer.html' %}
       {% endblock footer %}
-
     </div>
 
-    <!-- Scripts -->
-      <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bundle.min.js" charset="utf-8" async></script>
-      {% block scripts %}
-      {% endblock scripts %}
+    ​<script type="text/javascript">
+    var addthis_config = addthis_config||{};
+        addthis_config.data_track_addressbar = false;
+        addthis_config.data_track_clickback = false;
+    </script>
+    <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bundle.min.js" charset="utf-8"></script>
 
-      <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-68408613-1', 'auto');
-        ga('send', 'pageview');
-
+    {% block scripts %}
+      <script type="text/javascript">
+        var addthis_share = addthis_share || {}
+        addthis_share = {
+        	passthrough : {
+        		twitter: {
+        			via: "tiborsimonio",
+        			text: "Tibor Simon - {{ SHORT_DESCRIPTION }}"
+        		}
+        	},
+          url_transforms : {
+               shorten: {
+                    twitter: 'bitly'
+               }
+          },
+          shorteners : {
+               bitly : {}
+          }
+        }
       </script>
+    {% endblock scripts %}
 
-      <!-- Go to www.addthis.com/dashboard to customize your tools -->
-      <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55feae79d6d0348d" async></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-68408613-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55feae79d6d0348d"></script>
 
   </body>
 </html>

@@ -107,10 +107,15 @@ publish-d:
 github: sass publish webpack_bundle clean_output
 	@echo ''
 	@echo '-> Pushing to tiborsimon.io..'
-	cd $(OUTPUTDIR); git commit -am "Site push $(date '+%Y-%m-%d %H:%M:%S')"; git push
+	cd $(OUTPUTDIR); git add --all; git commit -m "Site push"; git push
 	@echo ''
 	@echo '-> Saving pushed site to superproject..'
-	git add $(OUTPUTDIR); git commit -m "Site pushed $(date '+%Y-%m-%d %H:%M:%S')"; git push
+	git add $(OUTPUTDIR); git commit -m "Site pushed"; git push
 
 github-d: sass publish-d webpack_bundle clean_output
-	cd $(OUTPUTDIR); git commit -am "Site push $(date '+%Y-%m-%d %H:%M:%S')"; git push
+	@echo ''
+	@echo '-> Pushing to tiborsimon.io..'
+	cd $(OUTPUTDIR); git add --all; git commit -m "Site push"; git push
+	@echo ''
+	@echo '-> Saving pushed site to superproject..'
+	git add $(OUTPUTDIR); git commit -m "Site pushed"; git push

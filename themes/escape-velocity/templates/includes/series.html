@@ -6,7 +6,6 @@
   {% if article.series.all_previous %}
   <div class="series-post previous">
     {% for article in article.series.all_previous %}
-    <div>
 
       <div class="article-date">
         <i class="fa fa-clock-o"></i> Posted on <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
@@ -28,15 +27,11 @@
         {% endif %}
 
       </div>
-
-    </div>
     {% endfor %}
   </div>
   {% endif %}
 
   <div class="series-post current">
-    <div>
-
       <div class="article-date">
         <i class="fa fa-clock-o"></i> Posted on <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
       </div>
@@ -55,16 +50,12 @@
                 <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}
             {% endfor %}
         {% endif %}
-
       </div>
-
-    </div>
   </div>
 
   {% if article.series.all_next %}
   <div class="series-post next">
     {% for article in article.series.all_next %}
-    <div>
 
       <div class="article-date">
         <i class="fa fa-clock-o"></i> Posted on <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
@@ -84,10 +75,7 @@
                 <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}
             {% endfor %}
         {% endif %}
-
       </div>
-
-    </div>
     {% endfor %}
   </div>
   {% endif %}

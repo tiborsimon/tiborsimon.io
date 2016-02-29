@@ -10,7 +10,7 @@ import sys
 sys.path.append(os.curdir)
 from pelicanconf import *
 
-SITEURL = 'http://tiborsimon.io'
+SITEURL = 'https://tiborsimon.io'
 
 
 FEED_ALL_ATOM = 'feeds/all.atom.xml'

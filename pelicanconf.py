@@ -10,6 +10,11 @@ AUTHOR_POSITION = 'Engineer and guitarist'
 AVATAR = 'images/tibor4.jpg'
 DISQUS_SITENAME = 'tiborsimon'
 
+SITE_TITLE = 'Tibor Simon - Engineering with Passion'
+
+DESCRIPTION = 'A blog and portfolio about programming, engineering, electronics and music. Tibor, the host, is a graduated electrical engineer from Budapest.'
+SHORT_DESCRIPTION = 'A blog and portfolio about programming, engineering, electronics and music.'
+
 PATH = 'content'
 RELATIVE_URLS = False
 
