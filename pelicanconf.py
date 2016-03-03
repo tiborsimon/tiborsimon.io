@@ -5,6 +5,10 @@ from __future__ import unicode_literals
 SITENAME = 'Engineering with passion'
 SITEURL = ''
 
+TIMEZONE = 'Europe/Budapest'
+
+DEFAULT_DATE_FORMAT = '%a %d %B %Y'
+
 AUTHOR = 'Tibor Simon'
 AUTHOR_POSITION = 'Engineer and guitarist'
 AVATAR = 'images/tibor4.jpg'

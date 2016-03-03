@@ -4,7 +4,13 @@
     <aside id="sidebar">
       <div class="box">
         <img class="widget-avatar" src="{{ SITEURL }}/{{ AVATAR }}" width=300 alt="Image of Tibor Simon" />
-        <p >Hi, my name is <b>Tibor Simon.</b> I am a graduated electrical engineer with a masters degree.  I live in Budapest, and I am currently working at Nokia Networks.</p>
+        <span>Hi, my name is <b>Tibor Simon.</b> I am a graduated electrical engineer with a masters degree.  I live in Budapest, and I am currently working at Nokia Networks.</span>
+      </div>
+      <div class="">
+        {% include 'includes/social-sharing.html' %}
+      </div>
+      <div class="box">
+        {% include 'includes/github-banner.html' %}
       </div>
       <div class="box">
         {% if article.series %}
