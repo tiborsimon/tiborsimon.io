@@ -5,4 +5,3 @@ Store.sync()
 
 def register():
     pass
-
