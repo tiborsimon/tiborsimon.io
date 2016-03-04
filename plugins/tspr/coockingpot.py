@@ -133,7 +133,7 @@ def add_buttons(parent, project, soup, labels=False, page=False):
 
         if not page:
             add_download_panel(parent, project, soup)
-        
+
     else:
         button_div['class'] = 'btn-group btn-group-xs'
         button_div['role'] = 'group'
@@ -154,7 +154,7 @@ def add_button_div_content(parent, download_panel_parent, project, soup, labels,
             <a class="btn btn-default hidden-md" data-toggle="modal" data-target="#history-modal" href="" role="button" style="min-width: 50px; padding: 5px 12px !important;"><i class="fa fa-calendar-check-o"></i>  History</a>
             ''')
 
-        
+
 def add_sharing_buttons(parent, project, soup, is_small=False):
     p_id = 'PR{:06}'.format(project['id']) if project['tspr'] == 0 else 'TSPR{:04}'.format(project['tspr'])
     share_col = soup.new_tag('span')
@@ -167,7 +167,7 @@ def add_sharing_buttons(parent, project, soup, is_small=False):
     share_col2['style'] = 'margin-top: 6px;'
     parent.append(share_col2)
     share_col2.append('<div class="ssk-group ssk-xs ssk-rounded ssk-count ssk-grayscale" data-url="http://tiborsimon.io/projects/#{0}" data-title="{0} - {1}" data-text="a project by Tibor Simon.">'.format(p_id, project['title']))
-    
+
     share_col.append('''
             <a class="ssk ssk-twitter"></a>
             <a class="ssk ssk-facebook"></a>
@@ -190,8 +190,8 @@ def add_sharing_buttons(parent, project, soup, is_small=False):
 
 
 def add_responsive_sharing_buttons(parent, project, soup):
-    p_id = 'PR{:06}'.format(project['id']) if project['tspr'] == 0 else 'TSPR{:04}'.format(project['tspr']) 
-    
+    p_id = 'PR{:06}'.format(project['id']) if project['tspr'] == 0 else 'TSPR{:04}'.format(project['tspr'])
+
     share_col = soup.new_tag('div')
     share_col['class'] = 'col-xs-12 col-sm-6 text-right'
     parent.append(share_col)
@@ -216,9 +216,9 @@ def add_responsive_sharing_buttons(parent, project, soup):
             <a class="ssk ssk-email"></a>
         ''')
     share_col.append('</div>')
-        
 
-            
+
+
 def add_button(parent, labels, project_data, soup, icon_class, tooltip_text, target):
     temp_button = soup.new_tag('a')
     temp_button['role'] = 'button'
@@ -409,11 +409,11 @@ def add_badge(parent, project, soup):
     elif project['state'] == 'released':
         if project['tspr'] > 0:
             badge_abbr['title'] = 'TSPR{:04} project. Released. Latest version: {}'.format(project['tspr'], project['version'])
-            badge['class'] = 'pull-right fa fa-star'    
+            badge['class'] = 'pull-right fa fa-star'
         else:
             badge_abbr['title'] = 'Released. Latest version: {}'.format(project['version'])
             badge['class'] = 'pull-right fa fa-briefcase'
-    badge['style'] = 'margin-left: 10px; width: 12px' 
+    badge['style'] = 'margin-left: 10px; width: 12px'
     parent.append(badge_abbr)
 
 
@@ -657,14 +657,14 @@ def add_modal_footer(parent, project, soup):
     modal_footer_col2 = soup.new_tag('div')
     modal_footer_col2['class'] = 'col-xs-6'
     modal_footer_row.append(modal_footer_col2)
-    
+
     modal_footer_col2.append(soup.new_tag('button'))
     modal_footer_col2.button['type'] = 'button'
     modal_footer_col2.button['class'] = 'btn btn-default btn-xs'
     modal_footer_col2.button['data-dismiss'] = 'modal'
     modal_footer_col2.button.string = 'Close'
 
-    p_id = 'PR{:06}'.format(project['id']) if project['tspr'] == 0 else 'TSPR{:04}'.format(project['tspr']) 
+    p_id = 'PR{:06}'.format(project['id']) if project['tspr'] == 0 else 'TSPR{:04}'.format(project['tspr'])
 
     modal_footer_col1.string = '''
     <a class="FlattrButton" style="display:none;"
@@ -786,7 +786,7 @@ def render_project_header(soup):
         col_div_1.p.string = project['description']
 
         add_tag_field(col_div_1, project, soup)
-        
+
         add_buttons(col_div_1, project, soup, labels=True, page=True)
 
         col_div_2 = soup.new_tag('div')
@@ -898,5 +898,3 @@ def add_related_article(parent, article, soup):
     </div>
     </a>
 </div>'''.format(article.summary))
-
-

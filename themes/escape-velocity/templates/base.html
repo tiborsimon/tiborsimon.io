@@ -35,7 +35,7 @@
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content="@tiborsimonio" />
       <meta name="twitter:title" content="{{ SITE_TITLE }}" />
-      <meta name="twitter:description" content="{{ DESCRIPTION }}" />
+      <meta name="twitter:description" content="{{ SHORT_DESCRIPTION }}" />
       <meta name="twitter:image" content="{{ SITEURL }}/{{ AVATAR }}" />
     {% endblock %}
 
@@ -71,25 +71,6 @@
     <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bundle.min.js" charset="utf-8"></script>
 
     {% block scripts %}
-      <script type="text/javascript">
-        var addthis_share = addthis_share || {}
-        addthis_share = {
-        	passthrough : {
-        		twitter: {
-        			via: "tiborsimonio",
-        			text: "Tibor Simon - {{ SHORT_DESCRIPTION }}"
-        		}
-        	},
-          url_transforms : {
-               shorten: {
-                    twitter: 'bitly'
-               }
-          },
-          shorteners : {
-               bitly : {}
-          }
-        }
-      </script>
     {% endblock scripts %}
 
     <script>

@@ -438,7 +438,7 @@ h2.widget-title {
 
   .series-post {
     // border: 1px solid #ddd;
-    border-radius: 6px;
+    border-radius: 3px;
     padding: 10px 13px;
     line-height: 18px;
     margin-bottom: 10px;
@@ -499,7 +499,7 @@ h2.widget-title {
   margin-bottom: 3em;
 
   .paypal-button {
-    border-radius: 6px;
+    border-radius: 3px;
     border: 1px solid rgba(255, 255, 255, 0.00);
     padding: 6px;
     transition: all 0.4s;
@@ -513,37 +513,32 @@ h2.widget-title {
 /* G I T H U B   B U T T O N */
 .github-button {
   margin-bottom: 20px;
-  border-radius: 6px;
-  // width: 320px;
-  // height: 27px;
-  // margin: 0 auto;
+  border-radius: 3px;
   display: block;
   background: #89888c url("../css/images/overlay.png");
-  // border: 1px solid #ccc;
+  max-width: 350px;
+  height: 25px;
+  margin: 0 auto;
 
   a {
     color: #fff !important;
     text-decoration: none;
-    padding: 12px 12px;
-    display: inline-block;
-    font-size: 0.9em;
+    // padding: 6px 6px;
+    display: table-cell;;
+    font-size: 0.74em;
     font-weight: lighter;
-    height: 100%;
+    width: 175px;
     text-align: center;
-    // position: relative;
-    // top: -2px;
+    height: 25px;
+    padding-top: 2px;
+    transition: all 0.7s;
 
     &:first-child {
       border-right: 1px dashed rgba(#ffffff, 0.54);
     }
 
-    &:last-child {
-      border-left: 1px dashed rgba(#ffffff, 0.54);
-      border-right: 1px dashed rgba(#ffffff, 0.54);
-    }
-
     &:hover {
-      color: rgb(246, 173, 173) !important;
+      background: #939196 url("../css/images/overlay.png");
     }
   }
 }
@@ -637,7 +632,7 @@ h2.widget-title {
   }
 
   pre {
-    border-radius: 6px;
+    border-radius: 3px;
     padding: 8px;
   }
 
@@ -649,7 +644,7 @@ h2.widget-title {
   table {
     border-collapse:separate;
     border: 1px solid #ccc;
-    border-radius: 6px;
+    border-radius: 3px;
 
     thead {
       background-color: #ededed;
@@ -669,11 +664,11 @@ h2.widget-title {
     }
 
     th:first-child {
-      border-radius: 6px 0 0 0;
+      border-radius: 3px 0 0 0;
     }
 
     th:last-child {
-      border-radius: 0 6px 0 0;
+      border-radius: 0 3px 0 0;
     }
 
     td:first-child, th:first-child {
@@ -711,6 +706,12 @@ h2.widget-title {
 }
 
 @include breakpoint(tablet) {
+  .article-sharing {
+    max-width: 450px;
+    display: block;
+    margin: 0 auto;
+  }
+
   #content {
     .article-title {
       font-size: 3em;
@@ -747,6 +748,12 @@ h2.widget-title {
 }
 
 @include breakpoint(mobile) {
+
+  .article-sharing {
+    max-width: 350px;
+    display: block;
+    margin: 0 auto;
+  }
 
   .about-buttons {
     font-size: 13px !important;
@@ -1516,6 +1523,12 @@ h2.widget-title {
 
   @include breakpoint(desktop) {
 
+    .article-sharing {
+      max-width: 450px;
+      display: block;
+      margin: 0 auto;
+    }
+
     /* Basic */
 
       body, input, select, textarea {
@@ -1544,7 +1557,7 @@ h2.widget-title {
 
           h2 {
             font-size: 2em;
-            letter-spacing: 0.075em;
+            // letter-spacing: 0.075em;
             line-height: 1.5em;
           }
 
@@ -1552,7 +1565,7 @@ h2.widget-title {
             display: block;
             margin: 1.15em 0 0 0;
             font-size: 1.3em;
-            letter-spacing: 0.075em;
+            // letter-spacing: 0.075em;
             line-height: 1.5em;
           }
         }
@@ -1634,7 +1647,7 @@ h2.widget-title {
         h3 {
           margin: 0 0 0.75em 0;
           font-size: 1.15em;
-          letter-spacing: 0.05em;
+          // letter-spacing: 0.05em;
           margin-top: -0.35em;
 
           &:before {
@@ -1669,6 +1682,7 @@ h2.widget-title {
     /* Box */
 
       .box {
+        margin-bottom: 1.5em;
         header {
           margin: 0 0 1.5em 0;
 
@@ -1682,14 +1696,12 @@ h2.widget-title {
         h2 {
           margin: 0 0 0.75em 0;
           font-size: 1.15em;
-          letter-spacing: 0.05em;
         }
 
         h3 {
           margin: 0 0 0.5em 0;
           font-size: 1em;
           font-weight: 600;
-          letter-spacing: 0.05em;
         }
 
         &.post-excerpt {
@@ -1926,7 +1938,7 @@ h2.widget-title {
           h3 {
             margin: 0 0 0.75em 0;
             font-size: 1.15em;
-            letter-spacing: 0.05em;
+            // letter-spacing: 0.05em;
           }
         }
       }
@@ -2086,8 +2098,9 @@ h2.widget-title {
 
       h2, h3, h4, h5, h6 {
         font-size: 1.2em;
-        letter-spacing: 0.05em;
+        // letter-spacing: 0.05em;
         margin: 0 0 1em 0;
+        line-height: 1em;
       }
 
       .latest-articles {
@@ -2115,7 +2128,7 @@ h2.widget-title {
 
           h2 {
             font-size: 1.5em;
-            letter-spacing: 0.075em;
+            // letter-spacing: 0.075em;
             line-height: 1.25em;
           }
 
@@ -2194,6 +2207,7 @@ h2.widget-title {
     /* Box */
 
       .box {
+        margin-bottom: 1em;
         &.post-excerpt {
           .image {
             &.left {

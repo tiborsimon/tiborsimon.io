@@ -24,6 +24,18 @@
   {% endif %}
 {% endblock %}
 
+{% block twitter_card %}
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@tiborsimonio" />
+  <meta name="twitter:title" content="{{ article.title }}" />
+  <meta name="twitter:description" content="{{ article.summary|striptags|truncate(68) }}.." />
+  {% if article.og_image %}
+    <meta property="twitter:image" content="{{ SITEURL }}/{{ article.twitter_image }}"/>
+  {% elif OPEN_GRAPH_IMAGE %}
+    <meta property="twitter:image" content="{{ SITEURL }}/{{ AVATAR }}"/>
+  {% endif %}
+{% endblock %}
+
 {% block head %}
 {% if article.mathjax %}
 <script type="text/javascript" async
@@ -60,14 +72,13 @@
 
               {{ article.content }}
 
-              <div class="row">
-                <div class="11u">
-                  {% include 'includes/social-sharing.html' %}
-                </div>
-              </div>
 
             </article>
 
+
+            <div class="article-sharing">
+                {% include 'includes/social-sharing.html' %}
+            </div>
 
             <div class="comments" id="discussion">
               <h1>Comments</h1>
@@ -87,29 +98,4 @@
 
 {% block scripts %}
   <script type="text/javascript" src="http://tiborsimon.disqus.com/count.js" id="dsq-count-scr"></script>
-
-  <script type="text/javascript">
-    var addthis_share = addthis_share || {}
-    addthis_share = {
-      passthrough : {
-        twitter: {
-          via: "tiborsimonio",
-          text: "Tibor Simon - {{ article.summary|striptags|truncate(68) }}.."
-        }
-      },
-      url_transforms : {
-           shorten: {
-                twitter: 'bitly'
-           }
-      },
-      shorteners : {
-           bitly : {}
-      }
-    }
-  </script>
-
-  <script>
-
-  </script>
-
 {% endblock scripts %}

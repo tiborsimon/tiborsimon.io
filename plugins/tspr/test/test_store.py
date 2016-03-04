@@ -97,4 +97,3 @@ class SyncWithJsonTests(unittest.TestCase):
 
         self.assertEqual(1, len(self.store.projects))
         self.assertEqual({'something': 42}, self.store.projects[0])
-
