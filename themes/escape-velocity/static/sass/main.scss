@@ -118,6 +118,12 @@ $main-theme-color-background: #d96760;
   }
 }
 
+.site-info {
+  text-align: center;
+  font-size: 80%;
+  color: rgba(255, 255, 255, 0.25);
+}
+
 figure {
   img {
 
@@ -128,6 +134,12 @@ figure {
     text-align: center;
     margin: -10px 0 40px 0;
   }
+}
+
+.article-sharing {
+  max-width: 350px;
+  display: block;
+  margin: 0 auto;
 }
 
 
@@ -704,11 +716,7 @@ h2.widget-title {
 }
 
 @include breakpoint(tablet) {
-  .article-sharing {
-    max-width: 350px;
-    display: block;
-    margin: 0 auto;
-  }
+
 
   #content {
     .article-title {
@@ -746,12 +754,6 @@ h2.widget-title {
 }
 
 @include breakpoint(mobile) {
-
-  .article-sharing {
-    max-width: 350px;
-    display: block;
-    margin: 0 auto;
-  }
 
   .about-buttons {
     font-size: 13px !important;
@@ -1521,11 +1523,6 @@ h2.widget-title {
 
   @include breakpoint(desktop) {
 
-    .article-sharing {
-      max-width: 350px;
-      display: block;
-      margin: 0 auto;
-    }
 
     /* Basic */
 

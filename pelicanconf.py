@@ -96,6 +96,7 @@ FAVICON = 'favicon.ico'
 
 # JINJA FILTERS ---------------------------------------------------------------
 import math
+import time
 
 def middle_index(content, *args):
     return math.ceil(len(content)/2)
@@ -103,7 +104,11 @@ def middle_index(content, *args):
 def category_count(articles, cat):
     return len([article for article in articles if article.category == cat])
 
+def get_date(a):
+    return time.strftime("%Y-%m-%d %H:%M")
+
 JINJA_FILTERS = {
     'middle_index': middle_index,
-    'category_count': category_count
+    'category_count': category_count,
+    'get_date': get_date
 }
