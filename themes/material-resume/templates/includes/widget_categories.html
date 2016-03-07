@@ -1,9 +1,0 @@
-<aside class="widget widget_categories">
-  <h2 class="widget-title">Categories</h2>
-  <ul>
-    {% for category, artiles in categories %}
-      <li><a href="{{ SITEURL }}/category/{{ category }}.html" title="Architecture Category Posts">{{ category }}</a> ({{ articles|category_count(category) }})</li>
-    {% endfor %}
-  </ul>
-</aside>
-<!-- .widget_categories -->

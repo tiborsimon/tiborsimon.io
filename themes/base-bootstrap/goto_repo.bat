@@ -1,1 +1,0 @@
-start "open" "https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3"
