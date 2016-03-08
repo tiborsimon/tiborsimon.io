@@ -106,6 +106,9 @@ $main-theme-color-background: #d96760;
 }
 
 .gallery {
+  .no-shadow {
+    box-shadow: none !important;
+  }
   padding: 0 auto;
   .jslghtbx-thmb {
     float: left;
