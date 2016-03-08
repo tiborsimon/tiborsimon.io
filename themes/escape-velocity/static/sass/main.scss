@@ -211,6 +211,7 @@ figure {
     margin-bottom: 10px;
     margin-top: 0px;
     text-decoration: underline;
+    line-height: 1em;
 
     &:hover {
       opacity: 0.8;
@@ -1176,55 +1177,55 @@ h2.widget-title {
 
 /* List */
 
-  // ul {
-  //   &.default {
-  //     list-style: disc;
-  //     padding-left: 1em;
-  //
-  //     li {
-  //       padding-left: 0.5em;
-  //     }
-  //   }
-  //
-  //   &.style2 {
-  //     li {
-  //       border-top: solid 1px #eee;
-  //       padding: 1.5em 0 0 0;
-  //       margin: 1.5em 0 0 0;
-  //
-  //       &:first-child {
-  //         border-top: 0;
-  //         padding-top: 0;
-  //         margin-top: 0;
-  //       }
-  //     }
-  //   }
-  //
-  //   &.style3 {
-  //     li {
-  //       border-top: solid 1px #eee;
-  //       padding: 0.5em 0 0 0;
-  //       margin: 0.5em 0 0 0;
-  //
-  //       &:first-child {
-  //         border-top: 0;
-  //         padding-top: 0;
-  //         margin-top: 0;
-  //       }
-  //     }
-  //   }
-  // }
-  //
-  // ol {
-  //   &.default {
-  //     list-style: decimal;
-  //     padding-left: 1.25em;
-  //
-  //     li {
-  //       padding-left: 0.25em;
-  //     }
-  //   }
-  // }
+  ul {
+    &.default {
+      list-style: disc;
+      padding-left: 1em;
+
+      li {
+        padding-left: 0.5em;
+      }
+    }
+
+    &.style2 {
+      li {
+        border-top: solid 1px #eee;
+        padding: 1.5em 0 0 0;
+        margin: 1.5em 0 0 0;
+
+        &:first-child {
+          border-top: 0;
+          padding-top: 0;
+          margin-top: 0;
+        }
+      }
+    }
+
+    &.style3 {
+      li {
+        border-top: solid 1px #eee;
+        padding: 0.5em 0 0 0;
+        margin: 0.5em 0 0 0;
+
+        &:first-child {
+          border-top: 0;
+          padding-top: 0;
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+  ol {
+    &.default {
+      list-style: decimal;
+      padding-left: 1.25em;
+
+      li {
+        padding-left: 0.25em;
+      }
+    }
+  }
 
 /* Feature List */
 
@@ -1595,36 +1596,36 @@ h2.widget-title {
 
     /* List */
 
-      // ul {
-      //   &.actions {
-      //     margin: 3em 0 0 0;
-      //
-      //     li {
-      //       display: inline-block;
-      //       margin: 0 0.75em 0 0.75em;
-      //
-      //       &:first-child {
-      //         margin-left: 0;
-      //       }
-      //
-      //       &:last-child {
-      //         margin-right: 0;
-      //       }
-      //     }
-      //   }
-      //
-      //   &.actions-centered {
-      //     text-align: center;
-      //   }
-      // }
-      //
-      // form {
-      //   ul {
-      //     &.actions {
-      //       margin-top: 0;
-      //     }
-      //   }
-      // }
+      ul {
+        &.actions {
+          margin: 3em 0 0 0;
+
+          li {
+            display: inline-block;
+            margin: 0 0.75em 0 0.75em;
+
+            &:first-child {
+              margin-left: 0;
+            }
+
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+        }
+
+        &.actions-centered {
+          text-align: center;
+        }
+      }
+
+      form {
+        ul {
+          &.actions {
+            margin-top: 0;
+          }
+        }
+      }
 
     /* Feature List */
 
@@ -2167,19 +2168,19 @@ h2.widget-title {
 
     /* List */
 
-      // ul {
-      //   &.actions {
-      //     margin: 2em 15px 0 15px;
-      //
-      //     li {
-      //       margin: 15px 0 0 0;
-      //     }
-      //   }
-      // }
-      //
-      // form ul.actions {
-      //   margin: 1em 0 0 0;
-      // }
+      ul {
+        &.actions {
+          margin: 2em 15px 0 15px;
+
+          li {
+            margin: 15px 0 0 0;
+          }
+        }
+      }
+
+      form ul.actions {
+        margin: 1em 0 0 0;
+      }
 
     /* Feature List */
 
