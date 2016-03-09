@@ -128,10 +128,6 @@ $main-theme-color-background: #d96760;
 }
 
 figure {
-  img {
-
-  }
-
   figcaption {
     font-size: 80%;
     text-align: center;
@@ -142,9 +138,32 @@ figure {
 .article-sharing {
   max-width: 350px;
   display: block;
-  margin: 0 auto;
+  margin: 25px auto 50px auto;
+  p {
+    text-align: center;
+    font-size: 70%;
+    margin-bottom: 0;
+    text-transform: uppercase;
+  }
 }
 
+.neighbors {
+  h3 {
+    font-size: 18pt;
+    margin-bottom: 0px !important;
+  }
+  .article-summary {
+    font-size: 90%;
+    line-height: 1em;
+    margin-top: 10px;
+  }
+  .direction {
+    text-transform: uppercase;
+    font-size: 70%;
+    margin-top: 12px;
+    opacity: 0.5;
+  }
+}
 
 
 /*  T O R T E X - T I M E  */
@@ -716,6 +735,12 @@ h2.widget-title {
     margin: 0 auto 26px auto;
     display: block;
     max-width: 775px;
+  }
+
+  hr {
+    .after-content {
+
+    }
   }
 }
 

@@ -53,7 +53,7 @@ DEFAULT_PAGINATION = 8
 TAG_CLOUD_SORTING = 'alphabetically'
 
 PLUGIN_PATHS = ['plugins']
-PLUGINS = ['tag_cloud', 'neighbors', 'series', 'summary', 'portfolio']
+PLUGINS = ['tag_cloud', 'neighbors', 'series', 'summary', 'portfolio', 'neighbors']
 #PLUGINS = ['tspr', 'summary', 'tag_cloud', 'series', 'figure-generator', 'json-search-system', 'bootstrapify']
 #PLUGINS = ['tspr', 'summary', 'json-search-system', 'bootstrapify']
 
