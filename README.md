@@ -4,6 +4,7 @@ This repo contains the compilation environment for my static personal site __tib
 
 ### Requirements
 - python 3.4 or above
+- npm installed
 
 ### Used technologies
 - Python
