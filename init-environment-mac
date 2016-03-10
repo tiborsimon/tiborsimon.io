@@ -1,6 +1,8 @@
+#!/bin/bash
 
 pip3 install virtualenv
 virtualenv site-env
-source site-env/bin/activate
 pip install -r requirements-pip.txt
-source site-env/bin/activate
+npm install
+
+echo 'Init finished. Run the following command: source site-env/bin/activate'

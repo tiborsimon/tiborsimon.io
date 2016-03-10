@@ -17,4 +17,9 @@ pip install -r requirements-pip.txt
 @echo -------------------------------------------------------------------------
 @echo F I N I S H E D !   L I S T I N G   I N S T A L L E D   P A C K A G E S
 pip list
+
+@echo.
+@echo -------------------------------------------------------------------------
+@echo I N S T A L L I N G   N P M   P A C K A G E S
+npm install
 pause
