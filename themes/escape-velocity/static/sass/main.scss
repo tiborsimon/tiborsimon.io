@@ -564,14 +564,14 @@ h2.widget-title {
     text-align: center;
     height: 25px;
     padding-top: 2px;
-    transition: all 0.7s;
+    transition: all 0.4s;
 
     &:first-child {
       border-right: 1px dashed rgba(#ffffff, 0.54);
     }
 
     &:hover {
-      background: #939196 url("../css/images/overlay.png");
+      background: #000 url("../css/images/overlay.png");
     }
   }
 }
