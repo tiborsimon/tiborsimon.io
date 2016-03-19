@@ -5,3 +5,4 @@ tspr-store.pickle
 plugins/tspr/.idea/*
 .DS_Store
 node_modules
+themes/escape-velocity/static/css/main.css
