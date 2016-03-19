@@ -35,17 +35,6 @@ PAGE_PATHS = ['pages']
 PAGE_URL = '{slug}/'
 PAGE_SAVE_AS = '{slug}/index.html'
 
-
-# Blogroll
-LINKS = (('Pelican', 'http://getpelican.com/'),
-         ('Python.org', 'http://python.org/'),
-         ('Jinja2', 'http://jinja.pocoo.org/'),
-         ('You can modify those links in your config file', '#'),)
-
-# Social widget
-SOCIAL = (('You can add links in your config file', '#'),
-          ('Another social link', '#'),)
-
 USE_PAGER = True
 PAGINATED_DIRECT_TEMPLATES = ('archives',)
 DEFAULT_PAGINATION = 8
@@ -76,8 +65,7 @@ SITEMAP = {
 
 STATIC_PATHS = [
 	'extras',
-	'images',
-    'ajax'
+	'images'
 ]
 
 EXTRA_PATH_METADATA = {
