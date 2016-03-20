@@ -10,7 +10,6 @@ TIMEZONE = 'Europe/Budapest'
 DEFAULT_DATE_FORMAT = '%a %d %B %Y'
 
 AUTHOR = 'Tibor Simon'
-AUTHOR_POSITION = 'Engineer and guitarist'
 AVATAR = 'images/tibor4.jpg'
 DISQUS_SITENAME = 'tiborsimon'
 
@@ -24,7 +23,6 @@ RELATIVE_URLS = False
 
 LOAD_CONTENT_CACHE = False
 
-USE_FOLDER_AS_CATEGORY = True
 
 # Permalink settings
 ARTICLE_PATHS = ['articles']
@@ -42,9 +40,7 @@ DEFAULT_PAGINATION = 8
 TAG_CLOUD_SORTING = 'alphabetically'
 
 PLUGIN_PATHS = ['plugins']
-PLUGINS = ['tag_cloud', 'neighbors', 'series', 'summary', 'portfolio', 'neighbors']
-#PLUGINS = ['tspr', 'summary', 'tag_cloud', 'series', 'figure-generator', 'json-search-system', 'bootstrapify']
-#PLUGINS = ['tspr', 'summary', 'json-search-system', 'bootstrapify']
+PLUGINS = ['tag_cloud', 'series', 'summary', 'portfolio', 'neighbors']
 
 SITEMAP = {
     'format': 'xml',
@@ -60,9 +56,6 @@ SITEMAP = {
     }
 }
 
-# SITELOGO = 'images/tiborsimon-logo-300.png'
-# HIDE_SITENAME = True
-
 STATIC_PATHS = [
 	'extras',
 	'images'
@@ -71,15 +64,14 @@ STATIC_PATHS = [
 EXTRA_PATH_METADATA = {
     'extras/favicon.ico': {'path': 'favicon.ico'},
     'extras/googledc76f0415d29fdd5.html': {'path': 'googledc76f0415d29fdd5.html'},
-    'extras/robots.txt': {'path': 'robots.txt'},
-    'extras/.htaccess': {'path': '.htaccess'}
+    'extras/lillus-and-tibcsi.html': {'path': 'lillus-and-tibcsi.html'},
+    'extras/robots.txt': {'path': 'robots.txt'}
 }
 
 PDF_PROCESSOR = False
 
 # T H E M E   S E T T I N G S -------------------------------------------------
 THEME = "themes/escape-velocity"
-
 FAVICON = 'favicon.ico'
 
 # JINJA FILTERS ---------------------------------------------------------------
