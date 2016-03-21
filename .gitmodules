@@ -4,3 +4,6 @@
 [submodule "output"]
 	path = output
 	url = git@github.com:tiborsimon/tiborsimon.github.io.git
+[submodule "worklog"]
+	path = worklog
+	url = git@github.com:tiborsimon/worklog.git
