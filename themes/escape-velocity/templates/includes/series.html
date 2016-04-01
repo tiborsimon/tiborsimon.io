@@ -4,8 +4,8 @@
     <h2>This article is part {{ article.series.index }} of {{ article.series.all|length }} of the <b>{{ article.series.name }}</b> series</h2>
   </div>
   {% if article.series.all_previous %}
-  <div class="series-post previous">
-    {% for article in article.series.all_previous %}
+  {% for article in article.series.all_previous %}
+    <div class="series-post previous">
 
       <div class="article-date">
         <i class="fa fa-clock-o"></i> Posted on <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
@@ -27,8 +27,8 @@
         {% endif %}
 
       </div>
-    {% endfor %}
-  </div>
+    </div>
+  {% endfor %}
   {% endif %}
 
   <div class="series-post current">
@@ -54,8 +54,8 @@
   </div>
 
   {% if article.series.all_next %}
-  <div class="series-post next">
-    {% for article in article.series.all_next %}
+  {% for article in article.series.all_next %}
+    <div class="series-post next">
 
       <div class="article-date">
         <i class="fa fa-clock-o"></i> Posted on <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
@@ -76,8 +76,8 @@
             {% endfor %}
         {% endif %}
       </div>
-    {% endfor %}
-  </div>
+    </div>
+  {% endfor %}
   {% endif %}
 </aside>
 {% endif %}
