@@ -673,6 +673,16 @@ h2.widget-title {
     list-style-type: disc;
   }
 
+  .code-name {
+    font-size: .7em;
+    text-align: right;
+    margin: -11px;
+    position: relative;
+    top: 13px;
+    right: 20px;
+    color: #a1a1a1;
+  }
+
   pre, code {
     font-family: monospace;
     line-height: 18px;
