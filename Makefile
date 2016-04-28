@@ -1,5 +1,5 @@
 PY?=python3
-PELICAN?=pelican3
+PELICAN?=pelican
 PELICANOPTS=
 
 BASEDIR=.
