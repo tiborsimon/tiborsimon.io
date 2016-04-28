@@ -4,5 +4,6 @@ pip3 install -r requirements-pip.txt
 npm install
 brew install sassc
 npm install webpack -g
+git submodule update --depth 1 --init
 
 echo 'Init finished.'
