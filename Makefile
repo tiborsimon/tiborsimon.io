@@ -1,5 +1,5 @@
-PY?=python
-PELICAN?=pelican
+PY?=python3
+PELICAN?=pelican3
 PELICANOPTS=
 
 BASEDIR=.

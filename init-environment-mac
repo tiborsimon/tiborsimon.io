@@ -1,8 +1,8 @@
 #!/bin/bash
 
-pip install virtualenv
-virtualenv site-env
-pip install -r requirements-pip.txt
+pip3 install -r requirements-pip.txt
 npm install
+brew install sassc
+npm install webpack -g
 
 echo 'Init finished. Run the following command: source site-env/bin/activate'
