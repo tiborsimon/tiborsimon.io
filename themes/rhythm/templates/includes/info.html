@@ -1,0 +1,47 @@
+
+<!-- Author, Categories, Comments -->
+<div class="blog-item-data" style="margin-bottom: 0 !important">
+    
+    <i class="fa fa-clock-o"></i> Posted on <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
+    {% if article.modified %}
+    <span class="modified"><i class="fa fa-refresh"></i> Updated on <time datetime="{{ article.modified.isoformat() }}"> {{ article.locale_date }}</time></span>
+    {% endif %}
+
+    <span class="separator">&nbsp;</span>
+
+    <a href="#"><i class="fa fa-user"></i> {{ AUTHOR }}</a>
+    
+    <span class="separator">&nbsp;</span>
+
+    <i class="fa fa-folder-open"></i>
+    <a href=""> {{ article.category }}</a>
+
+    <span class="separator">&nbsp;</span>
+
+    <!-- TAGS -->
+    {% if article.tags %}
+    <i class="fa fa-tags padded-icon"></i>
+    {% for tag in article.tags %}
+    <a href="{{ SITEURL }}/{{ tag.url }}"> {{ tag }}</a>{% if not loop.last %}, {% endif %}
+    {% endfor %}
+    <span class="separator">&nbsp;</span>
+    {% endif %}
+
+
+    <!-- SERIES -->
+    {% if article.series %}
+        <i class="fa fa-briefcase"></i>
+        Part {{ article.series.index}} of {{ article.series.all|length }} in <i>{{ article.series.name }}</i>
+        <span class="separator">&nbsp;</span>
+    {% endif %}
+
+
+    <!-- GITHUB -->
+    {% if article.repo %}
+    <span><a href="{{ article.repo }}" target="_blank"><i class="fa fa-github-square"></i> Repo</a></span>
+    <span class="separator">&nbsp;</span>
+    {% endif %}
+
+
+    <a href="#"><i class="fa fa-comments"></i> 5 Comments</a>
+</div>

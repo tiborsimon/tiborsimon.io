@@ -1,0 +1,21 @@
+
+<!-- Widget -->
+<div class="widget">
+
+    <h5 class="widget-title font-alt">Categories</h5>
+
+    <div class="widget-body">
+        <ul class="clearlist widget-menu">
+        {% for category, artiles in categories %}
+          <li>
+              <a href="{{ SITEURL }}/category/{{ category }}.html" title="Category: {{ category }}">{{ category }}</a>
+              <small>
+                  - ({{ articles|category_count(category) }})
+              </small>
+          </li>
+        {% endfor %}
+        </ul>
+    </div>
+
+</div>
+<!-- End Widget -->

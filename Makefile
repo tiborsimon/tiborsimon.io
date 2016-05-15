@@ -52,7 +52,7 @@ webpack_bundle:
 	@echo '-> Generating Webpack js bundle..'
 	@webpack
 
-local: sass compile webpack_bundle clean_output
+local: compile 
 	@echo ''
 	@echo '-> Done!'
 

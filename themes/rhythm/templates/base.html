@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block title %}
+            <title>Tibor Simon - Engineering with Passion</title>
+        {% endblock title %}
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {% block meta %}
+            <meta name="author" content="Tibor Simon" />
+            <meta name="description" content="{{ DESCRIPTION }}" />
+        {% endblock %}
+
+        {% block opengraph %}
+            <meta property="fb:app_id" content="551628881652865"/>
+            <meta property="og:site_name" content="{{ SITENAME }}" />
+            <meta property="og:type" content="website"/>
+            <meta property="og:title" content="{{ SITE_TITLE }}"/>
+            <meta property="og:url" content="{{ SITEURL }}"/>
+            <meta property="og:description" content="{{ DESCRIPTION }}"/>
+            <meta property="og:image" content="{{ SITEURL }}/{{ AVATAR }}"/>
+        {% endblock %}
+
+        {% block twitter_card %}
+            <meta name="twitter:card" content="summary" />
+            <meta name="twitter:site" content="@tiborsimonio" />
+            <meta name="twitter:title" content="{{ SITE_TITLE }}" />
+            <meta name="twitter:description" content="{{ SHORT_DESCRIPTION }}" />
+            <meta name="twitter:image" content="{{ SITEURL }}/{{ AVATAR }}" />
+        {% endblock %}
+
+        {% block head %}
+        {% endblock head %}
+
+        {% block favicon %}
+            <link rel="shortcut icon" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/assets/images/logo/favicon.png">
+            <link rel="apple-touch-icon" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/assets/images/logo/apple-touch-icon.png">
+            <link rel="apple-touch-icon" sizes="72x72" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/assets/images/logo/apple-touch-icon-72x72.png">
+            <link rel="apple-touch-icon" sizes="114x114" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/assets/images/logo/apple-touch-icon-114x114.png">
+        {% endblock favicon %}
+        
+        <!-- CSS -->
+        <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/style.css">
+        <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/style-responsive.css">
+        <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/animate.min.css">
+        <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/vertical-rhythm.min.css">
+        <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/owl.carousel.css">
+        <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/magnific-popup.css">        
+
+        
+    </head>
+    <body class="appear-animate">
+        
+        <!-- Page Loader -->        
+        <div class="page-loader">
+            <div class="loader">Loading...</div>
+        </div>
+        <!-- End Page Loader -->
+        
+        <!-- Page Wrap -->
+        <div class="page" id="top">
+            
+                        
+            {% block nav %}
+            {% include 'includes/nav-dark.html' %}
+            {% endblock nav %}
+            
+            {% block header %}
+            {% endblock header %}
+            
+            
+            {% block content %}
+            {% endblock content %}
+            
+            
+            {% include 'includes/footer.html' %}
+        
+        
+        </div>
+        <!-- End Page Wrap -->
+        
+        
+        <!-- JS -->
+        <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.easing.1.3.js"></script>
+        <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bootstrap.min.js"></script>        
+        <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/SmoothScroll.js"></script>
+        <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.scrollTo.min.js"></script>
+        <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.localScroll.min.js"></script>
+        <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.viewport.mini.js"></script>
+        <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.countTo.js"></script>
+        <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.appear.js"></script>
+        <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.sticky.js"></script>
+        <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.parallax-1.1.3.js"></script>
+        <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.fitvids.js"></script>
+        <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/owl.carousel.min.js"></script>
+        <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/isotope.pkgd.min.js"></script>
+        <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/imagesloaded.pkgd.min.js"></script>
+        <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.magnific-popup.min.js"></script>
+        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
+        <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/gmap3.min.js"></script>
+        <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/wow.min.js"></script>
+        <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/masonry.pkgd.min.js"></script>
+        <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.simple-text-rotator.min.js"></script>
+        <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/all.js"></script>
+        <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/contact-form.js"></script>
+        <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.ajaxchimp.min.js"></script>        
+        <!--[if lt IE 10]><script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/placeholder.js"></script><![endif]-->
+        
+    </body>
+</html>

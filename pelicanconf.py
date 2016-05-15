@@ -71,7 +71,7 @@ EXTRA_PATH_METADATA = {
 PDF_PROCESSOR = False
 
 # T H E M E   S E T T I N G S -------------------------------------------------
-THEME = "themes/escape-velocity"
+THEME = "themes/rhythm"
 FAVICON = 'favicon.ico'
 
 # JINJA FILTERS ---------------------------------------------------------------
