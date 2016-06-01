@@ -11,16 +11,11 @@ PELICAN = None
 
 
 def load_portfolios():
-    portfolio_path = './content/portfolio'
-    dirs = os.listdir(portfolio_path)
-    portfolios = []
-    for d in dirs:
-        p = os.path.join(portfolio_path, d)
-        with open(p) as f:
-            portfolio = json.load(f)
-        portfolio['d'] = parse(portfolio['date'])
-        portfolios.append(portfolio)
-
+    portfolio_path = './content/portfolio/portfolios.json'
+    with open(portfolio_path) as f:
+        portfolios = json.load(f)
+    for p in portfolios:
+        p['d'] = parse(p['date'])
     portfolios.sort(key=lambda p:p['d'], reverse=True)
     return portfolios
 

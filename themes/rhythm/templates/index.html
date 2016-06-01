@@ -2,7 +2,7 @@
 
 {% block header %}
 <!-- Head Section -->
-<section class="home-section bg-dark-alfa-50 parallax-2 fixed-height-small" data-background="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/assets/images/tibi-room.jpg">
+<section class="home-section bg-dark-alfa-50 parallax-2 fixed-height-small" data-background="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/assets/images/home-2-5.jpg">
     <div class="js-height-parent container">
 
         <!-- Hero Content -->
@@ -12,15 +12,15 @@
                 <div class="row">
 
                     <div class="col-md-8 align-left">
-                        <h1 class="hs-line-11 font-alt mb-20 mb-xs-0">Header Dark Transparent</h1>
+                        <h1 class="hs-line-11 font-alt mb-20 mb-xs-0">Engineering with passion</h1>
                         <div class="hs-line-4 font-alt">
-                            Lorem ipsum dolor sit amet consectetur
+                            Tibor Simon's personal website
                         </div>
                     </div>
 
                     <div class="col-md-4 mt-30">
                         <div class="mod-breadcrumbs font-alt align-right">
-                            <a href="#">Home</a>&nbsp;/&nbsp;<a href="#">Elements</a>&nbsp;/&nbsp;<span>Page</span>
+                            <a href="{{ SITEURL }}">Home</a>&nbsp;/&nbsp;
                         </div>
 
                     </div>
@@ -37,37 +37,9 @@
 
 
 {% block content %}
-<!-- Section -->
-<section class="page-section">
-    <div class="relative container">
 
-        <div class="section-text">
-            <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque velit, ultrices in vulputate vitae, volutpat iaculis velit. In congue dolor a ligula cursus aliquam. Aliquam id malesuada metus. Donec ultricies lorem augue, ac fringilla felis aliquet et. Integer a rutrum dui, id varius neque. Donec orci massa, porttitor sit amet velit non, interdum feugiat lacus. Fusce tincidunt id erat at consequat. Cras vel aliquet mauris, ac tempor lorem. Donec faucibus sodales eros sed pretium. Praesent ut scelerisque lectus, ut feugiat mi.
-            </p>
-            <p>
-            Nunc vulputate semper erat, non iaculis sapien congue sit amet. Duis non nulla volutpat, dignissim leo sit amet, porta nunc. Donec placerat fermentum metus ac scelerisque. In id sollicitudin nulla. Suspendisse potenti. Integer aliquam orci aliquam eros posuere ornare. Fusce augue felis, maximus non lacus vitae, ullamcorper dignissim leo. Ut congue feugiat turpis at aliquam. Donec eros neque, accumsan sed venenatis volutpat, tempor at metus. Curabitur vel vestibulum ipsum, convallis cursus nisl. Mauris scelerisque gravida faucibus. Morbi vitae sapien nibh. Integer libero orci, ullamcorper in tincidunt at, molestie quis ipsum.
-            </p>
-        </div>
+    {% include 'includes/articles.html' %}
+    <hr class="mt-0 mb-0 ">
+    {% include 'includes/portfolios.html' %}
 
-    </div>
-</section>
-
-<!-- Portfolio Section -->
-<section class="page-section pb-0" id="portfolio">
-    <div class="relative">
-        <h2 class="section-title font-alt mb-70 mb-sm-40">Portfolio</h2>
-
-        <!-- Works Filter -->                    
-        <div class="works-filter font-alt align-center"></div>                    
-        <!-- End Works Filter -->
-
-        <!-- Works Grid -->
-        <ul class="works-grid work-grid-5 clearfix font-alt hover-white hide-titles" id="work-grid"></ul>
-        <!-- End Works Grid -->
-
-    </div>
-</section>
-<!-- End Portfolio Section -->
-<!-- End Section -->
 {% endblock content %}

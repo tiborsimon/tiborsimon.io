@@ -1296,8 +1296,8 @@ a.btn-mod:focus{
 	font-size: 30px;
     font-weight: 400;
 	text-transform: uppercase;
-	letter-spacing: 0.5em;
-    line-height: 1.8;
+	/* letter-spacing: 0.5em; */
+    /* line-height: 1.8; */
     opacity: .9;
 }
 .hs-line-12{
@@ -3776,7 +3776,7 @@ a.logo:hover{
 }
 .post-prev-title{
     margin-bottom: 6px;
-    font-size: 15px;
+    font-size: 16px;
     text-transform: uppercase;
     letter-spacing: 0.2em;
 }
@@ -3810,11 +3810,15 @@ a.logo:hover{
     color: #111;
 }
 .post-prev-text{
-    margin-bottom: 22px;
+    margin-bottom: 10px;
     color: #777;
     font-size: 15px;
     font-weight: 300;
-    line-height: 1.75;
+    line-height: 1.4;
+    text-align: justify;
+}
+.post-prev-text p{
+    margin-bottom: 0px;
 }
 
 
@@ -4492,7 +4496,7 @@ a.blog-item-more:hover{
 	margin-top: 10px;
 }
 .widget{
-	margin-bottom: 60px;
+	margin-bottom: 40px;
 }
 .widget .img-left{
     margin: 0 10px 10px 0;
@@ -4558,10 +4562,10 @@ a.blog-item-more:hover{
 .widget-menu{
 	font-size: 13px;
 }
-.widget-menu li{
-	padding: 5px 0;
+/* .widget-menu li{ */
+/* 	padding: 5px 0; */
 	
-}
+/* } */
 .widget-menu li a{
 	color: #555;
 	text-decoration: none;

@@ -49,6 +49,9 @@
         <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/vertical-rhythm.min.css">
         <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/owl.carousel.css">
         <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/magnific-popup.css">        
+        <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/rrssb.css">        
+        <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/custom.css">        
+        <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/lightbox.min.css">        
 
         
     </head>
@@ -108,7 +111,17 @@
         <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/all.js"></script>
         <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/contact-form.js"></script>
         <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.ajaxchimp.min.js"></script>        
+        <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/rrssb.js"></script>        
+        <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/lightbox.min.js"></script>        
         <!--[if lt IE 10]><script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/placeholder.js"></script><![endif]-->
+
+        <script>
+            var lightbox = new Lightbox();
+                lightbox.load();
+        </script>
+
+        {% block script %}
+        {% endblock script %}
         
     </body>
 </html>

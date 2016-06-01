@@ -1,0 +1,75 @@
+
+{% extends "base.html" %}
+
+{% block nav %}
+{% include 'includes/nav-white.html' %}
+{% endblock nav %}
+
+{% block header %}
+<section class="small-section bg-gray-lighter">
+    <div class="relative container align-left">
+
+        <div class="row">
+
+            <div class="col-md-8">
+                <h1 class="hs-line-11 font-alt mb-20 mb-xs-0">Blog Archives</h1>
+            </div>
+
+            <div class="col-md-4 mt-30">
+                <div class="mod-breadcrumbs font-alt align-right">
+                    <a href="{{ SITEURL }}">Home</a>&nbsp;/&nbsp;<a href="{{ SITEURL }}/archives">Blog</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+{% endblock header %}
+
+
+{% block content %}
+
+{% if articles %}
+<!-- Section -->
+<section class="page-section" id="latest">
+    <div class="container relative">
+        <!-- <h2 class="section-title font-alt mb-70 mb-sm-40">Archives</h2> -->
+        <div class="row">
+            <!-- Content -->
+            <div class="col-sm-8">
+
+                <div class="row masonry">
+
+                <!-- Post Item -->
+                {% for article in (articles_page.object_list if articles_page else articles)[:8] %}
+                    {% include 'includes/article/masonry-item-6.html' %}
+                {% endfor %}
+                <!-- End Post Item -->
+
+                </div>
+
+                <!-- Pagination -->
+                {% include 'includes/pagination.html' %}
+                <!-- End Pagination -->
+
+            </div>
+            
+
+            <!-- Sidebar -->
+            <div class="col-sm-4 col-md-3 col-md-offset-1 sidebar">
+
+                {% include 'includes/widgets/categories.html' %}
+                {% include 'includes/widgets/tags.html' %}
+
+            </div>
+            <!-- End Sidebar -->
+
+        </div>
+
+    </div>
+</section>
+<!-- End Section -->
+{% endif %}
+
+{% endblock content %}
+

@@ -1,0 +1,55 @@
+{% if article.series %}
+<div class="widget">
+
+    <h5 class="widget-title font-alt">Series</h5>
+
+    <div class="widget-body">
+        <div class="widget-text clearfix">
+            This is article is part of the <b>{{ article.series.name }}</b> series.
+            Part {{ article.series.index }} of {{ article.series.all|length }}.
+            <ul class="clearlist widget-posts">
+
+                {% if article.series.all_previous %}
+                {% for article in article.series.all_previous %}
+                <li class="clearfix">
+                    <div class="widget-posts-descr">
+                        <b><a href="{{ SITEURL }}/{{ article.url }}" title="">{{ article.series.index }}. {{ article.title }}</a></b>
+                        <small><i class="fa fa-clock-o"></i> <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time></small> 
+                        <small><i class="fa fa-folder-open-o"></i> {{ article.category }}</small> 
+                    </div>
+                    <div class="series-summary">{{ article.summary|striptags }}</div>
+                </li>
+                {% endfor %}
+                {% endif %}
+
+
+
+                <li class="clearfix">
+                    <div class="widget-posts-descr">
+                        <b><a href="{{ SITEURL }}/{{ article.url }}" title="">{{ article.series.index }}. {{ article.title }}</a></b>
+                        <small><i class="fa fa-clock-o"></i> <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time></small> 
+                        <small><i class="fa fa-folder-open-o"></i> {{ article.category }}</small> 
+                    </div>
+                    <div class="series-summary">{{ article.summary|striptags }}</div>
+                </li>
+
+                {% if article.series.all_next %}
+                {% for article in article.series.all_next %}
+                <li class="clearfix">
+                    <div class="widget-posts-descr">
+                        <b><a href="{{ SITEURL }}/{{ article.url }}" title="">{{ article.series.index }}. {{ article.title }}</a></b>
+                        <small><i class="fa fa-clock-o"></i> <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time></small> 
+                        <small><i class="fa fa-folder-open-o"></i> {{ article.category }}</small> 
+                    </div>
+                    <div class="series-summary">{{ article.summary|striptags }}</div>
+                </li>
+                {% endfor %}
+                {% endif %}
+
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endif %}

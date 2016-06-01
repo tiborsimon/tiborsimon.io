@@ -26,8 +26,8 @@ LOAD_CONTENT_CACHE = False
 
 # Permalink settings
 ARTICLE_PATHS = ['articles']
-ARTICLE_URL = '{category}/{slug}/'
-ARTICLE_SAVE_AS = '{category}/{slug}/index.html'
+ARTICLE_URL = 'blog/{category}/{slug}/'
+ARTICLE_SAVE_AS = 'blog/{category}/{slug}/index.html'
 
 PAGE_PATHS = ['pages']
 PAGE_URL = '{slug}/'
