@@ -47,16 +47,17 @@ compile-d: delete_output
 	echo '-> Compiling Pelican.. [DEBUG]'
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS) -D
 
-webpack_bundle:
+bundle:
 	echo ''
-	echo '-> Generating Webpack js bundle..'
-	webpack
+	echo '-> Running gulp tasks..'
+	gulp css js
+	gulp css-min js-min
 
-local: compile webpack_bundle
+local: compile bundle
 	echo ''
 	echo '-> Done!'
 
-local-d: sass compile-d webpack_bundle clean_output
+local-d: compile-d webpack_bundle clean_output
 	echo ''
 	echo '-> Done!'
 
