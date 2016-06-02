@@ -35,26 +35,26 @@ gulp.task('js', function() {
 'themes/rhythm/static/js/lightbox.min.js'
 ])
     .pipe(concat('bundle.js'))
-    .pipe(gulp.dest('output/resources/js/'));
+    .pipe(gulp.dest('output/theme/js/'));
 });
 
 gulp.task('js-min', function() {
-  return gulp.src('output/resources/js/bundle.js')
+  return gulp.src('output/theme/js/bundle.js')
     .pipe(uglify())
     .pipe(rename({suffix: '.min'}))
-    .pipe(gulp.dest('output/resources/js/'));
+    .pipe(gulp.dest('output/theme/js/'));
 });
 
 gulp.task('css', function () {
   return gulp.src('themes/rhythm/static/css/*.css')
     .pipe(concatCss("bundle.css"))
-    .pipe(gulp.dest('output/resources/css/'));
+    .pipe(gulp.dest('output/theme/css/'));
 });
  
 gulp.task('css-min', function () {
-	gulp.src('output/resources/css/bundle.css')
+	gulp.src('output/theme/css/bundle.css')
 		.pipe(cssmin())
 		.pipe(rename({suffix: '.min'}))
-		.pipe(gulp.dest('output/resources/css/'));
+		.pipe(gulp.dest('output/theme/css/'));
 });
 

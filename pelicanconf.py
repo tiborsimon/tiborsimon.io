@@ -40,7 +40,7 @@ DEFAULT_PAGINATION = 8
 TAG_CLOUD_SORTING = 'alphabetically'
 
 PLUGIN_PATHS = ['plugins']
-PLUGINS = ['tag_cloud', 'series', 'summary', 'portfolio', 'neighbors']
+PLUGINS = ['tag_cloud', 'series', 'summary', 'portfolio', 'neighbors', 'minify']
 
 SITEMAP = {
     'format': 'xml',

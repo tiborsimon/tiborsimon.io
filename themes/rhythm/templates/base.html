@@ -42,7 +42,7 @@
         {% endblock favicon %}
         
         <!-- CSS -->
-        <link rel="stylesheet" href="{{ SITEURL }}/resources/css/bundle.min.css">
+        <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bundle.min.css">
         
     </head>
     <body class="appear-animate">
@@ -77,8 +77,8 @@
         
         
         <!-- JS -->
-        <script type="text/javascript" src="{{ SITEURL }}/resources/js/bundle.min.js"></script>
-        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
+        <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bundle.min.js"></script>
+        <!-- <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script> -->
 
 
         {% block script %}
