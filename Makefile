@@ -52,7 +52,7 @@ webpack_bundle:
 	echo '-> Generating Webpack js bundle..'
 	webpack
 
-local: compile 
+local: compile webpack_bundle
 	echo ''
 	echo '-> Done!'
 
