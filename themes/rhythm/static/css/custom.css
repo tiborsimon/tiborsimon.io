@@ -81,6 +81,55 @@
 .tortex-time-wrapper .tortex-latest {
   clear: both; }
 
+#content .divider {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 6pt;
+  font-size: .6em;
+  position: relative;
+  top: 22px;
+  display: block;
+  line-height: 13px;
+  width: 100%;
+  border-bottom: 1px solid #eee; }
+
+#content .code-name {
+  font-size: .7em;
+  text-align: right;
+  margin: -11px;
+  position: relative;
+  top: 6px;
+  right: 20px;
+  color: #a1a1a1;
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer */
+  -khtml-user-select: none;
+  /* KHTML browsers (e.g. Konqueror) */
+  -webkit-user-select: none;
+  /* Chrome, Safari, and Opera */
+  -webkit-touch-callout: none;
+  /* Disable Android and iOS callouts*/ }
+
+#content pre, #content code {
+  font-family: monospace;
+  line-height: 18px;
+  font-size: 11pt;
+  margin-bottom: 32px;
+  border: 1px solid #e1e1e1;
+  padding: 10px;
+  background-color: #ededed;
+  overflow-x: auto;
+  color: #8a8a8a; }
+
+#content pre {
+  border-radius: 3px;
+  padding: 8px; }
+
+#content code {
+  border-radius: 3px;
+  padding: 1px 2px; }
 
 #content table {
   width: 100%;
@@ -120,4 +169,15 @@
 
 .series-summary {
     text-align: justify;
+}
+
+/* github contribution calendar */
+.calendar-graph text.month {
+    display: none !important;
+}
+.contrib-footer {
+    display: none !important;
+}
+.calendar-graph text.month, .calendar-graph text.wday {
+    display: none !important;
 }

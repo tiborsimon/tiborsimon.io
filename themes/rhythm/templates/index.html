@@ -2,7 +2,7 @@
 
 {% block header %}
 <!-- Head Section -->
-<section class="home-section bg-dark-alfa-50 parallax-2 fixed-height-small" data-background="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/assets/images/home-2-5.jpg">
+<section class="home-section bg-dark-alfa-50 parallax-2 fixed-height-small" data-background="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/assets/images/app2.jpg">
     <div class="js-height-parent container">
 
         <!-- Hero Content -->
@@ -38,8 +38,14 @@
 
 {% block content %}
 
+    {% include 'includes/about2.html' %}
+    <hr class="mt-0 mb-0 ">
     {% include 'includes/articles.html' %}
     <hr class="mt-0 mb-0 ">
     {% include 'includes/portfolios.html' %}
 
 {% endblock content %}
+
+{% block script %}
+    {% include 'includes/github-calendar-scripts.html' %}
+{% endblock script %}

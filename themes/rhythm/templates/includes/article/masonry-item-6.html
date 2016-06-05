@@ -18,15 +18,22 @@
 
         <i class="fa fa-clock-o"></i> <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
         {% if article.modified %}
+            <span style="margin-left: 6px;"> </span>
             <span class="modified"><i class="fa fa-refresh"></i> <time datetime="{{ article.modified.isoformat() }}"> {{ article.locale_date }}</time></span>
         {% endif %}
+
+        <span style="margin-left: 6px;"> </span>
 
 
         <i class="fa fa-comments"></i><a href="{{ SITEURL }}/{{ article.url }}#disqus_thread"> 0 Comments</a>
 
+        <span style="margin-left: 6px;"> </span>
+
         <i class="fa fa-folder-open"></i>
         <a href="{{ SITEURL }}/category/{{ article.category }}.html"> {{ article.category }}</a>
 
+
+        <span style="margin-left: 6px;"> </span>
 
         <!-- TAGS -->
         {% if article.tags %}
@@ -36,6 +43,7 @@
         {% endfor %}
         {% endif %}
 
+        <span style="margin-left: 6px;"> </span>
 
         <!-- SERIES -->
         {% if article.series %}
@@ -43,6 +51,7 @@
             Part {{ article.series.index}} of {{ article.series.all|length }} in <i>{{ article.series.name }}</i>
         {% endif %}
 
+        <span style="margin-left: 6px;"> </span>
 
         <!-- GITHUB -->
         {% if article.repo %}

@@ -31,11 +31,16 @@ delete_output:
 clean_output:
 	echo ''
 	echo '-> Cleaning up..'
-	# rm -rf $(OUTPUTDIR)/theme/sass
+
 	mv $(OUTPUTDIR)/theme/js/bundle.min.js $(OUTPUTDIR)/theme/bundle.min.js
 	rm -rf $(OUTPUTDIR)/theme/js
 	mkdir $(OUTPUTDIR)/theme/js
 	mv $(OUTPUTDIR)/theme/bundle.min.js $(OUTPUTDIR)/theme/js/bundle.min.js
+
+	mv $(OUTPUTDIR)/theme/css/bundle.min.css $(OUTPUTDIR)/theme/bundle.min.css
+	rm -rf $(OUTPUTDIR)/theme/css
+	mkdir $(OUTPUTDIR)/theme/css
+	mv $(OUTPUTDIR)/theme/bundle.min.css $(OUTPUTDIR)/theme/css/bundle.min.css
 
 compile: delete_output
 	echo ''
@@ -71,17 +76,17 @@ else
 	cd $(OUTPUTDIR) && $(PY) -m pelican.server
 endif
 
-publish:
+publish: delete_output
 	echo ''
 	echo '-> Compiling Pelican..'
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
 
-publish-d:
+publish-d: delete_output
 	echo ''
 	echo '-> Compiling Pelican.. [DEGUG]'
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS) -D
 
-github: sass publish webpack_bundle clean_output
+github: publish bundle
 	echo ''
 	echo '-> Pushing to tiborsimon.io..'
 	cd $(OUTPUTDIR); git add --all; git commit -m "Site push"; git push
@@ -89,7 +94,7 @@ github: sass publish webpack_bundle clean_output
 	echo '-> Saving pushed site to superproject..'
 	git add $(OUTPUTDIR); git commit -m "Site pushed"; git push
 
-github-d: sass publish-d webpack_bundle clean_output
+github-d: publish-d bundle
 	echo ''
 	echo '-> Pushing to tiborsimon.io..'
 	cd $(OUTPUTDIR); git add --all; git commit -m "Site push"; git push

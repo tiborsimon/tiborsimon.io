@@ -13,7 +13,7 @@
                 {% for article in article.series.all_previous %}
                 <li class="clearfix">
                     <div class="widget-posts-descr">
-                        <b><a href="{{ SITEURL }}/{{ article.url }}" title="">{{ article.series.index }}. {{ article.title }}</a></b>
+                        <a class="font-alt" href="{{ SITEURL }}/{{ article.url }}" title="">{{ article.series.index }}. {{ article.title }}</a>
                         <small><i class="fa fa-clock-o"></i> <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time></small> 
                         <small><i class="fa fa-folder-open-o"></i> {{ article.category }}</small> 
                     </div>
@@ -26,7 +26,7 @@
 
                 <li class="clearfix">
                     <div class="widget-posts-descr">
-                        <b><a href="{{ SITEURL }}/{{ article.url }}" title="">{{ article.series.index }}. {{ article.title }}</a></b>
+                        <a class="font-alt" href="{{ SITEURL }}/{{ article.url }}" title="">{{ article.series.index }}. {{ article.title }}</a>
                         <small><i class="fa fa-clock-o"></i> <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time></small> 
                         <small><i class="fa fa-folder-open-o"></i> {{ article.category }}</small> 
                     </div>
@@ -37,7 +37,7 @@
                 {% for article in article.series.all_next %}
                 <li class="clearfix">
                     <div class="widget-posts-descr">
-                        <b><a href="{{ SITEURL }}/{{ article.url }}" title="">{{ article.series.index }}. {{ article.title }}</a></b>
+                        <a class="font-alt" href="{{ SITEURL }}/{{ article.url }}" title="">{{ article.series.index }}. {{ article.title }}</a>
                         <small><i class="fa fa-clock-o"></i> <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time></small> 
                         <small><i class="fa fa-folder-open-o"></i> {{ article.category }}</small> 
                     </div>
