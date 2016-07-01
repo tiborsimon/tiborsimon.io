@@ -31,8 +31,6 @@
             <meta name="twitter:image" content="{{ SITEURL }}/{{ AVATAR }}" />
         {% endblock %}
 
-        {% block head %}
-        {% endblock head %}
 
         {% block favicon %}
             <link rel="shortcut icon" href="{{ SITEURL }}/favicon.ico">
@@ -43,6 +41,9 @@
         
         <!-- CSS -->
         <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bundle.min.css">
+
+        {% block head %}
+        {% endblock head %}
         
     </head>
     <body class="appear-animate">

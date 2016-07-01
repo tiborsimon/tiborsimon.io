@@ -65,7 +65,8 @@ EXTRA_PATH_METADATA = {
     'extras/favicon.ico': {'path': 'favicon.ico'},
     'extras/googledc76f0415d29fdd5.html': {'path': 'googledc76f0415d29fdd5.html'},
     'extras/lillus-and-tibcsi.html': {'path': 'lillus-and-tibcsi.html'},
-    'extras/robots.txt': {'path': 'robots.txt'}
+    'extras/robots.txt': {'path': 'robots.txt'},
+    'extras/worklog.json': {'path': 'worklog.json'}
 }
 
 PDF_PROCESSOR = False

@@ -170,3 +170,14 @@
 .calendar-graph text.month, .calendar-graph text.wday {
     display: none !important;
 }
+
+
+/* timeline */
+.timeline-help {
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #aaa;
+}
+

@@ -1,36 +1,39 @@
 {% extends "base.html" %}
 
+{% block head %}
+{% endblock head %}
+
 {% block header %}
 <!-- Head Section -->
 <section class="home-section bg-dark-alfa-50 parallax-2 fixed-height-small" data-background="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/assets/images/app2.jpg">
-    <div class="js-height-parent container">
+	<div class="js-height-parent container">
 
-        <!-- Hero Content -->
-        <div class="home-content">
-            <div class="home-text">
+		<!-- Hero Content -->
+		<div class="home-content">
+			<div class="home-text">
 
-                <div class="row">
+				<div class="row">
 
-                    <div class="col-md-8 align-left">
-                        <h1 class="hs-line-11 font-alt mb-20 mb-xs-0">Engineering with passion</h1>
-                        <div class="hs-line-4 font-alt">
-                            Tibor Simon's personal website
-                        </div>
-                    </div>
+					<div class="col-md-8 align-left">
+						<h1 class="hs-line-11 font-alt mb-20 mb-xs-0">Engineering with passion</h1>
+						<div class="hs-line-4 font-alt">
+							Tibor Simon's personal website
+						</div>
+					</div>
 
-                    <div class="col-md-4 mt-30">
-                        <div class="mod-breadcrumbs font-alt align-right">
-                            <a href="{{ SITEURL }}">Home</a>&nbsp;/&nbsp;
-                        </div>
+					<div class="col-md-4 mt-30">
+						<div class="mod-breadcrumbs font-alt align-right">
+							<a href="{{ SITEURL }}">Home</a>&nbsp;/&nbsp;
+						</div>
 
-                    </div>
-                </div>
+					</div>
+				</div>
 
-            </div>
-        </div>
-        <!-- End Hero Content -->
+			</div>
+		</div>
+		<!-- End Hero Content -->
 
-    </div>
+	</div>
 </section>
 <!-- End Head Section -->
 {% endblock header %}
@@ -38,13 +41,110 @@
 
 {% block content %}
 
-    {% include 'includes/about.html' %}
-    {% include 'includes/articles.html' %}
-    <hr class="mt-0 mb-0 ">
-    {% include 'includes/portfolios.html' %}
+{% include 'includes/about.html' %}
+
+{% include 'includes/articles.html' %}
+<hr class="mt-0 mb-0 ">
+{% include 'includes/portfolios.html' %}
 
 {% endblock content %}
 
 {% block script %}
-    {% include 'includes/github-calendar-scripts.html' %}
+{% include 'includes/github-calendar-scripts.html' %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.min.js"></script>
+
+<script type="text/javascript">
+
+// load data via an ajax request. When the data is in, load the timeline
+$.ajax({
+	url: 'https://cdn.rawgit.com/tiborsimon/worklog/master/rendered/rendered_worklog.json',
+	success: function (data) {
+		// hide the "loading..." message
+		document.getElementById('loading').style.display = 'none';
+
+		// DOM element where the Timeline will be attached
+		var container = document.getElementById('timeline');
+
+		// Create a DataSet (allows two way data-binding)
+		var items = new vis.DataSet(data);
+
+		// Configuration for the Timeline
+		var options = {
+			zoomMin: 86400000*0.4,
+			zoomMax: 86400000*22,
+            zoomable: false
+		};
+
+		// Create a Timeline
+		var timeline = new vis.Timeline(container, items, options);
+
+        timelineZoom(-0.2);
+		timeline.setSelection([1]);
+        timeline.focus([1], {animation: false});
+
+		function timelinePrev () {
+			var current = timeline.getSelection();
+			var next = [current[0]+1];
+			timeline.focus(next);
+			timeline.setSelection(next);
+		}
+
+		function timelineNext () {
+			var current = timeline.getSelection();
+			var next = 1
+				if (current > 1) {
+					next = [current[0]-1];
+				}
+			timeline.focus(next);
+			timeline.setSelection(next);
+		}
+
+		function timelineZoom (percentage) {
+			var range = timeline.getWindow();
+			var interval = range.end - range.start;
+
+			timeline.setWindow({
+				start: range.start.valueOf() - interval * percentage,
+				end:   range.end.valueOf()   + interval * percentage
+			});
+		}
+
+		$(document.documentElement).keyup(function(event){
+            switch (event.keyCode) {
+                case 37:   // left
+                    timelinePrev();
+                    break;
+                case 39:   // right
+                    timelineNext();
+                    break;
+                case 72:  // h
+                    timelinePrev();
+                    break;
+                case 76:  // l
+                    timelineNext();
+                    break;
+                case 74:  // j
+                    timelineZoom(-0.2);
+                    break;
+                case 75:  //k
+                    timelineZoom(0.2);
+                    break;
+                default:
+                    break;
+            }
+		});
+	},
+	error: function (err) {
+		console.log('Error', err);
+		if (err.status === 0) {
+			alert('Failed to load data/basic.json.\nPlease run this example on a server.');
+		}
+		else {
+			alert('Failed to load data/basic.json.');
+		}
+	}
+});
+
+</script>
+
 {% endblock script %}
