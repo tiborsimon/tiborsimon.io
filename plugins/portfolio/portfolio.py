@@ -23,7 +23,7 @@ def load_portfolios():
 PORTFOLIO_ITEM = '''
 <!-- Work Item (Lightbox) -->
 <li class="work-item mix {category}">
-    <a href="{link}" class="{type}">
+    <a href="{link}" target="{target}" class="{type}">
         <div class="work-img">
             <img src="{image}" alt="{alt}" />
         </div>
@@ -49,10 +49,13 @@ def render_portfolio(portfolios):
 
         if portfolio['type'] == 'video':
             t = 'work-lightbox-link mfp-iframe'
+            target = "_top"
         elif portfolio['type'] == 'image':
             t = 'work-lightbox-link mfp-image'
+            target = "_top"
         else:
             t = 'work-ext-link'
+            target = "_blank"
             
         ret += PORTFOLIO_ITEM.format(
             link=portfolio['link'],
@@ -62,7 +65,8 @@ def render_portfolio(portfolios):
             date=portfolio['date'],
             description=portfolio['content'],
             category=' '.join(portfolio['category']),
-            type=t
+            type=t,
+            target=target
         )
     return ret
 
