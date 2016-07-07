@@ -1,6 +1,3 @@
-[submodule "content"]
-	path = content
-	url = git@github.com:tiborsimon/tiborsimon.io-content.git
 [submodule "output"]
 	path = output
 	url = git@github.com:tiborsimon/tiborsimon.github.io.git
