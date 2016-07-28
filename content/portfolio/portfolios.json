@@ -1,7 +1,18 @@
 [
     {
+        "title": "dotfiles",
+        "category": ["programming"],
+        "type": "link",
+        "thumbnail": {
+            "url": "images/portfolios/dotfiles-cover.jpg"
+        },
+        "link": "https://github.com/tiborsimon/dotfiles",
+        "date": "2016-01-07",
+        "content": "My unified configuration setup system with fast deployment."
+    },
+    {
         "title": "regart",
-        "category": ["programming", "embedded"],
+        "category": ["programming"],
         "type": "link",
         "thumbnail": {
             "url": "images/portfolios/regart-cover.jpg"
