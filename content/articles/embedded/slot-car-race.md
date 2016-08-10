@@ -2,7 +2,7 @@ title: SlotCar Race
 tags: embedded, dsp, accelerometer
 repo_link: https://github.com/tiborsimon/slotcar-race
 version: v1.0
-Date: 2015-01-15
+Date: 2013-05-19
 Summary: At the university me and my partner have faced a midterm project that contained a very interesting problem. We had to write an algorithm that drives a small electric car on it’s guided track.
 Repo: https://github.com/tiborsimon/slotcar-race
 Release_link: https://github.com/tiborsimon/slotcar-race/releases/latest
