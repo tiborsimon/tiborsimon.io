@@ -1,0 +1,30 @@
+{
+  "name": "tiborsimon.io-core",
+  "version": "4.0.0",
+  "description": "Node based core for tiborsimon.io",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tiborsimon/tiborsimon.io-core.git"
+  },
+  "keywords": [
+    "static",
+    "site",
+    "html",
+    "javascript",
+    "metalsmith",
+    "github"
+  ],
+  "author": "Tibor Simon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tiborsimon/tiborsimon.io-core/issues"
+  },
+  "homepage": "https://github.com/tiborsimon/tiborsimon.io-core#readme",
+  "devDependencies": {
+    "metalsmith": "^2.2.0"
+  }
+}
