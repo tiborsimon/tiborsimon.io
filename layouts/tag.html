@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tags - Tibor's Lab</title>
+</head>
+<body>
+ {{#each pagination.files}}
+  <article class="content-article">
+    <header>
+      <span class="timestamp">{{date}}</span>
+      <h2>
+        <a href="{{path}}">{{title}}</a>
+      </h2>
+      <hr>
+      <div class="snippet">{{snippet}}</div>
+      {{#each tags}}
+        <a href="/tags/{{slug}}">{{name}}</a>
+      {{/each}}
+    </header>
+  </article>
+ {{/each}}
+ <nav>
+  {{#if pagination.previous}}
+    <button>
+      <a href="/{{pagination.previous.path}}">Newer</a>
+      <href></href>
+    </button>
+  {{/if}}
+  {{#if pagination.next}}
+    <button>
+      <a href="/{{pagination.next.path}}">Older</a>
+      <href></href>
+    </button>
+  {{/if}}
+ </nav>
+</body>
+</html>

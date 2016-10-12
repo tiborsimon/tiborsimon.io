@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tibor's Lab</title>
+</head>
+<body>
+ {{#each pagination.files}}
+  <article class="content-article">
+    <header>
+      <span class="timestamp">{{date}}</span>
+      <h2>
+        <a href="{{path}}">{{title}}</a>
+      </h2>
+      <hr>
+      <div class="snippet">{{snippet}}</div>
+      {{#each tags}}
+        <a href="/tags/{{slug}}">{{name}}</a>
+      {{/each}}
+    </header>
+  </article>
+ {{/each}}
+ <nav>
+  {{#if pagination.previous}}
+    <button>
+      <a href="/{{pagination.previous.path}}">Newer</a>
+      <href></href>
+    </button>
+  {{/if}}
+  {{#if pagination.next}}
+    <button>
+      <a href="/{{pagination.next.path}}">Older</a>
+      <href></href>
+    </button>
+  {{/if}}
+ </nav>
+</body>
+</html>
+
+<!-- html(lang='en') -->
+<!--   head -->
+<!--     meta(charset='utf-8') -->
+<!--     meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1') -->
+<!--     meta(name='viewport', content='width=device-width') -->
+<!--     title= 'Home' -->
+<!--     link(rel="stylesheet", type="text/css", href="assets/style.css") -->
+<!--   body -->
+<!--     each article in pagination.files -->
+<!--       article.content-article -->
+<!--         header -->
+<!--           span.timestamp= moment(article.date).format('MMMM D, YYYY') -->
+<!--           h2 -->
+<!--             a(href='/' + article.path)= article.title -->
+<!--           article.less -->
+<!--   nav -->
+<!--     if pagination.previous -->
+<!--       a.btn(href='/' + pagination.previous.path) -->
+<!--         | Newer -->
+<!--     if pagination.next -->
+<!--       a.btn(href='/' + pagination.next.path) -->
+<!--         | Older -->
