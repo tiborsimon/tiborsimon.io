@@ -1,9 +1,11 @@
-Title: Fuzzy search and sort algorithm
-Subtitle: How to produce all relevant search results
-Tags: fuzzy, search, sorting
-Date: 2015-10-25
-Img: img/thumb-449x286-7.jpg
-Summary: What do you do, if your users may not know exactly what they are looking for while typing into a search field. You can try to provide all relevant matches based on the typed in characters. Time to search in a fuzzy way.
+---
+title: Fuzzy search and sort algorithm
+tags: fuzzy, search, sorting
+date: 2015-10-25
+collection: articles
+layout: article.html
+summary: What do you do, if your users may not know exactly what they are looking for while typing into a search field. You can try to provide all relevant matches based on the typed in characters. Time to search in a fuzzy way.
+---
 
 
 A good example for this is Sublime Text's search mechanism. You start to type in your query, and apart from

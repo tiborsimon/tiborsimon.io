@@ -1,12 +1,11 @@
-layout: post
+---
 title: Java Shooter Game
 tags: java, game
-published: True
-repo_link: https://github.com/tiborsimon/java-shooter-game
-version: v1.3
-share_buttons: True
-Date: 2015-01-17
-Summary: During the last semester I had a subject that required to create a java program. I decided to write a small game similar to Minigore. The game is written in java with LWJGL and Slick2D game libraries.
+date: 2015-01-17
+collection: articles
+layout: article.html
+summary: During the last semester I had a subject that required to create a java program. I decided to write a small game similar to Minigore. The game is written in java with LWJGL and Slick2D game libraries.
+---
 
 
 <iframe class="video" width="640" height="360" src="https://www.youtube.com/embed/dUKqIYJZlOk" frameborder="0" allowfullscreen></iframe>

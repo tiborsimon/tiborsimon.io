@@ -1,11 +1,11 @@
-Title: Generating sinusoid signals
-Subtitle: All possible ways to generate a sine wave
-Tags: signals, basics
-Date: 2015-10-17
-Series: TSPR0003
-Img: img/thumb-449x286-7.jpg
-Summary: Generating sinusoid signals is often the first step for executing a more complex computation. It should be a routine, but actually it isn't. Many people struggles with it.
-Mathjax: true
+---
+title: Generating sinusoid signals
+tags: signals, basics
+date: 2015-10-17
+collection: articles
+layout: article.html
+summary: Generating sinusoid signals is often the first step for executing a more complex computation. It should be a routine, but actually it isn't. Many people struggles with it.
+---
 
 
 ## The problem

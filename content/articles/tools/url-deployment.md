@@ -1,10 +1,11 @@
-Title: Dotfiles with URL deployment
-Tags: dotfiles, tools, script, url, forward, hack
-Date: 2016-03-19
-Summary: You can curl down a file and run it as a setup script. Some tech companies use this approach too.
-Series: Dotfiles
-Repo: https://github.com/tiborsimon/dotfiles
-Release_link: https://github.com/tiborsimon/dotfiles/releases/latest
+---
+title: Dotfiles with URL deployment
+tags: dotfiles, tools, script, url, forward, hack
+date: 2016-03-19
+collection: articles
+layout: article.html
+summary: You can curl down a file and run it as a setup script. Some tech companies use this approach too.
+---
 
 I started to improve my __dotfiles__ system with __one command URL deployment__. In this way I can run a single command on a virgin system to deploy my configuration. This method works on OS X as well as any Linux system.
 

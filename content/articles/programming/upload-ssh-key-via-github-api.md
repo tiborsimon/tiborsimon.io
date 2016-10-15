@@ -1,9 +1,11 @@
-Title: Upload ssh key via Github API
-Tags: script, url, github, api, upload, ssh, key
-Date: 2016-03-19
-Summary: In this article I will show you a way to upload your ssh key to GitHub via the GitHub API. This could be useful for you if you don't like the traditional way of uploading ssh keys.
-Series: Dotfiles
-Gist: https://gist.github.com/tiborsimon/4394e500f43d59bf35a5
+---
+title: Upload ssh key via Github API
+tags: script, url, github, api, upload, ssh, key
+date: 2016-03-19
+collection: articles
+layout: article.html
+summary: In this article I will show you a way to upload your ssh key to GitHub via the GitHub API. This could be useful for you if you don't like the traditional way of uploading ssh keys.
+---
 
 
 Don't you hate the way you used to upload your ssh keys to GitHub? Generate the key. Copy the public key in somehow. You have to use the mouse. You have to click. :D

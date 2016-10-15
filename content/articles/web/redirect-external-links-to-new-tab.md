@@ -1,10 +1,11 @@
-Title: Redirect external links to new tab
-Subtitle: Fix Markdown's lack of hyperlink targeting feature with javascript
-Tags: pelican, hack, javascript
-Date: 2015-05-17
-Img: img/thumb-449x286-7.jpg
-Summary: As Pelican can use Markdown to render it's contents, and Markdown doesn't support control over the hyperlink target attribute, you were forced to write your external links and references manually. Or not?
-
+---
+title: Redirect external links to new tab
+tags: pelican, hack, javascript
+date: 2015-05-17
+collection: articles
+layout: article.html
+summary: As Pelican can use Markdown to render it's contents, and Markdown doesn't support control over the hyperlink target attribute, you were forced to write your external links and references manually. Or not?
+---
 
 Hopefully, there is a simple javascript hack, that can redirect your external
 links to a new blank tab.

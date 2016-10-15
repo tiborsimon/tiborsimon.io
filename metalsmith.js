@@ -13,11 +13,34 @@ var compress        = require('metalsmith-gzip')
 var sitemap         = require('metalsmith-mapsite')
 var discoverHelpers = require('metalsmith-discover-helpers')
 var tags            = require('metalsmith-tags')
-var linkcheck       = require('metalsmith-linkcheck')
+var drafts          = require('metalsmith-drafts')
 
+if (process.argv[2] === 'production') {
+  var BASEURL = 'https://tiborsimon.io'
+} else {
+  var BASEURL = 'http://localhost:8000'
+}
+
+var generateUrl = function(baseurl) {
+  return function (files, metalsmith, done) {
+    for (var file in files) {
+      var target = files[file]
+      target.url = baseurl + '/' + target.path + '/'
+      if (target.tags) {
+        for (var tag in target.tags) {
+          var data = target.tags[tag]
+          data.url = baseurl + '/tags/' + data.slug + '/'
+        }
+      }
+    }
+    console.log(metalsmith._metadata)
+    done()
+  }
+}
 
 metalsmith(__dirname)
-  .source('src')
+  .source('content')
+  .use(drafts())
   .use(date())
   .use(define({
     blog: {
@@ -28,12 +51,10 @@ metalsmith(__dirname)
     owner: {
       url: 'https://tiborsimon.io',
       name: 'Tibor Simon'
-    },
-    moment: require('moment')
+    }
   }))
   .use(collections({
     articles: {
-      pattern: 'articles/**/*.md',
       sortBy: 'date',
       reverse: true
     }
@@ -54,20 +75,23 @@ metalsmith(__dirname)
   .use(snippet({
     maxLength: 300
   }))
-	.use(tags({
+  .use(permalinks())
+  .use(discoverHelpers({
+    directory: 'helpers',
+    pattern: /\.js$/
+  }))
+  .use(tags({
     handle: 'tags',
-    path:'tags/:tag.html',
+    path:'tags/:tag/index.html',
+    pathPage: 'tags/:tag/:num/index.html',
+    perPage: 6,
     layout:'tag.html',
     sortBy: 'date',
     reverse: true,
     skipMetadata: false,
     slug: {mode: 'rfc3986'}
   }))
-  .use(permalinks())
-  .use(discoverHelpers({
-    directory: 'helpers',
-    pattern: /\.js$/
-  }))
+  .use(generateUrl(BASEURL))
   .use(layouts({
     engine: 'handlebars',
     partials: 'partials',
@@ -82,10 +106,7 @@ metalsmith(__dirname)
     hostname: 'https://tiborsimon.io',
     changefreq: 'daily'
   }))
-  .destination('build')
-  // .use(linkcheck({
-  //   verbose: true
-  // }))
+  .destination('publish')
   .build(function (err) {
     if (err) {
       throw err;

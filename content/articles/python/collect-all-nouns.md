@@ -1,9 +1,11 @@
-Title: Collect all nouns in hungarian
-Subtitle: Or in any other language that have a web based database
-Tags: web, hack, soup
-Date: 2015-10-24
-Img: img/thumb-449x286-7.jpg
+---
+title: Collect all nouns in hungarian
+tags: web, hack, soup
+date: 2015-10-24
+collection: articles
+layout: article.html
 Summary: I had to create a searchable noun list in hungarian without any publicly available word list that I can easily download.
+---
 
 
 Hopefully, there is a <a href="https://hu.wiktionary.org/wiki/Kategória:magyar_főnevek" target="_blank">hungarian wiki dictionary</a>

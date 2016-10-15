@@ -1,11 +1,11 @@
+---
 title: SlotCar Race
 tags: embedded, dsp, accelerometer
-repo_link: https://github.com/tiborsimon/slotcar-race
-version: v1.0
-Date: 2013-05-19
-Summary: At the university me and my partner have faced a midterm project that contained a very interesting problem. We had to write an algorithm that drives a small electric car on it’s guided track.
-Repo: https://github.com/tiborsimon/slotcar-race
-Release_link: https://github.com/tiborsimon/slotcar-race/releases/latest
+date: 2013-05-19
+collection: articles
+layout: article.html
+summary: At the university me and my partner have faced a midterm project that contained a very interesting problem. We had to write an algorithm that drives a small electric car on it’s guided track.
+---
 
 
 The only information we had was the acceleration data comes from the car itself. Based on this information we had to control the voltage of the car’s motor to run the fastest lap on the track. It doesn’t sounds too hard, does it.

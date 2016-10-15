@@ -1,9 +1,11 @@
-Title: Writing an equation engine
-Subtitle: Finding out the possibilities programmatically
-Tags: parameter, equation
-Date: 2015-11-11
-Series: TSPR0003
-Summary: In the previous article we have discussed the 5 ways you can generate a sinusoid signal. In this article we are going to develop a method that tries to generate a sinusoid signal with a given parameter set.
+---
+title: Writing an equation engine
+tags: parameter, equation
+date: 2015-11-11
+collection: articles
+layout: article.html
+summary: In the previous article we have discussed the 5 ways you can generate a sinusoid signal. In this article we are going to develop a method that tries to generate a sinusoid signal with a given parameter set.
+---
 
 
 ## Sinusoid generation summary

@@ -1,7 +1,11 @@
-Title: BusPirate setup for OSX
-Tags: tools, embedded, device
-Date: 2015-09-13
-Summary: As I have switched to mac in the past days, I want to set up my BusPirate to be able to communicate with other circuits.
+---
+title: BusPirate setup for OSX
+tags: tools, embedded, device
+date: 2015-09-13
+collection: articles
+layout: article.html
+summary: As I have switched to mac in the past days, I want to set up my BusPirate to be able to communicate with other circuits.
+---
 
 
 On my windows machine I used __Putty__

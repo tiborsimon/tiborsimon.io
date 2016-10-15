@@ -1,12 +1,11 @@
-Title: Local MathJax in iOS apps
-Tags: MathJax, ios, hack, javascript, swift, math, LaTEX
-Kw: MathJax, local, solution,xcode, ios, hack, javascript, swift, math, LaTEX
-Date: 2016-02-20
-Summary: Integrating MathJax locally in an iOS app to be able to use mathematical equations stored in LaTEX.
-Series: iOS MathJax
-Repo: https://github.com/tiborsimon/ios-local-mathjax-template
-Release_link: https://github.com/tiborsimon/ios-local-mathjax-template/releases/latest
-
+---
+title: Local MathJax in iOS apps
+tags: MathJax, ios, hack, javascript, swift, math, LaTEX
+date: 2016-02-20
+collection: articles
+layout: article.html
+summary: Integrating MathJax locally in an iOS app to be able to use mathematical equations stored in LaTEX.
+---
 
 
 In this article I am going to show you a method to integrate [MathJax](https://www.mathjax.org) - _an external javascript display engine for mathematics_ - in an iOS app. I used the following components:

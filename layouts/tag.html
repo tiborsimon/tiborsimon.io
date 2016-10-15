@@ -10,12 +10,12 @@
     <header>
       <span class="timestamp">{{date}}</span>
       <h2>
-        <a href="{{path}}">{{title}}</a>
+        <a href="{{url}}">{{title}}</a>
       </h2>
       <hr>
-      <div class="snippet">{{snippet}}</div>
+      <div class="snippet">{{{snippet}}}</div>
       {{#each tags}}
-        <a href="/tags/{{slug}}">{{name}}</a>
+      <a href="{{url}}">{{name}}</a>
       {{/each}}
     </header>
   </article>
@@ -23,14 +23,12 @@
  <nav>
   {{#if pagination.previous}}
     <button>
-      <a href="/{{pagination.previous.path}}">Newer</a>
-      <href></href>
+      <a href="{{pagination.previous.url}}">Newer</a>
     </button>
   {{/if}}
   {{#if pagination.next}}
     <button>
-      <a href="/{{pagination.next.path}}">Older</a>
-      <href></href>
+      <a href="{{pagination.next.url}}">Older</a>
     </button>
   {{/if}}
  </nav>

@@ -1,3 +1,6 @@
 [submodule "apps/timerf"]
 	path = apps/timer
 	url = git@github.com:tiborsimon/timer.git
+[submodule "publish"]
+	path = publish
+	url = git@github.com:tiborsimon/tiborsimon.github.io.git
