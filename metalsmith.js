@@ -33,9 +33,27 @@ var generateUrl = function(baseurl) {
         }
       }
     }
+    console.log(metalsmith._metadata.collections)
     done()
   }
 }
+
+var renderDate = function(baseurl) {
+  return function (files, metalsmith, done) {
+    var moment = require('moment')
+    for (var file in files) {
+      var target = files[file]
+      if ('date' in target) {
+        target.year = moment(target.date).format('YYYY')
+        target.month = moment(target.date).format('MM')
+        target.day = moment(target.date).format('DD')
+        target.date = moment(target.date).format('YYYY. MM. DD.')
+      }
+    }
+    done()
+  }
+}
+
 
 metalsmith(__dirname)
   .source('content')
@@ -52,6 +70,7 @@ metalsmith(__dirname)
       name: 'Tibor Simon'
     }
   }))
+  .use(renderDate())
   .use(collections({
     articles: {
       sortBy: 'date',
@@ -78,11 +97,12 @@ metalsmith(__dirname)
   .use(snippet({
     maxLength: 300
   }))
-  .use(permalinks())
   .use(discoverHelpers({
     directory: 'helpers',
     pattern: /\.js$/
   }))
+  .use(permalinks())
+  .use(generateUrl(BASEURL))
   .use(tags({
     handle: 'tags',
     path:'tags/:tag/index.html',
@@ -115,3 +135,4 @@ metalsmith(__dirname)
       throw err;
     }
   })
+
