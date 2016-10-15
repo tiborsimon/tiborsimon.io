@@ -33,7 +33,6 @@ var generateUrl = function(baseurl) {
         }
       }
     }
-    console.log(metalsmith._metadata)
     done()
   }
 }
@@ -55,6 +54,10 @@ metalsmith(__dirname)
   }))
   .use(collections({
     articles: {
+      sortBy: 'date',
+      reverse: true
+    },
+    portfolio: {
       sortBy: 'date',
       reverse: true
     }
