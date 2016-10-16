@@ -1,5 +1,5 @@
 ---
-title: led chaser
+title: LED chaser
 category: electronics
 type: link
 thumbnail-url: images/portfolios/led-chaser-cover.jpg

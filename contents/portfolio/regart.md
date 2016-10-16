@@ -1,5 +1,5 @@
 ---
-title: regart
+title: Regart
 category: programming
 type: link
 thumbnail-url: images/portfolios/regart-cover.jpg

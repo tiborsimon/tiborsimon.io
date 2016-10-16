@@ -1,5 +1,5 @@
 ---
-title: dsp controller
+title: DSP Controller
 category: electronics
 type: link
 thumbnail-url: images/portfolios/dsp-controller-cover.jpg

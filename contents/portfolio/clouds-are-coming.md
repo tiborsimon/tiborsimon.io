@@ -1,5 +1,5 @@
 ---
-title: clouds are coming
+title: Clouds are coming
 category: video
 type: video
 thumbnail-url: images/portfolios/clouds-are-coming-cover.jpg

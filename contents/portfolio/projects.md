@@ -1,5 +1,5 @@
 ---
-title: projects
+title: Projects
 category: programming
 type: link
 thumbnail-url: images/portfolios/projects-cover.jpg

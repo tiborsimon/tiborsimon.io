@@ -1,5 +1,5 @@
 ---
-title: cold front
+title: Cold front
 category: video
 type: video
 thumbnail-url: images/portfolios/cold-front-cover.jpg
