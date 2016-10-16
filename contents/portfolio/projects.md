@@ -1,7 +1,11 @@
 ---
 title: projects
-tags: programming
-date: 2015-10-17
+category: programming
+type: link
+thumbnail-url: images/portfolios/projects-cover.jpg
+link: https://github.com/tiborsimon/projects
+date: 2016-07-07
+description: intuitive project management and recursive scripting engine.
 collection: portfolio
 layout: article.html
 ---
