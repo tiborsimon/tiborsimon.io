@@ -1,36 +1,36 @@
 <html lang="en">
- <head>
-   <meta charset="UTF-8">
-   <title>{{pagination.tag}} - Tibor's Lab</title>
-</head>
- <body>
- {{#each pagination.files}}
-   <article class="content-article">
-     <header>
-      <span class="timestamp">{{date}}</span>
-       <h2>
-        <a href="{{url}}">{{title}}</a>
-      </h2>
-       <hr>
-      <div class="snippet">{{{snippet}}}</div>
-      {{#each tags}}
-      <a href="{{url}}">{{name}}</a>
-      {{/each}}
-     </header>
-   </article>
-  {{/each}}
- <nav>
-  {{#if pagination.previous}}
-    <button>
-      <a href="{{pagination.previous.url}}">Newer</a>
-    </button>
-  {{/if}}
-  {{#if pagination.next}}
-    <button>
-      <a href="{{pagination.next.url}}">Older</a>
-    </button>
-  {{/if}}
- </nav>
- </body>
- </html>
+  <head>
+    <meta charset="UTF-8">
+    <title>{{pagination.tag}} - Tibor's Lab</title>
+  </head>
+  <body>
+    {{#each pagination.files}}
+      <article class="content-article">
+        <header>
+          <span class="timestamp">{{date}}</span>
+          <h2>
+            <a href="{{url}}">{{title}}</a>
+          </h2>
+          <hr>
+          <div class="snippet">{{{snippet}}}</div>
+          {{#each tags}}
+            <a href="{{url}}">{{name}}</a>
+          {{/each}}
+        </header>
+      </article>
+    {{/each}}
+    <nav>
+    {{#if pagination.previous}}
+      <button>
+        <a href="{{pagination.previous.url}}">Newer</a>
+      </button>
+    {{/if}}
+    {{#if pagination.next}}
+      <button>
+        <a href="{{pagination.next.url}}">Older</a>
+      </button>
+    {{/if}}
+    </nav>
+  </body>
+</html>
 

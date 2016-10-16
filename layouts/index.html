@@ -5,7 +5,7 @@
   <title>Tibor's Lab</title>
 </head>
 <body>
- {{#each pagination.files}}
+  {{#each pagination.files}}
   <article class="content-article">
     <header>
       <span class="timestamp">{{date}}</span>
@@ -13,14 +13,14 @@
         <a href="{{url}}">{{title}}</a>
       </h2>
       <div class="snippet">{{{snippet}}}</div>
-      {{#each tags}}
-        <a href="{{url}}">{{name}}</a>
-      {{/each}}
+        {{#each tags}}
+          <a href="{{url}}">{{name}}</a>
+        {{/each}}
       <hr>
     </header>
   </article>
- {{/each}}
- <nav>
+  {{/each}}
+  <nav>
   {{#if pagination.previous}}
     <button>
       <a href="{{pagination.previous.url}}">Newer</a>
@@ -31,11 +31,11 @@
       <a href="{{pagination.next.url}}">Older</a>
     </button>
   {{/if}}
- </nav>
- <hr>
- <div class="portfolio-wrapper">
-   <h2>Portfolio</h2>
-  {{#each collections.portfolio}}
+  </nav>
+  <hr>
+  <div class="portfolio-wrapper">
+    <h2>Portfolio</h2>
+    {{#each collections.portfolio}}
     <section>
       <h3>
         <a href="{{url}}">{{title}} - {{year}}</a>
@@ -47,9 +47,9 @@
  <div class="tags-wrapper">
   <h2>Tags</h2>
   {{#each enhancedTags.tagsByCount}}
-      <span>
-        <a href="{{url}}">{{tag}} - {{count}}</a>
-      </span>
+    <span>
+      <a href="{{url}}">{{tag}} - {{count}}</a>
+    </span>
   {{/each}}
  </div>
 </body>
