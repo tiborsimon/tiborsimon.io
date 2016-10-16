@@ -1,25 +1,24 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Tags - Tibor's Lab</title>
+ <head>
+   <meta charset="UTF-8">
+   <title>{{pagination.tag}} - Tibor's Lab</title>
 </head>
-<body>
+ <body>
  {{#each pagination.files}}
-  <article class="content-article">
-    <header>
+   <article class="content-article">
+     <header>
       <span class="timestamp">{{date}}</span>
-      <h2>
+       <h2>
         <a href="{{url}}">{{title}}</a>
       </h2>
-      <hr>
+       <hr>
       <div class="snippet">{{{snippet}}}</div>
       {{#each tags}}
       <a href="{{url}}">{{name}}</a>
       {{/each}}
-    </header>
-  </article>
- {{/each}}
+     </header>
+   </article>
+  {{/each}}
  <nav>
   {{#if pagination.previous}}
     <button>
@@ -32,5 +31,6 @@
     </button>
   {{/if}}
  </nav>
-</body>
-</html>
+ </body>
+ </html>
+

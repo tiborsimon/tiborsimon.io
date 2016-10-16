@@ -32,13 +32,24 @@
     </button>
   {{/if}}
  </nav>
+ <hr>
  <div class="portfolio-wrapper">
+   <h2>Portfolio</h2>
   {{#each collections.portfolio}}
     <section>
-      <h2>
+      <h3>
         <a href="{{url}}">{{title}} - {{year}}</a>
-      </h2>
+      </h3>
     </section>
+  {{/each}}
+ </div>
+ <hr>
+ <div class="tags-wrapper">
+  <h2>Tags</h2>
+  {{#each enhancedTags.tagsByCount}}
+      <span>
+        <a href="{{url}}">{{tag}} - {{count}}</a>
+      </span>
   {{/each}}
  </div>
 </body>

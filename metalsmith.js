@@ -1,48 +1,30 @@
-var metalsmith      = require('metalsmith')
-var markdown        = require('metalsmith-markdown')
-var highlighter     = require('highlighter')
-var layouts         = require('metalsmith-layouts')
-var permalinks      = require('metalsmith-permalinks')
-var collections     = require('metalsmith-collections')
-var define          = require('metalsmith-define')
-var pagination      = require('metalsmith-pagination')
-var snippet         = require('metalsmith-snippet')
-var date            = require('metalsmith-build-date')
-var assets          = require('metalsmith-assets')
-var compress        = require('metalsmith-gzip')
-var sitemap         = require('metalsmith-mapsite')
-var discoverHelpers = require('metalsmith-discover-helpers')
-var tags            = require('metalsmith-tags')
-var drafts          = require('metalsmith-drafts')
+const metalsmith      = require('metalsmith')
+const markdown        = require('metalsmith-markdown')
+const highlighter     = require('highlighter')
+const layouts         = require('metalsmith-layouts')
+const permalinks      = require('metalsmith-permalinks')
+const collections     = require('metalsmith-collections')
+const define          = require('metalsmith-define')
+const pagination      = require('metalsmith-pagination')
+const snippet         = require('metalsmith-snippet')
+const date            = require('metalsmith-build-date')
+const assets          = require('metalsmith-assets')
+const compress        = require('metalsmith-gzip')
+const sitemap         = require('metalsmith-mapsite')
+const discoverHelpers = require('metalsmith-discover-helpers')
+const tags            = require('metalsmith-tags')
+const drafts          = require('metalsmith-drafts')
 
+let BASEURL = 'http://localhost:8000'
 if (process.argv[2] === 'production') {
-  var BASEURL = 'https://tiborsimon.io'
-} else {
-  var BASEURL = 'http://localhost:8000'
+  BASEURL = 'https://tiborsimon.io'
 }
 
-var generateUrl = function(baseurl) {
-  return function (files, metalsmith, done) {
-    for (var file in files) {
-      var target = files[file]
-      target.url = baseurl + '/' + target.path + '/'
-      if (target.tags) {
-        for (var tag in target.tags) {
-          var data = target.tags[tag]
-          data.url = baseurl + '/tags/' + data.slug + '/'
-        }
-      }
-    }
-    console.log(metalsmith._metadata.collections)
-    done()
-  }
-}
-
-var renderDate = function(baseurl) {
-  return function (files, metalsmith, done) {
-    var moment = require('moment')
-    for (var file in files) {
-      var target = files[file]
+let renderDate = () => {
+  return (files, metalsmith, done) => {
+    let moment = require('moment')
+    for (let file in files) {
+      let target = files[file]
       if ('date' in target) {
         target.year = moment(target.date).format('YYYY')
         target.month = moment(target.date).format('MM')
@@ -54,6 +36,80 @@ var renderDate = function(baseurl) {
   }
 }
 
+let generateUrl = () => {
+  return (files, metalsmith, done) => {
+    let metadata = metalsmith.metadata()
+    for (let file in files) {
+      let target = files[file]
+      target.url = metadata.baseUrl + '/' + target.path + '/'
+      if (target.tags) {
+        for (let tag in target.tags) {
+          let data = target.tags[tag]
+          data.url = metadata.baseUrl + '/tag/' + data.slug + '/'
+        }
+      }
+    }
+    done()
+  }
+}
+
+let enhanceTags = () => {
+  return (files, metalsmith, done) => {
+    let metadata = metalsmith.metadata()
+    // Adding url to the tag list of files..
+    for (let file in files) {
+      let target = files[file]
+      if (target.tags) {
+        for (let tag in target.tags) {
+          let data = target.tags[tag]
+          data.url = metadata.baseUrl + '/tag/' + data.slug + '/'
+        }
+      }
+    }
+
+    // Restructuring tags metadata field..
+    let enhancedTags = {
+      tagsByName: [],
+      tagsByCount: []
+    }
+    for (tag in metadata.tags) {
+      let urlSafe = metadata.tags[tag].urlSafe
+      let files = []
+      for (let item of metadata.tags[tag]) {
+        files.push(item)
+      }
+      enhancedTags.tagsByName.push({
+        tag,
+        urlSafe,
+        files,
+        count: files.length,
+        url: metadata.baseUrl + '/tag/' + urlSafe + '/'
+      })
+      enhancedTags.tagsByCount.push({
+        tag,
+        urlSafe,
+        files,
+        count: files.length,
+        url: metadata.baseUrl + '/tag/' + urlSafe + '/'
+      })
+    }
+    enhancedTags.tagsByCount.sort((a, b) => {
+      return b.count == a.count ? ((a.urlSafe < b.urlSafe) ? -1 : (a.urlSafe > b.urlSafe) ? 1 : 0) : b.count - a.count
+    })
+    enhancedTags.tagsByName.sort((a, b) => {
+      return (a.urlSafe < b.urlSafe) ? -1 : (a.urlSafe > b.urlSafe) ? 1 : 0
+    })
+    metadata.enhancedTags = enhancedTags
+    done()
+  }
+}
+
+let monitor = () => {
+  return (files, metalsmith, done) => {
+    // console.log(metalsmith._metadata.enhancedTags)
+    done()
+  }
+}
 
 metalsmith(__dirname)
   .source('content')
@@ -65,6 +121,7 @@ metalsmith(__dirname)
       title: 'Tibor Simon',
       description: 'Hello world.'
     },
+    baseUrl: BASEURL,
     owner: {
       url: 'https://tiborsimon.io',
       name: 'Tibor Simon'
@@ -102,19 +159,20 @@ metalsmith(__dirname)
     pattern: /\.js$/
   }))
   .use(permalinks())
-  .use(generateUrl(BASEURL))
+  .use(generateUrl())
   .use(tags({
     handle: 'tags',
-    path:'tags/:tag/index.html',
-    pathPage: 'tags/:tag/:num/index.html',
-    perPage: 6,
+    path:'tag/:tag/index.html',
+    // pathPage: 'tag/:tag/:num/index.html',
+    // perPage: 1,
     layout:'tag.html',
-    sortBy: 'date',
+    sortBy: 'title',
     reverse: true,
     skipMetadata: false,
     slug: {mode: 'rfc3986'}
   }))
-  .use(generateUrl(BASEURL))
+  .use(enhanceTags())
+  .use(monitor())
   .use(layouts({
     engine: 'handlebars',
     partials: 'partials',
