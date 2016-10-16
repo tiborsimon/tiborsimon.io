@@ -112,7 +112,7 @@ let monitor = () => {
 }
 
 metalsmith(__dirname)
-  .source('content')
+  .source('contents')
   .use(drafts())
   .use(date())
   .use(define({
