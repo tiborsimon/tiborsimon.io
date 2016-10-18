@@ -26,7 +26,7 @@ You can copy and paste this script to your machine, modify the `GITHUB_USERNAME`
 
 This is the exact method what I used in my __dotfiles__ deployment system. To learn more about that, read the [corresponding article](https://tiborsimon.io/tools/dotfiles-with-url-deployment/).
 
-```
+``` bash
 GITHUB_USERNAME=tiborsimon
 SSH_KEY=$HOME/.ssh/id_rsa
 

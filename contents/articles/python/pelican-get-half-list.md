@@ -30,7 +30,7 @@ The steps are the followings:
 {% set article_middle_index = article_middle_index|int %}
 ```
 
-Since `{{ 0.5|round }}` is `0.0` according to Jinja2, we need to add a small number to the halfed number, to achieve the ceil-like behavior.
+Since `{ 0.5|round }` is `0.0` according to Jinja2, we need to add a small number to the halfed number, to achieve the ceil-like behavior.
 
 # Writing a custom Jinja filter
 

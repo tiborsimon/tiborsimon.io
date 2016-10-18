@@ -21,7 +21,7 @@ In this article I am going to show you a method to integrate [MathJax](https://w
 
 I wanted to display _mathematical equations_ inside an iOS app using existing math render packages. According to [this Stack overflow answer](http://stackoverflow.com/a/16002611), _mathML_ is supported by UIWebView since iOS 5. The downside of this solution, is that you have to use another packages to convert a convenient math equation reprsentation (like LaTEX) to mahtML which is very unconvenient:
 
-```
+``` html
 <math title="2^(2/(sqrt(6))" xmlns="http://www.w3.org/1998/Math/MathML">
   <mstyle mathcolor="blue" fontfamily="sanserif" displaystyle="true">
     <msup>
@@ -80,7 +80,7 @@ I added the downloaded and extracted MathJax sources to a single view based Xcod
 
 After the sources are placed to the right place, it's time to use them. I draged a _UIWebView_ to the Storyboard, and created a connection to the ViewController class (`@IBOutlet weak var myWebView: UIWebView!`). I wanted to display the following simple html page in the UIWebView...
 
-```
+``` html
 <!DOCTYPE html>
 <html>
     <head>
@@ -105,7 +105,7 @@ After the sources are placed to the right place, it's time to use them. I draged
 ```
 ... so I used its `loadHTMLString` method to do that:
 
-```
+``` swift
 //
 //  ViewController.swift
 //  MathJaxTest01

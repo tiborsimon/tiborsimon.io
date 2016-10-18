@@ -14,6 +14,8 @@ const sitemap         = require('metalsmith-mapsite')
 const discoverHelpers = require('metalsmith-discover-helpers')
 const tags            = require('metalsmith-tags')
 const drafts          = require('metalsmith-drafts')
+const metallic        = require('metalsmith-metallic')
+const inplace         = require('metalsmith-in-place')
 
 let BASEURL = 'http://localhost:8000'
 if (process.argv[2] === 'production') {
@@ -149,7 +151,10 @@ metalsmith(__dirname)
   .use(markdown({
     gfm: true,
     tables: true,
-    highlight: highlighter()
+  }))
+  .use(metallic())
+  .use(inplace({
+    engine: 'handlebars'
   }))
   .use(snippet({
     maxLength: 300
@@ -163,8 +168,6 @@ metalsmith(__dirname)
   .use(tags({
     handle: 'tags',
     path:'tag/:tag/index.html',
-    // pathPage: 'tag/:tag/:num/index.html',
-    // perPage: 1,
     layout:'tag.html',
     sortBy: 'title',
     reverse: true,

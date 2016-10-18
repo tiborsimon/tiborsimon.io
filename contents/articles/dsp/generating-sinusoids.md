@@ -10,6 +10,7 @@ summary: Generating sinusoid signals is often the first step for executing a mor
 
 ## The problem
 
+
 The equation of a sinusoid signal is a known fact:
 
 <p class="equation">
