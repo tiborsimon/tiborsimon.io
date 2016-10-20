@@ -1,0 +1,49 @@
+@import 'config';
+@import 'palette';
+@import 'card';
+
+.wrapper {
+  @include card(1);
+  position: relative;
+  top: -200px;
+  box-sizing: border-box;
+  max-width: $global-content-width;
+  margin: 0 auto;
+  padding: 10px $global-content-padding $global-content-padding ;
+  background: white;
+  border-radius: 2px;
+  .summary {
+    font-size: 1.3em;
+    line-height: 1em;
+    margin-bottom: 40px;
+    color: #757575;
+  }
+}
+
+hr {
+  position: relative;
+  border: none;
+  border-top: 1px solid palette(Black, Dividers);
+  margin-bottom: 30px;
+  width: $global-content-width;
+  position: relative;
+  left: -$global-content-padding;
+}
+
+pre code {
+  background: palette(Gray, 100);
+  width: $global-content-width;
+  display: block;
+  position: relative;
+  left: -$global-content-padding;
+  padding: 0 $global-content-padding;
+  box-sizing: border-box;
+  color: #999;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-size: 400%;
+  font-weight: 300;
+  line-height: 1em;
+  margin-bottom: 20px;
+}

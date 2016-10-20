@@ -1,0 +1,58 @@
+@import 'config';
+@import 'card';
+@import 'palette';
+
+$navigation-height: 60px;
+$navigation-background-color: palette($global-main-color, 500);
+$navigation-text-color: palette(White);
+$navigation-hover-text-color: palette($global-button-hover, 800);
+$navigation-hover-background-color: palette($global-button-hover, A400);
+$navigation-active-text-color: palette($global-button-hover, 900);
+$navigation-active-background-color: palette($global-button-hover, A200);
+
+.main-nav {
+  @include card(1);
+  z-index: 10000000;
+  width: 100%;
+  height: $navigation-height;
+  display: flex;
+  justify-content: space-between;
+  background: $navigation-background-color;
+  .group {
+    display: flex;
+    align-items: center;
+    &:first-child {
+      padding-left: 16px;
+    }
+    &:last-child {
+      margin-right: 16px;
+    }
+    button {
+      border: none;
+      background: none;
+      height: $navigation-height;
+      font-size: 1.1em;
+      color: $navigation-text-color;
+      &:hover {
+        color: $navigation-hover-text-color;
+        background: $navigation-hover-background-color;
+      }
+      &:active {
+        color: $navigation-active-text-color;
+        background: $navigation-active-background-color;
+      }
+      &.logo {
+        font-size: 1.4em;
+      }
+    }
+  }
+}
+
+.header {
+  width: 100%;
+  background: palette($global-main-color, 500);
+  height: $global-header-height - $navigation-height;
+  padding: 10px 50px;
+  box-sizing: border-box;
+  z-index: 0;
+}

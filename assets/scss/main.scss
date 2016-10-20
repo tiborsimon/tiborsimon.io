@@ -1,0 +1,613 @@
+@import 'config';
+@import 'palette';
+@import 'card';
+@import 'header';
+@import 'tags';
+@import 'action-button';
+@import 'body';
+
+// /**
+//  * google-material-color v1.2.6
+//  * https://github.com/danlevan/google-material-color
+//  */
+// $palette: (
+//   Red: (
+//     N50: #FFEBEE,
+//     N100: #FFCDD2,
+//     N200: #EF9A9A,
+//     N300: #E57373,
+//     N400: #EF5350,
+//     N500: #F44336,
+//     N600: #E53935,
+//     N700: #D32F2F,
+//     N800: #C62828,
+//     N900: #B71C1C,
+//     A100: #FF8A80,
+//     A200: #FF5252,
+//     A400: #FF1744,
+//     A700: #D50000,
+//   ),
+//   Pink: (
+//     N50: #FCE4EC,
+//     N100: #F8BBD0,
+//     N200: #F48FB1,
+//     N300: #F06292,
+//     N400: #EC407A,
+//     N500: #E91E63,
+//     N600: #D81B60,
+//     N700: #C2185B,
+//     N800: #AD1457,
+//     N900: #880E4F,
+//     A100: #FF80AB,
+//     A200: #FF4081,
+//     A400: #F50057,
+//     A700: #C51162,
+//   ),
+//   Purple: (
+//     N50: #F3E5F5,
+//     N100: #E1BEE7,
+//     N200: #CE93D8,
+//     N300: #BA68C8,
+//     N400: #AB47BC,
+//     N500: #9C27B0,
+//     N600: #8E24AA,
+//     N700: #7B1FA2,
+//     N800: #6A1B9A,
+//     N900: #4A148C,
+//     A100: #EA80FC,
+//     A200: #E040FB,
+//     A400: #D500F9,
+//     A700: #AA00FF,
+//   ),
+//   Deep Purple: (
+//     N50: #EDE7F6,
+//     N100: #D1C4E9,
+//     N200: #B39DDB,
+//     N300: #9575CD,
+//     N400: #7E57C2,
+//     N500: #673AB7,
+//     N600: #5E35B1,
+//     N700: #512DA8,
+//     N800: #4527A0,
+//     N900: #311B92,
+//     A100: #B388FF,
+//     A200: #7C4DFF,
+//     A400: #651FFF,
+//     A700: #6200EA,
+//   ),
+//   Indigo: (
+//     N50: #E8EAF6,
+//     N100: #C5CAE9,
+//     N200: #9FA8DA,
+//     N300: #7986CB,
+//     N400: #5C6BC0,
+//     N500: #3F51B5,
+//     N600: #3949AB,
+//     N700: #303F9F,
+//     N800: #283593,
+//     N900: #1A237E,
+//     A100: #8C9EFF,
+//     A200: #536DFE,
+//     A400: #3D5AFE,
+//     A700: #304FFE,
+//   ),
+//   Blue: (
+//     N50: #E3F2FD,
+//     N100: #BBDEFB,
+//     N200: #90CAF9,
+//     N300: #64B5F6,
+//     N400: #42A5F5,
+//     N500: #2196F3,
+//     N600: #1E88E5,
+//     N700: #1976D2,
+//     N800: #1565C0,
+//     N900: #0D47A1,
+//     A100: #82B1FF,
+//     A200: #448AFF,
+//     A400: #2979FF,
+//     A700: #2962FF,
+//   ),
+//   Light Blue: (
+//     N50: #E1F5FE,
+//     N100: #B3E5FC,
+//     N200: #81D4FA,
+//     N300: #4FC3F7,
+//     N400: #29B6F6,
+//     N500: #03A9F4,
+//     N600: #039BE5,
+//     N700: #0288D1,
+//     N800: #0277BD,
+//     N900: #01579B,
+//     A100: #80D8FF,
+//     A200: #40C4FF,
+//     A400: #00B0FF,
+//     A700: #0091EA,
+//   ),
+//   Cyan: (
+//     N50: #E0F7FA,
+//     N100: #B2EBF2,
+//     N200: #80DEEA,
+//     N300: #4DD0E1,
+//     N400: #26C6DA,
+//     N500: #00BCD4,
+//     N600: #00ACC1,
+//     N700: #0097A7,
+//     N800: #00838F,
+//     N900: #006064,
+//     A100: #84FFFF,
+//     A200: #18FFFF,
+//     A400: #00E5FF,
+//     A700: #00B8D4,
+//   ),
+//   Teal: (
+//     N50: #E0F2F1,
+//     N100: #B2DFDB,
+//     N200: #80CBC4,
+//     N300: #4DB6AC,
+//     N400: #26A69A,
+//     N500: #009688,
+//     N600: #00897B,
+//     N700: #00796B,
+//     N800: #00695C,
+//     N900: #004D40,
+//     A100: #A7FFEB,
+//     A200: #64FFDA,
+//     A400: #1DE9B6,
+//     A700: #00BFA5,
+//   ),
+//   Green: (
+//     N50: #E8F5E9,
+//     N100: #C8E6C9,
+//     N200: #A5D6A7,
+//     N300: #81C784,
+//     N400: #66BB6A,
+//     N500: #4CAF50,
+//     N600: #43A047,
+//     N700: #388E3C,
+//     N800: #2E7D32,
+//     N900: #1B5E20,
+//     A100: #B9F6CA,
+//     A200: #69F0AE,
+//     A400: #00E676,
+//     A700: #00C853,
+//   ),
+//   Light Green: (
+//     N50: #F1F8E9,
+//     N100: #DCEDC8,
+//     N200: #C5E1A5,
+//     N300: #AED581,
+//     N400: #9CCC65,
+//     N500: #8BC34A,
+//     N600: #7CB342,
+//     N700: #689F38,
+//     N800: #558B2F,
+//     N900: #33691E,
+//     A100: #CCFF90,
+//     A200: #B2FF59,
+//     A400: #76FF03,
+//     A700: #64DD17,
+//   ),
+//   Lime: (
+//     N50: #F9FBE7,
+//     N100: #F0F4C3,
+//     N200: #E6EE9C,
+//     N300: #DCE775,
+//     N400: #D4E157,
+//     N500: #CDDC39,
+//     N600: #C0CA33,
+//     N700: #AFB42B,
+//     N800: #9E9D24,
+//     N900: #827717,
+//     A100: #F4FF81,
+//     A200: #EEFF41,
+//     A400: #C6FF00,
+//     A700: #AEEA00,
+//   ),
+//   Yellow: (
+//     N50: #FFFDE7,
+//     N100: #FFF9C4,
+//     N200: #FFF59D,
+//     N300: #FFF176,
+//     N400: #FFEE58,
+//     N500: #FFEB3B,
+//     N600: #FDD835,
+//     N700: #FBC02D,
+//     N800: #F9A825,
+//     N900: #F57F17,
+//     A100: #FFFF8D,
+//     A200: #FFFF00,
+//     A400: #FFEA00,
+//     A700: #FFD600,
+//   ),
+//   Amber: (
+//     N50: #FFF8E1,
+//     N100: #FFECB3,
+//     N200: #FFE082,
+//     N300: #FFD54F,
+//     N400: #FFCA28,
+//     N500: #FFC107,
+//     N600: #FFB300,
+//     N700: #FFA000,
+//     N800: #FF8F00,
+//     N900: #FF6F00,
+//     A100: #FFE57F,
+//     A200: #FFD740,
+//     A400: #FFC400,
+//     A700: #FFAB00,
+//   ),
+//   Orange: (
+//     N50: #FFF3E0,
+//     N100: #FFE0B2,
+//     N200: #FFCC80,
+//     N300: #FFB74D,
+//     N400: #FFA726,
+//     N500: #FF9800,
+//     N600: #FB8C00,
+//     N700: #F57C00,
+//     N800: #EF6C00,
+//     N900: #E65100,
+//     A100: #FFD180,
+//     A200: #FFAB40,
+//     A400: #FF9100,
+//     A700: #FF6D00,
+//   ),
+//   Deep Orange: (
+//     N50: #FBE9E7,
+//     N100: #FFCCBC,
+//     N200: #FFAB91,
+//     N300: #FF8A65,
+//     N400: #FF7043,
+//     N500: #FF5722,
+//     N600: #F4511E,
+//     N700: #E64A19,
+//     N800: #D84315,
+//     N900: #BF360C,
+//     A100: #FF9E80,
+//     A200: #FF6E40,
+//     A400: #FF3D00,
+//     A700: #DD2C00,
+//   ),
+//   Brown: (
+//     N50: #EFEBE9,
+//     N100: #D7CCC8,
+//     N200: #BCAAA4,
+//     N300: #A1887F,
+//     N400: #8D6E63,
+//     N500: #795548,
+//     N600: #6D4C41,
+//     N700: #5D4037,
+//     N800: #4E342E,
+//     N900: #3E2723,
+//   ),
+//   Grey: (
+//     N50: #FAFAFA,
+//     N100: #F5F5F5,
+//     N200: #EEEEEE,
+//     N300: #E0E0E0,
+//     N400: #BDBDBD,
+//     N500: #9E9E9E,
+//     N600: #757575,
+//     N700: #616161,
+//     N800: #424242,
+//     N900: #212121,
+//   ),
+//   Blue Grey: (
+//     N50: #ECEFF1,
+//     N100: #CFD8DC,
+//     N200: #B0BEC5,
+//     N300: #90A4AE,
+//     N400: #78909C,
+//     N500: #607D8B,
+//     N600: #546E7A,
+//     N700: #455A64,
+//     N800: #37474F,
+//     N900: #263238,
+//   ),
+//   Black: (
+//     500: #000000,
+//     Text: rgba(0,0,0,0.87),
+//     Secondary Text: rgba(0,0,0,0.54),
+//     Icons: rgba(0,0,0,0.54),
+//     Disabled: rgba(0,0,0,0.26),
+//     Hint Text: rgba(0,0,0,0.26),
+//     Dividers: rgba(0,0,0,0.12),
+//   ),
+//   White: (
+//     500: #ffffff,
+//     Text: #ffffff,
+//     Secondary Text: rgba(255,255,255,0.7),
+//     Icons: #ffffff,
+//     Disabled: rgba(255,255,255,0.3),
+//     Hint Text: rgba(255,255,255,0.3),
+//     Dividers: rgba(255,255,255,0.12),
+//   ),
+// );
+
+// @function palette($color, $shade: N500) {
+//   $colorMap: map-get($palette, $color);
+//   $result: map-get($colorMap, $shade);
+//   @return $result;
+// }
+
+// @mixin card($depth) {
+//   @if $depth < 1 {
+//     box-shadow: none;
+//   } @else if $depth > 5 {
+//     @warn "Invalid $depth `#{$depth}` for mixin `card`.";
+//   } @else {
+//     box-shadow: bottom-shadow($depth), top-shadow($depth);
+//   }
+// }
+
+// ///////////////////////////////////////////////////////////////////////////////////
+
+// @function top-shadow($depth) {
+//   $primary-offset: nth(1.5 3 10 14 19, $depth) * 1px;
+//   $blur: nth(1.5 3 10 14 19, $depth) * 4px;
+//   $color: rgba(black, nth(.12 .16 .19 .25 .30, $depth));
+
+//   @return 0 $primary-offset $blur $color;
+// }
+
+// /// Computes a bottom-shadow for a card effect.
+// /// @param {Number} $depth - depth level
+// /// @return {List}
+// @function bottom-shadow($depth) {
+//   $primary-offset: nth(1.5 3 6 10 15, $depth) * 1px;
+//   $blur: nth(1 3 3 5 6, $depth) * 4px;
+//   $color: rgba(black, nth(.24 .23 .23 .22 .22, $depth));
+
+//   @return 0 $primary-offset $blur $color;
+// }
+
+// ///////////////////////////////////////////////////////////////////////////////////
+
+// $global-header-height: 320px;
+// $global-content-width: 800px;
+// $global-content-padding: 50px;
+
+// $global-main-color: Cyan;
+// $global-button-hover: Light Blue;
+// $global-action-color: Pink;
+
+// ///////////////////////////////////////////////////////////////////////////////////
+
+// $navigation-height: 60px;
+// $navigation-background-color: palette($global-main-color, N500);
+// $navigation-text-color: palette(White);
+// $navigation-hover-text-color: palette($global-button-hover, N800);
+// $navigation-hover-background-color: palette($global-button-hover, A400);
+// $navigation-active-text-color: palette($global-button-hover, N900);
+// $navigation-active-background-color: palette($global-button-hover, A200);
+
+// .main-nav {
+//   @include card(1);
+//   z-index: 10000000;
+//   width: 100%;
+//   height: $navigation-height;
+//   display: flex;
+//   justify-content: space-between;
+//   background: $navigation-background-color;
+//   .group {
+//     display: flex;
+//     align-items: center;
+//     &:first-child {
+//       padding-left: 16px;
+//     }
+//     &:last-child {
+//       margin-right: 16px;
+//     }
+//     button {
+//       border: none;
+//       background: none;
+//       height: $navigation-height;
+//       font-size: 1.1em;
+//       color: $navigation-text-color;
+//       &:hover {
+//         color: $navigation-hover-text-color;
+//         background: $navigation-hover-background-color;
+//       }
+//       &:active {
+//         color: $navigation-active-text-color;
+//         background: $navigation-active-background-color;
+//       }
+//       &.logo {
+//         font-size: 1.4em;
+//       }
+//     }
+//   }
+// }
+
+// .header {
+//   width: 100%;
+//   background: palette($global-main-color, N500);
+//   height: $global-header-height - $navigation-height;
+//   padding: 10px 50px;
+//   box-sizing: border-box;
+//   z-index: 0;
+// }
+
+// ///////////////////////////////////////////////////////////////////////////////////
+
+// .tag-list {
+//   display: flex;
+//   flex-direction: row;
+//   margin-bottom: 30px;
+//   .tag {
+//     color: palette(Gray, N600);
+//     text-decoration: none;
+//     font-weight: 600;
+//     font-size: 0.8em;
+//     display: flex;
+//     align-items: center;
+//     background: palette(Gray, N300);
+//     vertical-align: middle;
+//     height: 28px;
+//     padding: 0 15px;
+//     border-radius: 14px;
+//     margin-right: 6px;
+//     transition: all 0.2s ease;
+//     &.counter {
+//       padding: 0 0 0 15px;
+//       span {
+//         margin-left: 4px;
+//       }
+//     }
+//     span {
+//       font-size: 0.9em;
+//       background: palette(Gray, N500);
+//       color: palette(Gray, N200);
+//       height: 28px;
+//       width: 28px;
+//       display: flex;
+//       align-items: center;
+//       justify-content: center;
+//       border-radius: 14px;
+//       transition: all 0.2s ease;
+//     }
+//     &:hover {
+//       color: palette($global-main-color);
+//       span {
+//         background: palette($global-main-color, N700);
+//       }
+//     }
+//   }
+// }
+
+// ///////////////////////////////////////////////////////////////////////////////////
+
+// $action-button-diameter: 70px;
+// $action-button-cross-width: 18px;
+// $action-button-background-color: palette($global-action-color, A200);
+// $action-button-cross-color: palette(White);
+
+// $action-button-offset-1: 40px;
+// $action-button-offset-2: 10px;
+// $action-button-offset-3: 10px;
+
+
+// @function action-button-get-top-offset($diameter, $offset) {
+//   @return $offset - $diameter / 2;
+// }
+
+// @function action-button-get-media-width-break($diameter, $offset, $width) {
+//   @return $width + 2 * ($offset + $diameter);
+// }
+
+// @function action-button-get-half($value) {
+//   @return $value / 2;
+// }
+
+// #action-button {
+//   outline: none;
+//   background: $action-button-background-color;
+//   font-size: 40px;
+//   font-weight: 300;
+//   box-sizing: border-box;
+//   transition: top 0.7s, right 0.7s, box-shadow 0.4s, transform 0.2s;
+//   transition-timing-function: ease;
+//   width: $action-button-diameter;
+//   height: $action-button-diameter;
+//   position: absolute;
+//   border-radius: 50%;
+//   right: $action-button-offset-1;
+//   top: action-button-get-top-offset($action-button-diameter, $global-header-height);
+//   border: none;
+//   z-index: 2;
+//   @include card(2);
+//   &:hover {
+//     @include card(3);
+//     .icon-bars {
+//       transform: rotate(45deg);
+//     }
+//   }
+//   .icon-bars {
+//     background: $action-button-cross-color;
+//     height: 2px;
+//     width: $action-button-cross-width;
+//     margin: auto;
+//     display: block;
+//     top: 1px;
+//     position: relative;
+//     transition: all 0.3s;
+//     &:after{
+//       content: '';
+//       position: absolute;
+//       height: $action-button-cross-width;
+//       width: 2px;
+//       background: $action-button-cross-color;
+//       right: action-button-get-half($action-button-cross-width)-1;
+//       top: - action-button-get-half($action-button-cross-width)+1;
+//     }
+//   }
+// }
+
+// $action-button-break-1: 2*$action-button-diameter + $global-content-width + 2*$action-button-offset-1;
+// $action-button-break-2: 2*$action-button-diameter+$global-content-width+ 2*$action-button-offset-2;
+
+// @media (max-width: #{$action-button-break-1}) and (min-width: #{$action-button-break-2}) {
+//   #action-button {
+//     right: $action-button-offset-2;
+//   }
+// }
+
+// $action-button-offset-top-diff-3: $action-button-offset-3 + $action-button-diameter;
+// @media (max-width: #{$action-button-break-2}) {
+//   #action-button {
+//     @include card(3);
+//     position: fixed;
+//     right: $action-button-offset-3;
+//     top: calc(100% - #{$action-button-offset-top-diff-3});
+//     &:hover {
+//       @include card(5);
+//     }
+//   }
+// }
+
+// ///////////////////////////////////////////////////////////////////////////////////
+
+// .wrapper {
+//   @include card(1);
+//   position: relative;
+//   top: -200px;
+//   box-sizing: border-box;
+//   max-width: $global-content-width;
+//   margin: 0 auto;
+//   padding: 10px $global-content-padding $global-content-padding ;
+//   background: white;
+//   border-radius: 2px;
+//   .summary {
+//     font-size: 1.3em;
+//     line-height: 1em;
+//     margin-bottom: 40px;
+//     color: #757575;
+//   }
+// }
+
+// hr {
+//   position: relative;
+//   border: none;
+//   border-top: 1px solid palette(Black, Dividers);
+//   margin-bottom: 30px;
+//   width: $global-content-width;
+//   position: relative;
+//   left: -$global-content-padding;
+// }
+
+// pre code {
+//   background: palette(Gray, N100);
+//   width: $global-content-width;
+//   display: block;
+//   position: relative;
+//   left: -$global-content-padding;
+//   padding: 0 $global-content-padding;
+//   box-sizing: border-box;
+//   color: #999;
+// }
+
+// h1,h2,h3,h4,h5,h6 {
+//   font-size: 400%;
+//   font-weight: 300;
+//   line-height: 1em;
+//   margin-bottom: 20px;
+// }

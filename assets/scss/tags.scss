@@ -1,0 +1,47 @@
+@import 'config';
+@import 'palette';
+
+.tag-list {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 30px;
+  .tag {
+    color: palette(Gray, 600);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.8em;
+    display: flex;
+    align-items: center;
+    background: palette(Gray,300);
+    vertical-align: middle;
+    height: 28px;
+    padding: 0 15px;
+    border-radius: 14px;
+    margin-right: 6px;
+    transition: all 0.2s ease;
+    &.counter {
+      padding: 0 0 0 15px;
+      span {
+        margin-left: 4px;
+      }
+    }
+    span {
+      font-size: 0.9em;
+      background: palette(Gray,500);
+      color: palette(Gray,200);
+      height: 28px;
+      width: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      transition: all 0.2s ease;
+    }
+    &:hover {
+      color: palette($global-main-color);
+      span {
+        background: palette($global-main-color, 700);
+      }
+    }
+  }
+}
