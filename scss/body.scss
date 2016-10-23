@@ -2,7 +2,7 @@
 @import 'palette';
 @import 'card';
 
-$article-color: palette(Light Blue, 700);
+$article-highlight-color: palette(Light Blue, 700);
 
 .article-wrapper {
   display: flex;
@@ -25,7 +25,7 @@ $article-color: palette(Light Blue, 700);
   box-sizing: border-box;
   header {
     .banner {
-      background: $article-color;
+      background: $article-highlight-color;
       height: 175px;
     }
     .article-title {
@@ -33,17 +33,17 @@ $article-color: palette(Light Blue, 700);
       font-size: 300%;
       font-weight: 300;
       color: white;
-      background: $article-color;
+      background: $article-highlight-color;
       line-height: 1em;
     }
     .details {
       display: flex;
       justify-content: space-between;
-      background: $article-color;
+      background: $article-highlight-color;
       padding: 0 30px;
       .timestamp {
         color: white;
-        background: $article-color;
+        background: $article-highlight-color;
         font-size: 1.4em;
         display: flex;
         padding: 12px 0;
@@ -63,7 +63,7 @@ $article-color: palette(Light Blue, 700);
       display-direction: row;
       padding: 30px 30px 6px 30px;
       font-size: 1.3em;
-      color: #757575;
+      color: palette(Black, Secondary Text);
     }
   }
   article {
@@ -93,6 +93,7 @@ $article-color: palette(Light Blue, 700);
 }
 
 $sidebar-width: 300px;
+$sidebar-padding: 19px;
 
 .sidebar {
   box-sizing: border-box;
@@ -103,8 +104,45 @@ $sidebar-width: 300px;
     height: $sidebar-width;
     background: palette(Blue);
   }
-  .sidebar-content {
-    padding: 19px;
+  .sidebar-nav {
+    border-bottom: 1px solid palette(Black, Dividers);
+    display: flex;
+    text-align: center;
+    a {
+      width: $sidebar-width / 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: palette(Black, Secondary Text);
+      &:hover {
+        background: $article-highlight-color;
+        color: white;
+        font-weight: 400;
+      }
+      &:first-child {
+        border-right: 1px solid palette(Black, Dividers);
+      }
+    }
+  }
+  .sidebar-widget {
+    padding: 0 $sidebar-padding;
+    display: block;
+    border-bottom: 1px solid palette(Black, Dividers);
+    // &:last-child {
+    //   border: none;
+    // }
+    hr {
+      position: relative;
+      border: none;
+      border-top: 1px solid palette(Black, Dividers);
+      margin-bottom: 30px;
+      width: $sidebar-width;
+      position: relative;
+      left: -$sidebar-padding;
+    }
   }
 }
 

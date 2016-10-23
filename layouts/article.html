@@ -52,10 +52,17 @@
     <div class="sidebar card">
       <img src="{{baseurl}}/assets/images/tibor.jpg" class="avatar"></img>
       <button id="action-button"><i class="icon-bars"></i></button>
-      <div class="sidebar-content">
+
+      <div class="sidebar-widget">
         <p>
         Hi, my name is Tibor Simon. I am a graduated electrical engineer with a masters degree. I live in Budapest, and I am currently working at Nokia Networks.
         </p>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="{{next.url}}">Previous</a>
+        <a href="{{previous.url}}">Next</a>
+      </nav>
+      <div class="sidebar-widget">
         <h3>Tags</h3>
         {{> tags/by/count}}
       </div>
