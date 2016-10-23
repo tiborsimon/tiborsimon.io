@@ -17,7 +17,7 @@ In this article I am going to show you a method to integrate [MathJax](https://w
 | MathJax | 2.6.1                |
 
 
-## Prerequisite
+# Prerequisite
 
 I wanted to display _mathematical equations_ inside an iOS app using existing math render packages. According to [this Stack overflow answer](http://stackoverflow.com/a/16002611), _mathML_ is supported by UIWebView since iOS 5. The downside of this solution, is that you have to use another packages to convert a convenient math equation reprsentation (like LaTEX) to mahtML which is very unconvenient:
 
@@ -45,13 +45,13 @@ I wanted to display _mathematical equations_ inside an iOS app using existing ma
 
 The equivalent __LaTEX__ representation is:
 
-```
+``` latex
 2^{\frac{2}{\sqrt{6}}}
 ```
 
 To be able to use LaTEX, a third party engine is needed to produce renderable html from it. I chose [MathJax](https://www.mathjax.org) for this purpose.
 
-## Downloading MathJax
+# Downloading MathJax
 
 Download the sources from <a href="https://github.com/mathjax/MathJax/releases/latest" target="_blank">MathJax's Github page</a>. At the time I wrote this article, the latest version was _2.6.1_. It could take quite a bit of time to download the whole zip file.
 
@@ -65,7 +65,7 @@ Simply unboxed the zip, the package takes up __180 MB__ space _(that's a lot!)_.
   <img class="jslghtbx-thmb" src="/images/articles/mathjax-ios/mathjax-ios-raw-package-size.png" alt="Size of the freshly downloaded package" data-jslghtbx data-jslghtbx-caption="Size of the freshly downloaded package" data-jslghtbx-group="mathjax-ios-group-03" />
 </div>
 
-## Adding the MathJax package to the project
+# Adding the MathJax package to the project
 
 I added the downloaded and extracted MathJax sources to a single view based Xcode project, by dragging the folder into the project navigator. I unchecked the copy sources option.
 
@@ -76,7 +76,7 @@ I added the downloaded and extracted MathJax sources to a single view based Xcod
 </div>
 
 
-## Using the MathJax package
+# Using the MathJax package
 
 After the sources are placed to the right place, it's time to use them. I draged a _UIWebView_ to the Storyboard, and created a connection to the ViewController class (`@IBOutlet weak var myWebView: UIWebView!`). I wanted to display the following simple html page in the UIWebView...
 
@@ -141,7 +141,7 @@ class ViewController: UIViewController {
 
 ```
 
-## Testing with the simulator
+# Testing with the simulator
 
 The project loads up to the simulator a bit slowly. After it loads, it renders the mathematical expression to the _UIWebView_ in 8 phases:
 
@@ -158,12 +158,13 @@ The project loads up to the simulator a bit slowly. After it loads, it renders t
 
 The whole rendering happens in less then half a second, but it is noticeable. If you want to use this method to render mathematical expresions in your app, you have to make sure, you only show your _UIWebView_, when it fulli loaded.
 
-## Try it out yourself!
+# Try it out yourself!
 
 You can download the whole Xcode project with the added MathJax sources from <a href="https://github.com/tiborsimon/ios-local-mathjax-template" target="_blank">the project's Github repository</a>.
 
-## Acknowledgement
+# Acknowledgement
 
 For this project, I get a lot of ideas from <a href="http://new2objectivec.blogspot.hu/2013/03/mathjax-v21-works-beautifully-on-ios-61.html?m=1" target="_blank">New 2 Objective-C</a> blog. His implementation is based on a local file writing and reading, which is pretty slow, but it works :)
 
 I also used some ideas from Stack Overflow to <a href="http://stackoverflow.com/questions/3646930/how-to-make-a-transparent-uiwebview" target="_blank">make my UIWebView transparent</a>
+

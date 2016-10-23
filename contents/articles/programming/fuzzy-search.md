@@ -15,7 +15,7 @@ way you will find what you are looking for with a good chance even if you don't 
 The problem has two parts: __searching__ and __sorting__. It is not enough to provide all the relevant results that matched to
 the search query, but you have to sort the result in the relevance order.
 
-### Searching
+# Searching
 
 The first part is the easier part. You only have to generate a clever regular expression from the
 given search query.
@@ -23,12 +23,16 @@ given search query.
 You need to make sure, that between the given query's characters there might be another characters.
 This can be achieved by inserting `.*` tokens:
 
-`foo` -> `.*f.*o.*o.*`
+``` bash
+foo -> .*f.*o.*o.*
+```
 
 You may also want to capture each provided search characters in order to know it's positions for later use.
 The regexp engine can provide the positions for the matched groups.
 
-`.*f.*o.*o.*` -> `.*(f).*(o).*(o).*`
+``` bash
+.*f.*o.*o.* -> .*(f).*(o).*(o).*
+```
 
 But be aware. This capturing may result you an unexpected result when you want to use the provided group
 positions by the regexp engine. Consider the following scenario: you want to find matches for 'x'. The
@@ -40,12 +44,14 @@ positions, this will be misleading for you.
 To solve this issue, you have to force the regexp engine to match every character but to next captured character in the pattern.
 You need to generate a more complex regular expression:
 
-`.*(f).*(o).*(o).*` -> `[^f]*(f)[^o]*(o)[^o]*(o).*`
+``` bash
+.*(f).*(o).*(o).* -> [^f]*(f)[^o]*(o)[^o]*(o).*
+```
 
 This is the final regular expression we are going to use in this article. We can now produce the match
 results, it's time to sort them.
 
-### Sorting
+# Sorting
 
 As I mentioned earlier, we are going to use the captured group's positions to sort the matched results.
 The sorting algorithm will weight every match result, and based on that weight, the soring can be executed.
@@ -58,11 +64,11 @@ more relevant it is, so it will be present earlier in the provided search result
 You can implement this behavior by iterating through the captured groups position list from back to front, calculating the distance between the matches and
 multiplying them by a weighting factor. After each iteration you increase this weighting factor. And that's is.
 
-### Summary
+# Summary
 
 We have reviewed the fuzzy search and sort algorithm. You can find the usage example and the implementation in the following code snippets:
 
-```
+``` python
 import fuzzy
 from pprint import pprint
 
@@ -173,5 +179,5 @@ def _sort_result_list(result):
     return result
 ```
 
-
 [^1]: At least that was the case using the regexp engine shipped with Python 3.4 on OSX.
+

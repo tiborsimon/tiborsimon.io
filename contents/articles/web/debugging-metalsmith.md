@@ -25,5 +25,3 @@ option for me.
 
 ## Conclusion
 
-
-

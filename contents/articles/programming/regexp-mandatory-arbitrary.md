@@ -18,7 +18,7 @@ charachters between them. You can do it with options.
 For example, if you want to match words that has `a` and `b` in them in arbitrary order, you can write: `((.*a.*b.*)|(.*b.*a.*))`.
 Not so horrible, is it. But. We are talking about permutation. If you want to add 3 characters, the pattern length will increase:
 
-```
+``` txt
 ((.*a.*b.*c.*)|
  (.*a.*c.*b.*)|
  (.*b.*a.*c.*)|
@@ -29,7 +29,7 @@ Not so horrible, is it. But. We are talking about permutation. If you want to ad
 
 For 4 characters, it reaches the 409 charachters length:
 
-```
+``` txt
 ((.*a.*b.*c.*d.*)|
  (.*a.*b.*d.*c.*)|
  (.*a.*c.*b.*d.*)|
@@ -56,11 +56,11 @@ For 4 characters, it reaches the 409 charachters length:
  (.*d.*c.*b.*a.*))
 ```
 
-### Generator in python
+# Generator in python
 
 You can write a generator for this regexp pattern easily in python:
 
-```
+``` python
 from itertools import permutations
 import re
 
@@ -75,3 +75,4 @@ def generate_mandatory_arbitrary(content):
 
 print(generate_mandatory_arbitrary('abc'))
 ```
+

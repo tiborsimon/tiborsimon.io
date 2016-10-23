@@ -8,7 +8,7 @@ summary: In the previous article we have discussed the 5 ways you can generate a
 ---
 
 
-## Sinusoid generation summary
+# Sinusoid generation summary
 
 Let's sum up the previous article. If you want to generate a sinusoid signal you have 5 possibble ways to do that.
 
@@ -34,7 +34,7 @@ Where the parameters are
 | `N`          | [-]   | number of periods    |
 | `n`          | [-]   | number of samples    |
 
-## Required parts
+# Required parts
 
 To create an equation engine we have to solve the following problems:
 
@@ -42,20 +42,20 @@ To create an equation engine we have to solve the following problems:
 1. Calculate the necessary parameters from the available ones
 1. Use the parameters in the equations
 
-### Identifying the passed parameters
+# Identifying the passed parameters
 
 We need to identify what parameters were passed to the generator function to be able to decide what parameters can we
 calculate with the passed ones. Hopefully we can use <a href="http://tiborsimon.io/projects/TSPR0002/" target="_blank">Simple Input Parser</a>
 that can provide the passed parameter flags in its _extra flag_ mode.
 
-```
+``` matlab
 [data, flags] = simple_input_parser(data, raw_varargin, validators);
 ```
 
 The flags variable will be the structure that will contain the parameter flags. One if the parameter was parsed and
 zero if not.
 
-### Calculating the parameters
+## Calculating the parameters
 
 To be able to substitute to the generator equations, we need to make sure to have all the necessary parameters
 to do that. In case if wo do not have all the ones, we have to try to calculate them from the given ones.
@@ -74,7 +74,7 @@ The following table contains all possible way to get a parameter from the others
 This table can be programmed into __calculator functions__ which are going to try to calculate a parameter from the
 others. If a _calculator function_ is unable to calculate a parameter it throws an exception.
 
-```
+``` matlab
 %% Parameter construction
 function f = get_f()
     if flags.f
@@ -193,12 +193,12 @@ function L = get_L()
 end
 ```
 
-### Using the parameters in the equations
+## Using the parameters in the equations
 
 Lastly we have to implement the __generator functions__ for all 5 cases. These functions implement the
 sinusoid signal generation with a given parameter set. For more details see the first episode of this article series.
 
-```
+``` matlab
 %% Signal synthesizer functions
 function s = construct_with_n_N()
     n = get_n();
@@ -258,7 +258,7 @@ function s = construct_with_L_f_fs()
 end
 ```
 
-## Putting everything together
+# Putting everything together
 
 The last step is to put everything together.
 
@@ -272,7 +272,7 @@ The only thing what we have to do is to use the _generator functions_ to try to 
 If one _generator function_ fails, we try another until there is no more _generator function_ left. In that case we can determine, that
 the given parameter set, there is no way to generate a sinusoud signal.
 
-```
+``` matlab
 %% Mode Selection
 try
     s = construct_with_n_N();
@@ -298,7 +298,8 @@ catch
 end
 ```
 
-## Summary
+# Summary
 
 And that's it. This method was used in <a href="http://tiborsimon.io/projects/TSPR0003/" target="_blank">Smart Sinusoids</a> to generate
 the sinusoid signals.
+

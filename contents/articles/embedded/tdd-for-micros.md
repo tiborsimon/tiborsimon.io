@@ -14,7 +14,7 @@ However, I _couldn't find_ any embedded platform yet that comes with tdd ready r
 
 This article will use __Microchip's PIC__ microcontrollers and resources to demonstrate this new approach, but it can apply to any other platforms.
 
-## The problem with existing resources
+# The problem with existing resources
 
 Just to be clear, there is nothing wrong with the provided header and definition system until you want to test drive your entire code. I take the resource files shipped with the __XC8__ PIC copiler as an example.
 
@@ -23,7 +23,7 @@ Just to be clear, there is nothing wrong with the provided header and definition
 
 My TDD ready code.
 
-```
+``` bash
 Memory Summary:
     Program space        used    12h (    18) of  2000h words   (  0.2%)
     Data space           used     3h (     3) of   400h bytes   (  0.3%)
@@ -35,7 +35,7 @@ Memory Summary:
 
 Existing resources.
 
-```
+``` bash
 Memory Summary:
     Program space        used     Ah (    10) of  2000h words   (  0.1%)
     Data space           used     2h (     2) of   400h bytes   (  0.2%)

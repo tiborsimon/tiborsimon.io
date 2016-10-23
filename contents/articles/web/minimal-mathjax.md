@@ -26,7 +26,7 @@ The best way to reduce your MathJax package is to create a simple template page,
 
 I started with a simple html page containing a basic MathJax setup:
 
-```
+``` html
 <!DOCTYPE html>
 <html>
   <head>
@@ -94,3 +94,4 @@ MathJax-2.6.1
 Once again: I used __LaTEX__ with __Common HTML__ output rendering. This setup heavily depends on your input and output method.
 
 Hope you find this article series useful ;)
+

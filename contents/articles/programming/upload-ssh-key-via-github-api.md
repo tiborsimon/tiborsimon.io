@@ -12,7 +12,7 @@ Don't you hate the way you used to upload your ssh keys to GitHub? Generate the 
 
 Anyway. If you are working on a remote machine, for example one you've just spun up with __vagrant__, tricks with the mouse might not an option for you. Of course, you can copy your already generated and used ssh key to your machine, but this is not the best approach.
 
-## Using the GitHub API
+# Using the GitHub API
 
 Using the [GitHub v3 API](https://developer.github.com/v3/), we are able to upload our ssh keys via a [HTTP request](https://developer.github.com/v3/users/keys/) by [creating a public key](https://developer.github.com/v3/users/keys/#create-a-public-key).
 
@@ -58,8 +58,7 @@ until [ $github_result -eq 1 ]; do
 done
 ```
 
-
-
-## Summary
+# Summary
 
 You were presented to a method that allows you to upload ssh keys to your GitHub account via the command line.
+

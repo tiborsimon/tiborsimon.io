@@ -15,7 +15,7 @@ Have you ever felt _crippled on a new machine_ you've just logged in for the fir
 
 You can speed up the initial configuration if you have a previously saved config file set in a machine independent storage, say Dropbox or a USB drive.
 
-These files are generally called __dotfiles__, as command line tools often expect their configuration files to start with a dot indicating the file is hidden for normal use. Dotfiles are generally located in the current user's _home_ directory. When you start using a new machine, you simply  copy your saved config files to your home directory and you are home. 
+These files are generally called __dotfiles__, as command line tools often expect their configuration files to start with a dot indicating the file is hidden for normal use. Dotfiles are generally located in the current user's _home_ directory. When you start using a new machine, you simply  copy your saved config files to your home directory and you are home.
 
 Besides the custom configuration files, you can also save out a list of installable programs and tools that you want to have by default on a machine. Some package manager tools supports installing from files, but if not, you can write a small script that will install your tools one by one. You can create a `packages.txt` file for this purpose:
 
@@ -30,7 +30,7 @@ vim
 The _one-by-one_ installer script could be something like this:
 
 ``` bash
-for app in $(cat path/to/your/packages.txt); do 
+for app in $(cat path/to/your/packages.txt); do
   echo "Installing $app.."
   if $YOUR_PACKAGE_MANAGER install -y $app>temp_log_file 2>&1; then
     echo "$app installed."
@@ -39,11 +39,11 @@ for app in $(cat path/to/your/packages.txt); do
   fi
   rm -f temp_log_file
 done
-``` 
+```
 
 You might need to have administrator privileges to install packages on your machine. You have to replace the path to your _packages.txt_ file and your system's package manager.
 
-### Conclusion
+## Conclusion
 
 This method is semi-manual, as you have to copy the files, and run the commands yourself. It would be much more elegant if you would have a _one-command deployment_ solution. An another big drawback is the lack of version control (unless you have a local git repo on you USB drive). It is always a good idea to use versioning for __anything__ you do in you machine in case of an accident[^1].
 
@@ -86,7 +86,7 @@ All I have to do is type in the following command:
 bash <(curl -fsSL tiborsimon.io/dotfiles)
 ```
 
-I can choose what protocol do I want to use for downloading the configuration. If I choose __https__ the configuration will download instantly, and the ssh key generation will be skipped, since I only need my user name and password for GitHub to push back the config modification I will make later. If I choose __ssh__ for the download protocol, I will be prompted if to create a new ssh key, and optionally upload it ti GitHub or BitBucket. 
+I can choose what protocol do I want to use for downloading the configuration. If I choose __https__ the configuration will download instantly, and the ssh key generation will be skipped, since I only need my user name and password for GitHub to push back the config modification I will make later. If I choose __ssh__ for the download protocol, I will be prompted if to create a new ssh key, and optionally upload it ti GitHub or BitBucket.
 
 ## Conclusion
 
@@ -99,7 +99,5 @@ You can find detailed informations about my URL deployment and automated ssh key
 
 If you want to take a look at the system itself, you can go to my [dotfiles GitHub repo](https://github.com/tiborsimon/dotfiles).
 
-
-
-
 [^1]: Oh the irony.. Exactly after I typed this sentence my machine froze while traveling home on a bus.. :D Commit often, people! Espacially when you turned off swap file generation in vim :D
+

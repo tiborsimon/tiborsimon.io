@@ -20,3 +20,4 @@ chart canvas context and data per main tabs. This variables make it possible to 
 have left a tab, and it will be able to resume there.
 
 <iframe width="100%" height="360" src="//jsfiddle.net/0scz7zak/2/embedded/result,js,html,css/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+

@@ -14,7 +14,7 @@ All the credits go to [Austin](http://stackoverflow.com/users/1504966/austin)
 and to his [stackoverflow post](http://stackoverflow.com/a/11597448). I am just
 a happy user of this method :)
 
-```
+``` javascript
 $('a').each(function() {
    var a = new RegExp('/' + window.location.host + '/');
    if(!a.test(this.href)) {
@@ -29,3 +29,4 @@ $('a').each(function() {
 
 The method just works. Nothing fancy about it, it does what is supposed to do.
 Thank you Austin!
+

@@ -23,7 +23,7 @@ The steps are the followings:
 1. Use the round filter
 1. Cast the result to _integer_
 
-```
+``` ninja
 {% set article_middle_index = articles|length / 2 %}
 {% set article_middle_index = article_middle_index + 0.2 %}
 {% set article_middle_index = article_middle_index|round %}
@@ -37,7 +37,7 @@ Since `{ 0.5|round }` is `0.0` according to Jinja2, we need to add a small numbe
 We can also write a custom Jinja filter that calculates the middle index of a list, by appending a small function definition and a special dictionary that tells Pelican to use the function definition as a Jinja filter to the `pelicanconf.py` file:
 
 
-```
+```ninja
 def list_half_index(content, *args):
     return ceil(len(content))
 
@@ -48,7 +48,7 @@ JINJA_FILTERS = {
 
 In the Pelican template files, we can use our custom filter as follows:
 
-```
+``` ninja
 {% set article_middle_index = articles|middle_index %}
 ```
 
@@ -57,7 +57,7 @@ In the Pelican template files, we can use our custom filter as follows:
 We have now the middle index of an article list, so we can use it to split the list to half:
 
 
-```
+``` html
 <div class="row">
   <div class="6u 6u(tablet) 12u(mobile)">
     {% for article in articles[:article_middle_index] %}
@@ -74,3 +74,4 @@ We have now the middle index of an article list, so we can use it to split the l
 ```
 
 We ended up having two coloms of articles that are generated from a single list.
+

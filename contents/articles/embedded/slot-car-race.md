@@ -96,3 +96,4 @@ Below you can find the repository for the nicely commented source code of the pe
 # Summary
 
 With this algoritm you will be able to have a strong foundtation for your own algorithm if you are faceing a similar contest. Feel free to contribute to the algorithm, to make it more durable.
+

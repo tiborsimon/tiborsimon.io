@@ -8,7 +8,7 @@ summary: Generating sinusoid signals is often the first step for executing a mor
 ---
 
 
-## The problem
+# The problem
 
 
 The equation of a sinusoid signal is a known fact:
@@ -50,7 +50,7 @@ The result will be a 100 sample long sinusoid signal, that contains 3 periods. B
 
 As you can see, generating sinusoids with these basic methods isn't hard at all. But you __have to think__ about the method, the formulas and the units. This could be a bit time consuming if you have to think about it every time you want to generate a signal..
 
-## Sinusoid signal parameters
+# Sinusoid signal parameters
 
 There are 9 parameters that a pure sinusoid signal could have. In order to be able to generate any kind of sinusoid signals, you should be familiar with the parameters.
 
@@ -84,7 +84,7 @@ Let's try out all methods, to see how you can use them in practice. Let's genera
 
 The used parameters may seem a bit odd for the first time, but due to the constraint of generating the same signal with all the methods, they will be reasonable.
 
-### Method 1 - [n,N]
+## Method 1 - [n,N]
 
 Generating a sinusoid signal with `n` data points with `N` periods in it.
 
@@ -100,7 +100,7 @@ stem(s)
 ```
 
 
-### Method 2 - [L,N,fs]
+## Method 2 - [L,N,fs]
 
 Generating `L` seconds long signal sampled at `fs` consisting of `N` periods in it.
 
@@ -117,7 +117,7 @@ stem(s)
 ```
 
 
-### Method 3 - [f,N,fs]
+## Method 3 - [f,N,fs]
 
 Generating a sinusoid signal sampled at `fs` sampling rate with `N` periods in it with the frequency `f`.
 
@@ -133,7 +133,7 @@ stem(s)
 ```
 
 
-### Method 4 - [n,f,fs]
+## Method 4 - [n,f,fs]
 
 Generating a signal consisting of `n` data points sampled at `fs` sampling rate with the frequency `f`.
 
@@ -150,7 +150,7 @@ stem(s)
 ```
 
 
-### Method 5 - [f,L,fs]
+## Method 5 - [f,L,fs]
 
 Generating a sinusoid signal sampled at `fs` sampling rate with the duration of `L` seconds with the frequency `f`.
 
@@ -165,7 +165,7 @@ stem(s)
 ```
 
 
-## Summary
+# Summary
 
 That's it. These 5 methods cover all the possible non redundant ways to generate sinusoidal signals. Did you understand them? Did you like them? Will you use them? Will you _study_ them? Will you _derive_ them over and over again?
 
@@ -176,3 +176,4 @@ If your answers for the last two questions were both _nope_, then the go ahead a
 [^2]: Because we have started our time vector from 0 as the first vector point, the remained 19 points wont cover all the 2 seconds time duration but will span until 1.9 seconds _(2s - 1/fs = 1.9s)_.
 
 [^3]: PC sound cards usually accept signals scaled -1 to 1.
+
