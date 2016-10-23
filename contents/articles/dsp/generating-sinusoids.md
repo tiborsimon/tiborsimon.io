@@ -56,7 +56,6 @@ There are 9 parameters that a pure sinusoid signal could have. In order to be ab
 
 <img src="/images/articles/smart-sinusoids/detailed.png" alt="Sinusoid signal parameters" />
 
-
 | Parameter name | Unit | Possible parameters   |
 |:--------------|:----|:---------------------|
 | `phi`        | [degree]    | phase          |
@@ -89,7 +88,7 @@ The used parameters may seem a bit odd for the first time, but due to the constr
 
 Generating a sinusoid signal with `n` data points with `N` periods in it.
 
-```
+``` matlab
 n = 60;
 N = 2.5;
 
@@ -105,7 +104,7 @@ stem(s)
 
 Generating `L` seconds long signal sampled at `fs` consisting of `N` periods in it.
 
-```
+``` matlab
 fs = 10;
 N = 2.5;
 L = 60/fs;
@@ -122,7 +121,7 @@ stem(s)
 
 Generating a sinusoid signal sampled at `fs` sampling rate with `N` periods in it with the frequency `f`.
 
-```
+``` matlab
 fs = 10;
 N = 2.5;
 f = N*fs/60;
@@ -138,7 +137,7 @@ stem(s)
 
 Generating a signal consisting of `n` data points sampled at `fs` sampling rate with the frequency `f`.
 
-```
+``` matlab
 fs = 10;
 n = 60;
 f = 2.5*fs/n;
@@ -155,7 +154,7 @@ stem(s)
 
 Generating a sinusoid signal sampled at `fs` sampling rate with the duration of `L` seconds with the frequency `f`.
 
-```
+``` matlab
 L = 60/fs;
 f = 2.5/L;
 
