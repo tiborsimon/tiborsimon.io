@@ -65,7 +65,7 @@ This html test page renders the following equations:
 
 If my reduced MathJax package can render this equations, it shouldn't be in trouble render all of my possible further equations. The html page above runs fine with teh following resource tree lising. This reduced package takes up __623KB__ on disk.
 
-```
+``` bash
 MathJax-2.6.1
 ├── MathJax.js
 ├── config

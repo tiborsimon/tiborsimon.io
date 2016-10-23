@@ -1,0 +1,112 @@
+@import 'config';
+@import 'palette';
+@import 'card';
+
+$article-color: palette(Light Blue, 700);
+
+.article-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1120px;
+  position: relative;
+  top: -300px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  .card {
+    @include card(1);
+    background: white;
+    border-radius: 2px;
+  }
+}
+
+.article {
+  max-width: $global-content-width;
+  box-sizing: border-box;
+  header {
+    .banner {
+      background: $article-color;
+      height: 175px;
+    }
+    .article-title {
+      padding: 25px 30px 10px 30px;
+      font-size: 300%;
+      font-weight: 300;
+      color: white;
+      background: $article-color;
+      line-height: 1em;
+    }
+    .details {
+      display: flex;
+      justify-content: space-between;
+      background: $article-color;
+      padding: 0 30px;
+      .timestamp {
+        color: white;
+        background: $article-color;
+        font-size: 1.4em;
+        display: flex;
+        padding: 12px 0;
+        align-items: center;
+      }
+      .tag-list {
+        margin: 0;
+        padding: 0;
+        align-items: center;
+        a {
+          background: white;
+        }
+      }
+    }
+    .summary {
+      display: flex;
+      display-direction: row;
+      padding: 30px 30px 6px 30px;
+      font-size: 1.3em;
+      color: #757575;
+    }
+  }
+  article {
+    padding: 10px $global-content-padding $global-content-padding ;
+  }
+  hr {
+    position: relative;
+    border: none;
+    border-top: 1px solid palette(Black, Dividers);
+    margin-bottom: 30px;
+    width: $global-content-width;
+    position: relative;
+    left: -$global-content-padding;
+  }
+
+  pre code {
+    background: palette(Grey, 100);
+    width: $global-content-width;
+    display: block;
+    position: relative;
+    left: -$global-content-padding;
+    padding: $global-content-padding;
+    box-sizing: border-box;
+    overflow-x: auto;
+    color: #999;
+  }
+}
+
+$sidebar-width: 300px;
+
+.sidebar {
+  box-sizing: border-box;
+  width: $sidebar-width;
+  .avatar {
+    display: block;
+    width: $sidebar-width;
+    height: $sidebar-width;
+    background: palette(Blue);
+  }
+  .sidebar-content {
+    padding: 19px;
+  }
+}
+
+
+

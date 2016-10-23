@@ -1,5 +1,7 @@
-{{#each enhancedTags.tagsByCount}}
-<span>
-  <a href="{{url}}">{{tag}} - {{count}}</a>
-</span>
-{{/each}}
+<div class="tag-list">
+  {{#each enhancedTags.tagsByCount}}
+  <a href="{{url}}" class="count">
+    {{tag}}<span>{{count}}</span>
+  </a>
+  {{/each}}
+</div>

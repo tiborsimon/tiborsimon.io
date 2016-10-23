@@ -148,11 +148,13 @@ metalsmith(__dirname)
       layout: 'index.html'
     }
   }))
+  .use(metallic())
   .use(markdown({
     gfm: true,
     tables: true,
+    smartLists: true,
+    smartypants: true
   }))
-  .use(metallic())
   .use(inplace({
     engine: 'handlebars'
   }))

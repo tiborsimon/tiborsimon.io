@@ -3,14 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <title>{{title}}</title>
-  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-  <link rel="stylesheet" href="{{baseUrl}}/assets/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Roboto:300,400" rel="stylesheet">
+  <link rel="stylesheet" href="{{baseUrl}}/css/style.css">
   <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
 </head>
 <body>
-  <h1>{{title}}</h1>
-  <div class="timestamp">{{date}}</div>
-  <div class="content">{{{contents}}}</div>
+  <nav class="main-nav">
+    <div class="group">
+      <button>
+        <svg style="width:24px;height:55px" viewBox="0 0 24 24">
+        <path fill="#FFF" d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
+        </svg>
+      </button>
+      <button class="logo">
+        tiborsimon.io
+      </button>
+    </div>
+    <div class="group">
+    </div>
+    <div class="group">
+      <button>Articles</button>
+      <button>Projects</button>
+      <button>Apps</button>
+      <button>Search</button>
+    </div>
+  </nav>
+  <div class="header">
+  </div>
+  <div class="article-wrapper">
+    <div class="article card">
+      <header>
+        <div class="banner"></div>
+        <div class="article-title">{{title}}</div>
+        <div class="details">
+          <div class="timestamp">{{date}}</div>
+          <div class="tag-list">
+            {{#each tags}}
+            <a href="{{url}}">{{name}}</a>
+            {{/each}}
+          </div>
+        </div>
+        <div class="summary">{{{snippet}}}</div>
+      </header>
+      <article class="content">
+        {{{contents}}}
+      </article>
+    </div>
+    <div class="sidebar card">
+      <img src="{{baseurl}}/assets/images/tibor.jpg" class="avatar"></img>
+      <button id="action-button"><i class="icon-bars"></i></button>
+      <div class="sidebar-content">
+        <p>
+        Hi, my name is Tibor Simon. I am a graduated electrical engineer with a masters degree. I live in Budapest, and I am currently working at Nokia Networks.
+        </p>
+        <h3>Tags</h3>
+        {{> tags/by/count}}
+      </div>
+    </div>
+  </div>
 </body>
 </html>
 

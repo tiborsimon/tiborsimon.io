@@ -1,0 +1,45 @@
+@import 'palette';
+
+html {
+  font-size: 15px;
+}
+
+body {
+  overflow-y: scroll;
+  background: palette(Grey, 200);
+  font-family: 'Roboto', sans-serif;
+  //font-family: 'Noto Sans', sans-serif;
+  line-height: 1.4em;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-weight: 300;
+  line-height: 1em;
+}
+
+table {
+  background-color: #fff;
+  font-size: 13px;
+  table-layout: auto;
+  width: 100%;
+  margin-bottom: 40px;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 1em;
+  thead {
+    background-color: #FAFAFA;
+    font-weight: 500;
+  }
+  td, th {
+    border: 1px solid #EEEEEE;
+    line-height: 24px;
+    padding: 12px 12px 12px 24px;
+    color: #212121;
+    vertical-align: middle;
+  }
+}
+
+@import 'tags';
+@import 'action-button';
+@import 'header';
+@import 'body';

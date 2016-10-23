@@ -4,7 +4,7 @@
 
 $action-button-diameter: 70px;
 $action-button-cross-width: 18px;
-$action-button-background-color: palette($global-action-color, A200);
+$action-button-background-color: palette($global-action-color, A400);
 $action-button-cross-color: palette(White);
 
 $action-button-offset-1: 40px;
@@ -13,7 +13,7 @@ $action-button-offset-3: 10px;
 
 
 @function action-button-get-top-offset($diameter, $offset) {
-  @return $offset - $diameter / 2;
+  @return 300px - $diameter / 2;
 }
 
 @function action-button-get-media-width-break($diameter, $offset, $width) {
@@ -36,7 +36,7 @@ $action-button-offset-3: 10px;
   height: $action-button-diameter;
   position: absolute;
   border-radius: 50%;
-  right: $action-button-offset-1;
+  right: 30px;
   top: action-button-get-top-offset($action-button-diameter, $global-header-height);
   border: none;
   z-index: 2;

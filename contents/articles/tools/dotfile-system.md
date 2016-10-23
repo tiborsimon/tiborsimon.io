@@ -20,7 +20,8 @@ These files are generally called __dotfiles__, as command line tools often expec
 Besides the custom configuration files, you can also save out a list of installable programs and tools that you want to have by default on a machine. Some package manager tools supports installing from files, but if not, you can write a small script that will install your tools one by one. You can create a `packages.txt` file for this purpose:
 
 <div class="code-name">packages.txt</div>
-```
+
+``` bash
 git
 mc
 vim
@@ -28,7 +29,7 @@ vim
 
 The _one-by-one_ installer script could be something like this:
 
-```
+``` bash
 for app in $(cat path/to/your/packages.txt); do 
   echo "Installing $app.."
   if $YOUR_PACKAGE_MANAGER install -y $app>temp_log_file 2>&1; then
@@ -59,7 +60,7 @@ This is the exact method I use for my dotfile system. I clone my dotfiles reposi
 
 For deployment script, I use [Zach Holman's dotfiles](https://github.com/holman/dotfiles) project that has a separated structure that I further customized to meet my needs.
 
-### Conclusion
+## Conclusion
 
 Putting your dotfiles into a versioned repository and hosting it online gives you amazing flexibility. You can have your own configuration in any machine in minutes while keeping it on a dedicated place. You only need to clone your repository into a dedicated directory, and run your deployment script.
 
@@ -81,13 +82,13 @@ Since I have my custom domain name, I felt like there still more room for improv
 
 All I have to do is type in the following command:
 
-```
+``` bash
 bash <(curl -fsSL tiborsimon.io/dotfiles)
 ```
 
 I can choose what protocol do I want to use for downloading the configuration. If I choose __https__ the configuration will download instantly, and the ssh key generation will be skipped, since I only need my user name and password for GitHub to push back the config modification I will make later. If I choose __ssh__ for the download protocol, I will be prompted if to create a new ssh key, and optionally upload it ti GitHub or BitBucket. 
 
-### Conclusion
+## Conclusion
 
 In this way I automated all of the critical stepts I do not want to repeate every time on a new machine.
 
