@@ -4,7 +4,7 @@ tags: regexp, permutation
 date: 2015-10-29
 collection: articles
 layout: article.html
-summary: What regular expression pattern would you use if you want to match a word with mandatory characters in it but in arbitrary order?
+snippet: What regular expression pattern would you use if you want to match a word with mandatory characters in it but in arbitrary order?
 ---
 
 
@@ -15,10 +15,15 @@ handle arbitrary order with the mandatory constraint. You have to do it yourself
 You have to tell the regexp engine that you want allow all the possible permutation of a character list, with optional
 charachters between them. You can do it with options.
 
-For example, if you want to match words that has `a` and `b` in them in arbitrary order, you can write: `((.*a.*b.*)|(.*b.*a.*))`.
-Not so horrible, is it. But. We are talking about permutation. If you want to add 3 characters, the pattern length will increase:
+For example, if you want to match words that has `a` and `b` in them in arbitrary order, you can write:
 
-``` txt
+```
+((.*a.*b.*)|(.*b.*a.*))
+```
+
+It isn't so horrible, is it. But. We are talking about permutation. If you want to add 3 characters, the pattern length will increase:
+
+```
 ((.*a.*b.*c.*)|
  (.*a.*c.*b.*)|
  (.*b.*a.*c.*)|
@@ -29,7 +34,7 @@ Not so horrible, is it. But. We are talking about permutation. If you want to ad
 
 For 4 characters, it reaches the 409 charachters length:
 
-``` txt
+```
 ((.*a.*b.*c.*d.*)|
  (.*a.*b.*d.*c.*)|
  (.*a.*c.*b.*d.*)|

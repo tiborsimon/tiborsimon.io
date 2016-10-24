@@ -4,7 +4,7 @@ tags: MathJax, hack, javascript, math, LaTEX
 date: 2016-03-07
 collection: articles
 layout: article.html
-summary: MathJax is a pretty big javascript package, but you can make it work after you stripped off most of the files. The final package size could be around 623KB.
+snippet: MathJax is a pretty big javascript package, but you can make it work after you stripped off most of the files. The final package size could be around 623KB.
 ---
 
 

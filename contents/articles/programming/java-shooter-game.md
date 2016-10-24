@@ -4,7 +4,7 @@ tags: java, game
 date: 2015-01-17
 collection: articles
 layout: article.html
-summary: During the last semester I had a subject that required to create a java program. I decided to write a small game similar to Minigore. The game is written in java with LWJGL and Slick2D game libraries.
+snippet: During the last semester I had a subject that required to create a java program. I decided to write a small game similar to Minigore. The game is written in java with LWJGL and Slick2D game libraries.
 ---
 
 

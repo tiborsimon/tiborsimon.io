@@ -70,6 +70,9 @@ $article-highlight-color: palette(Light Blue, 700);
   article {
     padding: 10px $global-content-padding $global-content-padding ;
   }
+  a {
+    color: $article-highlight-color;
+  }
   hr {
     position: relative;
     border: none;

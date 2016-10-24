@@ -4,7 +4,7 @@ tags: pelican, jinja2, lists, hack
 date: 2016-02-14
 collection: articles
 layout: article.html
-summary: As I was creating my site, I wanted to split a list of articles in half to display them in two columns. There are two options to do this: with Jinja2 built in filters, or a custom Jinja2 filter.
+snippet: As I was creating my site, I wanted to split a list of articles in half to display them in two columns. There are two options to do this: with Jinja2 built in filters, or a custom Jinja2 filter.
 ---
 
 

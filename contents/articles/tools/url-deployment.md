@@ -4,7 +4,7 @@ tags: dotfiles, tools, script, url, forward, hack
 date: 2016-03-19
 collection: articles
 layout: article.html
-summary: You can curl down a file and run it as a setup script. Some tech companies use this approach too.
+snippet: You can curl down a file and run it as a setup script. Some tech companies use this approach too.
 ---
 
 I started to improve my __dotfiles__ system with __one command URL deployment__. In this way I can run a single command on a virgin system to deploy my configuration. This method works on OS X as well as any Linux system.

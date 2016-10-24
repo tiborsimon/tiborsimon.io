@@ -4,7 +4,7 @@ tags: MathJax, ios, hack, javascript, swift, math, LaTEX
 date: 2016-02-20
 collection: articles
 layout: article.html
-summary: Integrating MathJax locally in an iOS app to be able to use mathematical equations stored in LaTEX.
+snippet: Integrating MathJax locally in an iOS app to be able to use mathematical equations stored in LaTEX.
 ---
 
 

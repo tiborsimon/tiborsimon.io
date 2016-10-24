@@ -4,7 +4,7 @@ tags: fuzzy, search, sorting
 date: 2015-10-25
 collection: articles
 layout: article.html
-summary: What do you do, if your users may not know exactly what they are looking for while typing into a search field. You can try to provide all relevant matches based on the typed in characters. Time to search in a fuzzy way.
+snippet: What do you do, if your users may not know exactly what they are looking for while typing into a search field. You can try to provide all relevant matches based on the typed in characters. Time to search in a fuzzy way.
 ---
 
 

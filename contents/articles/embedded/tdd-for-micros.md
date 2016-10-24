@@ -5,7 +5,7 @@ date: 2016-07-28
 collection: articles
 layout: article.html
 draft: true
-summary: There is one thing that really bothers me in casual embedded software development. That is the lack of unit testing and the test driven development workflow. 
+snippet: There is one thing that really bothers me in casual embedded software development. That is the lack of unit testing and the test driven development workflow. 
 ---
 
 It is not taught in schools and in universities, but test driven development is one of the most important skill developers should know about. It provide easier development and confident, that the newly added feature don't beak the existing. _Test driven development is applicable only for object oriented programming languages._ You can hear this false argument everywhere. This is a misconception. You can test drive any procedural or functional language with ease with the appropriate testing framework you can write for yourself! And since embedded systems are programmed mostly in procedural languages (mainly in C), they can be thest driven as well.

@@ -4,7 +4,7 @@ tags: embedded, dsp, accelerometer
 date: 2013-05-19
 collection: articles
 layout: article.html
-summary: At the university me and my partner have faced a midterm project that contained a very interesting problem. We had to write an algorithm that drives a small electric car on it’s guided track.
+snippet: At the university me and my partner have faced a midterm project that contained a very interesting problem. We had to write an algorithm that drives a small electric car on it’s guided track.
 ---
 
 

@@ -4,7 +4,7 @@ tags: parameter, equation
 date: 2015-11-11
 collection: articles
 layout: article.html
-summary: In the previous article we have discussed the 5 ways you can generate a sinusoid signal. In this article we are going to develop a method that tries to generate a sinusoid signal with a given parameter set.
+snippet: In the previous article we have discussed the 5 ways you can generate a sinusoid signal. In this article we are going to develop a method that tries to generate a sinusoid signal with a given parameter set.
 ---
 
 

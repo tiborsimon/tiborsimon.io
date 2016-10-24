@@ -4,7 +4,7 @@ tags: dotfiles, tools, script, linux, unix
 date: 2016-04-01
 collection: articles
 layout: article.html
-summary: I hate to be machine dependent. For me a computer is just a tool to get things done. If one breaks down for various reasons or I switch machine I want to have my tools and setup without any manual configuration.
+snippet: I hate to be machine dependent. For me a computer is just a tool to get things done. If one breaks down for various reasons or I switch machine I want to have my tools and setup without any manual configuration.
 ---
 
 Have you ever felt _crippled on a new machine_ you've just logged in for the first time? Tools missing, and if not, they have weird default configurations. Before you can start to work, you need to move in that machine: download all your needed tools, configure them one by one by hand. You quickly realize this is not the best way you can do..

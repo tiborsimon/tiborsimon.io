@@ -4,7 +4,7 @@ tags: web, hack, soup
 date: 2015-10-24
 collection: articles
 layout: article.html
-Summary: I had to create a searchable noun list in hungarian without any publicly available word list that I can easily download.
+snippet: I had to create a searchable noun list in hungarian without any publicly available word list that I can easily download.
 ---
 
 

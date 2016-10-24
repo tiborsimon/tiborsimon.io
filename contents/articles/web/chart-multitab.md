@@ -4,7 +4,7 @@ tags: javascript, chart, bootstrap
 date: 2015-10-30
 collection: articles
 layout: article.html
-summary: Chart.js is a bit tricky to use if you have dynamic tabs on your site. How about having multiple tabs with multiple tabs in them? Things get serious.
+snippet: Chart.js is a bit tricky to use if you have dynamic tabs on your site. How about having multiple tabs with multiple tabs in them? Things get serious.
 ---
 
 
