@@ -1,8 +1,10 @@
 @import 'palette';
-$global-header-height:   420px;
+$global-header-height:   390px;
 $global-content-width:   800px;
 $global-content-padding: 30px;
 
-$global-main-color:      Grey;
-$global-button-hover:    Light Blue;
-$global-action-color:    Blue;
+$global-main-color:         palette(Light Blue, 700);
+$global-header-color:       palette(Grey, 800);
+$global-button-hover:       Light Blue;
+$global-action-color:       palette(Light Blue, A400);
+$global-action-cross-color: palette(White);

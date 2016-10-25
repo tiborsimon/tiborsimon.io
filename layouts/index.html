@@ -3,35 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <title>Tibor's Lab</title>
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Roboto:300,400" rel="stylesheet">
+  <link rel="stylesheet" href="{{baseUrl}}/css/style.css">
 </head>
 <body>
-  {{#each pagination.files}}
-  <article class="content-article">
-    <header>
-      <span class="timestamp">{{date}}</span>
-      <h2>
-        <a href="{{url}}">{{title}}</a>
-      </h2>
-      <div class="snippet">{{{snippet}}}</div>
-        {{#each tags}}
+  <div class="articles-wrapper">
+    <div class="articles">
+      {{#each pagination.files}}
+      <div href="{{url}}" class="article-card">
+        <header>
+          <h2>
+            <a href="{{url}}">{{title}}</a>
+          </h2>
+          <span class="timestamp">{{date}}</span>
+        </header>
+        <hr>
+        <div class="snippet">{{{snippet}}}</div>
+        <div class="tag-list">
+          {{#each tags}}
           <a href="{{url}}">{{name}}</a>
-        {{/each}}
-      <hr>
-    </header>
-  </article>
-  {{/each}}
-  <nav>
-  {{#if pagination.previous}}
-    <button>
-      <a href="{{pagination.previous.url}}">Newer</a>
-    </button>
-  {{/if}}
-  {{#if pagination.next}}
-    <button>
-      <a href="{{pagination.next.url}}">Older</a>
-    </button>
-  {{/if}}
-  </nav>
+          {{/each}}
+        </div>
+      </div>
+      {{/each}}
+    </div>
+    <div class="sidebar">
+
+      <div class="card">
+        <div class="tags">
+          <h2>Tags</h2>
+          {{> tags/by/count}}
+        </div>
+      </div>
+
+      <div class="card">
+        <nav class="pagination-nav">
+          {{#if pagination.previous}}
+          <a href="{{pagination.previous.url}}">Previous</a>
+          {{else}}
+          <span>Previous</span>
+          {{/if}}
+          {{#if pagination.next}}
+          <a href="{{pagination.next.url}}">Older</a>
+          {{else}}
+          <span>Next</span>
+          {{/if}}
+        </nav>
+      </div>
+    </div>
+  </div>
   <hr>
   <div class="portfolio-wrapper">
     <h2>Portfolio</h2>
@@ -44,10 +64,6 @@
   {{/each}}
  </div>
  <hr>
- <div class="tags-wrapper">
-  <h2>Tags</h2>
-  {{> tags/by/count}}
- </div>
 </body>
 </html>
 

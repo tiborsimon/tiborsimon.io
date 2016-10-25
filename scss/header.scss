@@ -2,20 +2,21 @@
 @import 'card';
 @import 'palette';
 
-$navigation-height: 60px;
-$navigation-background-color: palette(Grey, 800);
+$navigation-height: 50px;
+$header-height: $global-header-height;
+$navigation-background-color: $global-header-color;
 $navigation-text-color: palette(White);
-$navigation-hover-text-color: palette($global-button-hover, 800);
-$navigation-hover-background-color: palette($global-button-hover, A400);
-$navigation-active-text-color: palette($global-button-hover, 900);
-$navigation-active-background-color: palette($global-button-hover, A200);
+$navigation-hover-text-color: palette(Light Blue, 800);
+$navigation-hover-background-color: $global-main-color;
+$navigation-active-text-color: palette(Light Blue, 900);
+$navigation-active-background-color: palette(Light Blue, A200);
 
 .main-nav {
   width: 100%;
   height: $navigation-height;
   display: flex;
+  position: absolute;
   justify-content: space-between;
-  background: $navigation-background-color;
   .group {
     display: flex;
     align-items: center;
@@ -25,18 +26,23 @@ $navigation-active-background-color: palette($global-button-hover, A200);
     &:last-child {
       margin-right: 16px;
     }
-    button {
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding:  0 10px;
       border: none;
       background: none;
       height: $navigation-height;
       font-size: 1.1em;
       color: $navigation-text-color;
+      text-decoration: none;
       &:hover {
-        color: $navigation-hover-text-color;
+        // color: $navigation-hover-text-color;
         background: $navigation-hover-background-color;
       }
       &:active {
-        color: $navigation-active-text-color;
+        // color: $navigation-active-text-color;
         background: $navigation-active-background-color;
       }
       &.logo {
@@ -49,7 +55,7 @@ $navigation-active-background-color: palette($global-button-hover, A200);
 .header {
   width: 100%;
   background: $navigation-background-color;
-  height: $global-header-height - $navigation-height;
+  height: $header-height;
   padding: 10px 50px;
   box-sizing: border-box;
   z-index: 0;

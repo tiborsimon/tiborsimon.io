@@ -3,7 +3,7 @@
 
 $tags-height: 24px;
 $tags-font-size: 0.8em;
-$tags-color: palette(Blue);
+$tags-color: $global-main-color;
 
 .tag-list {
   display: flex;

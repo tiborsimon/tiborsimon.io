@@ -4,8 +4,8 @@
 
 $action-button-diameter: 70px;
 $action-button-cross-width: 18px;
-$action-button-background-color: palette($global-action-color, A400);
-$action-button-cross-color: palette(White);
+$action-button-cross-color: $global-action-cross-color;
+$action-button-background-color: $global-action-color;
 
 $action-button-offset-1: 40px;
 $action-button-offset-2: 10px;

@@ -1,35 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
   <title>{{title}}</title>
+  <meta charset="UTF-8">
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Roboto:300,400" rel="stylesheet">
   <link rel="stylesheet" href="{{baseUrl}}/css/style.css">
   <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
 </head>
 <body>
-  <nav class="main-nav">
-    <div class="group">
-      <!-- <button> -->
-      <!--   <svg style="width:24px;height:55px" viewBox="0 0 24 24"> -->
-      <!--   <path fill="#FFF" d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /> -->
-      <!--   </svg> -->
-      <!-- </button> -->
-      <a class="logo" href="{{baseurl}}">
-        tiborsimon.io
-      </a>
-    </div>
-    <div class="group">
-    </div>
-    <div class="group">
-      <button>Articles</button>
-      <button>Projects</button>
-      <button>Apps</button>
-      <button>Search</button>
-    </div>
-  </nav>
-  <div class="header">
-  </div>
+  {{> header}}
   <div class="article-wrapper">
     <div class="content-colon">
       <div class="article card">
@@ -50,46 +29,10 @@
           {{{contents}}}
         </article>
       </div>
-      <div class="discussion card">
-        <h1>Discussion</h1>
-          <div id="disqus_thread"></div>
-          <script>
-          /**
-          *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-          *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-          /*
-          var disqus_config = function () {
-          this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-          this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-          };
-          */
-          (function() { // DON'T EDIT BELOW THIS LINE
-          var d = document, s = d.createElement('script');
-          s.src = '//tiborsimonio.disqus.com/embed.js';
-          s.setAttribute('data-timestamp', +new Date());
-          (d.head || d.body).appendChild(s);
-          })();
-          </script>
-          <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-      </div>
+      {{> discussion}}
     </div>
     <div class="sidebar card">
-      <img src="{{baseurl}}/assets/images/tibor.jpg" class="avatar"></img>
-      <button id="action-button"><i class="icon-bars"></i></button>
-
-      <div class="sidebar-widget">
-        <p>
-        Hi, my name is Tibor Simon. I am a graduated electrical engineer with a masters degree. I live in Budapest, and I am currently working at Nokia Networks.
-        </p>
-      </div>
-      <nav class="sidebar-nav">
-        <a href="{{next.url}}">Previous</a>
-        <a href="{{previous.url}}">Next</a>
-      </nav>
-      <div class="sidebar-widget">
-        <h3>Tags</h3>
-        {{> tags/by/count}}
-      </div>
+      {{> sidebar}}
     </div>
   </div>
 </body>

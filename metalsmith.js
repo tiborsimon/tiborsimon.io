@@ -43,11 +43,11 @@ let generateUrl = () => {
     let metadata = metalsmith.metadata()
     for (let file in files) {
       let target = files[file]
-      target.url = metadata.baseUrl + '/' + target.path + '/'
+      target.url = metadata.baseUrl + '/' + target.path
       if (target.tags) {
         for (let tag in target.tags) {
           let data = target.tags[tag]
-          data.url = metadata.baseUrl + '/tag/' + data.slug + '/'
+          data.url = metadata.baseUrl + '/tag/' + data.slug
         }
       }
     }

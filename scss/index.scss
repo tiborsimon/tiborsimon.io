@@ -1,0 +1,125 @@
+@import 'config';
+@import 'palette';
+@import 'card';
+
+
+.articles-wrapper {
+  box-sizing: border-box;
+  max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  .articles {
+    box-sizing: border-box;
+    width: 800px;
+
+    .article-card {
+      @include card(1);
+      background: white;
+      margin-bottom: 12px;
+      transition: box-shadow 0.4s ease;
+      box-sizing: border-box;
+      padding: 19px;
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+      }
+      h2 {
+        margin-bottom: 3px;
+        > a {
+          text-decoration: none;
+          color: $global-main-color;
+          transition: all 0.4s ease;
+          position: relative;
+          left: 0px;
+          &:hover {
+            position: relative;
+            left: 5px;
+          }
+        }
+      }
+      hr {
+        width: 800px;
+        position: relative;
+        left: -19px;
+        margin: 0;
+        margin-bottom: 12px;
+        border: none;
+        border-top: 1px solid palette(Black, Dividers);
+        box-sizing: border-box;
+      }
+      .timestamp {
+        font-size: 0.8em;
+        color: palette(Black, Hint Text);
+      }
+      .snippet {
+        margin-bottom: 10px;
+      }
+      .tag-list {
+        margin: 0;
+      }
+    }
+
+  }
+
+  .sidebar {
+    box-sizing: border-box;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    .card {
+      @include card(1);
+      background: white;
+      margin-bottom: 12px;
+    }
+    .tags {
+      align-self: flex-start;
+      padding: 0 19px;
+      .tags-list {
+        margin: 0;
+      }
+    }
+    .pagination-nav {
+      align-self: flex-end;
+      display: flex;
+      text-align: center;
+      a {
+        width: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        text-transform: uppercase;
+        text-decoration: none;
+        box-sizing: border-box;
+        color: palette(Black, Secondary Text);
+        &:hover {
+          background: $article-highlight-color;
+          color: white;
+          font-weight: 400;
+        }
+        &:nth-child(odd) {
+          border-right: 1px solid palette(Black, Dividers);
+        }
+      }
+      span {
+        width: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        box-sizing: border-box;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: palette(Black, Dividers);
+        &:nth-child(odd) {
+          border-right: 1px solid palette(Black, Dividers);
+        }
+      }
+    }
+
+  }
+}
