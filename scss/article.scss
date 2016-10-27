@@ -8,7 +8,7 @@ $article-highlight-color: $global-main-color;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  max-width: 1120px;
+  max-width: $global-width;
   position: relative;
   top: -300px;
   box-sizing: border-box;

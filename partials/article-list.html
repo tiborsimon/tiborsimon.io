@@ -1,0 +1,19 @@
+<div class="articles">
+  {{#each articles}}
+  <article>
+    <header>
+      <h2>
+        <a href="{{url}}">{{title}}</a>
+      </h2>
+      <span class="timestamp">{{date}}</span>
+    </header>
+    <hr>
+    <div class="snippet">{{{snippet}}}</div>
+    <div class="tag-list">
+      {{#each tags}}
+      <a href="{{url}}">{{name}}</a>
+      {{/each}}
+    </div>
+  </article>
+  {{/each}}
+</div>

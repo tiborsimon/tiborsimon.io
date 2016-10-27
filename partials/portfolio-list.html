@@ -1,0 +1,19 @@
+<div class="portfolio-list">
+  {{#each portfolio_list}}
+  <div class="portfolio-item">
+    <figure>
+      <img src="{{baseUrl}}/assets/{{thumbnail-url}}" alt="{{description}}">
+      <figcaption>
+        <div class="overlay">
+          <h2>{{title}}</h2>
+          <div class="description">
+            {{description}}
+          </div>
+          <small>{{date}} - {{category}}</small>
+          <a href="{{link}}">details</a>
+        </div>
+      </figcaption>
+    </figure>
+  </div>
+  {{/each}}
+</div>

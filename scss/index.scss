@@ -8,10 +8,20 @@
   height: 400px;
   margin-bottom: 20px;
 }
-.articles-wrapper {
+section {
+  margin-bottom: 40px;
   box-sizing: border-box;
-  max-width: 1120px;
+  max-width: $global-width;
   margin: 0 auto;
+  h1 {
+    width: 100%;
+    text-align: center;
+    font-width: 600;
+    font-size: 2.5em;
+    color: palette(Black, Secondary Text);
+  }
+}
+.articles-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -20,7 +30,7 @@
     box-sizing: border-box;
     width: 800px;
 
-    .article-card {
+    article {
       @include card(1);
       background: white;
       margin-bottom: 12px;
@@ -126,5 +136,71 @@
       }
     }
 
+  }
+}
+
+$portfolio-item-width: $global-width / 4;
+$portfolio-item-height: $portfolio-item-width * 0.953333333333333333333333333333;
+
+.portfolio-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: $global-width;
+  margin: 0 auto;
+  @include card(1);
+  background: white;
+  .portfolio-item {
+    width: $portfolio-item-width;
+    height: $portfolio-item-height;
+    figure {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      margin: 0;
+      img {
+        width: 100%;
+      }
+      figcaption {
+        width: 100%;
+        height: 100%;
+        display: table;
+        background: $global-main-color;
+        color: white;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity 0.1s ease;
+        .overlay {
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          vertical-align: middle;
+          padding: 20px;
+          h2 {
+            font-weight: 400;
+          }
+          small {
+            color: palette(White, Secondary Text);
+          }
+          a {
+            color: palette(Black, Secondary Text);
+            background: white;
+            padding: 10px;
+            text-decoration: none;
+            margin-top: 10px;
+            align-self: flex-end;
+            text-transform: uppercase;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+          }
+        }
+      }
+      &:hover figcaption {
+        opacity: 1;
+      }
+    }
   }
 }
