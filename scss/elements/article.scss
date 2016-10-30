@@ -1,0 +1,206 @@
+@import '../utils/palette';
+@import '../utils/card';
+
+
+.article-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: var(--wrapper-width);
+  position: relative;
+  top: -300px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  .card {
+    @include card(1);
+    background: white;
+    border-radius: 2px;
+    margin-bottom: 20px;
+  }
+}
+
+.article {
+  max-width: var(--content-width);
+  box-sizing: border-box;
+  header {
+    .banner {
+      background: var(--main-color);
+      height: 175px;
+    }
+    .article-title {
+      padding: 25px 30px 10px 30px;
+      font-size: 300%;
+      font-weight: 300;
+      color: white;
+      background: var(--main-color);
+      line-height: 1em;
+    }
+    .details {
+      display: flex;
+      justify-content: space-between;
+      background: var(--main-color);
+      padding: 0 30px;
+      .timestamp {
+        color: white;
+        background: var(--main-color);
+        font-size: 1.4em;
+        display: flex;
+        padding: 12px 0;
+        align-items: center;
+      }
+      .tag-list {
+        margin: 0;
+        padding: 0;
+        align-items: center;
+        a {
+          background: white;
+          &:hover {
+            background: var(--header-color);
+            color: white;
+          }
+        }
+      }
+    }
+    .summary {
+      display: flex;
+      display-direction: row;
+      padding: 30px 30px 6px 30px;
+      font-size: 1.3em;
+      color: palette(Black, Secondary Text);
+    }
+  }
+  article {
+    padding: 10px var(--content-padding) var(--content-padding);
+  }
+  a {
+    color: var(--main-color);
+  }
+  hr {
+    position: relative;
+    border: none;
+    border-top: 1px solid palette(Black, Dividers);
+    margin-bottom: 30px;
+    width: var(--content-width);
+    position: relative;
+    left: - var(--content-padding);
+  }
+  .code-name {
+    margin-bottom: -15px;
+    color: #aaa;
+    box-sizing: border-box;
+    background: #eee;
+    position: relative;
+    width: var(--content-width);
+    padding-left: var(--content-padding);
+    left: -var(--content-padding);
+    font-family: monospace;
+    font-size: 0.8em;
+    background: #F5F5F5;
+    border-bottom: 1px dashed #ccc;
+  }
+
+  .divider {
+    margin-top: 50px;
+    font-weight: 300;
+    color: #aaa;
+    box-sizing: border-box;
+    position: relative;
+    width: var(--content-width);
+    left: -var(--content-padding);
+    line-height: 1em;
+    // font-size: 0.9em;
+    // border-top: 1px solid palette(Black, Dividers);
+    border-bottom: 1px solid palette(Black, Dividers);
+    // text-align: center;
+    padding-left: var(--content-padding);
+  }
+
+  p code {
+    color: palette(Black, Secondary Text);
+  }
+
+  pre code {
+    background: palette(Grey, 100);
+    width: var(--content-width);
+    display: block;
+    position: relative;
+    left: -var(--content-padding);
+    padding: var(--content-padding);
+    box-sizing: border-box;
+    overflow-x: auto;
+    color: #999;
+  }
+}
+
+.discussion {
+  padding: 10px 30px 30px 30px;
+  box-sizing: border-box;
+
+}
+
+.sidebar {
+  --width: 300px;
+  --padding: 19px;
+
+  box-sizing: border-box;
+  width: var(--width);
+  .avatar {
+    display: block;
+    width: var(--width);
+    height: var(--width);
+    background: palette(Blue);
+  }
+  .sidebar-nav {
+    border-bottom: 1px solid palette(Black, Dividers);
+    display: flex;
+    text-align: center;
+    a {
+      width: calc(var(--width) / 2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: palette(Black, Secondary Text);
+      &:hover {
+        background: var(--main-color);
+        color: white;
+        font-weight: 400;
+      }
+      &:first-child {
+        border-right: 1px solid palette(Black, Dividers);
+      }
+    }
+    span {
+      width: calc(var(--width) / 2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: palette(Black, Dividers);
+      &:first-child {
+        border-right: 1px solid palette(Black, Dividers);
+      }
+    }
+  }
+  .sidebar-widget {
+    padding: 0 var(--padding);
+    display: block;
+    border-bottom: 1px solid palette(Black, Dividers);
+    hr {
+      position: relative;
+      border: none;
+      border-top: 1px solid palette(Black, Dividers);
+      margin-bottom: 30px;
+      width: var(--width);
+      position: relative;
+      left: -var(--padding);
+    }
+  }
+}
+
+
+

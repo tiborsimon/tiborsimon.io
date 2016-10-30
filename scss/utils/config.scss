@@ -1,0 +1,18 @@
+@import '../utils/palette';
+
+:root {
+  --wrapper-width:      1120px;
+  --header-height:      390px;
+  --content-width:      800px;
+  --content-padding:    30px;
+
+  --main-color:         palette(Light Blue, 700);
+  --hover-color:        palette(Light Blue, 600);
+  --active-color:       palette(Light Blue, 500);
+
+  --action-color:       white;
+  --action-background:  palette(Light Blue, A400);
+
+  --header-color:       palette(Grey, 800);
+  --button-hover:       Light Blue;
+}

@@ -1,0 +1,53 @@
+@import '../utils/config';
+@import '../utils/palette';
+
+.tag-list {
+  --height: 24px;
+  --font-size: 0.8em;
+  --color: var(--main-color);
+
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  a {
+    color: palette(Grey, 600);
+    text-decoration: none;
+    font-weight: 400;
+    font-size: var(--font-size);
+    display: flex;
+    align-items: center;
+    background: palette(Grey,300);
+    vertical-align: middle;
+    height: var(--height);
+    padding: 0 15px;
+    margin-bottom: 6px;
+    border-radius: calc(var(--height) / 2);
+    margin-right: 6px;
+    transition: all 0.2s ease;
+    &.count {
+      padding: 0 0 0 15px;
+      span {
+        margin-left: 4px;
+      }
+    }
+    span {
+      font-size: var(--font-size);
+      background: palette(Grey,500);
+      color: palette(Grey,200);
+      height: var(--height);
+      width: var(--height);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: calc(var(--height) / 2);
+      transition: all 0.2s ease;
+    }
+    &:hover {
+      color: var(--color);
+      span {
+        background: var(--color);
+      }
+    }
+  }
+}

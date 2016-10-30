@@ -1,0 +1,205 @@
+@import '../utils/palette';
+@import '../utils/card';
+
+
+.index-header {
+  display: block;
+  background: var(--header-color);
+  height: 400px;
+  margin-bottom: 20px;
+}
+section {
+  margin-bottom: 40px;
+  box-sizing: border-box;
+  max-width: var(--wrapper-width);
+  margin: 0 auto;
+  h1 {
+    width: 100%;
+    text-align: center;
+    font-width: 600;
+    font-size: 2.5em;
+    color: palette(Black, Secondary Text);
+  }
+}
+.header-title {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 180px;
+  color: white;
+  text-shadow: 0 0 20px rgba(0,0,0,0.2);
+  font-size: 3em;
+  font-weight: 300;
+}
+.about {
+  position: absolute;
+  top: 90px;
+  display: flex;
+  width: var(--wrapper-width);
+  justify-content: space-between;
+  background: var(--main-color);
+  color: white;
+  .text {
+    max-width: 800px;
+    h1 {
+      color: white;
+      text-align: left;
+    }
+  }
+  img {
+    width: 300px;
+    height: 300px;
+  }
+}
+.card {
+  @include card(1);
+  background: white;
+  margin-bottom: 20px;
+}
+.calendar-wrapper {
+  height: 119px;
+  .calendar {
+    position: relative;
+    left: -10px;
+    top: -1px;
+    h2, .month, .wday, .contrib-footer, .contrib-column { display: none; }
+  }
+}
+.articles-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  .articles {
+    box-sizing: border-box;
+    width: 800px;
+
+    article {
+      @include card(1);
+      background: white;
+      margin-bottom: 20px;
+      transition: box-shadow 0.4s ease;
+      box-sizing: border-box;
+      display: flex;
+      width: 100%;
+      .details {
+        width: 800px;
+        padding: 0 19px 12px;
+        hr {
+          width: 800px;
+          position: relative;
+          left: -19px;
+          margin: 0;
+          margin-bottom: 12px;
+          border: none;
+          border-top: 1px solid palette(Black, Dividers);
+          box-sizing: border-box;
+        }
+        &.with-thumbnail {
+          width: 600px;
+          hr {
+            width: 600px;
+          }
+        }
+        header {
+          display: flex;
+          justify-content: space-between;
+          align-items: baseline;
+        }
+        h2 {
+          margin-bottom: 3px;
+          > a {
+            text-decoration: none;
+            color: var(--main-color);
+            transition: all 0.4s ease;
+            position: relative;
+            left: 0px;
+            &:hover {
+              position: relative;
+              left: 5px;
+            }
+          }
+        }
+        .timestamp {
+          font-size: 0.8em;
+          color: palette(Black, Hint Text);
+        }
+        .snippet {
+          margin-bottom: 10px;
+        }
+        .tag-list {
+          margin: 0;
+        }
+      }
+      .image {
+        background: var(--main-color);
+        width: 200px;
+        height: 200px;
+
+      }
+    }
+
+  }
+
+  .sidebar {
+    box-sizing: border-box;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    .tags {
+      align-self: flex-start;
+      padding: 0 19px;
+      .tags-list {
+        margin: 0;
+      }
+    }
+    .pagination-nav {
+      align-self: flex-end;
+      display: flex;
+      text-align: center;
+      a {
+        width: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        text-transform: uppercase;
+        text-decoration: none;
+        box-sizing: border-box;
+        color: palette(Black, Secondary Text);
+        &:hover {
+          background: var(--main-color);
+          color: white;
+          font-weight: 400;
+        }
+        &:nth-child(odd) {
+          border-right: 1px solid palette(Black, Dividers);
+        }
+      }
+      span {
+        width: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        box-sizing: border-box;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: palette(Black, Dividers);
+        &:nth-child(odd) {
+          border-right: 1px solid palette(Black, Dividers);
+        }
+      }
+    }
+
+  }
+}
+
+
+.footer {
+  width: 800px;
+  margin: 40px auto 20px auto;
+  text-align: center;
+  color: palette(Black, Hint Text);
+  font-size: 0.8em;
+}

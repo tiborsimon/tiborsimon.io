@@ -1,0 +1,50 @@
+@import '../utils/palette';
+@import '../utils/card';
+
+#action-button {
+  $diameter: 70px;
+  $cross-length: 18px;
+  --top: 265px;
+
+  outline: none;
+  background: var(--action-background);
+  font-size: 40px;
+  font-weight: 300;
+  box-sizing: border-box;
+  transition: box-shadow 0.4s, transform 0.2s;
+  transition-timing-function: ease;
+  width: $diameter;
+  height: $diameter;
+  position: absolute;
+  border-radius: 50%;
+  right: 30px;
+  top: var(--top);
+  border: none;
+  z-index: 2;
+  @include card(2);
+  &:hover {
+    @include card(3);
+    .icon-bars {
+      transform: rotate(45deg);
+    }
+  }
+  .icon-bars {
+    background: var(--action-color);
+    height: 2px;
+    width: $cross-length;
+    margin: auto;
+    display: block;
+    position: relative;
+    transition: all 0.3s;
+    &:after{
+      content: '';
+      position: absolute;
+      height: $cross-length;
+      width: 2px;
+      background: var(--action-color);
+      right: $cross-length / 2 - 1px;
+      top:  -($cross-length / 2 - 1px);
+    }
+  }
+}
+

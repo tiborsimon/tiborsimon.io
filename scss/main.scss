@@ -1,4 +1,5 @@
-@import 'palette';
+@import 'utils/config';
+@import 'utils/palette';
 
 * {
   box-sizing: border-box;
@@ -43,8 +44,9 @@ table {
   }
 }
 
-@import 'tags';
-@import 'action-button';
-@import 'header';
-@import 'article';
-@import 'index';
+@import 'elements/index';
+@import 'elements/tags';
+@import 'elements/action-button';
+@import 'elements/header';
+@import 'elements/article';
+@import 'elements/portfolio';
