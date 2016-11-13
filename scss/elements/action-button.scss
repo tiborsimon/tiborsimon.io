@@ -1,5 +1,6 @@
 @import '../utils/palette';
 @import '../utils/card';
+@import '../utils/transition';
 
 #action-button {
   $diameter: 70px;
@@ -11,8 +12,7 @@
   font-size: 40px;
   font-weight: 300;
   box-sizing: border-box;
-  transition: box-shadow 0.4s, transform 0.2s;
-  transition-timing-function: ease;
+  transition: $default-transition;
   width: $diameter;
   height: $diameter;
   position: absolute;
@@ -35,7 +35,7 @@
     margin: auto;
     display: block;
     position: relative;
-    transition: all 0.3s;
+    transition: $default-transition;
     &:after{
       content: '';
       position: absolute;

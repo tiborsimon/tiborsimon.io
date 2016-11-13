@@ -7,8 +7,29 @@
   <link rel="stylesheet" href="{{baseUrl}}/css/style.css">
 </head>
 <body>
-  <header class="index-header"></header>
+  {{> header}}
   <section>
+  <div class="about">
+    <img src="{{baseUrl}}/assets/images/tibor.jpg" alt="Tibor Simon">
+    <div class="text">
+      <h1>Engineering with Passion</h1>
+      <p>My name is Tibor Simon.</p>
+      <p>
+     I am a graduated electrical engineer with a master's degree. I live in Budapest, and I am currently working at Nokia Networks.
+      </p>
+    </div>
+
+    <button id="action-button"><i class="icon-bars"></i></button>
+  </div>
+  </section>
+  <section>
+  <div class="calendar-wrapper card">
+    <div class="calendar"></div>
+  </div>
+  </section>
+  <section>
+    <h1>Tag <b>{{tag}}</b></h1>
+    <h3>All articles with the tag {{tag}}</h3>
     <div class="articles-wrapper">
       {{> article-list articles=pagination.files}}
       <div class="sidebar">
@@ -19,9 +40,6 @@
           </div>
         </div>
 
-        <div class="card">
-          {{> pagination-navigation pagination=pagination}}
-        </div>
       </div>
     </div>
   </section>

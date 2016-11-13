@@ -1,5 +1,6 @@
 @import '../utils/palette';
 @import '../utils/card';
+@import '../utils/transition';
 
 .portfolio-list {
   --portfolio-item-width: calc(var(--wrapper-width) / 4);
@@ -32,7 +33,7 @@
         top: 0;
         left: 0;
         opacity: 0;
-        transition: opacity 0.1s ease;
+        transition: $default-transition;
         .overlay {
           height: 100%;
           display: flex;

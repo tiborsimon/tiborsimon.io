@@ -1,6 +1,6 @@
 @import '../utils/palette';
 @import '../utils/card';
-
+@import '../utils/transition';
 
 .index-header {
   display: block;
@@ -78,7 +78,7 @@ section {
       @include card(1);
       background: white;
       margin-bottom: 20px;
-      transition: box-shadow 0.4s ease;
+      transition: $default-transition;
       box-sizing: border-box;
       display: flex;
       width: 100%;
@@ -111,7 +111,7 @@ section {
           > a {
             text-decoration: none;
             color: var(--main-color);
-            transition: all 0.4s ease;
+            transition: $default-transition;
             position: relative;
             left: 0px;
             &:hover {
@@ -153,45 +153,46 @@ section {
         margin: 0;
       }
     }
-    .pagination-nav {
-      align-self: flex-end;
-      display: flex;
-      text-align: center;
-      a {
-        width: 400px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 10px;
-        text-transform: uppercase;
-        text-decoration: none;
-        box-sizing: border-box;
-        color: palette(Black, Secondary Text);
-        &:hover {
-          background: var(--main-color);
-          color: white;
-          font-weight: 400;
-        }
-        &:nth-child(odd) {
-          border-right: 1px solid palette(Black, Dividers);
-        }
-      }
-      span {
-        width: 400px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 10px;
-        box-sizing: border-box;
-        text-transform: uppercase;
-        text-decoration: none;
-        color: palette(Black, Dividers);
-        &:nth-child(odd) {
-          border-right: 1px solid palette(Black, Dividers);
-        }
-      }
-    }
 
+  }
+}
+.pagination-nav {
+  align-self: flex-end;
+  display: flex;
+  text-align: center;
+  a {
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-sizing: border-box;
+    color: palette(Black, Secondary Text);
+    &:hover {
+      background: var(--main-color);
+      color: white;
+      font-weight: 400;
+      transition: $default-transition;
+    }
+    &:nth-child(odd) {
+      border-right: 1px solid palette(Black, Dividers);
+    }
+  }
+  span {
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: palette(Black, Dividers);
+    &:nth-child(odd) {
+      border-right: 1px solid palette(Black, Dividers);
+    }
   }
 }
 

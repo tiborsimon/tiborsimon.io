@@ -1,5 +1,8 @@
 @import '../utils/palette';
 @import '../utils/card';
+@import '../utils/transition';
+
+$content-padding: 30px;
 
 
 .article-wrapper {
@@ -70,7 +73,7 @@
     }
   }
   article {
-    padding: 10px var(--content-padding) var(--content-padding);
+    padding: 10px $content-padding $content-padding;
   }
   a {
     color: var(--main-color);
@@ -82,7 +85,7 @@
     margin-bottom: 30px;
     width: var(--content-width);
     position: relative;
-    left: - var(--content-padding);
+    left: - $content-padding;
   }
   .code-name {
     margin-bottom: -15px;
@@ -91,8 +94,8 @@
     background: #eee;
     position: relative;
     width: var(--content-width);
-    padding-left: var(--content-padding);
-    left: -var(--content-padding);
+    padding-left: $content-padding;
+    left: - $content-padding;
     font-family: monospace;
     font-size: 0.8em;
     background: #F5F5F5;
@@ -106,13 +109,13 @@
     box-sizing: border-box;
     position: relative;
     width: var(--content-width);
-    left: -var(--content-padding);
+    left: - $content-padding;
     line-height: 1em;
     // font-size: 0.9em;
     // border-top: 1px solid palette(Black, Dividers);
     border-bottom: 1px solid palette(Black, Dividers);
     // text-align: center;
-    padding-left: var(--content-padding);
+    padding-left: $content-padding;
   }
 
   p code {
@@ -124,11 +127,13 @@
     width: var(--content-width);
     display: block;
     position: relative;
-    left: -var(--content-padding);
-    padding: var(--content-padding);
+    left: - $content-padding;
+    padding: $content-padding;
     box-sizing: border-box;
     overflow-x: auto;
     color: #999;
+    font-size: 0.9em;
+    line-height: 1.4em;
   }
 }
 
@@ -167,6 +172,7 @@
         background: var(--main-color);
         color: white;
         font-weight: 400;
+        transition: $default-transition;
       }
       &:first-child {
         border-right: 1px solid palette(Black, Dividers);
