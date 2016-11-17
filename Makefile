@@ -5,7 +5,7 @@ HIDE:=@
 YELLOW:=$(shell tput setaf 3)
 RESET:=$(shell tput sgr0)
 
-PHONY: all metalsmith css copy
+.PHONY: all metalsmith css copy apps
 
 all: metalsmith copy css
 
@@ -24,3 +24,10 @@ css:
 copy:
 	@echo "$(YELLOW)-> Copying Assets..$(RESET)"
 	$(HIDE)cp -avR ./assets ./publish/assets
+
+apps:
+	@find apps/* -maxdepth 0 | xargs -I % sh -c 'echo Building % && cd % && make;'
+
+copy-apps:
+	find apps/* -maxdepth 0 | xargs -I % cp -r %/build publish/% 
+
