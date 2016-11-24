@@ -28,10 +28,10 @@ let renderDate = () => {
     for (let file in files) {
       let target = files[file]
       if ('date' in target) {
-        target.year = moment(target.date).format('YYYY')
-        target.month = moment(target.date).format('MM')
-        target.day = moment(target.date).format('DD')
-        target.date = moment(target.date).format('YYYY. MM. DD.')
+        target.year = moment(target.date, 'YYYY-MM-DD').format('YYYY')
+        target.month = moment(target.date, 'YYYY-MM-DD').format('MM')
+        target.day = moment(target.date, 'YYYY-MM-DD').format('DD')
+        target.date = moment(target.date, 'YYYY-MM-DD').format('YYYY. MM. DD.')
       }
     }
     done()
