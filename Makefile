@@ -5,9 +5,18 @@ HIDE:=@
 YELLOW:=$(shell tput setaf 3)
 RESET:=$(shell tput sgr0)
 
+BASEURL:=http://localhost:8000
+
 .PHONY: all metalsmith css copy apps
 
-all: metalsmith copy css
+all: clean metalsmith copy css apps-build apps-copy
+
+clean:
+	cd publish && find . -not -name '.' -not -name '..' -not -name '.git' -print0 | xargs -0 rm -rf
+
+init:
+	npm install
+	@find apps/* -maxdepth 0 | xargs -I % sh -c 'cd % && $(MAKE) init;'
 
 metalsmith:
 	@echo "$(YELLOW)-> Compiling metalsmith..$(RESET)"
@@ -25,9 +34,9 @@ copy:
 	@echo "$(YELLOW)-> Copying Assets..$(RESET)"
 	$(HIDE)cp -avR ./assets ./publish/assets
 
-apps:
-	@find apps/* -maxdepth 0 | xargs -I % sh -c 'echo Building % && cd % && make;'
+apps-build:
+	@find apps/* -maxdepth 0 | xargs -I % sh -c 'echo Building % && cd % && $(MAKE) APPPATH=$(BASEURL)/%;'
 
-copy-apps:
+apps-copy:
 	find apps/* -maxdepth 0 | xargs -I % cp -r %/build publish/% 
 
