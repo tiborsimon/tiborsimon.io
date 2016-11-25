@@ -5,11 +5,16 @@ HIDE:=@
 YELLOW:=$(shell tput setaf 3)
 RESET:=$(shell tput sgr0)
 
-BASEURL:=http://localhost:8000
+BASEURL=http://localhost:8000
 
 .PHONY: all metalsmith css copy apps
 
-all: clean metalsmith copy css apps-build apps-copy
+local: clean metalsmith copy css apps-build apps-copy
+
+production: set-baseurl clean metalsmith copy css apps-build apps-copy
+
+set-baseurl:
+	$(eval BASEURL:=https://tiborsimon.io)
 
 clean:
 	cd publish && find . -not -name '.' -not -name '..' -not -name '.git' -print0 | xargs -0 rm -rf
