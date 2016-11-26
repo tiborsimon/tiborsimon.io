@@ -51,11 +51,6 @@ section {
     height: 300px;
   }
 }
-.card {
-  @include card(1);
-  background: white;
-  margin-bottom: 20px;
-}
 .calendar-wrapper {
   height: 119px;
   .calendar {
@@ -148,7 +143,6 @@ section {
     flex-direction: column;
     .tags {
       align-self: flex-start;
-      padding: 0 19px;
       .tags-list {
         margin: 0;
       }

@@ -9,7 +9,7 @@ BASEURL=http://localhost:8000
 
 .PHONY: all metalsmith css copy apps
 
-local: clean metalsmith copy css apps-build apps-copy
+local: clean metalsmith copy css
 
 production: set-baseurl clean metalsmith copy css apps-build apps-copy
 
@@ -17,7 +17,7 @@ set-baseurl:
 	$(eval BASEURL:=https://tiborsimon.io)
 
 clean:
-	cd publish && find . -not -name '.' -not -name '..' -not -name '.git' -print0 | xargs -0 rm -rf
+	@cd publish && find . -not -name '.' -not -name '..' -not -name '.git' -print0 | xargs -0 rm -rf
 
 init:
 	npm install
@@ -37,11 +37,13 @@ css:
 
 copy:
 	@echo "$(YELLOW)-> Copying Assets..$(RESET)"
-	$(HIDE)cp -avR ./assets ./publish/assets
+	$(HIDE)cp -aR ./assets ./publish/assets
+
+apps: apps-build apps-copy
 
 apps-build:
 	@find apps/* -maxdepth 0 | xargs -I % sh -c 'echo Building % && cd % && $(MAKE) APPPATH=$(BASEURL)/%;'
 
 apps-copy:
-	find apps/* -maxdepth 0 | xargs -I % cp -r %/build publish/% 
+	find apps/* -maxdepth 0 | xargs -I % cp -r %/build publish/%
 

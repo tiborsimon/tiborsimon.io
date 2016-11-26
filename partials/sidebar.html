@@ -1,25 +1,26 @@
+<div class="sidebar">
+  <img src="{{baseurl}}/assets/images/tibor.jpg" class="avatar"></img>
+  <button id="action-button"><i class="icon-bars"></i></button>
 
-<img src="{{baseurl}}/assets/images/tibor.jpg" class="avatar"></img>
-<button id="action-button"><i class="icon-bars"></i></button>
-
-<div class="sidebar-widget">
-  <p>
-  Hi, my name is Tibor Simon.<br>I am a graduated electrical engineer with a masters degree. I live in Budapest, and I am currently working at Nokia Networks.
-  </p>
-</div>
-<nav class="sidebar-nav">
-  {{# if next}}
-    <a href="{{next.url}}">Previous</a>
-  {{else}}
-    <span>Previous</span>
-  {{/if}}
-  {{#if previous}}
-    <a href="{{previous.url}}">Next</a>
-  {{else}}
-    <span>Next</span>
-  {{/if}}
-</nav>
-<div class="sidebar-widget">
-  <h3>Tags</h3>
-  {{> tags/by/count}}
+  <div class="card padded">
+    Hi, my name is Tibor Simon.<br>I am a graduated electrical engineer with a masters degree. I live in Budapest, and I am currently working at Nokia Networks.
+  </div>
+  <div class="card">
+    <nav class="sidebar-nav">
+      {{# if next}}
+        <a href="{{next.url}}">Previous</a>
+      {{else}}
+        <span>Previous</span>
+      {{/if}}
+      {{#if previous}}
+        <a href="{{previous.url}}">Next</a>
+      {{else}}
+        <span>Next</span>
+      {{/if}}
+    </nav>
+  </div>
+  <div class="card padded">
+    <h2>Tags</h2>
+    {{> tags/by/count}}
+  </div>
 </div>

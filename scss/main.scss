@@ -1,5 +1,6 @@
 @import 'utils/config';
 @import 'utils/palette';
+@import 'utils/card';
 
 * {
   box-sizing: border-box;
@@ -42,6 +43,35 @@ table {
     color: #212121;
     vertical-align: middle;
   }
+}
+
+.flexwrap {
+  margin: 0 auto;
+  width: var(--wrapper-width);
+  display: flex;
+
+  section {
+    flex: 1 1 auto;
+    margin-left: var(--margin-between-cards);
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}
+
+.card {
+  @include card(1);
+  background: white;
+  margin-bottom: 20px;
+  h2 {
+    margin: 0 0 13px;
+    color: palette(Black, Secondary Text);
+
+  }
+}
+
+.padded {
+  padding: var(--content-padding);
 }
 
 @import 'elements/index';

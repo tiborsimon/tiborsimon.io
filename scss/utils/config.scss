@@ -1,10 +1,11 @@
 @import '../utils/palette';
 
 :root {
-  --wrapper-width:      1120px;
-  --header-height:      390px;
-  --content-width:      800px;
-  --content-padding:    30px;
+  --wrapper-width:        1120px;
+  --header-height:        390px;
+  --content-width:        800px;
+  --content-padding:      19px;
+  --margin-between-cards: 20px;
 
   --main-color:         palette(Light Blue, 700);
   --hover-color:        palette(Light Blue, 600);

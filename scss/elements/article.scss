@@ -4,7 +4,6 @@
 
 $content-padding: 30px;
 
-
 .article-wrapper {
   display: flex;
   justify-content: space-between;
@@ -12,7 +11,6 @@ $content-padding: 30px;
   max-width: var(--wrapper-width);
   position: relative;
   top: -300px;
-  box-sizing: border-box;
   margin: 0 auto;
   .card {
     @include card(1);
@@ -106,7 +104,6 @@ $content-padding: 30px;
     margin-top: 50px;
     font-weight: 300;
     color: #aaa;
-    box-sizing: border-box;
     position: relative;
     width: var(--content-width);
     left: - $content-padding;
@@ -129,7 +126,6 @@ $content-padding: 30px;
     position: relative;
     left: - $content-padding;
     padding: $content-padding;
-    box-sizing: border-box;
     overflow-x: auto;
     color: #999;
     font-size: 0.9em;
@@ -139,15 +135,10 @@ $content-padding: 30px;
 
 .discussion {
   padding: 10px 30px 30px 30px;
-  box-sizing: border-box;
-
 }
 
 .sidebar {
   --width: 300px;
-  --padding: 19px;
-
-  box-sizing: border-box;
   width: var(--width);
   .avatar {
     display: block;
@@ -156,7 +147,6 @@ $content-padding: 30px;
     background: palette(Blue);
   }
   .sidebar-nav {
-    border-bottom: 1px solid palette(Black, Dividers);
     display: flex;
     text-align: center;
     a {
@@ -190,20 +180,6 @@ $content-padding: 30px;
       &:first-child {
         border-right: 1px solid palette(Black, Dividers);
       }
-    }
-  }
-  .sidebar-widget {
-    padding: 0 var(--padding);
-    display: block;
-    border-bottom: 1px solid palette(Black, Dividers);
-    hr {
-      position: relative;
-      border: none;
-      border-top: 1px solid palette(Black, Dividers);
-      margin-bottom: 30px;
-      width: var(--width);
-      position: relative;
-      left: -var(--padding);
     }
   }
 }
