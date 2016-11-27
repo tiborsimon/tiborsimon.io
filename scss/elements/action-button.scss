@@ -5,7 +5,7 @@
 #action-button {
   $diameter: 70px;
   $cross-length: 18px;
-  --top: 265px;
+  --top: 365px;
 
   outline: none;
   background: var(--action-background);
@@ -17,7 +17,7 @@
   height: $diameter;
   position: absolute;
   border-radius: 50%;
-  right: 30px;
+  right: 138px;
   top: var(--top);
   border: none;
   z-index: 2;

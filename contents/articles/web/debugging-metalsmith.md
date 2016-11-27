@@ -1,6 +1,6 @@
 ---
 title: Debugging metalsmith
-tags: metalsmith, website, debug
+tags: metalsmith, website, debug, javascript, plugin
 date: 2016-10-18
 collection: articles
 layout: article.html

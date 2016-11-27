@@ -1,6 +1,6 @@
 ---
 title: Local MathJax in iOS apps
-tags: MathJax, ios, hack, javascript, swift, math, LaTEX
+tags: MathJax, ios, hack, javascript, swift, LaTEX
 date: 2016-02-20
 collection: articles
 layout: article.html

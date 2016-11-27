@@ -8,14 +8,20 @@
   <div class="card">
     <nav class="sidebar-nav">
       {{# if next}}
-        <a href="{{next.url}}">Previous</a>
+        <a href="{{next.url}}" class="next-a">Previous</a>
       {{else}}
         <span>Previous</span>
       {{/if}}
       {{#if previous}}
-        <a href="{{previous.url}}">Next</a>
+        <a href="{{previous.url}}" class="previous-a">Next</a>
       {{else}}
         <span>Next</span>
+      {{/if}}
+      {{# if next}}
+        <span class="neighbour-title next-title">{{next.title}}</span>
+      {{/if}}
+      {{#if previous}}
+        <span class="neighbour-title previous-title">{{previous.title}}</span>
       {{/if}}
     </nav>
   </div>

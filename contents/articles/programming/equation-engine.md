@@ -1,6 +1,6 @@
 ---
 title: Writing an equation engine
-tags: parameter, equation
+tags: matlab, hack
 date: 2015-11-11
 collection: articles
 layout: article.html

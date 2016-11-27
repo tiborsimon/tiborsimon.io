@@ -1,6 +1,6 @@
 ---
 title: BusPirate setup for OSX
-tags: tools, embedded, device
+tags: tools, embedded, serial
 date: 2015-09-13
 collection: articles
 layout: article.html

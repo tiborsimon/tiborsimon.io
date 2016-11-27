@@ -1,13 +1,13 @@
 ---
 title: Compiling Emacs on CentOS
-tags: centos, emacs, compile, make, configure, github
+tags: centos, emacs, make
 date: 2016-07-15
 collection: articles
 layout: article.html
 snippet: Let's compile Emacs 24.5 for my CentOS based virtual machine that has an older version of it.
 ---
 
-As I started to use Emacs as my primary text editor (I was a vimmer in the past), I noticed that my common config I created on my OSX machine for Emacs 24.5 doesn't work on one of my Vagrant based virtual machines running CentOS. If I tried to bring up the Helm buffer menu, it brings up an error that the _nesting exceeds `max-lisp-eval-depth'_.
+As I started to use Emacs as my primary text editor (I was a vimmer in the past), I noticed that my common config I created on my OSX machine for Emacs 24.5 doesn't work on one of my Vagrant based virtual machines running CentOS. If I tried to bring up the Helm buffer menu, it brings up an error that the _nesting exceeds_ `max-lisp-eval-depth`.
 
 I figured out that the problem was that CentOS only has Emacs 23.1 available via yum, so I needed to compile it from the sources:
 

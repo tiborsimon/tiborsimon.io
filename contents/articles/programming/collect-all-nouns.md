@@ -1,6 +1,6 @@
 ---
 title: Collect all nouns in hungarian
-tags: web, hack, soup
+tags: web, hack, python
 date: 2015-10-24
 collection: articles
 layout: article.html

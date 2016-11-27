@@ -1,6 +1,6 @@
 ---
 title: Get half of the list in Pelican
-tags: pelican, jinja2, lists, hack
+tags: pelican, jinja2, python
 date: 2016-02-14
 collection: articles
 layout: article.html

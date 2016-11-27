@@ -1,6 +1,6 @@
 ---
 title: TDD for microcontrollers
-tags: embedded, tdd, pic, micro, 8bit, small, avr
+tags: embedded, tdd, pic
 date: 2016-07-28
 collection: articles
 layout: article.html

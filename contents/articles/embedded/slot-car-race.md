@@ -1,6 +1,6 @@
 ---
 title: SlotCar Race
-tags: embedded, dsp, accelerometer
+tags: embedded, dsp
 date: 2013-05-19
 collection: articles
 layout: article.html

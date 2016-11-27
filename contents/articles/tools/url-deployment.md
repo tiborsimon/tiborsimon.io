@@ -1,6 +1,6 @@
 ---
 title: Dotfiles with URL deployment
-tags: dotfiles, tools, script, url, forward, hack
+tags: dotfiles, tools, hack, deploy
 date: 2016-03-19
 collection: articles
 layout: article.html

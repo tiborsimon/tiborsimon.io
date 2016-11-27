@@ -11,8 +11,8 @@
   {{> header}}
   <div class="article-wrapper">
     <div class="content-colon">
-      <div class="article card">
-        <header>
+      <div class="article">
+        <header class="card">
 
           {{#if banner}}
           <div class="banner" style="background: url({{baseUrl}}/assets/{{banner}}); background-size: cover;"></div>
@@ -28,9 +28,10 @@
               {{/each}}
             </div>
           </div>
-          <div class="summary">{{{snippet}}}</div>
         </header>
-        <article class="content">
+        <article class="content card padded">
+          <div class="summary">{{{snippet}}}</div>
+          <hr>
           {{{contents}}}
         </article>
       </div>

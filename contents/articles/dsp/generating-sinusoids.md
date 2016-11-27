@@ -1,6 +1,6 @@
 ---
 title: Generating sinusoid signals
-tags: signals, basics
+tags: signals, dsp
 date: 2015-10-17
 collection: articles
 layout: article.html

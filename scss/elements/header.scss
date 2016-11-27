@@ -42,14 +42,3 @@
     }
   }
 }
-
-.header {
-  width: 100%;
-  background: var(--header-color);
-  background-size: cover;
-  box-shadow: inset 0px 90px 90px -30px rgba(0,0,0,0.2);
-  height: var(--header-height);
-  padding: 10px 50px;
-  box-sizing: border-box;
-  z-index: 0;
-}

@@ -1,6 +1,6 @@
 ---
 title: Fuzzy search and sort algorithm
-tags: fuzzy, search, sorting
+tags: search, python
 date: 2015-10-25
 collection: articles
 layout: article.html

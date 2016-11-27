@@ -9,27 +9,17 @@ $content-padding: 30px;
   justify-content: space-between;
   align-items: flex-start;
   max-width: var(--wrapper-width);
-  position: relative;
-  top: -300px;
   margin: 0 auto;
-  .card {
-    @include card(1);
-    background: white;
-    border-radius: 2px;
-    margin-bottom: 20px;
-  }
 }
 
 .article {
   max-width: var(--content-width);
-  box-sizing: border-box;
   header {
     .banner {
       background: var(--main-color);
-      height: 175px;
     }
     .article-title {
-      padding: 25px 30px 10px 30px;
+      padding: 25px 30px 5px 30px;
       font-size: 300%;
       font-weight: 300;
       color: white;
@@ -55,6 +45,8 @@ $content-padding: 30px;
         align-items: center;
         a {
           background: white;
+          margin-right: 0;
+          margin-left: 6px !important;
           &:hover {
             background: var(--header-color);
             color: white;
@@ -62,16 +54,16 @@ $content-padding: 30px;
         }
       }
     }
+  }
+  article {
+    padding: $content-padding;
     .summary {
       display: flex;
       display-direction: row;
-      padding: 30px 30px 6px 30px;
+      padding-bottom: $content-padding/2;
       font-size: 1.3em;
       color: palette(Black, Secondary Text);
     }
-  }
-  article {
-    padding: 10px $content-padding $content-padding;
   }
   a {
     color: var(--main-color);
@@ -108,10 +100,7 @@ $content-padding: 30px;
     width: var(--content-width);
     left: - $content-padding;
     line-height: 1em;
-    // font-size: 0.9em;
-    // border-top: 1px solid palette(Black, Dividers);
     border-bottom: 1px solid palette(Black, Dividers);
-    // text-align: center;
     padding-left: $content-padding;
   }
 
@@ -148,7 +137,7 @@ $content-padding: 30px;
   }
   .sidebar-nav {
     display: flex;
-    text-align: center;
+    flex-wrap: wrap;
     a {
       width: calc(var(--width) / 2);
       display: flex;
@@ -180,6 +169,28 @@ $content-padding: 30px;
       &:first-child {
         border-right: 1px solid palette(Black, Dividers);
       }
+    }
+    .neighbour-title {
+      width: var(--width);
+      display: flex;
+      height: 0px;
+      overflow: hidden;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      text-transform: uppercase;
+      text-decoration: none;
+      background: var(--main-color);
+      color: white;
+      transition: $default-transition;
+    }
+    .previous-a:hover ~ .previous-title {
+      height: 41px;
+      padding: 10px;
+    }
+    .next-a:hover ~ .next-title {
+      height: 41px;
+      padding: 10px;
     }
   }
 }

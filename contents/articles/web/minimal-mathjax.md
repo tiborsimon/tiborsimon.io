@@ -1,6 +1,6 @@
 ---
 title: Minimal MathJax package
-tags: MathJax, hack, javascript, math, LaTEX
+tags: MathJax, hack, javascript, LaTEX
 date: 2016-03-07
 collection: articles
 layout: article.html

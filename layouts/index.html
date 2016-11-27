@@ -7,63 +7,32 @@
   <link rel="stylesheet" href="{{baseUrl}}/css/style.css">
 </head>
 <body>
+
   {{> header}}
-  <section>
-  <div class="about">
-    <img src="{{baseUrl}}/assets/images/tibor.jpg" alt="Tibor Simon">
-    <div class="text">
-      <h1>Engineering with Passion</h1>
-      <p>My name is Tibor Simon.</p>
-      <p>
-     I am a graduated electrical engineer with a master's degree. I live in Budapest, and I am currently working at Nokia Networks.
-      </p>
-    </div>
 
-    <button id="action-button"><i class="icon-bars"></i></button>
+  <div class="flexwrapper">
+    <section class="card avatar">
+      <img src="{{baseUrl}}/assets/images/tibor.jpg" width=300 height=300 alt="Tibor Simon">
+    </section>
+    <section class="card">
+      <div class="about">
+        <div class="text">
+          <h1>Tibor's lab</h1>
+          <p>My name is Tibor Simon.</p>
+          <p>
+          I am a graduated electrical engineer with a master's degree. I live in Budapest, and I am currently working at Nokia Networks.
+          </p>
+        </div>
+      </div>
+    </section>
   </div>
-  </section>
-  <section>
-  <div class="calendar-wrapper card">
-    <div class="calendar"></div>
-  </div>
-  </section>
-
   <div class="flexwrap">
-    <section>
-      <div class="card padded">
-        <h2>Skills</h2>
-        <div>Python</div>
-        <div>Linux</div>
-        <div>C</div>
-      </div>
+    <section class="calendar-wrapper card padded">
+      <h2>GitHub contributions</h2>
+      <div class="calendar"></div>
     </section>
-    <section>
-      <div class="card padded">
-        <h2>Skills</h2>
-        <div>Python</div>
-        <div>Linux</div>
-        <div>C</div>
-        <div>C++</div>
-        <div>HTML</div>
-        <div>CSS</div>
-        <div>Javascript</div>
-        <div>Node.js</div>
-        <div>WEB</div>
-      </div>
-    </section>
-    <section>
-      <div class="card padded">
-        <h2>Skills</h2>
-        <div>Python</div>
-        <div>Linux</div>
-        <div>C</div>
-        <div>C++</div>
-        <div>HTML</div>
-        <div>CSS</div>
-        <div>Javascript</div>
-        <div>Node.js</div>
-        <div>WEB</div>
-      </div>
+    <section class="calendar-wrapper card padded">
+      <h2>GitHub contributions</h2>
     </section>
   </div>
 
@@ -72,6 +41,9 @@
     <div class="articles-wrapper">
       {{> article-list articles=pagination.files}}
       <div class="sidebar">
+        <div class="card padded">
+            <input id="searchfield" type="search" placeholder="Search">
+        </div>
         <div class="card padded">
           <div class="tags">
             <h2>Tags</h2>

@@ -1,6 +1,6 @@
 ---
 title: Chart.js with subtabbed tabs
-tags: javascript, chart, bootstrap
+tags: javascript, chart
 date: 2015-10-30
 collection: articles
 layout: article.html
