@@ -74,7 +74,7 @@ section {
       display: flex;
       width: 100%;
       .details {
-        width: 800px;
+        width: 100%;
         hr {
           width: 800px;
           position: relative;
@@ -114,7 +114,6 @@ section {
           font-size: 0.8em;
           color: palette(Black, Hint Text);
           position: relative;
-          left: calc(-2*var(--content-padding));
         }
         .snippet {
           margin-bottom: 10px;

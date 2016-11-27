@@ -10,7 +10,7 @@
 
   {{> header}}
 
-  <div class="flexwrapper">
+  <div class="flexwrap">
     <section class="card avatar">
       <img src="{{baseUrl}}/assets/images/tibor.jpg" width=300 height=300 alt="Tibor Simon">
     </section>
@@ -37,7 +37,7 @@
   </div>
 
   <section>
-    <h1>Latest articles</h1>
+    <h1 id="articles">Latest articles</h1>
     <div class="articles-wrapper">
       {{> article-list articles=pagination.files}}
       <div class="sidebar">

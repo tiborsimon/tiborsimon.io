@@ -142,7 +142,7 @@ metalsmith(__dirname)
   }))
   .use(pagination({
     'collections.articles': {
-      perPage: 4,
+      perPage: 3,
       first: 'index.html',
       path: 'page/:num/index.html',
       layout: 'index.html'
