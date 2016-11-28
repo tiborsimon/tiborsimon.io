@@ -1,6 +1,6 @@
 ---
 title: SlotCar Race
-tags: embedded, dsp
+tags: embedded, dsp, control
 date: 2013-05-19
 collection: articles
 layout: article.html

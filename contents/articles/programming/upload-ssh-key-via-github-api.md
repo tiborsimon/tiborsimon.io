@@ -1,6 +1,6 @@
 ---
 title: Upload ssh key via Github API
-tags: github, api, ssh, bash, deploy
+tags: GitHub, API, ssh, bash, deploy
 date: 2016-03-19
 collection: articles
 layout: article.html

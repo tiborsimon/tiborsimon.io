@@ -1,6 +1,6 @@
 ---
 title: Compiling Emacs on CentOS
-tags: centos, emacs, make
+tags: emacs, make, linux
 date: 2016-07-15
 collection: articles
 layout: article.html

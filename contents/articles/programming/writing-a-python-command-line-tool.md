@@ -1,6 +1,6 @@
 ---
 title: Command line tool in Python
-tags: python, tool, cli
+tags: python, tool, CLI
 date: 2016-10-24
 collection: articles
 layout: article.html

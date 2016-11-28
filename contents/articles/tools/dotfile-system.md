@@ -1,6 +1,6 @@
 ---
 title: My dotfile system
-tags: dotfiles, tools, linux, config, deploy
+tags: dotfiles, tools, linux, config, deploy, GitHub
 date: 2016-04-01
 collection: articles
 layout: article.html

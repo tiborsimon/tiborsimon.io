@@ -1,6 +1,6 @@
 ---
 title: Dotfiles with URL deployment
-tags: dotfiles, tools, hack, deploy
+tags: dotfiles, tools, hack, deploy, GitHub, config
 date: 2016-03-19
 collection: articles
 layout: article.html

@@ -1,6 +1,6 @@
 ---
 title: Redirect external links to new tab
-tags: pelican, hack, javascript
+tags: pelican, hack, javascript, web
 date: 2015-05-17
 collection: articles
 layout: article.html

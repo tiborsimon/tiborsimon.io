@@ -1,6 +1,6 @@
 ---
 title: Generating sinusoid signals
-tags: signals, dsp
+tags: signals, dsp, Matlab
 date: 2015-10-17
 collection: articles
 layout: article.html

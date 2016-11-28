@@ -1,6 +1,6 @@
 ---
 title: Mandatory + arbitrary order
-tags: regexp, permutation, python
+tags: regexp, python, hack
 date: 2015-10-29
 collection: articles
 layout: article.html
