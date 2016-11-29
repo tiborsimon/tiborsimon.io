@@ -2,47 +2,78 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Tibor's Lab</title>
+  <title>Tibor's Lab - Tag: {{tag}}</title>
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Roboto:300,400" rel="stylesheet">
   <link rel="stylesheet" href="{{baseUrl}}/css/style.css">
 </head>
 <body>
-  {{> header}}
-  <section>
-  <div class="about">
-    <img src="{{baseUrl}}/assets/images/tibor.jpg" alt="Tibor Simon">
-    <div class="text">
-      <h1>Engineering with Passion</h1>
-      <p>My name is Tibor Simon.</p>
-      <p>
-     I am a graduated electrical engineer with a master's degree. I live in Budapest, and I am currently working at Nokia Networks.
-      </p>
-    </div>
 
-    <button id="action-button"><i class="icon-bars"></i></button>
+  {{> header}}
+
+  <div class="flexwrap">
+    <section class="card avatar">
+      <img src="{{baseUrl}}/assets/images/tibor.jpg" width=300 height=300 alt="Tibor Simon">
+    </section>
+    <section class="card">
+      <div class="about">
+        <div class="text">
+          <!-- <h1>Tibor's lab</h1> -->
+          <p>My name is Tibor Simon.</p>
+          <p>
+          I am a graduated electrical engineer with a master's degree. I live in Budapest, and I am currently working at Nokia Networks.
+          </p>
+        </div>
+        <div class="icons-row">
+          <a href="https://twitter.com/tiborsimonio" target="_blank"><span class="icon-twitter"></span></a>
+          <a href="https://github.com/tiborsimon" target="_blank"><span class="icon-github"></span></a>
+          <a href="https://www.instagram.com/tiborsimon/" target="_blank"><span class="icon-instagram"></span></a>
+          <a href="https://flic.kr/ps/STWoT" target="_blank"><span class="icon-flickr"></span></a>
+          <a href="http://codepen.io/tiborsimon/" target="_blank"><span class="icon-codepen"></span></a>
+          <a href="https://www.youtube.com/channel/UCvp1-SnV3PJKEdTDVsYQN9Q" target="_blank"><span class="icon-youtube"></span></a>
+          <a href="https://vimeo.com/user7872866" target="_blank"><span class="icon-vimeo"></span></a>
+          <a href="https://soundcloud.com/tiborsimon" target="_blank"><span class="icon-soundcloud"></span></a>
+          <a href="https://hu.linkedin.com/in/tibor-simon-258850a3" target="_blank"><span class="icon-linkedin"></span></a>
+        </div>
+      </div>
+    </section>
   </div>
-  </section>
-  <section>
-  <div class="calendar-wrapper card">
-    <div class="calendar"></div>
+  <div class="flexwrap">
+    <section class="calendar-wrapper card padded">
+      <h2>GitHub contributions</h2>
+      <div class="calendar"></div>
+    </section>
+    <section class="calendar-wrapper card padded">
+      <h2>Online presence</h2>
+    </section>
   </div>
-  </section>
+
   <section>
-    <h1>Tag <b>{{tag}}</b></h1>
-    <h3>All articles with the tag {{tag}}</h3>
+    <h1 id="articles">Articles for <b>{{tag}}</b></h1>
     <div class="articles-wrapper">
       {{> article-list articles=pagination.files}}
       <div class="sidebar">
-        <div class="card">
+        <div class="card padded">
+          <input id="searchfield" type="search" placeholder="Search">
+        </div>
+        <div class="card padded">
           <div class="tags">
             <h2>Tags</h2>
             {{> tags/by/count}}
           </div>
         </div>
-
       </div>
     </div>
   </section>
+  <section>
+    <h1>Projects</h1>
+    {{> portfolio-list portfolio_list=collections.portfolio}}
+  </section>
+  {{> footer}}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/0.10.1/fetch.min.js"></script>
+  <script src="https://cdn.rawgit.com/IonicaBizau/github-calendar/gh-pages/dist/github-calendar.min.js"></script>
+  <script>
+GitHubCalendar(".calendar", "tiborsimon");
+  </script>
 </body>
 </html>
 
