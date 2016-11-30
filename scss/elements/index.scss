@@ -52,9 +52,8 @@ section {
   }
 }
 .calendar-wrapper {
-  flex-basis: 800px;
-  height: 151px;
-  width: 688px;
+  height: 153px;
+  width: 673px;
   .calendar {
     position: relative;
     left: -29px;
@@ -198,6 +197,27 @@ section {
       border-right: 1px solid palette(Black, Dividers);
     }
   }
+}
+
+.twitter-timeline {
+  height: 380px !important;
+}
+
+.twitter-card {
+  height: 450px;
+}
+
+.timeline-Header {
+  display: none !important;
+}
+.twitter-follow-button-wrapper {
+  position: relative;
+  bottom: 34px;
+  left: 253px;
+}
+.twitter-timeline-wrapper {
+  position: relative;
+  bottom: 26px;
 }
 
 .footer {
