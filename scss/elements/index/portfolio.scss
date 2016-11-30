@@ -1,6 +1,6 @@
-@import '../utils/palette';
-@import '../utils/card';
-@import '../utils/transition';
+@import '../../utils/palette';
+@import '../../utils/card';
+@import '../../utils/transition';
 
 .portfolio-list {
   --portfolio-item-width: calc(var(--wrapper-width) / 4);

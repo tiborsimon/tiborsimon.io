@@ -50,7 +50,7 @@
   <section>
     <h1 id="articles">Articles for <b>{{tag}}</b></h1>
     <div class="articles-wrapper">
-      {{> article-list articles=pagination.files}}
+      {{> index/article-list articles=pagination.files}}
       <div class="sidebar">
         <div class="card padded">
           <input id="searchfield" type="search" placeholder="Search">
@@ -66,7 +66,7 @@
   </section>
   <section>
     <h1>Projects</h1>
-    {{> portfolio-list portfolio_list=collections.portfolio}}
+    {{> index/portfolio-list portfolio_list=collections.portfolio}}
   </section>
   {{> footer}}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/0.10.1/fetch.min.js"></script>

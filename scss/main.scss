@@ -51,12 +51,22 @@ table {
   width: var(--wrapper-width);
   display: flex;
 
-  section {
+  >section {
     flex: 1 1 auto;
     margin-left: var(--margin-between-cards);
     &:first-child {
       margin-left: 0;
     }
+  }
+}
+
+.vertflexwrap {
+  margin: 0 auto;
+  width: var(--wrapper-width);
+  display: flex;
+  flex-direction: column;
+
+  >section {
   }
 }
 
@@ -85,7 +95,7 @@ table {
 @import 'elements/action-button';
 @import 'elements/header';
 @import 'elements/article';
-@import 'elements/portfolio';
+@import 'elements/index/portfolio';
 
 
 @font-face {
@@ -129,9 +139,9 @@ table {
     height: 40px;
     border-radius: 50%;
     text-decoration: none;
-    color: var(--main-color);
-    background: palette(White, Icons);
-    transition: $default-transition; 
+    background: palette(Black, Dividers);
+    color: palette(Black, Text);
+    transition: $default-transition;
     &:hover {
       color: var(--action-color);
       background: var(--action-background);

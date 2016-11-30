@@ -18,9 +18,9 @@
       <div class="about">
         <div class="text">
           <!-- <h1>Tibor's lab</h1> -->
-          <p>My name is Tibor Simon.</p>
-          <p>
-          I am a graduated electrical engineer with a master's degree. I live in Budapest, and I am currently working at Nokia Networks.
+          My name is <strong>Tibor Simon.</strong>
+          <p>I am a graduated <strong>electrical engineer</strong> with a master's degree. I live in <strong>Budapest</strong> and I am currently working at Nokia Networks.</p>
+          <p>As an engineer I constantly pushing myself to be better at what I am doing. I like to <strong>discover</strong> new technologies, <strong>experiment</strong> with ideas. I am a <strong>Vimmer</strong>, I use <strong>Linux</strong>, I am a late night <strong>owl</strong>, and I prefer the <strong>command line</strong> over the mouse. Yes, I felt into the <strong>unproductive hole of tools</strong> a few times, yes I have a huge pile of <strong>unfinished projects</strong> and yes this is the (n+1)th iteration of my webpage. But hey, that doens't matter as far as <strong>I enjoy it</strong>. Oh, and I like to play the <strong>guitar</strong> and I also like to take <strong>pictures</strong>. Hope you find someting useful here.
           </p>
         </div>
         <div class="icons-row">
@@ -38,10 +38,13 @@
     </section>
   </div>
   <div class="flexwrap">
-    <section class="calendar-wrapper card padded">
-      <h2>GitHub contributions</h2>
-      <div class="calendar"></div>
-    </section>
+    <div class="vertflexwrap">
+      <section class="calendar-wrapper card padded">
+        <h2>GitHub contributions</h2>
+        <div class="calendar"></div>
+      </section>
+      {{> index/multibox}}
+    </div>
     <section class="twitter-card card padded">
       <h2>Latest tweets</h2>
       <span class="twitter-follow-button-wrapper">
@@ -52,20 +55,20 @@
       </span>
     </section>
   </div>
-  <div class="flexwrap">
-    <section class="flickr-slideshow card">
-      <div id="flickrembed"></div><small style="display: block; text-align: center; margin: 0 auto;">
-    </section>
-  </div>
+  <!-- <div class="flexwrap"> -->
+  <!--   <section class="flickr-slideshow card"> -->
+  <!--     <div id="flickrembed"></div><small style="display: block; text-align: center; margin: 0 auto;"> -->
+  <!--   </section> -->
+  <!-- </div> -->
 
   <section>
     <h1 id="articles">Latest articles</h1>
     <div class="articles-wrapper">
-      {{> article-list articles=pagination.files}}
+      {{> index/article-list articles=pagination.files}}
       <div class="sidebar">
-        <div class="card padded">
-          <input id="searchfield" type="search" placeholder="Search">
-        </div>
+        <!-- <div class="card padded"> -->
+        <!--   <input id="searchfield" type="search" placeholder="Search"> -->
+        <!-- </div> -->
         <div class="card padded">
           <div class="tags">
             <h2>Tags</h2>
@@ -77,7 +80,7 @@
   </section>
   <section>
     <h1>Projects</h1>
-    {{> portfolio-list portfolio_list=collections.portfolio}}
+    {{> index/portfolio-list portfolio_list=collections.portfolio}}
   </section>
   {{> footer}}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/0.10.1/fetch.min.js"></script>
