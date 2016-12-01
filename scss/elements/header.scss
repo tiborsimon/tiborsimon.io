@@ -6,6 +6,8 @@ nav .navmenu {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  background: var(--main-color);
+  color: white;
 
   .logo {
     font-size: 1.4em;

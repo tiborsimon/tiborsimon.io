@@ -61,8 +61,6 @@ table {
 }
 
 .vertflexwrap {
-  margin: 0 auto;
-  width: var(--wrapper-width);
   display: flex;
   flex-direction: column;
 
@@ -131,6 +129,7 @@ table {
   justify-content: space-between;
   font-size: 1.3em;
   padding-bottom: 4px;
+  margin-top: 12px;
   a {
     display: flex;
     align-items: center;

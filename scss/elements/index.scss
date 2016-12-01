@@ -60,6 +60,7 @@ section {
     left: -29px;
     top: -22px;
     h2, .month, .wday, .contrib-footer, .contrib-column { display: none; }
+    transition: $default-transition;
   }
 }
 .articles-wrapper {
@@ -198,6 +199,11 @@ section {
       border-right: 1px solid palette(Black, Dividers);
     }
   }
+}
+
+.fade-in {
+  transition: $default-transition;
+  opacity: 0;
 }
 
 .twitter-timeline {
