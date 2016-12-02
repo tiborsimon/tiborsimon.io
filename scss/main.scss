@@ -142,8 +142,8 @@ table {
     color: palette(Black, Text);
     transition: $default-transition;
     &:hover {
-      color: var(--action-color);
-      background: var(--action-background);
+      color: white;
+      background: var(--main-color);
     }
   }
 

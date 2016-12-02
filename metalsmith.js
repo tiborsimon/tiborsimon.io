@@ -170,8 +170,6 @@ metalsmith(__dirname)
   .use(tags({
     handle: 'tags',
     path:'tag/:tag/index.html',
-    pathPage: "tag/:tag/:num/index.html",
-    perPage: 3,
     layout:'tag.html',
     sortBy: 'title',
     reverse: true,
