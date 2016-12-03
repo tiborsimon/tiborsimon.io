@@ -1,0 +1,38 @@
+@import '../../utils/palette';
+@import '../../utils/card';
+
+.pypi {
+  .packages {
+    display: flex;
+    flex-wrap: wrap;
+    .package {
+      width: 246px;
+      height: 174px;
+      margin-right: 6px;
+      border-radius: 2px;
+      padding: 20px;
+      background: palette(Black, Dividers);
+      color: palette(Black, Text);
+      h3 {
+        margin: 0;
+        padding: 0;
+        font-weight: 600;
+      }
+      p {
+        height: 63px;
+      }
+      a {
+        @include card(1);
+        text-decoration: none;
+        color: white;
+        background: var(--main-color);
+        border-radius: 2px;
+        padding: 2px 7px;
+        &:hover {
+          background: var(--action-background);
+        }
+
+      }
+    }
+  }
+}

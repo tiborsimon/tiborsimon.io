@@ -5,6 +5,7 @@
   <title>Tibor's Lab</title>
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Roboto:300,400" rel="stylesheet">
   <link rel="stylesheet" href="{{baseUrl}}/css/style.css">
+  <link rel="import" href="https://raw.githubusercontent.com/tiborsimon/worklog/master/publish/worklog.html">
 </head>
 <body>
 
@@ -91,19 +92,25 @@ GitHubCalendar(".calendar", "tiborsimon");
   </script>
   <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
   <script>
-		(function(){
-			function loaderDone(event) {
+    var link = document.querySelector('link[rel="import"]');
+    var content = link.import;
+    var el = content.querySelector('.worklog');
+    document.getElementById("worklog").appendChild(el.cloneNode(true));
+  </script>
+  <script>
+    (function(){
+      function loaderDone(event) {
         let myElements = document.querySelectorAll(".fade-in");
         for (let i = 0; i < myElements.length; i++) {
-            myElements[i].style.opacity = 1;
+          myElements[i].style.opacity = 1;
         }
-			}
-			document.onreadystatechange = function () {
-				if(document.readyState === 'complete') {
+      }
+      document.onreadystatechange = function () {
+        if(document.readyState === 'complete') {
           setTimeout(function(){loaderDone();}, 400);
-				}
-			};
-		})();
+        }
+      };
+    })();
   </script>
 </body>
 </html>

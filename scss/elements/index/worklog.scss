@@ -1,0 +1,43 @@
+@import '../../utils/palette';
+
+.worklog {
+  .entry {
+    .timestamp {
+      line-height: 1em;
+      position: relative;
+      margin-left: 36px;
+      color: #888;
+      span {
+        padding: 1px 5px;
+        color: palette(Black, Text);
+        background: palette(Black, Dividers);
+        border-radius: 2px;
+        margin-left: 4px;
+        display: inline-block;
+        font-size: 0.7em;
+        position: relative;
+        bottom: 2px;
+      }
+
+      &:before {
+        content: " ";
+        display: block;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        border: 5px solid #ddd;
+        background: white;
+        position: absolute;
+        top: -4px;
+        left: -30px;
+      }
+    }
+    .log {
+      font-size: 0.9em;
+      margin-left: 14px;
+      padding: 5px 19px 16px;
+      border-left: 7px solid #ddd;
+      line-height: 1em;
+    }
+  }
+}

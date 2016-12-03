@@ -14,7 +14,6 @@
     width: 0;
   }
   label {
-    // background: palette(Black, Dividers);
     background: white;
     color: palette(Black, Text);
     cursor: pointer;
@@ -42,9 +41,10 @@
     width: 515px;
     height: 239px;
   }
-  .contents div {
+  .contents > div {
     position: absolute;
     width: 515px;
+    height: 239px;
     overflow-y: auto;
     z-index: 1;
     background: white;
@@ -52,7 +52,9 @@
   #tab-1:checked ~ .contents #content-1,
   #tab-2:checked ~ .contents #content-2,
   #tab-3:checked ~ .contents #content-3,
-  #tab-4:checked ~ .contents #content-4 {
+  #tab-4:checked ~ .contents #content-4,
+  #tab-5:checked ~ .contents #content-5
+  {
     z-index: 2;
   }
 }
