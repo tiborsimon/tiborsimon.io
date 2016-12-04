@@ -6,6 +6,7 @@ YELLOW:=$(shell tput setaf 3)
 RESET:=$(shell tput sgr0)
 
 BASEURL=http://localhost:8000
+METALSMITM_PARAMS=
 
 .PHONY: all metalsmith css copy apps
 
@@ -15,6 +16,7 @@ publish: set-baseurl clean metalsmith copy css apps-build apps-copy push
 
 set-baseurl:
 	$(eval BASEURL:=https://tiborsimon.io)
+	$(eval METALSMITM_PARAMS:=production)
 
 push:
 	cd publish && git checkout master && git add --all && git commit -m "Site publish" && git push
@@ -30,7 +32,7 @@ init:
 
 metalsmith:
 	@echo "$(YELLOW)-> Compiling metalsmith..$(RESET)"
-	$(HIDE)node metalsmith.js
+	$(HIDE)node metalsmith.js $(METALSMITM_PARAMS)
 
 css:
 	@echo "$(YELLOW)-> Compiling CSS..$(RESET)"
@@ -43,6 +45,7 @@ css:
 copy:
 	@echo "$(YELLOW)-> Copying Assets..$(RESET)"
 	$(HIDE)cp -aR ./assets ./publish/assets
+	$(HIDE)cp -aR ./root-files/* ./publish
 
 apps: apps-build apps-copy
 
