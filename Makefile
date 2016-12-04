@@ -17,7 +17,7 @@ set-baseurl:
 	$(eval BASEURL:=https://tiborsimon.io)
 
 push:
-	cd publish && git add --all && git commit -m "Site publish" && git push
+	cd publish && git checkout master && git add --all && git commit -m "Site publish" && git push
 	git add publish && git commit -m "Site published." && git push
 
 clean:
