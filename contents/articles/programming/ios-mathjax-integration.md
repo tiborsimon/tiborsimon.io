@@ -60,19 +60,30 @@ I put the downloaded files into the Xcode project's Vendor folder:
 Simply unboxed the zip, the package takes up __180 MB__ space _(that's a lot!)_. In a future article I will show you the minimal needed content of this package that is be able to render the expressions.
 
 
-<div class="gallery">
-  <img class="jslghtbx-thmb" src="/images/articles/mathjax-ios/mathjax-ios-vendor-folder.png" alt="Location of the downloaded MathJax sources" data-jslghtbx data-jslghtbx-caption="Location of the downloaded MathJax sources" data-jslghtbx-group="mathjax-ios-group-03" />
-  <img class="jslghtbx-thmb" src="/images/articles/mathjax-ios/mathjax-ios-raw-package-size.png" alt="Size of the freshly downloaded package" data-jslghtbx data-jslghtbx-caption="Size of the freshly downloaded package" data-jslghtbx-group="mathjax-ios-group-03" />
+<div class="figures">
+<figure>
+<img width=400 src="/assets/images/articles/mathjax-ios/mathjax-ios-vendor-folder.png" alt="Location of the downloaded MathJax sources.">
+<figcaption>Fig 1: Location of the downloaded MathJax sources.</figcaption>
+</figure>
+<figure>
+<img width=280 src="/assets/images/articles/mathjax-ios/mathjax-ios-raw-package-size.png" alt="Size of the freshly downloaded package.">
+<figcaption>Fig 2: Size of the freshly downloaded package.</figcaption>
+</figure>
 </div>
 
 # Adding the MathJax package to the project
 
 I added the downloaded and extracted MathJax sources to a single view based Xcode project, by dragging the folder into the project navigator. I unchecked the copy sources option.
 
-
-<div class="gallery">
-  <img class="jslghtbx-thmb" src="/images/articles/mathjax-ios/adding-the-sources.png" alt="Adding the sources to the project" data-jslghtbx data-jslghtbx-caption="Adding the sources to the project" data-jslghtbx-group="mathjax-ios-group-02" />
-  <img class="jslghtbx-thmb" src="/images/articles/mathjax-ios/copy-items.png" alt="Unchecking the copy items if needed option" data-jslghtbx data-jslghtbx-caption="Unchecking the copy items if needed option" data-jslghtbx-group="mathjax-ios-group-02" />
+<div class="figures">
+<figure>
+<img width=280 src="/assets/images/articles/mathjax-ios/adding-the-sources.png" alt="Adding the sources to the project.">
+<figcaption>Fig 3: Adding the sources to the project.</figcaption>
+</figure>
+<figure>
+<img width=500 src="/assets/images/articles/mathjax-ios/copy-items.png" alt="Unchecking the copy items if needed option.">
+<figcaption>Fig 4: Unchecking the copy items if needed option.</figcaption>
+</figure>
 </div>
 
 
@@ -145,15 +156,39 @@ class ViewController: UIViewController {
 
 The project loads up to the simulator a bit slowly. After it loads, it renders the mathematical expression to the _UIWebView_ in 8 phases:
 
-<div class="gallery">
-  <img class="jslghtbx-thmb" src="/images/articles/mathjax-ios/mathjax-ios-00.png" alt="Rendering phase 1: It starts as a blank screen." data-jslghtbx data-jslghtbx-caption="Rendering phase 1: It starts as a blank screen." data-jslghtbx-group="mathjax-ios-group" />
-  <img class="jslghtbx-thmb" src="/images/articles/mathjax-ios/mathjax-ios-01.png" alt="Rendering phase 2: Then it loads the raw LaTEX source." data-jslghtbx data-jslghtbx-caption="Rendering phase 2: Then it loads the raw LaTEX source." data-jslghtbx-group="mathjax-ios-group" />
-  <img class="jslghtbx-thmb" src="/images/articles/mathjax-ios/mathjax-ios-02.png" alt="Rendering phase 3: First rendering pass." data-jslghtbx data-jslghtbx-caption="Rendering phase 3: First rendering pass." data-jslghtbx-group="mathjax-ios-group" />
-  <img class="jslghtbx-thmb" src="/images/articles/mathjax-ios/mathjax-ios-03.png" alt="Rendering phase 4: Loading CommonHTML sources for the final rendering pass." data-jslghtbx data-jslghtbx-caption="Rendering phase 4: Loading CommonHTML sources for the final rendering pass." data-jslghtbx-group="mathjax-ios-group" />
-  <img class="jslghtbx-thmb" src="/images/articles/mathjax-ios/mathjax-ios-04.png" alt="Rendering phase 5: Renders final image." data-jslghtbx data-jslghtbx-caption="Rendering phase 5: Renders final image." data-jslghtbx-group="mathjax-ios-group" />
-  <img class="jslghtbx-thmb" src="/images/articles/mathjax-ios/mathjax-ios-05.png" alt="Rendering phase 6: Becames blank again." data-jslghtbx data-jslghtbx-caption="Rendering phase 6: Becames blank again." data-jslghtbx-group="mathjax-ios-group" />
-  <img class="jslghtbx-thmb" src="/images/articles/mathjax-ios/mathjax-ios-06.png" alt="Rendering phase 7: Final image appears in fractions." data-jslghtbx data-jslghtbx-caption="Rendering phase 7: Final image appears in fractions." data-jslghtbx-group="mathjax-ios-group" />
-  <img class="jslghtbx-thmb" src="/images/articles/mathjax-ios/mathjax-ios-07.png" alt="Rendering phase 8: Render finished." data-jslghtbx data-jslghtbx-caption="Rendering phase 8: Render finished." data-jslghtbx-group="mathjax-ios-group" />
+<div class="figures">
+<figure>
+<img width=280 src="/assets/images/articles/mathjax-ios/mathjax-ios-00.png" alt="Rendering phase 1: It starts as a blank screen.">
+<figcaption>Fig 5: Rendering phase 1: It starts as a blank screen.</figcaption>
+</figure>
+<figure>
+<img width=280 src="/assets/images/articles/mathjax-ios/mathjax-ios-01.png" alt="Rendering phase 2: Then it loads the raw LaTEX source.">
+<figcaption>Fig 6: Rendering phase 2: Then it loads the raw LaTEX source.</figcaption>
+</figure>
+<figure>
+<img width=280 src="/assets/images/articles/mathjax-ios/mathjax-ios-02.png" alt="Rendering phase 3: First rendering pass.">
+<figcaption>Fig 7: Rendering phase 3: First rendering pass.</figcaption>
+</figure>
+<figure>
+<img width=280 src="/assets/images/articles/mathjax-ios/mathjax-ios-03.png" alt="Rendering phase 4: Loading CommonHTML sources for the final rendering pass.">
+<figcaption>Fig 8: Rendering phase 4: Loading CommonHTML sources for the final rendering pass.</figcaption>
+</figure>
+<figure>
+<img width=280 src="/assets/images/articles/mathjax-ios/mathjax-ios-04.png" alt="Rendering phase 5: Renders final image.">
+<figcaption>Fig 9: Rendering phase 5: Renders final image.</figcaption>
+</figure>
+<figure>
+<img width=280 src="/assets/images/articles/mathjax-ios/mathjax-ios-05.png" alt="Rendering phase 6: Becames blank again.">
+<figcaption>Fig 10: Rendering phase 6: Becames blank again.</figcaption>
+</figure>
+<figure>
+<img width=280 src="/assets/images/articles/mathjax-ios/mathjax-ios-06.png" alt="Rendering phase 7: Final image appears in fractions.">
+<figcaption>Fig 11: Rendering phase 7: Final image appears in fractions.</figcaption>
+</figure>
+<figure>
+<img width=280 src="/assets/images/articles/mathjax-ios/mathjax-ios-07.png" alt="Rendering phase 8: Render finished.">
+<figcaption>Fig 12: Rendering phase 8: Render finished.</figcaption>
+</figure>
 </div>
 
 The whole rendering happens in less then half a second, but it is noticeable. If you want to use this method to render mathematical expresions in your app, you have to make sure, you only show your _UIWebView_, when it fulli loaded.

@@ -5,10 +5,11 @@ date: 2015-01-17
 collection: articles
 layout: article.html
 snippet: During the last semester I had a subject that required to create a java program. I decided to write a small game similar to Minigore. The game is written in java with LWJGL and Slick2D game libraries.
+repo: https://github.com/tiborsimon/java-shooter-game
 ---
 
 
-<iframe class="video" width="640" height="360" src="https://www.youtube.com/embed/dUKqIYJZlOk" frameborder="0" allowfullscreen></iframe>
+<iframe class="video" width="800" height="450" src="https://www.youtube.com/embed/dUKqIYJZlOk" frameborder="0" allowfullscreen></iframe>
 
 It uses some open source stuff, like the explosion animation and the music for the promo video. The game is open source, so you can go to GitHub to see how the game functionalities were implemented.
 
@@ -28,7 +29,12 @@ In the Main Menu you have 4 options but in reality 3 of them is working right no
 - Scores – currently not working
 - Exit – it exits the game
 
-<img src="/images/articles/java-shooter/javashooter-1.png" alt="Java Shooter Game: main menu" width="550" />
+<div class="figures">
+<figure>
+<img src="/assets/images/articles/java-shooter/javashooter-1.png" width=550 alt="Java Shooter Game: main menu">
+<figcaption>Fig 1: Java Shooter Game: main menu</figcaption>
+</figure>
+</div>
 
 
 # Game menu
@@ -39,8 +45,12 @@ In the New Game Menu you can start Easy, Normal and Expert game.
 - Normal – faster enemies with faster spawning time + auto aiming
 - Expert – slow enemies with slow spawning time + manual aiming (very hard!)
 
-
-<img src="/images/articles/java-shooter/javashooter-2.png" alt="Java Shooter Game: game menu" width="550" />
+<div class="figures">
+<figure>
+<img src="/assets/images/articles/java-shooter/javashooter-2.png" width=550 alt="Java Shooter Game: game menu">
+<figcaption>Fig 2: Java Shooter Game: game menu</figcaption>
+</figure>
+</div>
 
 
 # Player menu
@@ -50,7 +60,12 @@ In the Player Menu you can view the stats of the current player, export your pla
 - Export – it exports the current player stats to transfer them another computer.
 - New – it goes to the New Player Menu
 
-<img src="/images/articles/java-shooter/javashooter-3.png" alt="Java Shooter Game: player menu" width="550" />
+<div class="figures">
+<figure>
+<img src="/assets/images/articles/java-shooter/javashooter-3.png" width=550 alt="Java Shooter Game: player menu">
+<figcaption>Fig 3: Java Shooter Game: player menu</figcaption>
+</figure>
+</div>
 
 # Controlling the game
 
@@ -89,7 +104,7 @@ overclock 75 fullscreen true showfPS true
 
 Example video about how to overclock the game a bit.
 
-<iframe class="video" width="640" height="360" src="https://www.youtube.com/embed/L5NhA_ajQ_w" frameborder="0" allowfullscreen></iframe>
+<iframe class="video" width="800" height="450" src="https://www.youtube.com/embed/L5NhA_ajQ_w" frameborder="0" allowfullscreen></iframe>
 
 
 # Summary

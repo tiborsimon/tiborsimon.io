@@ -240,3 +240,29 @@ section {
   font-size: 0.8em;
 }
 
+.icons-row {
+  color: palette(White, Icon);
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
+  font-size: 1.3em;
+  padding-bottom: 4px;
+  margin-top: 12px;
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-decoration: none;
+    background: palette(Black, Dividers);
+    color: palette(Black, Text);
+    transition: $default-transition;
+    &:hover {
+      color: white;
+      background: var(--main-color);
+    }
+  }
+}
+

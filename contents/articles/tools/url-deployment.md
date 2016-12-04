@@ -21,9 +21,10 @@ curl https://raw.githubusercontent.com/tiborsimon/dotfiles/master/bootstrap
 
 I can take care of this problem by having a custom domain, and creating a redirect, I am using __CloudFlare__ as a nameserver and _ssl_ provider, so I can set up a custom __Page Rule__ to redirect the `tiborsimon.io/dotfiles` to the raw script listing.
 
-<div class="gallery">
-  <img class="jslghtbx-thmb" src="/images/articles/dotfiles/custom-page-forward-rule.png" alt="CloudFlare custom Page Rule" data-jslghtbx data-jslghtbx-caption="CloudFlare custom Page Rule" data-jslghtbx-group="dotfiles-group-01" />
-</div>
+<figure>
+  <img src="/assets/images/articles/dotfiles/custom-page-forward-rule.png" alt="CloudFlare custom Page Rule">
+  <figcaption>Fig 1: CloudFlare custom Page Rule</figcaption>
+</figure>
 
 In this way, I can type:
 
@@ -44,10 +45,10 @@ We can feed the raw sript to `sh`, `bash` or `zsh`. Curl will download the scrip
 The flags make sure, curl not corrupt the script during download:
 
 ``` bash
- -f, --fail          Fail silently (no output at all) on HTTP errors (H)
- -s, --silent        Silent mode (don't output anything)
- -S, --show-error    Show error. With -s, make curl show errors when they occur
- -L, --location      Follow redirects (H)
+-f, --fail          Fail silently (no output at all) on HTTP errors (H)
+-s, --silent        Silent mode (don't output anything)
+-S, --show-error    Show error. With -s, make curl show errors when they occur
+-L, --location      Follow redirects (H)
 ```
 
 Make sure you have the latest curl on your system, because older curl versions tend to act weird with the _HTTPS_ protocol, and wont be able to connect.

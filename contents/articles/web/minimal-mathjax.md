@@ -8,7 +8,7 @@ snippet: MathJax is a pretty big javascript package, but you can make it work af
 ---
 
 
-In the [previous article]({{ SITEURL }}/ios/local-mathjax-in-ios-apps/) we have created a working MathJax based math rendering iOS app. In this article I will show you how you can shrink down the original 180MB MathJax package into an about 623KB package. This is 99.6% size reduction.
+In the [previous article]({{ BASEURL }}/articles/programming/ios-mathjax-integration) we have created a working MathJax based math rendering iOS app. In this article I will show you how you can shrink down the original 180MB MathJax package into an about 623KB package. This is 99.6% size reduction.
 
 | Component | Version |
 |:---------:|:-------:|
@@ -52,15 +52,24 @@ I started with a simple html page containing a basic MathJax setup:
 ```
 The easiest way I find to put back the necessary resources to the package is to copy the full package into a separated directory, then in a two pane file manager, put back the requested files. You can use your browser's inspector view to find out what is missing.
 
-<div class="gallery">
-  <img class="jslghtbx-thmb no-shadow" src="/images/articles/minimal-mathjax/reducer-atom-project.png" alt="Editing the html file while putting back the necessary resources." data-jslghtbx data-jslghtbx-caption="Editing the html file while putting back the necessary resources." data-jslghtbx-group="minimal-mathjax-group-02" />
-  <img class="jslghtbx-thmb no-shadow" src="/images/articles/minimal-mathjax/missing-resources.png" alt="Discovering missing resources in the browser's inspector.``" data-jslghtbx data-jslghtbx-caption="Discovering missing resources in the browser's inspector." data-jslghtbx-group="minimal-mathjax-group-02" />
+<div class="figures">
+<figure>
+<img src="/assets/images/articles/minimal-mathjax/reducer-atom-project.png" alt="Editing the html file while putting back the necessary resources.">
+<figcaption>Fig 1: Editing the html file while putting back the necessary resources.</figcaption>
+</figure>
+<figure>
+<img width=400 src="/assets/images/articles/minimal-mathjax/missing-resources.png" alt="Discovering missing resources in the browser's inspector.">
+<figcaption>Fig 2: Discovering missing resources in the browser's inspector.</figcaption>
+</figure>
 </div>
 
 This html test page renders the following equations:
 
-<div class="gallery">
-  <img class="jslghtbx-thmb no-shadow" src="/images/articles/minimal-mathjax/test-html.png" alt="Testing the MathJax package with a small html file." data-jslghtbx data-jslghtbx-caption="Testing the MathJax package with a small html file." data-jslghtbx-group="minimal-mathjax-group-01" />
+<div class="figures">
+<figure>
+  <img src="/assets/images/articles/minimal-mathjax/test-html.png" alt="Testing the MathJax package with a small html file.">
+  <figcaption>Fig 3: Testing the MathJax package with a small html file.</figcaption>
+</figure>
 </div>
 
 If my reduced MathJax package can render this equations, it shouldn't be in trouble render all of my possible further equations. The html page above runs fine with teh following resource tree lising. This reduced package takes up __623KB__ on disk.

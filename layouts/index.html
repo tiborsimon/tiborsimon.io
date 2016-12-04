@@ -11,7 +11,7 @@
 
   {{> header}}
 
-  <div class="flexwrap">
+  <div id="about" class="flexwrap">
     <section class="card avatar">
       <img src="{{baseUrl}}/assets/images/tibor.jpg" width=300 height=300 alt="Tibor Simon">
     </section>
@@ -57,20 +57,12 @@
       </div>
     </section>
   </div>
-  <!-- <div class="flexwrap"> -->
-  <!--   <section class="flickr-slideshow card"> -->
-  <!--     <div id="flickrembed"></div><small style="display: block; text-align: center; margin: 0 auto;"> -->
-  <!--   </section> -->
-  <!-- </div> -->
 
-  <section>
-    <h1 id="articles">Latest articles</h1>
+  <section id="articles">
+    <h1>Latest articles</h1>
     <div class="articles-wrapper">
       {{> index/article-list articles=pagination.files}}
       <div class="sidebar">
-        <!-- <div class="card padded"> -->
-        <!--   <input id="searchfield" type="search" placeholder="Search"> -->
-        <!-- </div> -->
         <div class="card padded">
           <div class="tags">
             <h2>Tags</h2>
@@ -80,7 +72,8 @@
       </div>
     </div>
   </section>
-  <section>
+
+  <section id="projects">
     <h1>Projects</h1>
     {{> index/portfolio-list portfolio_list=collections.portfolio}}
   </section>

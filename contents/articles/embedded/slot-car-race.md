@@ -5,15 +5,24 @@ date: 2013-05-19
 collection: articles
 layout: article.html
 snippet: At the university me and my partner have faced a midterm project that contained a very interesting problem. We had to write an algorithm that drives a small electric car on it’s guided track.
+repo: https://github.com/tiborsimon/slotcar-race
+banner: images/articles/slotcar/promo1.jpg
 ---
 
 
 The only information we had was the acceleration data comes from the car itself. Based on this information we had to control the voltage of the car’s motor to run the fastest lap on the track. It doesn’t sounds too hard, does it.
 
-<div class="gallery">
-    <img class="jslghtbx-thmb" src="/images/articles/slotcar/promo1.jpg" alt="Small slot car that has to be driven autonomously." data-jslghtbx data-jslghtbx-caption="The slot car we have to program." data-jslghtbx-group="slotcar-group-1" />
-    <img class="jslghtbx-thmb" src="/images/articles/slotcar/promo2.jpg" alt="The track the slot car has to run." data-jslghtbx data-jslghtbx-caption="The track the slot car has to run." data-jslghtbx-group="slotcar-group-1" />
-</div>
+<div class="figures">
+<figure>
+<img width=400 src="/assets/images/articles/slotcar/promo1.jpg" alt="Small slot car that has to be driven autonomously.">
+<figcaption>Fig 1: Small slot car that has to be driven autonomously.</figcaption>
+</figure>
+<figure>
+<img width=280 src="/assets/images/articles/slotcar/promo2.jpg" alt="The first corner.">
+<figcaption>Fig 2: The first corner.</figcaption>
+</figure>
+
+
 
 # About the competition
 
@@ -29,17 +38,23 @@ The rules of the competition
 
 The track was a casual slot car track with two corners and a cross over section. The power for the car comes from the two pair of rails. There is a room for two cars on the track at once.
 
+<div class="figures">
 <figure>
-    <img src="/images/articles/slotcar/track.jpg" width="400" alt="The track.">
+<img width=400 src="/assets/images/articles/slotcar/track.jpg" alt="The track.">
+<figcaption>Fig 3: The track.</figcaption>
 </figure>
+</div>
 
 # The car
 
 Audi R8 body with an embedded Freescale processor in it. In between the front wheels there is a guider with the brushes to collect the electricity from the rails. There are two IO interface on the car: the mini USB connector for programming and a mini SD card slot to get the accelerometer data for developing. One car had a led on the top of it that we could use for debugging the algorithm.
 
+<div class="figures">
 <figure>
-    <img src="/images/articles/slotcar/car.jpg" width="400" alt="The slot car.">
+<img width=400 src="/assets/images/articles/slotcar/car.jpg" alt="The car.">
+<figcaption>Fig 4: The car.</figcaption>
 </figure>
+</div>
 
 # Solving the problem
 
@@ -59,7 +74,7 @@ The third question was easier after the second one. We knew that the acceleratio
 
 Let’s see how the car performs with the final algorithm before we dive into the details.
 
-<iframe class="video" width="640" height="360" src="https://www.youtube.com/embed/Aj9IzfBdFBo" frameborder="0" allowfullscreen></iframe>
+<iframe class="video" width="800" height="450" src="https://www.youtube.com/embed/Aj9IzfBdFBo" frameborder="0" allowfullscreen></iframe>
 
 # What is happening on the video?
 
@@ -77,17 +92,22 @@ Right at this moment, the car was switched to state three, in which the algorith
 
 # Period finder algorithm
 
+<div class="figures">
 <figure>
-    <img src="/images/articles/slotcar/raw-data.png" width="550" alt="Raw accelerometer data">
-    <figcaption>Raw accelerometer data</figcaption>
+<img width=400 src="/assets/images/articles/slotcar/raw-data.png" alt="Raw accelerometer data.">
+<figcaption>Fig 5: Raw accelerometer data.</figcaption>
 </figure>
+</div>
+
 
 The period finder algorithm is a very simple thus a very specific algorithm that was developed only for this competition. It may work in other situations, but don’t bet your money there :)
 
+<div class="figures">
 <figure>
-    <img src="/images/articles/slotcar/algorithm.png" width="550" alt="lgorithm output signals">
-    <figcaption>Algorithm output signals</figcaption>
+<img width=400 src="/assets/images/articles/slotcar/algorithm.png" alt="Algorithm output signals.">
+<figcaption>Fig 6: Algorithm output signals.</figcaption>
 </figure>
+</div>
 
 As you can see, the final output of the algorithm was shown above.
 

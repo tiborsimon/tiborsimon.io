@@ -12,28 +12,37 @@ $content-padding: 30px;
   margin: 0 auto;
 }
 
+.article-links {
+  background: var(--main-color);
+  .button {
+    padding: 0 30px;
+    display: block;
+    color: white;
+    padding: 6px 30px;
+    text-decoration: none;
+    &:hover {
+      background: var(--action-background);
+    }
+  }
+}
+
 .article {
   max-width: var(--content-width);
   header {
     .banner {
-      background: var(--main-color);
     }
     .article-title {
       padding: 25px 30px 5px 30px;
       font-size: 300%;
-      font-weight: 300;
-      color: white;
-      background: var(--main-color);
+      font-weight: 400;
       line-height: 1em;
     }
     .details {
       display: flex;
       justify-content: space-between;
-      background: var(--main-color);
+      color: palette(Black, Secondary Text);
       padding: 0 30px 10px;
       .timestamp {
-        color: white;
-        background: var(--main-color);
         font-size: 1.4em;
         display: flex;
         padding: 12px 0;
@@ -44,13 +53,13 @@ $content-padding: 30px;
         padding: 0;
         align-items: center;
         a {
-          background: white;
+          color: palette(Grey, 600);
+          background: palette(Grey,300);
           margin-right: 0;
           margin-left: 6px !important;
           margin-top: 2px;
           &:hover {
-            background: var(--header-color);
-            color: white;
+            color: var(--main-color);
           }
         }
       }
@@ -103,6 +112,42 @@ $content-padding: 30px;
     line-height: 1em;
     border-bottom: 1px solid palette(Black, Dividers);
     padding-left: $content-padding;
+  }
+
+  iframe.video {
+    position: relative;
+    left: - $content-padding;
+  }
+
+  .figures {
+    figure {
+      position: relative;
+      border: none;
+      border-bottom: 1px solid palette(Black, Dividers);
+      width: var(--content-width);
+      left: - $content-padding;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      &:first-child {
+        border-top: 1px solid palette(Black, Dividers);
+        margin-top: 30px;
+      }
+      &:last-child {
+        margin-bottom: 30px;
+      }
+      img {
+        margin: 19px auto 10px;
+        max-width: 740px;
+        margin-bottom: 10px;
+      }
+      figcaption {
+        text-align: center;
+        font-size: 0.9em;
+        font-style: italic;
+        margin-bottom: 10px;
+      }
+    }
   }
 
   p code {
