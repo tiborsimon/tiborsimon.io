@@ -18,7 +18,7 @@ set-baseurl:
 
 push:
 	cd publish && git add --all && git commit -m "Site publish" && git push
-	git add publish && git commit -m "Site published."
+	git add publish && git commit -m "Site published." && git push
 
 clean:
 	@cd publish && find . -not -name '.' -not -name '..' -not -name '.git' -print0 | xargs -0 rm -rf
