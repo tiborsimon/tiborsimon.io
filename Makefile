@@ -11,10 +11,13 @@ BASEURL=http://localhost:8000
 
 local: clean metalsmith copy css
 
-production: set-baseurl clean metalsmith copy css apps-build apps-copy
+publish: set-baseurl clean metalsmith copy css apps-build apps-copy push
 
 set-baseurl:
 	$(eval BASEURL:=https://tiborsimon.io)
+
+push:
+	cd publish && git add --all && git commit -m "Site publish" && git push
 
 clean:
 	@cd publish && find . -not -name '.' -not -name '..' -not -name '.git' -print0 | xargs -0 rm -rf
