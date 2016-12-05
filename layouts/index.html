@@ -13,10 +13,12 @@
 
   <div id="about" class="flexwrap">
     <section class="card avatar">
-      <img src="{{baseUrl}}/assets/images/tibor.jpg" width=300 height=300 alt="Tibor Simon">
+      <div class="fade-in">
+        <img src="{{baseUrl}}/assets/images/tibor.jpg" width=300 height=300 alt="Tibor Simon">
+      </div>
     </section>
     <section class="card">
-      <div class="about">
+      <div class="fade-in about">
         <div class="text">
           <!-- <h1>Tibor's lab</h1> -->
           {{> about-tibor}}
@@ -64,7 +66,7 @@
       {{> index/article-list articles=pagination.files}}
       <div class="sidebar">
         <div class="card padded">
-          <div class="tags">
+          <div class="fade-in tags">
             <h2>Tags</h2>
             {{> tags/by/count}}
           </div>

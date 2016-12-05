@@ -26,7 +26,7 @@ clean:
 	@cd publish && find . -not -name '.' -not -name '..' -not -name '.git' -print0 | xargs -0 rm -rf
 
 init:
-	git submodule update --init --recursive
+	git submodule update --depth 1 --init --recursive
 	npm install
 	@find apps/* -maxdepth 0 | xargs -I % sh -c 'cd % && $(MAKE) init;'
 
