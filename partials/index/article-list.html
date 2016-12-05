@@ -1,33 +1,37 @@
 <div class="articles">
   {{#each articles}}
   <article class="card padded">
-    {{#if thumbnail}}
-    <div class="details with-thumbnail">
-    {{else}}
-    <div class="details">
-    {{/if}}
-      <header>
-        <h2>
-          <a href="{{url}}">{{title}}</a>
-        </h2>
-        <span class="timestamp">{{date}}</span>
-      </header>
-      <hr>
-      <div class="snippet">{{{snippet}}}</div>
-      <div class="tag-list">
-        {{#each tags}}
-        <a href="{{url}}">{{name}}</a>
-        {{/each}}
-      </div>
+    <div class="fade-in">
+      {{#if thumbnail}}
+      <div class="details with-thumbnail">
+        {{else}}
+        <div class="details">
+          {{/if}}
+          <header>
+            <h2>
+              <a href="{{url}}">{{title}}</a>
+            </h2>
+            <span class="timestamp">{{date}}</span>
+          </header>
+          <hr>
+          <div class="snippet">{{{snippet}}}</div>
+          <div class="tag-list">
+            {{#each tags}}
+            <a href="{{url}}">{{name}}</a>
+            {{/each}}
+          </div>
+        </div>
+        {{#if thumbnail}}
+        <img src="{{baseUrl}}/assets/{{thumbnail}}" width="200px">
+        {{/if}}
     </div>
-    {{#if thumbnail}}
-    <img src="{{baseUrl}}/assets/{{thumbnail}}" width="200px">
-    {{/if}}
   </article>
   {{/each}}
 
   <div class="card">
-    {{> index/pagination-navigation pagination=pagination}}
+    <div class="fade-in">
+      {{> index/pagination-navigation pagination=pagination}}
+    </div>
   </div>
 
 </div>
