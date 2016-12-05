@@ -9,7 +9,6 @@
   flex-wrap: wrap;
   width: var(--wrapper-width);
   margin: 0 auto;
-  @include card(1);
   background: white;
   .portfolio-item {
     width: var(--portfolio-item-width);
@@ -40,8 +39,12 @@
           flex-direction: column;
           vertical-align: middle;
           padding: 20px;
-          h2 {
+          .title {
+            color: white;
             font-weight: 400;
+            font-size: 2em;
+            margin-bottom: 25px;
+            line-height: 1em;
           }
           small {
             color: palette(White, Secondary Text);

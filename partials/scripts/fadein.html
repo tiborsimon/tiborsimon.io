@@ -1,0 +1,15 @@
+<script>
+(function(){
+  function loaderDone(event) {
+    let myElements = document.querySelectorAll(".fade-in");
+    for (let i = 0; i < myElements.length; i++) {
+      myElements[i].style.opacity = 1;
+    }
+  }
+  document.onreadystatechange = function () {
+    if(document.readyState === 'complete') {
+      setTimeout(function(){loaderDone();}, 400);
+    }
+  };
+})();
+</script>

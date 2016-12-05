@@ -2,10 +2,12 @@
 @import '../utils/palette';
 @import '../utils/transition';
 
+nav .navmenu-wrapper {
+  width: 100%;
+}
 nav .navmenu {
   display: flex;
   justify-content: space-between;
-  width: 100%;
   color: palette(Black, Text);
 
   .logo {

@@ -13,31 +13,36 @@
     <div class="content-colon">
       <div class="article">
         <header class="card">
-
-          {{#if banner}}
-          <div class="banner" style="background: url({{baseUrl}}/assets/{{banner}}); background-size: cover;"></div>
-          {{else}}
-          <div class="banner"></div>
-          {{/if}}
-          <div class="article-title">{{title}}</div>
-          <div class="details">
-            <div class="timestamp">{{date}}</div>
-            <div class="tag-list">
-              {{#each tags}}
-              <a href="{{url}}">{{name}}</a>
-              {{/each}}
+          <div class="fade-in">
+            {{#if banner}}
+            <div class="banner" style="background: url({{baseUrl}}/assets/{{banner}}); background-size: cover;"></div>
+            {{else}}
+            <div class="banner"></div>
+            {{/if}}
+            <div class="article-title">{{title}}</div>
+            <div class="details">
+              <div class="timestamp">{{date}}</div>
+              <div class="tag-list">
+                {{#each tags}}
+                <a href="{{url}}">{{name}}</a>
+                {{/each}}
+              </div>
             </div>
           </div>
         </header>
         {{#if repo}}
         <div class="article-links card">
-          <a class="button" href="{{repo}}" target="_blank"><span class="icon-github"></span> GitHub Repository</a>
+          <div class="fade-in">
+            <a class="button" href="{{repo}}" target="_blank"><span class="icon-github"></span> GitHub Repository</a>
+          </div>
         </div>
         {{/if}}
         <article class="content card padded">
-          <div class="summary">{{{snippet}}}</div>
-          <hr>
-          {{{contents}}}
+          <div class="fade-in">
+            <div class="summary">{{{snippet}}}</div>
+            <hr>
+            {{{contents}}}
+          </div>
         </article>
       </div>
       {{> discussion}}
@@ -45,6 +50,8 @@
     </div>
     {{> sidebar}}
   </div>
+  {{> scripts/fadein}}
+  {{> scripts/analitics}}
 </body>
 </html>
 

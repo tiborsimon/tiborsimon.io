@@ -38,10 +38,11 @@ $content-padding: 30px;
       line-height: 1em;
     }
     .details {
+      border-top: solid 1px palette(Black, Dividers);
       display: flex;
       justify-content: space-between;
       color: palette(Black, Secondary Text);
-      padding: 0 30px 10px;
+      padding: 0 30px 0;
       .timestamp {
         font-size: 1.4em;
         display: flex;
@@ -232,6 +233,7 @@ $content-padding: 30px;
       background: var(--main-color);
       color: white;
       transition: $default-transition;
+      font-size: 0.9em;
     }
     .previous-a:hover ~ .previous-title {
       height: 41px;

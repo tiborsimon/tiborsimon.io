@@ -35,8 +35,6 @@ section {
 }
 .about {
   padding: var(--content-padding);
-  // background: var(--main-color);
-  // color: white;
   height: 300px;
   h1 {
     margin: 0;
@@ -70,17 +68,11 @@ section {
   align-items: flex-start;
 
   .articles {
-    box-sizing: border-box;
     width: 800px;
 
     article {
-      background: white;
       transition: $default-transition;
-      box-sizing: border-box;
-      display: flex;
-      width: 100%;
       .details {
-        width: 100%;
         hr {
           width: 800px;
           position: relative;

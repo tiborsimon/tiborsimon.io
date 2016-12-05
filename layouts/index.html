@@ -5,7 +5,10 @@
   <title>Tibor's Lab</title>
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Roboto:300,400" rel="stylesheet">
   <link rel="stylesheet" href="{{baseUrl}}/css/style.css">
+
+  <!-- Worklog import from github -->
   <link rel="import" href="https://raw.githubusercontent.com/tiborsimon/worklog/master/publish/worklog.html">
+
 </head>
 <body>
 
@@ -20,7 +23,6 @@
     <section class="card">
       <div class="fade-in about">
         <div class="text">
-          <!-- <h1>Tibor's lab</h1> -->
           {{> about-tibor}}
         </div>
         <div class="icons-row">
@@ -61,7 +63,7 @@
   </div>
 
   <section id="articles">
-    <h1>Latest articles</h1>
+    <h1 class="fade-in">Latest articles</h1>
     <div class="articles-wrapper">
       {{> index/article-list articles=pagination.files}}
       <div class="sidebar">
@@ -76,37 +78,22 @@
   </section>
 
   <section id="projects">
-    <h1>Projects</h1>
+    <h1 class="fade-in">Projects</h1>
     {{> index/portfolio-list portfolio_list=collections.portfolio}}
   </section>
   {{> footer}}
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/0.10.1/fetch.min.js"></script>
-  <script src="https://cdn.rawgit.com/IonicaBizau/github-calendar/gh-pages/dist/github-calendar.min.js"></script>
-  <script>
-GitHubCalendar(".calendar", "tiborsimon");
-  </script>
-  <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+  <!-- Worklog import from github -->
   <script>
     var link = document.querySelector('link[rel="import"]');
     var content = link.import;
     var el = content.querySelector('.worklog');
     document.getElementById("worklog").appendChild(el.cloneNode(true));
   </script>
-  <script>
-    (function(){
-      function loaderDone(event) {
-        let myElements = document.querySelectorAll(".fade-in");
-        for (let i = 0; i < myElements.length; i++) {
-          myElements[i].style.opacity = 1;
-        }
-      }
-      document.onreadystatechange = function () {
-        if(document.readyState === 'complete') {
-          setTimeout(function(){loaderDone();}, 400);
-        }
-      };
-    })();
-  </script>
+  {{> scripts/twitter}}
+  {{> scripts/github-calendar}}
+  {{> scripts/fadein}}
+  {{> scripts/analitics}}
 </body>
 </html>
 

@@ -12,68 +12,55 @@
 
   <div class="flexwrap">
     <section class="card avatar">
-      <img src="{{baseUrl}}/assets/images/tibor.jpg" width=300 height=300 alt="Tibor Simon">
+      <div class="fade-in">
+        <img src="{{baseUrl}}/assets/images/tibor.jpg" width=300 height=300 alt="Tibor Simon">
+      </div>
     </section>
     <section class="card">
-      <div class="about">
-        <div class="text">
-          <!-- <h1>Tibor's lab</h1> -->
-          {{> about-tibor}}
-        </div>
-        <div class="icons-row">
-          <a href="https://twitter.com/tiborsimonio" target="_blank"><span class="icon-twitter"></span></a>
-          <a href="https://github.com/tiborsimon" target="_blank"><span class="icon-github"></span></a>
-          <a href="https://www.instagram.com/tiborsimon/" target="_blank"><span class="icon-instagram"></span></a>
-          <a href="https://flic.kr/ps/STWoT" target="_blank"><span class="icon-flickr"></span></a>
-          <a href="http://codepen.io/tiborsimon/" target="_blank"><span class="icon-codepen"></span></a>
-          <a href="https://www.youtube.com/channel/UCvp1-SnV3PJKEdTDVsYQN9Q" target="_blank"><span class="icon-youtube"></span></a>
-          <a href="https://vimeo.com/user7872866" target="_blank"><span class="icon-vimeo"></span></a>
-          <a href="https://soundcloud.com/tiborsimon" target="_blank"><span class="icon-soundcloud"></span></a>
-          <a href="https://hu.linkedin.com/in/tibor-simon-258850a3" target="_blank"><span class="icon-linkedin"></span></a>
+      <div class="fade-in">
+        <div class="about">
+          <div class="text">
+            <!-- <h1>Tibor's lab</h1> -->
+            {{> about-tibor}}
+          </div>
+          <div class="icons-row">
+            <a href="https://twitter.com/tiborsimonio" target="_blank"><span class="icon-twitter"></span></a>
+            <a href="https://github.com/tiborsimon" target="_blank"><span class="icon-github"></span></a>
+            <a href="https://www.instagram.com/tiborsimon/" target="_blank"><span class="icon-instagram"></span></a>
+            <a href="https://flic.kr/ps/STWoT" target="_blank"><span class="icon-flickr"></span></a>
+            <a href="http://codepen.io/tiborsimon/" target="_blank"><span class="icon-codepen"></span></a>
+            <a href="https://www.youtube.com/channel/UCvp1-SnV3PJKEdTDVsYQN9Q" target="_blank"><span class="icon-youtube"></span></a>
+            <a href="https://vimeo.com/user7872866" target="_blank"><span class="icon-vimeo"></span></a>
+            <a href="https://soundcloud.com/tiborsimon" target="_blank"><span class="icon-soundcloud"></span></a>
+            <a href="https://hu.linkedin.com/in/tibor-simon-258850a3" target="_blank"><span class="icon-linkedin"></span></a>
+          </div>
         </div>
       </div>
     </section>
   </div>
 
   <section>
-    <h1 id="articles">Articles for <strong>{{tag}}</strong></h1>
+    <div class="fade-in">
+      <h1 id="articles">Articles for <strong>{{tag}}</strong></h1>
+    </div>
     <div class="articles-wrapper">
       {{> index/article-list articles=pagination.files}}
       <div class="sidebar">
-        <!-- <div class="card padded"> -->
-        <!--   <input id="searchfield" type="search" placeholder="Search"> -->
-        <!-- </div> -->
         <div class="card padded">
-          <div class="tags">
-            <h2>Tags</h2>
-            {{> tags/by/count}}
+          <div class="fade-in">
+            <div class="tags">
+              <h2>Tags</h2>
+              {{> tags/by/count}}
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
   {{> footer}}
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/0.10.1/fetch.min.js"></script>
-  <script src="https://cdn.rawgit.com/IonicaBizau/github-calendar/gh-pages/dist/github-calendar.min.js"></script>
-  <script>
-GitHubCalendar(".calendar", "tiborsimon");
-  </script>
   <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-  <script>
-		(function(){
-			function loaderDone(event) {
-        let myElements = document.querySelectorAll(".fade-in");
-        for (let i = 0; i < myElements.length; i++) {
-            myElements[i].style.opacity = 1;
-        }
-			}
-			document.onreadystatechange = function () {
-				if(document.readyState === 'complete') {
-          setTimeout(function(){loaderDone();}, 400);
-				}
-			};
-		})();
-  </script>
+  {{> scripts/fadein}}
+  {{> scripts/analitics}}
 </body>
 </html>
 
