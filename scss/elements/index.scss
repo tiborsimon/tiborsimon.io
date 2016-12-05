@@ -7,8 +7,6 @@
 
 .index-header {
   display: block;
-  // background: var(--header-color);
-  // height: 400px;
   margin-bottom: 20px;
 }
 section {
@@ -194,8 +192,10 @@ section {
   }
 }
 
+$mult: 3s;
+
 .fade-in {
-  transition: $default-transition;
+  transition: $slow-transition;
   opacity: 0;
 }
 
