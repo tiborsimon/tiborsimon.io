@@ -1,15 +1,15 @@
 <section class="multibox-card card padded">
   <div class="multibox fade-in">
-    <input id="tab-1" type="radio" name="tab-group" checked="checked" />
-    <label for="tab-1">Worklog</label>
+    <!-- <input id="tab-1" type="radio" name="tab-group" checked="checked" /> -->
+    <!-- <label for="tab-1">Worklog</label> -->
     <!-- <input id="tab-2" type="radio" name="tab-group" /> -->
     <!-- <label for="tab-2">Counters</label> -->
-    <input id="tab-3" type="radio" name="tab-group" />
+    <input id="tab-3" type="radio" name="tab-group" checked="checked" />
     <label for="tab-3">PyPi</label>
-    <!-- <input id="tab-4" type="radio" name="tab-group" /> -->
-    <!-- <label for="tab-4">Gear</label> -->
-    <input id="tab-5" type="radio" name="tab-group" />
-    <label for="tab-5">Donation</label>
+    <input id="tab-4" type="radio" name="tab-group" />
+    <label for="tab-4">Web Apps</label>
+    <!-- <input id="tab-5" type="radio" name="tab-group" /> -->
+    <!-- <label for="tab-5">Donation</label> -->
     <div class="contents">
       <div id="content-1">
         {{> index/worklog}}
@@ -21,7 +21,7 @@
         {{> index/pypi}}
       </div>
       <div id="content-4">
-        {{> index/gear}}
+        {{> index/apps}}
       </div>
       <div id="content-5">
         {{> index/donation}}

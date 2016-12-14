@@ -73,14 +73,6 @@
     {{> index/portfolio-list portfolio_list=collections.portfolio}}
   </section>
   {{> footer}}
-
-  <!-- Worklog import from github -->
-  <script>
-    var link = document.querySelector('link[rel="import"]');
-    var content = link.import;
-    var el = content.querySelector('.worklog');
-    document.getElementById("worklog").appendChild(el.cloneNode(true));
-  </script>
   {{> scripts/twitter}}
   {{> scripts/github-calendar}}
   {{> scripts/fadein}}

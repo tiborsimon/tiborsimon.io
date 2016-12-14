@@ -12,6 +12,9 @@ METALSMITM_PARAMS=
 
 local: clean metalsmith copy css
 
+serve:
+	cd publish && ws
+
 publish: set-baseurl clean metalsmith copy css apps-build apps-copy push
 
 set-baseurl:
