@@ -148,7 +148,7 @@ metalsmith(__dirname)
       layout: 'index.html'
     }
   }))
-  .use(metallic())
+  // .use(metallic())
   .use(markdown({
     gfm: true,
     tables: true,

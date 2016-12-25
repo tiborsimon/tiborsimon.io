@@ -26,6 +26,12 @@ $content-padding: 30px;
   }
 }
 
+.content {
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 32px;
+  }
+}
+
 .article {
   max-width: var(--content-width);
   header {
@@ -69,11 +75,10 @@ $content-padding: 30px;
   article {
     padding: $content-padding;
     .summary {
-      display: flex;
-      display-direction: row;
       padding-bottom: $content-padding/2;
       font-size: 1.3em;
       color: palette(Black, Secondary Text);
+      line-height: 1.3em;
     }
   }
   a {
@@ -159,16 +164,16 @@ $content-padding: 30px;
   }
 
   pre code {
-    background: palette(Grey, 100);
+    background: #545454;
     width: var(--content-width);
     display: block;
     position: relative;
     left: - $content-padding;
     overflow-x: auto;
-    color: #999;
+    color: #bbb;
     font-size: 0.8em;
     line-height: 1.4em;
-    padding: 10px 30px;
+    padding: 17px 30px;
   }
 }
 

@@ -8,15 +8,19 @@
   <div id="about" class="flexwrap">
     <section class="card avatar">
       <div class="fade-in">
-        <img src="{{baseUrl}}/assets/images/tibor.jpg" width=300 height=300 alt="Tibor Simon">
+        <img src="{{baseUrl}}/assets/images/tibor.jpg" width=270 height=270 alt="Tibor Simon">
       </div>
     </section>
-    <section class="card">
-      <div class="fade-in about">
-        <div class="text">
-          {{> about-tibor}}
+    <section class="about-section">
+      <section class="card">
+        <div class="fade-in about">
+          <div class="text">
+            {{> about-tibor}}
+          </div>
         </div>
-        <div class="icons-row">
+      </section>
+      <div class="card">
+        <div class="icons-row fade-in">
           <a href="https://twitter.com/tiborsimonio" target="_blank"><span class="icon-twitter"></span></a>
           <a href="https://github.com/tiborsimon" target="_blank"><span class="icon-github"></span></a>
           <a href="https://www.instagram.com/tiborsimon/" target="_blank"><span class="icon-instagram"></span></a>
@@ -28,8 +32,8 @@
           <a href="https://hu.linkedin.com/in/tibor-simon-258850a3" target="_blank"><span class="icon-linkedin"></span></a>
         </div>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
   <div class="flexwrap">
     <div class="vertflexwrap">
       <section class="calendar-wrapper card padded">
@@ -54,10 +58,9 @@
   </div>
 
   <section id="articles">
-    <h1 class="fade-in">Latest articles</h1>
     <div class="articles-wrapper">
-      {{> index/article-list articles=pagination.files}}
       <div class="sidebar">
+        <div class="card padded"><h2 class="fade-in articles-title">Latest articles</h2></div>
         <div class="card padded">
           <div class="fade-in tags">
             <h2>Tags</h2>
@@ -65,11 +68,12 @@
           </div>
         </div>
       </div>
+      {{> index/article-list articles=pagination.files}}
     </div>
   </section>
 
   <section id="projects">
-    <h1 class="fade-in">Projects</h1>
+    <div class="card padded"><h2 class="projects-title fade-in">Projects</h2></div>
     {{> index/portfolio-list portfolio_list=collections.portfolio}}
   </section>
   {{> footer}}

@@ -33,7 +33,7 @@ section {
 }
 .about {
   padding: var(--content-padding);
-  height: 300px;
+  height: 194px;
   h1 {
     margin: 0;
   }
@@ -45,8 +45,8 @@ section {
     }
   }
   img {
-    width: 300px;
-    height: 300px;
+    width: 270px;
+    height: 270px;
   }
 }
 .calendar-wrapper {
@@ -64,6 +64,12 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+
+  .articles-title {
+    font-size: 2em;
+    line-height: 1em;
+    margin: 0;
+  }
 
   .articles {
     width: 800px;
@@ -228,24 +234,25 @@ $mult: 3s;
   width: 800px;
   margin: 40px auto 20px auto;
   text-align: center;
-  color: palette(Black, Hint Text);
+  color: rgb(85, 106, 111);
   font-size: 0.8em;
 }
 
 .icons-row {
   color: palette(White, Icon);
   display: flex;
-  width: 70%;
+  width: 50%;
   justify-content: space-between;
   font-size: 1.3em;
   padding-bottom: 4px;
-  margin-top: 12px;
+  margin: 12px 0 7px 19px;
   a {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
     border-radius: 50%;
     text-decoration: none;
     background: palette(Black, Dividers);

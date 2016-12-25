@@ -6,16 +6,13 @@
   box-sizing: border-box;
 }
 
-html {
-  font-size: 15px;
-}
-
 body {
+  font-size: 15px;
+  color: #404040;
   overflow-y: scroll;
-  background: palette(Grey, 200);
-  font-family: 'Roboto', sans-serif;
-  //font-family: 'Noto Sans', sans-serif;
-  line-height: 1.4em;
+  background: radial-gradient(circle at top,#3f5365,#1a373e 700px);
+  font-family: "Lato","proxima-nova","Helvetica Neue",Arial,sans-serif;;
+  line-height: 1.3em;
 }
 
 
@@ -69,10 +66,10 @@ table {
 }
 
 .card {
-  box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.06), 0 1.5px 6px rgba(0, 0, 0, 0.07);
-  background: white;
+  box-shadow: 0 17px 16px -14px rgba(0, 0, 0, 0.82);
+  background: #fcfcfc;
   margin-bottom: 20px;
-  border-radius: 3px;
+  border-radius: 4px;
   overflow: hidden;
   h2 {
     margin: 0 0 13px;
@@ -82,8 +79,8 @@ table {
 }
 
 .avatar {
-  width: 300px;
-  height: 300px;
+  width: 270px;
+  height: 270px;
 }
 
 .padded {
