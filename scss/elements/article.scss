@@ -95,17 +95,18 @@ $content-padding: 30px;
   }
   .code-name {
     margin-bottom: -15px;
-    color: #aaa;
+    color: #5faec1;
     box-sizing: border-box;
-    background: #eee;
+    background: #0a2329;
     position: relative;
     width: var(--content-width);
     padding-left: $content-padding;
     left: - $content-padding;
     font-family: monospace;
     font-size: 0.8em;
-    background: #F5F5F5;
-    border-bottom: 1px dashed #ccc;
+    padding-top: 7px;
+    padding-bottom: 2px;
+    border-bottom: 1px dashed #5faec1;
   }
 
   .divider {
@@ -164,13 +165,13 @@ $content-padding: 30px;
   }
 
   pre code {
-    background: #545454;
+    background: #0a2329;
+    color: #5faec1;
     width: var(--content-width);
     display: block;
     position: relative;
     left: - $content-padding;
     overflow-x: auto;
-    color: #bbb;
     font-size: 0.8em;
     line-height: 1.4em;
     padding: 17px 30px;
