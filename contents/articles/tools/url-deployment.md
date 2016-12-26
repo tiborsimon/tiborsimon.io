@@ -21,10 +21,12 @@ curl https://raw.githubusercontent.com/tiborsimon/dotfiles/master/bootstrap
 
 I can take care of this problem by having a custom domain, and creating a redirect, I am using __CloudFlare__ as a nameserver and _ssl_ provider, so I can set up a custom __Page Rule__ to redirect the `tiborsimon.io/dotfiles` to the raw script listing.
 
+<div class="figures">
 <figure>
   <img src="/assets/images/articles/dotfiles/custom-page-forward-rule.png" alt="CloudFlare custom Page Rule">
   <figcaption>Fig 1: CloudFlare custom Page Rule</figcaption>
 </figure>
+</div>
 
 In this way, I can type:
 
