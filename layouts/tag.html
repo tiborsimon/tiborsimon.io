@@ -5,39 +5,38 @@
 
   {{> header}}
 
-  <div class="flexwrap">
+  <div id="about" class="flexwrap">
     <section class="card avatar">
       <div class="fade-in">
-        <img src="{{baseUrl}}/assets/images/tibor.jpg" width=300 height=300 alt="Tibor Simon">
+        <img src="{{baseUrl}}/assets/images/tibor.jpg" width=270 height=270 alt="Tibor Simon">
       </div>
     </section>
-    <section class="card">
-      <div class="fade-in">
-        <div class="about">
+    <section class="about-section">
+      <section class="card">
+        <div class="fade-in about">
           <div class="text">
-            <!-- <h1>Tibor's lab</h1> -->
             {{> about-tibor}}
           </div>
-          <div class="icons-row">
-            <a href="https://twitter.com/tiborsimonio" target="_blank"><span class="icon-twitter"></span></a>
-            <a href="https://github.com/tiborsimon" target="_blank"><span class="icon-github"></span></a>
-            <a href="https://www.instagram.com/tiborsimon/" target="_blank"><span class="icon-instagram"></span></a>
-            <a href="https://flic.kr/ps/STWoT" target="_blank"><span class="icon-flickr"></span></a>
-            <a href="http://codepen.io/tiborsimon/" target="_blank"><span class="icon-codepen"></span></a>
-            <a href="https://www.youtube.com/channel/UCvp1-SnV3PJKEdTDVsYQN9Q" target="_blank"><span class="icon-youtube"></span></a>
-            <a href="https://vimeo.com/user7872866" target="_blank"><span class="icon-vimeo"></span></a>
-            <a href="https://soundcloud.com/tiborsimon" target="_blank"><span class="icon-soundcloud"></span></a>
-            <a href="https://hu.linkedin.com/in/tibor-simon-258850a3" target="_blank"><span class="icon-linkedin"></span></a>
-          </div>
+        </div>
+      </section>
+      <div class="card">
+        <div class="icons-row fade-in">
+          <a href="https://twitter.com/tiborsimonio" target="_blank"><span class="icon-twitter"></span></a>
+          <a href="https://github.com/tiborsimon" target="_blank"><span class="icon-github"></span></a>
+          <a href="https://www.instagram.com/tiborsimon/" target="_blank"><span class="icon-instagram"></span></a>
+          <a href="https://flic.kr/ps/STWoT" target="_blank"><span class="icon-flickr"></span></a>
+          <a href="http://codepen.io/tiborsimon/" target="_blank"><span class="icon-codepen"></span></a>
+          <a href="https://www.youtube.com/channel/UCvp1-SnV3PJKEdTDVsYQN9Q" target="_blank"><span class="icon-youtube"></span></a>
+          <a href="https://vimeo.com/user7872866" target="_blank"><span class="icon-vimeo"></span></a>
+          <a href="https://soundcloud.com/tiborsimon" target="_blank"><span class="icon-soundcloud"></span></a>
+          <a href="https://hu.linkedin.com/in/tibor-simon-258850a3" target="_blank"><span class="icon-linkedin"></span></a>
         </div>
       </div>
     </section>
   </div>
 
   <section>
-    <div class="fade-in">
-      <h1 id="articles">Articles for <strong>{{tag}}</strong></h1>
-    </div>
+    <div class="card padded"><h2 class="fade-in projects-title">Articles for <strong>{{tag}}</strong></h2></div>
     <div class="articles-wrapper">
       {{> index/article-list articles=pagination.files}}
       <div class="sidebar">
