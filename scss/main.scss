@@ -10,7 +10,7 @@ body {
   font-size: 15px;
   color: #404040;
   overflow-y: scroll;
-  background: radial-gradient(circle at top,#3f5365,#1a373e 700px);
+  background: radial-gradient(circle at top, #4e7f94, #1a373e 1000px);
   font-family: "Lato","proxima-nova","Helvetica Neue",Arial,sans-serif;;
   line-height: 1.3em;
 }
@@ -21,6 +21,10 @@ h1,h2,h3,h4,h5,h6 {
   line-height: 1em;
 }
 
+.my-name {
+  font-size: 1.5em;
+  margin-bottom: 25px;
+}
 
 .flexwrap {
   margin: 0 auto;
@@ -45,21 +49,20 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .card {
-  box-shadow: 0 17px 16px -14px rgba(0, 0, 0, 0.82);
+  box-shadow: 0 17px 12px -14px rgba(0, 0, 0, 0.82);
   background: #fcfcfc;
-  margin-bottom: 20px;
+  margin-bottom: var(--margin-between-cards);
   border-radius: 4px;
   overflow: hidden;
   h2 {
     margin: 0 0 13px;
     color: palette(Black, Secondary Text);
-
   }
 }
 
 .avatar {
-  width: 270px;
-  height: 270px;
+  width: 264px;
+  height: 264px;
 }
 
 .padded {

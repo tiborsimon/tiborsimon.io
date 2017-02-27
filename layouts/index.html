@@ -68,6 +68,11 @@
             {{> tags/by/count}}
           </div>
         </div>
+        <div class="card">
+          <div class="fade-in">
+            {{> index/pagination-navigation pagination=pagination}}
+          </div>
+        </div>
       </div>
       {{> index/article-list articles=pagination.files}}
     </div>
