@@ -7,12 +7,14 @@
 
   <div id="about" class="flexwrap">
     <section class="card avatar">
+      <div class="fade-loader"></div>
       <div class="fade-in">
         <img src="{{baseUrl}}/assets/images/tibor.jpg" width=270 height=270 alt="Tibor Simon">
       </div>
     </section>
     <section class="about-section">
       <section class="card">
+        <div class="fade-loader"></div>
         <div class="fade-in about">
           <div class="text">
             {{> about-tibor}}
@@ -20,6 +22,7 @@
         </div>
       </section>
       <div class="card">
+        <div class="fade-loader"></div>
         <div class="icons-row fade-in">
           <a href="https://twitter.com/tiborsimonio" target="_blank"><span class="icon-twitter"></span></a>
           <a href="https://github.com/tiborsimon" target="_blank"><span class="icon-github"></span></a>
@@ -38,6 +41,7 @@
   <div class="flexwrap">
     <div class="vertflexwrap">
       <section class="calendar-wrapper card padded">
+        <div class="fade-loader"></div>
         <div class="fade-in">
           <h2>GitHub contributions</h2>
           <div class="calendar"></div>
@@ -46,6 +50,7 @@
       {{> index/multibox}}
     </div>
     <section class="twitter-card card padded">
+      <div class="fade-loader"></div>
       <div class="fade-in">
         <h2>Latest tweets</h2>
         <span class="twitter-follow-button-wrapper">
@@ -61,14 +66,19 @@
   <section id="articles">
     <div class="articles-wrapper">
       <div class="sidebar">
-        <div class="card padded"><h2 class="fade-in articles-title">Latest articles</h2></div>
         <div class="card padded">
+          <div class="fade-loader"></div>
+          <h2 class="fade-in articles-title">Latest articles</h2>
+        </div>
+        <div class="card padded">
+          <div class="fade-loader"></div>
           <div class="fade-in tags">
             <h2>Tags</h2>
             {{> tags/by/count}}
           </div>
         </div>
         <div class="card">
+          <div class="fade-loader"></div>
           <div class="fade-in">
             {{> index/pagination-navigation pagination=pagination}}
           </div>
@@ -79,7 +89,10 @@
   </section>
 
   <section id="projects">
-    <div class="card padded"><h2 class="projects-title fade-in">Projects</h2></div>
+    <div class="card padded">
+      <div class="fade-loader"></div>
+      <h2 class="projects-title fade-in">Projects</h2>
+    </div>
     {{> index/portfolio-list portfolio_list=collections.portfolio}}
   </section>
   {{> footer}}

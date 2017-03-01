@@ -5,6 +5,10 @@
     for (let i = 0; i < myElements.length; i++) {
       myElements[i].style.opacity = 1;
     }
+    myElements = document.querySelectorAll(".fade-loader");
+    for (let i = 0; i < myElements.length; i++) {
+      myElements[i].remove();
+    }
   }
   document.onreadystatechange = function () {
     if(document.readyState === 'complete') {

@@ -7,6 +7,7 @@
     <div class="content-colon">
       <div class="article">
         <header class="card">
+          <div class="fade-loader"></div>
           <div class="fade-in">
             {{#if banner}}
             <div class="banner" style="background: url({{baseUrl}}/assets/{{banner}}); background-size: cover;"></div>
@@ -26,12 +27,14 @@
         </header>
         {{#if repo}}
         <div class="article-links card">
+          <div class="fade-loader"></div>
           <div class="fade-in">
             <a class="button" href="{{repo}}" target="_blank"><span class="icon-github"></span> GitHub Repository</a>
           </div>
         </div>
         {{/if}}
         <article class="content card padded">
+          <div class="fade-loader"></div>
           <div class="fade-in">
             <div class="summary">{{{snippet}}}</div>
             <hr>
