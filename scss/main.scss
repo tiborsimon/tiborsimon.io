@@ -90,9 +90,18 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 
+.index-avatar {
+  width: 270px;
+  height: 270px;
+  overflow:hidden;
+  border-radius: 4px;
+}
+
 .avatar {
   width: 264px;
   height: 264px;
+  overflow:hidden;
+  border-radius: 4px;
 }
 
 .padded {
