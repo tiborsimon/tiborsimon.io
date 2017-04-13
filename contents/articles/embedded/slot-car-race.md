@@ -24,7 +24,8 @@ The only information we had was the acceleration data comes from the car itself.
 
 
 
-# About the competition
+<h2>About the competition</h2>
+
 
 However. The acceleration data was very noisy, it needed a strong filtering, therefore it had serious amount of delay. We had to cope with this delay and we had to run the fastest lap among the other teams who participated this challenge without sliding off the track.
 

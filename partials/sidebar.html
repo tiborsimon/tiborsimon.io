@@ -7,29 +7,7 @@
     </div>
   </div>
 
-  <div class="card">
-    <div class="fade-loader"></div>
-    <div class="fade-in">
-      <nav class="sidebar-nav">
-        {{# if next}}
-        <a href="{{next.url}}" class="next-a">Previous</a>
-        {{else}}
-        <span>Previous</span>
-        {{/if}}
-        {{#if previous}}
-        <a href="{{previous.url}}" class="previous-a">Next</a>
-        {{else}}
-        <span>Next</span>
-        {{/if}}
-        {{# if next}}
-        <span class="neighbour-title next-title">{{next.title}}</span>
-        {{/if}}
-        {{#if previous}}
-        <span class="neighbour-title previous-title">{{previous.title}}</span>
-        {{/if}}
-      </nav>
-    </div>
-  </div>
+  {{> navigator}}
 
   <div class="card padded">
     <div class="fade-loader"></div>
