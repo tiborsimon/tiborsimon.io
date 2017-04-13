@@ -19,9 +19,9 @@ These files are generally called __dotfiles__, as command line tools often expec
 
 Besides the custom configuration files, you can also save out a list of installable programs and tools that you want to have by default on a machine. Some package manager tools supports installing from files, but if not, you can write a small script that will install your tools one by one. You can create a `packages.txt` file for this purpose:
 
-<div class="code-name">$ cat packages.txt</div>
 
 ``` bash
+$ cat packages.txt
 git
 mc
 vim

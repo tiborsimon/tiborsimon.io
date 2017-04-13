@@ -158,15 +158,17 @@ $content-padding: 30px;
   }
 
   p code {
-    color: palette(Black, Secondary Text);
-    font-size: 0.8em;
-    background: palette(Grey, 100);
-    padding: 1px 3px;
+    color: #59727b;
+    background-color: #efefef;
+    padding: 0px 6px;
+    border-radius: 3px;
+    border: 1px solid #e1dede;
+    font-size: 90%;
   }
 
   pre code {
-    background: #0a2329;
-    color: #5faec1;
+    background: radial-gradient(circle at top right, #5b747e, #0d1a1e 1200px);
+    color: #e9e8e8;
     width: var(--content-width);
     display: block;
     position: relative;
@@ -175,6 +177,7 @@ $content-padding: 30px;
     font-size: 0.8em;
     line-height: 1.4em;
     padding: 17px 30px;
+    box-shadow: inset 0px 7px 11px -7px rgba(35, 30, 30, 0.8);
   }
 }
 
@@ -202,9 +205,19 @@ table {
     vertical-align: middle;
     &:first-child {
       border-left: none;
+      padding-left: 30px;
     }
     &:last-child {
       border-right: none;
+      padding-right: 30px;
+    }
+    code {
+      color: #59727b;
+      background-color: #efefef;
+      padding: 1px 6px;
+      border-radius: 3px;
+      border: 1px solid #e1dede;
+      font-size: 90%;
     }
   }
 }
