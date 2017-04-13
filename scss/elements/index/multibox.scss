@@ -18,7 +18,6 @@
       width: 0;
     }
     label {
-      background: white;
       color: palette(Black, Text);
       cursor: pointer;
       display: block;
@@ -51,7 +50,7 @@
       height: 239px;
       overflow-y: auto;
       z-index: 1;
-      background: white;
+      background: var(--card-bg-color);
     }
     #tab-1:checked ~ .contents #content-1,
     #tab-2:checked ~ .contents #content-2,

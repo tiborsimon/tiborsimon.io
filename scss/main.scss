@@ -50,7 +50,7 @@ h1,h2,h3,h4,h5,h6 {
 
 .card {
   box-shadow: 0 17px 12px -14px rgba(0, 0, 0, 0.82);
-  background: #fcfcfc;
+  background: var(--card-bg-color);
   margin-bottom: var(--margin-between-cards);
   border-radius: 4px;
   overflow: hidden;
