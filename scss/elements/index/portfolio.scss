@@ -2,6 +2,22 @@
 @import '../../utils/card';
 @import '../../utils/transition';
 
+.project-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  .project {
+    display: flex;
+    flex-direction: row;
+    height: 180px;
+    width: 553px;
+    .project-description {
+      padding: 14px;
+    }
+  }
+}
+
 .projects-title {
   font-size: 2em;
   line-height: 1em;

@@ -1,14 +1,14 @@
 <nav class="pagination-nav">
   {{#if pagination.first}}
     {{#if pagination.previous}}
-    <a href="{{pagination.previous.url}}#articles">Previous</a>
+    <a href="{{pagination.previous.url}}#articles"><</a>
     {{else}}
-    <span>Previous</span>
+    <span><</span>
     {{/if}}
     {{#if pagination.next}}
-    <a href="{{pagination.next.url}}#articles">Older</a>
+    <a href="{{pagination.next.url}}#articles">></a>
     {{else}}
-    <span>Next</span>
+    <span>></span>
     {{/if}}
   {{/if}}
 </nav>
