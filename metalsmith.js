@@ -58,13 +58,14 @@ let generateUrl = () => {
 let enhanceTags = () => {
   return (files, metalsmith, done) => {
     let metadata = metalsmith.metadata()
+
     // Adding url to the tag list of files..
     for (let file in files) {
       let target = files[file]
       if (target.tags) {
         for (let tag in target.tags) {
-          let data = target.tags[tag]
-          data.url = metadata.baseUrl + '/tag/' + data.slug + '/'
+          let tempTag = target.tags[tag]
+          tempTag.url = metadata.baseUrl + '/tag/' + tempTag.slug + '/'
         }
       }
     }
