@@ -61,7 +61,7 @@ h1:hover .header-anchor, h2:hover .header-anchor, h3:hover .header-anchor {
       color: palette(Black, Secondary Text);
       padding: 0 30px 0;
       .timestamp {
-        font-size: 1.4em;
+        // font-size: 1.4em;
         display: flex;
         padding: 12px 0;
         align-items: center;
@@ -73,8 +73,8 @@ h1:hover .header-anchor, h2:hover .header-anchor, h3:hover .header-anchor {
         a {
           color: palette(Grey, 600);
           background: palette(Grey,300);
-          margin-right: 0;
-          margin-left: 6px !important;
+          margin-left: 0;
+          margin-right: 6px !important;
           margin-top: 2px;
           &:hover {
             color: var(--main-color);
