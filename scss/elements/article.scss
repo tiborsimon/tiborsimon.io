@@ -32,6 +32,17 @@ $content-padding: 30px;
   }
 }
 
+.header-anchor {
+  opacity: 0;
+  transition: $default-transition;
+  text-decoration: none;
+  font-size: 80%;
+}
+
+h1:hover .header-anchor, h2:hover .header-anchor, h3:hover .header-anchor {
+  opacity: 1;
+}
+
 .article {
   max-width: var(--content-width);
   header {

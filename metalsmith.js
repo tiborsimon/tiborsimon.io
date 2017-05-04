@@ -1,5 +1,4 @@
 const metalsmith      = require('metalsmith')
-const markdown        = require('metalsmith-markdown')
 const highlighter     = require('highlighter')
 const layouts         = require('metalsmith-layouts')
 const permalinks      = require('metalsmith-permalinks')
@@ -16,6 +15,15 @@ const tags            = require('metalsmith-tags')
 const drafts          = require('metalsmith-drafts')
 const metallic        = require('metalsmith-metallic')
 const inplace         = require('metalsmith-in-place')
+const extname         = require('path').extname;
+const dirname         = require('path').dirname;
+const basename        = require('path').basename;
+const MarkdownIt      = require('markdown-it')
+const mdFootnote      = require('markdown-it-footnote')
+const mdAnchor        = require('markdown-it-anchor')
+const mdHighlight     = require('markdown-it-highlightjs')
+const highlightjs     = require('highlightjs')
+
 
 let BASEURL = 'http://localhost:8000'
 if (process.argv[2] === 'production') {
@@ -107,6 +115,49 @@ let enhanceTags = () => {
   }
 }
 
+let isMarkdown = function(file) {
+  return /\.md|\.markdown/.test(extname(file));
+}
+
+let myMarkdown = (options) => {
+  options = options || {};
+  var keys = options.keys || [];
+
+  return (files, metalsmith, done) => {
+    setImmediate(done);
+    let md = new MarkdownIt({
+      html: true,
+      linkify: true,
+      typographer: true
+    })
+    // md.use(mdFootnote)
+    md.use(mdAnchor, {
+      permalink: true,
+    })
+    // md.use(mdHighlight, {
+    //   style: 'dracula'
+    // })
+
+    Object.keys(files).forEach(function(file){
+      if (!isMarkdown(file)) return;
+      var data = files[file];
+      var dir = dirname(file);
+      var html = basename(file, extname(file)) + '.html';
+      if ('.' != dir) html = dir + '/' + html;
+
+      var str = md.render(data.contents.toString(), options);
+      data.contents = new Buffer(str);
+      keys.forEach(function(key) {
+        data[key] = md.render(data[key], options);
+      });
+
+      delete files[file];
+      files[html] = data;
+    })
+    done()
+  }
+}
+
 let monitor = () => {
   return (files, metalsmith, done) => {
     // console.log(metalsmith._metadata.enhancedTags)
@@ -150,7 +201,7 @@ metalsmith(__dirname)
     }
   }))
   // .use(metallic())
-  .use(markdown({
+  .use(myMarkdown({
     gfm: true,
     tables: true,
     smartLists: true,
