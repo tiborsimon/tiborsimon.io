@@ -119,10 +119,7 @@ let isMarkdown = function(file) {
   return /\.md|\.markdown/.test(extname(file));
 }
 
-let myMarkdown = (options) => {
-  options = options || {};
-  var keys = options.keys || [];
-
+let myMarkdown = () => {
   return (files, metalsmith, done) => {
     setImmediate(done);
     let md = new MarkdownIt({
@@ -130,13 +127,10 @@ let myMarkdown = (options) => {
       linkify: true,
       typographer: true
     })
-    // md.use(mdFootnote)
     md.use(mdAnchor, {
       permalink: true,
     })
-    // md.use(mdHighlight, {
-    //   style: 'dracula'
-    // })
+    md.use(mdFootnote)
 
     Object.keys(files).forEach(function(file){
       if (!isMarkdown(file)) return;
@@ -145,11 +139,8 @@ let myMarkdown = (options) => {
       var html = basename(file, extname(file)) + '.html';
       if ('.' != dir) html = dir + '/' + html;
 
-      var str = md.render(data.contents.toString(), options);
+      var str = md.render(data.contents.toString());
       data.contents = new Buffer(str);
-      keys.forEach(function(key) {
-        data[key] = md.render(data[key], options);
-      });
 
       delete files[file];
       files[html] = data;
@@ -167,6 +158,7 @@ let monitor = () => {
 
 metalsmith(__dirname)
   .source('contents')
+  .use(myMarkdown())
   .use(drafts())
   .use(date())
   .use(define({
@@ -201,12 +193,6 @@ metalsmith(__dirname)
     }
   }))
   // .use(metallic())
-  .use(myMarkdown({
-    gfm: true,
-    tables: true,
-    smartLists: true,
-    smartypants: true
-  }))
   .use(inplace({
     engine: 'handlebars'
   }))
