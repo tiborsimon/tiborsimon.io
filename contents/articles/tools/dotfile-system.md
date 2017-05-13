@@ -9,7 +9,7 @@ snippet: I hate to be machine dependent. For me a computer is just a tool to get
 
 Have you ever felt _crippled on a new machine_ you've just logged in for the first time? Tools missing, and if not, they have weird default configurations. Before you can start to work, you need to move in that machine: download all your needed tools, configure them one by one by hand. You quickly realize this is not the best way you can do..
 
-<div class="divider">Solution one</div>
+@[divider](Solution one)
 
 # Externally saved configuration
 
@@ -48,7 +48,7 @@ You might need to have administrator privileges to install packages on your mach
 This method is semi-manual, as you have to copy the files, and run the commands yourself. It would be much more elegant if you would have a _one-command deployment_ solution. An another big drawback is the lack of version control (unless you have a local git repo on you USB drive). It is always a good idea to use versioning for __anything__ you do in you machine in case of an accident[^1].
 
 
-<div class="divider">Solution two</div>
+@[divider](Solution two)
 
 # Hosted and versioned configuration
 
@@ -66,7 +66,7 @@ Putting your dotfiles into a versioned repository and hosting it online gives yo
 
 How about one more improvement that will allow you to not just have your configuration on your new machine, but have your your configuration and identity with only a single command?
 
-<div class="divider">Final solution</div>
+@[divider](Final solution)
 
 # Ultimate deployment
 

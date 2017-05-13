@@ -21,6 +21,7 @@ const basename        = require('path').basename;
 const MarkdownIt      = require('markdown-it')
 const mdFootnote      = require('markdown-it-footnote')
 const mdAnchor        = require('markdown-it-anchor')
+const mdCustomBlock   = require('markdown-it-custom-block')
 const mdHighlight     = require('markdown-it-highlightjs')
 const highlightjs     = require('highlightjs')
 
@@ -131,6 +132,25 @@ let myMarkdown = () => {
       permalink: true,
     })
     md.use(mdFootnote)
+    md.use(mdCustomBlock, {
+      divider (text) {
+        return `<div class="divider">${text}</div>`
+      },
+      figures (text) {
+        if (text == 'start') {
+          return `<div class="figures">`
+        } else {
+          return `</div>`
+        }
+      },
+      img (raw) {
+        let [index, alt, width, url] = raw.split('#')
+        return `<figure id="fig${index}">
+          <img width=${width} src="/assets/images/${url}" alt="${alt}">
+          <figcaption>Fig ${index}: ${alt}</figcaption>
+        </figure>`
+      }
+    })
 
     Object.keys(files).forEach(function(file){
       if (!isMarkdown(file)) return;
