@@ -22,8 +22,8 @@ const MarkdownIt      = require('markdown-it')
 const mdFootnote      = require('markdown-it-footnote')
 const mdAnchor        = require('markdown-it-anchor')
 const mdCustomBlock   = require('markdown-it-custom-block')
-const mdHighlight     = require('markdown-it-highlightjs')
-const highlightjs     = require('highlightjs')
+const mdContainer     = require('markdown-it-container')
+const mdExternalLinks = require('markdown-it-external-links')
 
 
 let BASEURL = 'http://localhost:8000'
@@ -126,7 +126,14 @@ let myMarkdown = () => {
     let md = new MarkdownIt({
       html: true,
       linkify: true,
-      typographer: true
+      typographer: true,
+      highlight: function(str, lang) {
+        if (lang.length > 0) {
+          return `<pre><div class="code-title">${lang.replace(/_/g, " ")}</div><code>${str}</code></pre>`
+        } else {
+          return `<pre><code>${str}</code></pre>`
+        }
+      }
     })
     md.use(mdAnchor, {
       permalink: true,
@@ -150,6 +157,16 @@ let myMarkdown = () => {
           <figcaption>Fig ${index}: ${alt}</figcaption>
         </figure>`
       }
+    })
+    md.use(mdContainer, 'success')
+    md.use(mdContainer, 'info')
+    md.use(mdContainer, 'warning')
+    md.use(mdContainer, 'danger')
+    md.use(mdExternalLinks, {
+      externalClassName: "external-link",
+      internalClassName: "internal-link",
+      internalDomains: [ BASEURL ],
+      externalTarget: "_blank"
     })
 
     Object.keys(files).forEach(function(file){

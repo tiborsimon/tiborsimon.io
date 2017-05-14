@@ -78,7 +78,9 @@ The syntax is very simple. First you type the keyword you want to modify (not ca
 fullscreen false overclock 60 showfPS false explosionpoollimit 10 sparkpoollimit 10
 ```
 
-__If the game crashes, make sure you set the pool limits higher than 10!__
+::: warning
+If the game crashes, make sure you set the pool limits higher than 10!
+:::
 
 For example lets say you want to set higher FPS rate than the default 60 fps, and you want to play the game in full window mode with the FPS counter displayed. You have to create the mods_for_the_game.txt file next to the jar file.
 The content of the text file in this case should be like this:

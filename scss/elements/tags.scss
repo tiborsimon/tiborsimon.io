@@ -20,14 +20,12 @@
     align-items: center;
     background: palette(Grey,300);
     vertical-align: middle;
-    // height: var(--height);
     padding: 0 10px;
     margin-bottom: 6px;
-    // border-radius: calc(var(--height) / 2);
     margin-right: 6px;
     transition: $default-transition;
     &.count {
-      padding: 0 0 0 15px;
+      padding: 0 0 0 6px;
       span {
         margin-left: 4px;
       }
@@ -41,7 +39,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      // border-radius: calc(var(--height) / 2);
       transition: $default-transition;
     }
     &:hover {
