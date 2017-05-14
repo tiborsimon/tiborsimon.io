@@ -120,6 +120,16 @@ let isMarkdown = function(file) {
   return /\.md|\.markdown/.test(extname(file));
 }
 
+let getId = function() {
+    var text = "";
+    var possible = "abcdefghijklmnopqrstuvwxyz";
+
+    for( var i=0; i < 100; i++ )
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+    return text;
+}
+
 let myMarkdown = () => {
   return (files, metalsmith, done) => {
     setImmediate(done);
@@ -128,10 +138,11 @@ let myMarkdown = () => {
       linkify: true,
       typographer: true,
       highlight: function(str, lang) {
+        const id = getId()
         if (lang.length > 0) {
-          return `<pre><div class="code-title">${lang.replace(/_/g, " ")}</div><code>${str}</code></pre>`
+          return `<pre><div class="code-title">${lang.replace(/_/g, " ")}</div><button class="copy-btn" title="Copy code to clipboard" data-clipboard-target="#${id}">&#xe9b8;</button><code id="${id}">${str}</code></pre>`
         } else {
-          return `<pre><code>${str}</code></pre>`
+          return `<pre><button class="copy-btn" title="Copy code to clipboard" data-clipboard-target="#${id}">&#xe9b8;</button><code id="${id}">${str}</code></pre>`
         }
       }
     })
