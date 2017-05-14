@@ -29,12 +29,7 @@ In the Main Menu you have 4 options but in reality 3 of them is working right no
 - Scores – currently not working
 - Exit – it exits the game
 
-<div class="figures">
-<figure>
-<img src="/assets/images/articles/java-shooter/javashooter-1.png" width=550 alt="Java Shooter Game: main menu">
-<figcaption>Fig 1: Java Shooter Game: main menu</figcaption>
-</figure>
-</div>
+@[img](1#Main menu#550#articles/java-shooter/javashooter-1.png)
 
 
 # Game menu
@@ -45,12 +40,7 @@ In the New Game Menu you can start Easy, Normal and Expert game.
 - Normal – faster enemies with faster spawning time + auto aiming
 - Expert – slow enemies with slow spawning time + manual aiming (very hard!)
 
-<div class="figures">
-<figure>
-<img src="/assets/images/articles/java-shooter/javashooter-2.png" width=550 alt="Java Shooter Game: game menu">
-<figcaption>Fig 2: Java Shooter Game: game menu</figcaption>
-</figure>
-</div>
+@[img](2#Game menu#550#articles/java-shooter/javashooter-2.png)
 
 
 # Player menu
@@ -60,12 +50,7 @@ In the Player Menu you can view the stats of the current player, export your pla
 - Export – it exports the current player stats to transfer them another computer.
 - New – it goes to the New Player Menu
 
-<div class="figures">
-<figure>
-<img src="/assets/images/articles/java-shooter/javashooter-3.png" width=550 alt="Java Shooter Game: player menu">
-<figcaption>Fig 3: Java Shooter Game: player menu</figcaption>
-</figure>
-</div>
+@[img](3#Player menu#550#articles/java-shooter/javashooter-3.png)
 
 # Controlling the game
 

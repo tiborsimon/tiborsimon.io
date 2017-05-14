@@ -12,19 +12,12 @@ banner: images/articles/slotcar/promo1.jpg
 
 The only information we had was the acceleration data comes from the car itself. Based on this information we had to control the voltage of the car’s motor to run the fastest lap on the track. It doesn’t sounds too hard, does it.
 
-<div class="figures">
-<figure>
-<img width=400 src="/assets/images/articles/slotcar/promo1.jpg" alt="Small slot car that has to be driven autonomously.">
-<figcaption>Fig 1: Small slot car that has to be driven autonomously.</figcaption>
-</figure>
-<figure>
-<img width=280 src="/assets/images/articles/slotcar/promo2.jpg" alt="The first corner.">
-<figcaption>Fig 2: The first corner.</figcaption>
-</figure>
+@[img](1#Small slot car that has to be driven autonomously.#400#articles/slotcar/promo1.jpg)
+
+@[img](2#The first corner.#280#articles/slotcar/promo2.jpg)
 
 
-
-<h2>About the competition</h2>
+## About the competition
 
 
 However. The acceleration data was very noisy, it needed a strong filtering, therefore it had serious amount of delay. We had to cope with this delay and we had to run the fastest lap among the other teams who participated this challenge without sliding off the track.
@@ -39,23 +32,14 @@ The rules of the competition
 
 The track was a casual slot car track with two corners and a cross over section. The power for the car comes from the two pair of rails. There is a room for two cars on the track at once.
 
-<div class="figures">
-<figure>
-<img width=400 src="/assets/images/articles/slotcar/track.jpg" alt="The track.">
-<figcaption>Fig 3: The track.</figcaption>
-</figure>
-</div>
+@[img](3#The track.#400#articles/slotcar/track.jpg)
+
 
 # The car
 
 Audi R8 body with an embedded Freescale processor in it. In between the front wheels there is a guider with the brushes to collect the electricity from the rails. There are two IO interface on the car: the mini USB connector for programming and a mini SD card slot to get the accelerometer data for developing. One car had a led on the top of it that we could use for debugging the algorithm.
 
-<div class="figures">
-<figure>
-<img width=400 src="/assets/images/articles/slotcar/car.jpg" alt="The car.">
-<figcaption>Fig 4: The car.</figcaption>
-</figure>
-</div>
+@[img](4#The car.#400#articles/slotcar/car.jpg)
 
 # Solving the problem
 
@@ -93,22 +77,12 @@ Right at this moment, the car was switched to state three, in which the algorith
 
 # Period finder algorithm
 
-<div class="figures">
-<figure>
-<img width=400 src="/assets/images/articles/slotcar/raw-data.png" alt="Raw accelerometer data.">
-<figcaption>Fig 5: Raw accelerometer data.</figcaption>
-</figure>
-</div>
+@[img](5#Raw accelerometer data.#400#articles/slotcar/raw-data.png)
 
 
 The period finder algorithm is a very simple thus a very specific algorithm that was developed only for this competition. It may work in other situations, but don’t bet your money there :)
 
-<div class="figures">
-<figure>
-<img width=400 src="/assets/images/articles/slotcar/algorithm.png" alt="Algorithm output signals.">
-<figcaption>Fig 6: Algorithm output signals.</figcaption>
-</figure>
-</div>
+@[img](6#Algorithm output signals.#400#articles/slotcar/algorithm.png)
 
 As you can see, the final output of the algorithm was shown above.
 

@@ -137,35 +137,28 @@ h1:hover .header-anchor, h2:hover .header-anchor, h3:hover .header-anchor {
     left: - $content-padding;
   }
 
-  .figures {
-    figure {
-      position: relative;
-      border: none;
-      border-bottom: 1px solid palette(Black, Dividers);
-      width: var(--content-width);
-      left: - $content-padding;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      &:first-child {
-        border-top: 1px solid palette(Black, Dividers);
-        margin-top: 30px;
-      }
-      &:last-child {
-        margin-bottom: 30px;
-      }
-      img {
-        margin: 19px auto 10px;
-        max-width: 740px;
-        margin-bottom: 10px;
-      }
-      figcaption {
-        text-align: center;
-        font-size: 0.9em;
-        font-style: italic;
-        margin-bottom: 10px;
-      }
+  figure {
+    position: relative;
+    border: none;
+    border-bottom: 1px solid palette(Black, Dividers);
+    width: var(--content-width);
+    left: - $content-padding;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img {
+      max-width: 740px;
+      margin: 20px 0px 8px;
     }
+    figcaption {
+      font-size: 0.9em;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+  }
+  :not(figure)+figure {
+    border-top: 1px solid palette(Black, Dividers);
   }
 
   p code {

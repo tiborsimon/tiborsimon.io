@@ -52,25 +52,13 @@ I started with a simple html page containing a basic MathJax setup:
 ```
 The easiest way I find to put back the necessary resources to the package is to copy the full package into a separated directory, then in a two pane file manager, put back the requested files. You can use your browser's inspector view to find out what is missing.
 
-<div class="figures">
-<figure>
-<img src="/assets/images/articles/minimal-mathjax/reducer-atom-project.png" alt="Editing the html file while putting back the necessary resources.">
-<figcaption>Fig 1: Editing the html file while putting back the necessary resources.</figcaption>
-</figure>
-<figure>
-<img width=400 src="/assets/images/articles/minimal-mathjax/missing-resources.png" alt="Discovering missing resources in the browser's inspector.">
-<figcaption>Fig 2: Discovering missing resources in the browser's inspector.</figcaption>
-</figure>
-</div>
+@[img](1#Editing the html file while putting back the necessary resources.#550#articles/minimal-mathjax/reducer-atom-project.png)
+
+@[img](2#Discovering missing resources in the browser's inspector.#400#articles/minimal-mathjax/missing-resources.png)
 
 This html test page renders the following equations:
 
-<div class="figures">
-<figure>
-  <img src="/assets/images/articles/minimal-mathjax/test-html.png" alt="Testing the MathJax package with a small html file.">
-  <figcaption>Fig 3: Testing the MathJax package with a small html file.</figcaption>
-</figure>
-</div>
+@[img](3#Testing the MathJax package with a small html file.#550#articles/minimal-mathjax/test-html.png)
 
 If my reduced MathJax package can render this equations, it shouldn't be in trouble render all of my possible further equations. The html page above runs fine with teh following resource tree lising. This reduced package takes up __623KB__ on disk.
 

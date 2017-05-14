@@ -60,27 +60,19 @@ I put the downloaded files into the Xcode project's Vendor folder:
 Simply unboxed the zip, the package takes up __180 MB__ space _(that's a lot!)_. In a future article I will show you the minimal needed content of this package that is be able to render the expressions.
 
 
-@[figures](start)
-
 @[img](1#Location of the downloaded MathJax sources.#400#articles/mathjax-ios/mathjax-ios-vendor-folder.png)
 
 @[img](2#Size of the freshly downloaded package.#280#articles/mathjax-ios/mathjax-ios-raw-package-size.png)
  
-@[figures](stop)
-
 
 # Adding the MathJax package to the project
 
 I added the downloaded and extracted MathJax sources to a single view based Xcode project, by dragging the folder into the project navigator. I unchecked the copy sources option.
 
-@[figures](start)
-
 @[img](3#Adding the sources to the project.#280#articles/mathjax-ios/adding-the-sources.png)
 
 @[img](4#Unchecking the copy items if needed option.#500#articles/mathjax-ios/copy-items.png)
  
-@[figures](stop)
-
 
 # Using the MathJax package
 
@@ -151,8 +143,6 @@ class ViewController: UIViewController {
 
 The project loads up to the simulator a bit slowly. After it loads, it renders the mathematical expression to the _UIWebView_ in 8 phases:
 
-@[figures](start)
-
 @[img](5#Rendering phase 1: It starts as a blank screen.#280#articles/mathjax-ios/mathjax-ios-00.png)
 
 @[img](6#Rendering phase 2: Then it loads the raw LaTEX source.#280#articles/mathjax-ios/mathjax-ios-01.png)
@@ -169,8 +159,6 @@ The project loads up to the simulator a bit slowly. After it loads, it renders t
 
 @[img](12#Rendering phase 8: Render finished.#280#articles/mathjax-ios/mathjax-ios-07.png)
  
-@[figures](stop)
-
 
 The whole rendering happens in less then half a second, but it is noticeable. If you want to use this method to render mathematical expresions in your app, you have to make sure, you only show your _UIWebView_, when it fulli loaded.
 
