@@ -25,7 +25,7 @@ expression from the given search query.
 You need to make sure, that between the given query's characters there might be
 another characters. This can be achieved by inserting `.*` tokens:
 
-``` bash
+``` 
 foo -> .*f.*o.*o.*
 ```
 
@@ -33,7 +33,7 @@ You may also want to capture each provided search characters in order to know
 it's positions for later use. The regexp engine can provide the positions for
 the matched groups.
 
-``` bash
+``` 
 .*f.*o.*o.* -> .*(f).*(o).*(o).*
 ```
 
@@ -50,7 +50,7 @@ To solve this issue, you have to force the regexp engine to match every
 character but to next captured character in the pattern. You need to generate a
 more complex regular expression:
 
-``` bash
+``` 
 .*(f).*(o).*(o).* -> [^f]*(f)[^o]*(o)[^o]*(o).*
 ```
 
@@ -81,7 +81,7 @@ this weighting factor. And that's is.
 We have reviewed the fuzzy search and sort algorithm. You can find the usage
 example and the implementation in the following code snippets:
 
-``` python
+``` 
 import fuzzy
 from pprint import pprint
 

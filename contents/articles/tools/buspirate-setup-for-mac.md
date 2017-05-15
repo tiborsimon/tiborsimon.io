@@ -19,7 +19,7 @@ To be able to communicate your BusPirate you have to know it's serial number.
 List the connected devices before you connect your Buspirate with the following
 command: 
 
-``` bash
+``` 
 $ ls /dev
 ```
 
@@ -33,7 +33,7 @@ There you go, mine was: `tty.usbserial-AD01W63E`
 
 Use __screen__ to connect to your BusPirate:
 
-``` bash
+``` 
 $ screen /dev/tty.usbserial-AD01W63E 115200 8N1
 ```
 
@@ -49,7 +49,7 @@ help you. [Screen manual for osx](http://ss64.com/osx/screen.html).
 Create an alias for the connection by writing into your _~/.bashrc_
 file.
 
-``` bash
+``` 
 alias buspirate='screen /dev/tty.usbserial-AD01W63E 115200 8N1'
 ```
 

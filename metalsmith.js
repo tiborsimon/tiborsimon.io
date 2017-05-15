@@ -130,6 +130,15 @@ let getId = function() {
     return text;
 }
 
+let escapeHtml = function(unsafe) {
+  return unsafe
+   .replace(/&/g, "&amp;")
+   .replace(/</g, "&lt;")
+   .replace(/>/g, "&gt;")
+   .replace(/"/g, "&quot;")
+   .replace(/'/g, "&#039;");
+ }
+
 let myMarkdown = () => {
   return (files, metalsmith, done) => {
     setImmediate(done);
@@ -140,9 +149,9 @@ let myMarkdown = () => {
       highlight: function(str, lang) {
         const id = getId()
         if (lang.length > 0) {
-          return `<pre><div class="code-title">${lang.replace(/_/g, " ")}</div><button class="copy-btn" title="Copy code to clipboard" data-clipboard-target="#${id}">&#xe9b8;</button><code id="${id}">${str}</code></pre>`
+          return `<pre><div class="code-title">${lang.replace(/_/g, " ")}</div><button class="copy-btn" title="Copy code to clipboard" data-clipboard-target="#${id}">&#xe9b8;</button><code id="${id}">${escapeHtml(str)}</code></pre>`
         } else {
-          return `<pre><button class="copy-btn" title="Copy code to clipboard" data-clipboard-target="#${id}">&#xe9b8;</button><code id="${id}">${str}</code></pre>`
+          return `<pre><button class="copy-btn " title="Copy code to clipboard" data-clipboard-target="#${id}">&#xe9b8;</button><code id="${id}">${escapeHtml(str)}</code></pre>`
         }
       }
     })

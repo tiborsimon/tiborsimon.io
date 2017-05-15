@@ -26,7 +26,7 @@ The best way to reduce your MathJax package is to create a simple template page,
 
 I started with a simple html page containing a basic MathJax setup:
 
-``` html
+``` 
 <!DOCTYPE html>
 <html>
   <head>
@@ -62,7 +62,7 @@ This html test page renders the following equations:
 
 If my reduced MathJax package can render this equations, it shouldn't be in trouble render all of my possible further equations. The html page above runs fine with teh following resource tree lising. This reduced package takes up __623KB__ on disk.
 
-``` bash
+``` 
 MathJax-2.6.1
 ├── MathJax.js
 ├── config

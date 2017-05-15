@@ -22,7 +22,7 @@ The whole process was arranged into an infinite while loop. It will run until a 
  loop that will collect the words into a list. The delimiter for this inner loop was a common
  word (magyar szótár), that was present on every page after the last listed noun.
 
-``` python
+``` 
 import requests
 from bs4 import BeautifulSoup
 import json
@@ -65,7 +65,7 @@ During the process, I printed out every next link the script was found, so I had
 was in the alphabet. As you can see, the last log was an exception printout, indicating that the script could
 not parse the next link from the html file.
 
-``` bash
+``` 
 Word count: 200 next_link: https://hu.wiktionary.org/w/index.php?title=Kateg%C3%B3ria:magyar_f%C5%91nevek&pagefrom=adenokarcin%C3%B3ma#mw-pages
 Word count: 400 next_link: https://hu.wiktionary.org/w/index.php?title=Kateg%C3%B3ria:magyar_f%C5%91nevek&pagefrom=agr%C3%A1rt%C3%B6rv%C3%A9ny#mw-pages
 Word count: 600 next_link: https://hu.wiktionary.org/w/index.php?title=Kateg%C3%B3ria:magyar_f%C5%91nevek&pagefrom=akaszt%C3%B3fahumor#mw-pages

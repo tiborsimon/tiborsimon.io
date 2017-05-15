@@ -20,7 +20,7 @@ These files are generally called __dotfiles__, as command line tools often expec
 Besides the custom configuration files, you can also save out a list of installable programs and tools that you want to have by default on a machine. Some package manager tools supports installing from files, but if not, you can write a small script that will install your tools one by one. You can create a `packages.txt` file for this purpose:
 
 
-``` bash
+``` 
 $ cat packages.txt
 git
 mc
@@ -29,7 +29,7 @@ vim
 
 The _one-by-one_ installer script could be something like this:
 
-``` bash
+``` 
 for app in $(cat path/to/your/packages.txt); do
   echo "Installing $app.."
   if $YOUR_PACKAGE_MANAGER install -y $app>temp_log_file 2>&1; then
@@ -82,7 +82,7 @@ Since I have my custom domain name, I felt like there still more room for improv
 
 All I have to do is type in the following command:
 
-``` bash
+``` 
 bash <(curl -fsSL tiborsimon.io/dotfiles)
 ```
 

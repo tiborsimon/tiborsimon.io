@@ -13,7 +13,7 @@ I figured out that the problem was that CentOS only has Emacs 23.1 available via
 
 First of all, I have downloaded the emacs repository mirror from GitHub, and I checked out to the `emacs-24.5` tag:
 
-``` bash
+``` 
 git clone https://github.com/emacs-mirror/emacs.git
 cd emacs
 git checkout emacs-24.5
@@ -21,13 +21,13 @@ git checkout emacs-24.5
 
 Then I run `autogen.sh` which has created the `configure` script.
 
-``` bash
+``` 
 ./autogen.sh
 ```
 
 I run the created `configure` script. As it could have been expected, there was some errors, so I installed the missing packages on demand:
 
-``` bash
+``` 
 ./configure
 [error] no makeinfo
 sudo yum install texinfo
@@ -86,7 +86,7 @@ Where should the build process find the source code?    .
 
 Finally as the `configure` script finished, I compiled the whole software package:
 
-``` bash
+``` 
 make
 sudo make install
 ```
@@ -97,7 +97,7 @@ After that, I had a fully functioning Emacs installation, that worked flawlesly 
 
 You can compile Emacs from sources with the following commands:
 
-``` bash
+``` 
 git clone https://github.com/emacs-mirror/emacs.git
 cd emacs
 git checkout emacs-24.5

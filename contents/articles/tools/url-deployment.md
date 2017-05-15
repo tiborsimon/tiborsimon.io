@@ -15,7 +15,7 @@ I use `curl` to download the __bootstrap__ script which will prepare the machine
 
 To download a script stored on __GitHub__ you can use the raw file listing. My __bootstrap__ script can be reached via the <a href="https://raw.githubusercontent.com/tiborsimon/dotfiles/master/bootstrap" target="_blank">https://raw.githubusercontent.com/tiborsimon/dotfiles/master/bootstrap</a> link. Notice, that this is not a convenient link to type..
 
-``` bash
+``` 
 curl https://raw.githubusercontent.com/tiborsimon/dotfiles/master/bootstrap
 ```
 
@@ -25,7 +25,7 @@ I can take care of this problem by having a custom domain, and creating a redire
 
 In this way, I can type:
 
-``` bash
+``` 
 curl tiborsimon.io/dotfiles
 ```
 
@@ -33,7 +33,7 @@ curl tiborsimon.io/dotfiles
 
 The script is available for execution. The next step is to use it.
 
-``` bash
+``` 
 sh <(curl -fsSL tiborsimon.io/dotfiles)
 ```
 
@@ -41,7 +41,7 @@ We can feed the raw sript to `sh`, `bash` or `zsh`. Curl will download the scrip
 
 The flags make sure, curl not corrupt the script during download:
 
-``` bash
+``` 
 -f, --fail          Fail silently (no output at all) on HTTP errors (H)
 -s, --silent        Silent mode (don't output anything)
 -S, --show-error    Show error. With -s, make curl show errors when they occur
@@ -50,7 +50,7 @@ The flags make sure, curl not corrupt the script during download:
 
 Make sure you have the latest curl on your system, because older curl versions tend to act weird with the _HTTPS_ protocol, and wont be able to connect.
 
-``` bash
+``` 
 [vagrant@localhost ~]$ bash <(curl -fsSLv https://tiborsimon.io/dotfiles)
 * About to connect() to tiborsimon.io port 443 (#0)
 *   Trying 104.18.43.82... connected

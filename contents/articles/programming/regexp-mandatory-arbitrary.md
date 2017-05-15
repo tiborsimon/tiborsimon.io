@@ -65,7 +65,7 @@ For 4 characters, it reaches the 409 charachters length:
 
 You can write a generator for this regexp pattern easily in python:
 
-``` python
+``` 
 from itertools import permutations
 import re
 
