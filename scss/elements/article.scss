@@ -98,10 +98,13 @@ h1:hover .header-anchor, h2:hover .header-anchor, h3:hover .header-anchor {
     position: relative;
     border: none;
     border-top: 1px solid palette(Black, Dividers);
-    margin-bottom: 30px;
+    margin: 30px 0;
     width: var(--content-width);
     position: relative;
     left: - $content-padding;
+  }
+  hr:first-of-type {
+    margin-top: 0;
   }
   .code-name {
     margin-bottom: -15px;
@@ -194,7 +197,6 @@ table {
   font-size: 13px;
   table-layout: auto;
   width: 100%;
-  margin-bottom: 40px;
   border-collapse: collapse;
   border-spacing: 0;
   font-size: 1em;
@@ -392,7 +394,6 @@ table {
   font-size: 90%;
 }
 
-
 .external-link:after {
   font-family: 'icomoon';
   content: "\ea7e";
@@ -439,3 +440,4 @@ button:focus {outline:0;}
 pre:hover .copy-btn {
   opacity: 1;
 }
+

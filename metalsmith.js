@@ -121,13 +121,11 @@ let isMarkdown = function(file) {
 }
 
 let getId = function() {
-    var text = "";
-    var possible = "abcdefghijklmnopqrstuvwxyz";
-
-    for( var i=0; i < 100; i++ )
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
-
-    return text;
+  let text = "";
+  const possible = "abcdefghijklmnopqrstuvwxyz";
+  for( let i=0; i < 100; i++ )
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+  return text;
 }
 
 let escapeHtml = function(unsafe) {
@@ -136,24 +134,26 @@ let escapeHtml = function(unsafe) {
    .replace(/</g, "&lt;")
    .replace(/>/g, "&gt;")
    .replace(/"/g, "&quot;")
-   .replace(/'/g, "&#039;");
- }
+   .replace(/'/g, "&#039;")
+}
+
+let renderCode = function(str, info) {
+  const id = getId()
+  const title = info.replace(/_/g, " ")
+  let front = '<pre>'
+  const back = `<button class="copy-btn" title="Copy code to clipboard" data-clipboard-target="#${id}">&#xe9b8;</button><code id="${id}">${escapeHtml(str)}</code></pre>`
+  if (title.length > 0)
+    front += `<div class="code-title">${title}</div>`
+  return front + back
+}
 
 let myMarkdown = () => {
   return (files, metalsmith, done) => {
-    setImmediate(done);
-    let md = new MarkdownIt({
+    const md = new MarkdownIt({
       html: true,
       linkify: true,
       typographer: true,
-      highlight: function(str, lang) {
-        const id = getId()
-        if (lang.length > 0) {
-          return `<pre><div class="code-title">${lang.replace(/_/g, " ")}</div><button class="copy-btn" title="Copy code to clipboard" data-clipboard-target="#${id}">&#xe9b8;</button><code id="${id}">${escapeHtml(str)}</code></pre>`
-        } else {
-          return `<pre><button class="copy-btn " title="Copy code to clipboard" data-clipboard-target="#${id}">&#xe9b8;</button><code id="${id}">${escapeHtml(str)}</code></pre>`
-        }
-      }
+      highlight: renderCode
     })
     md.use(mdAnchor, {
       permalink: true,
@@ -163,15 +163,8 @@ let myMarkdown = () => {
       divider (text) {
         return `<div class="divider">${text}</div>`
       },
-      figures (text) {
-        if (text == 'start') {
-          return `<div class="figures">`
-        } else {
-          return `</div>`
-        }
-      },
       img (raw) {
-        let [index, alt, width, url] = raw.split('#')
+        const [index, alt, width, url] = raw.split('#')
         return `<figure id="fig${index}">
           <img width=${width} src="/assets/images/${url}" alt="${alt}">
           <figcaption>Fig ${index}: ${alt}</figcaption>
@@ -191,12 +184,12 @@ let myMarkdown = () => {
 
     Object.keys(files).forEach(function(file){
       if (!isMarkdown(file)) return;
-      var data = files[file];
-      var dir = dirname(file);
-      var html = basename(file, extname(file)) + '.html';
+      const data = files[file];
+      const dir = dirname(file);
+      let html = basename(file, extname(file)) + '.html';
       if ('.' != dir) html = dir + '/' + html;
 
-      var str = md.render(data.contents.toString());
+      const str = md.render(data.contents.toString());
       data.contents = new Buffer(str);
 
       delete files[file];
