@@ -1,8 +1,0 @@
-[submodule "apps/timer"]
-	path = apps/timer
-	url = git@github.com:tiborsimon/timer.git
-	shallow = true
-[submodule "publish"]
-	path = publish
-	url = git@github.com:tiborsimon/tiborsimon.github.io.git
-	shallow = true
