@@ -1,60 +1,31 @@
-NODE:=./node_modules/.bin/
-HIGHLIGHT_STYLE := hopscotch
-HIDE:=@
+NAME := Site
+PYTHON := python3
 
-YELLOW:=$(shell tput setaf 3)
-RESET:=$(shell tput sgr0)
+help:
+	@echo ""
+	@echo "$(BOLD_NAME) - make interface"
+	@echo "---------------------------------"
+	@echo "Targets:"
+	@echo "  make [$(BOLD)$(YELLOW)help$(RESET)]            - Prints out this help message."
+	@echo "  make $(BOLD)$(YELLOW)init$(RESET)              - Initializes the [linux] development environment."
+	@echo ""
 
-BASEURL=http://localhost:8000
-METALSMITM_PARAMS=
+BOLD   := $(shell tput bold)
+RED    := $(shell tput setaf 1)
+GREEN  := $(shell tput setaf 2)
+YELLOW := $(shell tput setaf 3)
+RESET  := $(shell tput sgr0)
 
-.PHONY: all metalsmith css copy apps
+BOLD_NAME := $(BOLD)$(NAME)$(RESET)
 
-local: clean metalsmith copy css
-
-serve:
-	cd publish && ws
-
-publish: set-baseurl clean metalsmith copy css apps-build apps-copy push
-
-set-baseurl:
-	$(eval BASEURL:=https://tiborsimon.io)
-	$(eval METALSMITM_PARAMS:=production)
-
-push:
-	cd publish && git checkout master && git add --all && git commit -m "Site publish" && git push
-	git add publish && git commit -m "Site published." && git push
-
-clean:
-	@cd publish && find . -not -name '.' -not -name '..' -not -name '.git' -print0 | xargs -0 rm -rf
+TASK    := [ $(BOLD)$(GREEN)>>$(RESET) ]
+OK      := [ $(BOLD)$(GREEN)OK$(RESET) ]
+WARNING := [ $(BOLD)$(YELLOW)!!$(RESET) ]
+ERROR   := [$(BOLD)$(RED)FAIL$(RESET)]
 
 init:
-	git submodule update --depth 1 --init --recursive
-	npm install
-	@find apps/* -maxdepth 0 | xargs -I % sh -c 'cd % && $(MAKE) init;'
+	@echo "$(TASK) Initializing the environment.."
+	@virtualenv -p $(PYTHON) env && ./env/bin/pip install -r requirements.txt
+	@echo "$(OK) Environment initialized. You should activate the virtual environment."
 
-metalsmith:
-	@echo "$(YELLOW)-> Compiling metalsmith..$(RESET)"
-	$(HIDE)node metalsmith.js $(METALSMITM_PARAMS)
-
-css:
-	@echo "$(YELLOW)-> Compiling CSS..$(RESET)"
-	$(HIDE)$(NODE)node-sass scss/main.scss publish/css/compiled.css 1>/dev/null
-	$(HIDE)cat ./node_modules/normalize.css/normalize.css \
-		         ./node_modules/highlight.js/styles/$(HIGHLIGHT_STYLE).css \
-						 ./publish/css/compiled.css > publish/css/style.css
-	$(HIDE)cp -a ./node_modules/highlight.js/styles/$(HIGHLIGHT_STYLE).css ./publish/assets/highlight.css
-
-copy:
-	@echo "$(YELLOW)-> Copying Assets..$(RESET)"
-	$(HIDE)cp -aR ./assets ./publish/assets
-	$(HIDE)cp -aR ./root-files/* ./publish
-
-apps: apps-build apps-copy
-
-apps-build:
-	@find apps/* -maxdepth 0 | xargs -I % sh -c 'echo Building % && cd % && $(MAKE) APPPATH=$(BASEURL)/%;'
-
-apps-copy:
-	find apps/* -maxdepth 0 | xargs -I % cp -r %/build publish/%
-
+.PHONY: init
