@@ -1,5 +1,6 @@
 NAME := Site
 PYTHON := python3
+PORT := 5000
 
 help:
 	@echo ""
@@ -28,4 +29,7 @@ init:
 	@virtualenv -p $(PYTHON) env && ./env/bin/pip install -r requirements.txt
 	@echo "$(OK) Environment initialized. You should activate the virtual environment."
 
-.PHONY: init
+serve:
+	@cd output; echo "Serving on http://localhost:$(PORT)"; $(PYTHON) -m pelican.server $(PORT)
+
+.PHONY: init serve
